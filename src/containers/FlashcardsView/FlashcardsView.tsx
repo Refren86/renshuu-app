@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Flashcard } from "@/components/Flashcard";
 
 import flashcardsData from "@/assets/flashcards.json";
+import axios from "axios";
 
 const transitionProps: HTMLMotionProps<"div"> = {
   initial: { x: 600, opacity: 0 },
@@ -70,6 +71,19 @@ function FlashcardsView() {
     }
   }
 
+  async function loadExamples() {
+    const { data } = await axios.get(
+      `https://tatoeba.org/en/api_v0/search?from=jpn&to=eng&query=${encodeURIComponent(currentFlashcard.kanji || currentFlashcard.reading)}`,
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    console.log(data);
+  }
+
   return (
     <div className="flex flex-col justify-center items-center h-[calc(100dvh-41px)] overflow-hidden">
       <div className="relative w-full max-w-md h-96">
@@ -89,6 +103,7 @@ function FlashcardsView() {
           </motion.div>
         </AnimatePresence>
       </div>
+
       <div className="flex gap-x-4 mt-12">
         <Button onClick={handleClick} variant="destructive">
           わからない
@@ -99,6 +114,10 @@ function FlashcardsView() {
         <Button onClick={handleClick} variant="default">
           知っている
         </Button>
+      </div>
+
+      <div className="flex justify-center">
+        <Button onClick={loadExamples}>Show examples</Button>
       </div>
     </div>
   );

@@ -1,7 +1,8 @@
 import { AnimatePresence } from "framer-motion";
 import { TanStackRouterDevtools } from "@tanstack/router-devtools";
-import { useMatches, useMatch, Link } from "@tanstack/react-router";
+import { useMatches, useMatch } from "@tanstack/react-router";
 
+import {Header} from "./Header";
 import { Providers } from "./Providers";
 import { AnimatedOutlet } from "./AnimateOutlet";
 
@@ -13,15 +14,8 @@ const Root = () => {
 
   return (
     <Providers>
-      <main>
-        <nav className="p-2 flex gap-2">
-          <Link to="/" className="[&.active]:font-bold">
-            Home
-          </Link>{" "}
-          <Link to="/flashcards" className="[&.active]:font-bold">
-            Flashcards
-          </Link>
-        </nav>
+      <main className="overflow-x-hidden">
+        <Header />
         <hr />
         <AnimatePresence mode="popLayout">
           <AnimatedOutlet key={nextMatch?.id || match.id} />

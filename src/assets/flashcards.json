@@ -139,7 +139,7 @@
   },
   {
     "id": "24",
-    "kanji": "流石",
+    "kanji": null,
     "reading": "さすが",
     "meaning": "as one would expect; just as you'd expect (from); just like (someone)"
   },
@@ -1839,7 +1839,7 @@
     "id": "309",
     "kanji": "許可する",
     "reading": "きょかする",
-    "meaning": "permission; approval"
+    "meaning": "to permit; to allow"
   },
   {
     "id": "311",
@@ -1948,5 +1948,161 @@
     "kanji": "早朝",
     "reading": "そうちょう",
     "meaning": "early morning (noun)"
+  },
+  {
+    "id": "329",
+    "kanji": "感情",
+    "reading": "かんじょう",
+    "meaning": "feelings"
+  },
+  {
+    "id": "330",
+    "kanji": "表現する",
+    "reading": "ひょうげんする",
+    "meaning": "to express"
+  },
+  {
+    "id": "331",
+    "kanji": "導く",
+    "reading": "みちびく",
+    "meaning": "to guide; to lead; to show the way"
+  },
+  {
+    "id": "332",
+    "kanji": "幼い",
+    "reading": "おさない",
+    "meaning": "very young"
+  },
+  {
+    "id": "333",
+    "kanji": "健康",
+    "reading": "けんこう",
+    "meaning": "health"
+  },
+  {
+    "id": "334",
+    "kanji": "健康的",
+    "reading": "けんこうてき",
+    "meaning": "healthy"
+  },
+  {
+    "id": "335",
+    "kanji": "不思議",
+    "reading": "ふしぎ",
+    "meaning": "strange, mysteroius (na-adj)"
+  },
+  {
+    "id": "336",
+    "kanji": "引き寄せる",
+    "reading": "ひきよせる",
+    "meaning": "to draw (something) toward one"
+  },
+  {
+    "id": "337",
+    "kanji": "行動する",
+    "reading": "こうどうする",
+    "meaning": "to take action"
+  },
+  {
+    "id": "338",
+    "kanji": "量",
+    "reading": "りょう",
+    "meaning": "quantity; amount; volume; capacity; portion (of food)"
+  },
+  {
+    "id": "339",
+    "kanji": null,
+    "reading": "ただ",
+    "meaning": "just; but; however; free of charge​"
+  },
+  {
+    "id": "340",
+    "kanji": null,
+    "reading": "ままに",
+    "meaning": "as it is"
+  },
+  {
+    "id": "341",
+    "kanji": "運命",
+    "reading": "うんめい",
+    "meaning": "fate; destiny"
+  },
+  {
+    "id": "342",
+    "kanji": "小屋",
+    "reading": "こや",
+    "meaning": "hut"
+  },
+  {
+    "id": "343",
+    "kanji": "屋敷",
+    "reading": "やしき",
+    "meaning": "mansion"
+  },
+  {
+    "id": "344",
+    "kanji": "気を引く",
+    "reading": "きをひく",
+    "meaning": "to attract attention"
+  },
+  {
+    "id": "345",
+    "kanji": null,
+    "reading": "ピエロ",
+    "meaning": "clown"
+  },
+  {
+    "id": "346",
+    "kanji": "涙を浮かべ",
+    "reading": "なみだをうかべ",
+    "meaning": "with tears in one's eyes (+Noun)"
+  },
+  {
+    "id": "347",
+    "kanji": "抱く",
+    "reading": "いだく",
+    "meaning": "to embrace; to hug"
+  },
+  {
+    "id": "348",
+    "kanji": "互いに",
+    "reading": "たがいに",
+    "meaning": "together; each other (один одному)"
+  },
+  {
+    "id": "349",
+    "kanji": "微笑む",
+    "reading": "ほほえむ",
+    "meaning": "to smile"
+  },
+  {
+    "id": "350",
+    "kanji": "見つめ合う",
+    "reading": "みつめあう",
+    "meaning": "to stare at each other"
+  },
+  {
+    "id": "351",
+    "kanji": "見守る",
+    "reading": "みまもる",
+    "meaning": "to watch over; to keep an eye on"
+  },
+  {
+    "id": "352",
+    "kanji": "離す",
+    "reading": "はなす",
+    "meaning": "to separate; to part (розходитись)"
+  },
+  {
+    "id": "353",
+    "kanji": "姿",
+    "reading": "すがた",
+    "meaning": "figure; shape"
+  },
+  {
+    "id": "354",
+    "kanji": null,
+    "reading": "つぶやく",
+    "meaning": "to mutter; to murmur (бурмотіти)"
   }
 ]

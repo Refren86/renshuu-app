@@ -23,6 +23,7 @@ export const HomeView = () => {
               <TableHead>意味</TableHead>
             </TableRow>
           </TableHeader>
+
           <TableBody>
             {flashcardsData.map((flashcardData) => {
               return (
@@ -42,3 +43,4 @@ export const HomeView = () => {
     </section>
   );
 };
+
