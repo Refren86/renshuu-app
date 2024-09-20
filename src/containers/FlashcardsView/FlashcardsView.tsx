@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Flashcard } from "@/components/Flashcard";
 
 import flashcardsData from "@/assets/flashcards.json";
-import axios from "axios";
+import { SentencesModal } from "@/components/SentencesModal";
 
 const transitionProps: HTMLMotionProps<"div"> = {
   initial: { x: 600, opacity: 0 },
@@ -22,6 +22,7 @@ function FlashcardsView() {
   const [shuffledIndices, setShuffledIndices] = useState<number[]>([]);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [showExamplesModal, setShowExamplesModal] = useState(false);
 
   useEffect(() => {
     setShuffledIndices(shuffleArray([...Array(flashcardsData.length).keys()]));
@@ -71,55 +72,54 @@ function FlashcardsView() {
     }
   }
 
-  async function loadExamples() {
-    const { data } = await axios.get(
-      `https://tatoeba.org/en/api_v0/search?from=jpn&to=eng&query=${encodeURIComponent(currentFlashcard.kanji || currentFlashcard.reading)}`,
-      {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
-
-    console.log(data);
+  function toggleExamplesModal() {
+    setShowExamplesModal((prev) => !prev);
   }
 
   return (
-    <div className="flex flex-col justify-center items-center h-[calc(100dvh-41px)] overflow-hidden">
-      <div className="relative w-full max-w-md h-96">
-        <AnimatePresence onExitComplete={() => setIsAnimating(false)}>
-          <motion.div
-            key={currentIndex}
-            className="absolute inset-0 flex justify-center items-center"
-            {...transitionProps}
-          >
-            {currentFlashcard && (
-              <Flashcard
-                flashcard={currentFlashcard}
-                isAnimating={isAnimating}
-                onCopy={handleCopyWord}
-              />
-            )}
-          </motion.div>
-        </AnimatePresence>
-      </div>
+    <>
+      <div className="flex flex-col justify-center items-center h-[calc(100dvh-41px)] overflow-hidden">
+        <div className="relative w-full max-w-md h-96">
+          <AnimatePresence onExitComplete={() => setIsAnimating(false)}>
+            <motion.div
+              key={currentIndex}
+              className="absolute inset-0 flex justify-center items-center"
+              {...transitionProps}
+            >
+              {currentFlashcard && (
+                <Flashcard
+                  flashcard={currentFlashcard}
+                  isAnimating={isAnimating}
+                  onCopy={handleCopyWord}
+                />
+              )}
+            </motion.div>
+          </AnimatePresence>
+        </div>
 
-      <div className="flex gap-x-4 mt-12">
-        <Button onClick={handleClick} variant="destructive">
-          わからない
-        </Button>
-        <Button onClick={handleClick} variant="outline">
-          まあまあ
-        </Button>
-        <Button onClick={handleClick} variant="default">
-          知っている
-        </Button>
-      </div>
+        <div className="flex gap-x-4 mt-12">
+          <Button onClick={handleClick} variant="destructive">
+            わからない
+          </Button>
+          <Button onClick={handleClick} variant="outline">
+            まあまあ
+          </Button>
+          <Button onClick={handleClick} variant="default">
+            知っている
+          </Button>
+        </div>
 
-      <div className="flex justify-center">
-        <Button onClick={loadExamples}>Show examples</Button>
+        <div className="flex justify-center mt-6">
+          <Button onClick={toggleExamplesModal}>Show examples</Button>
+        </div>
       </div>
-    </div>
+      
+      <SentencesModal
+        isOpen={showExamplesModal}
+        currentFlashcard={currentFlashcard}
+        onToggle={toggleExamplesModal}
+      />
+    </>
   );
 }
 

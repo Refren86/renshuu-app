@@ -4,18 +4,22 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "go": "concurrently \"npm run server\" \"npm run client\"",
+    "client": "vite",
+    "server": "node ./server/index.js",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "start": "vite preview"
   },
   "dependencies": {
+    "@radix-ui/react-dialog": "^1.1.1",
     "@radix-ui/react-slot": "^1.1.0",
     "@radix-ui/react-toast": "^1.2.1",
     "@tanstack/react-router": "^1.57.13",
     "axios": "^1.7.7",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "concurrently": "^9.0.1",
     "framer-motion": "^11.3.31",
     "lodash": "^4.17.21",
     "lucide-react": "^0.438.0",
