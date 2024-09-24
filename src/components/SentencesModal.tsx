@@ -52,12 +52,16 @@ export const SentencesModal = ({
     }
   }
 
+  console.log({ sentences });
+
   return (
     <Dialog open={isOpen} onOpenChange={onToggle}>
-      <DialogContent className="max-w-4xl">
+      <DialogContent className="max-h-[1000px] overflow-y-auto max-w-4xl">
         <DialogHeader>
           <DialogTitle className="text-3xl mb-6">
-            {searchWord} {currentFlashcard?.kanji && `(${currentFlashcard.reading})`} - {currentFlashcard.meaning}
+            {searchWord}{" "}
+            {currentFlashcard?.kanji && `(${currentFlashcard?.reading})`} -{" "}
+            {currentFlashcard?.meaning}
           </DialogTitle>
 
           <DialogDescription>
@@ -67,7 +71,7 @@ export const SentencesModal = ({
               <div className="divide-y divide-slate-700">
                 {sentences.length > 0 &&
                   sentences.map((sentence) => (
-                    <div className="text-2xl py-2">
+                    <div key={sentence.id} className="text-2xl py-2">
                       {sentence?.transcriptions?.[0] ? (
                         <div className="flex items-start gap-x-3">
                           <div

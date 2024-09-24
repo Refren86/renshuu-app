@@ -128,7 +128,7 @@
   {
     "id": "22",
     "kanji": null,
-    "reading": "どう致しまして",
+    "reading": "どういたしまして",
     "meaning": "you're welcome; don't mention it"
   },
   {
@@ -235,1575 +235,1575 @@
   },
   {
     "id": "40",
+    "kanji": "選択",
+    "reading": "せんたく",
+    "meaning": "choice; option"
+  },
+  {
+    "id": "41",
     "kanji": "選択する",
     "reading": "せんたくする",
     "meaning": "to choose; to select"
   },
   {
-    "id": "41",
+    "id": "42",
     "kanji": "科目",
     "reading": "かもく",
     "meaning": "(school) subject"
   },
   {
-    "id": "42",
+    "id": "43",
     "kanji": "異なる",
     "reading": "ことなる",
     "meaning": "to differ; to be different"
   },
   {
-    "id": "43",
+    "id": "44",
     "kanji": "期間",
     "reading": "きかん",
     "meaning": "period; interval"
   },
   {
-    "id": "44",
+    "id": "45",
     "kanji": "受け取る",
     "reading": "うけとる",
     "meaning": "to receive (al. もらう)"
   },
   {
-    "id": "45",
+    "id": "46",
     "kanji": "家具",
     "reading": "かぐ",
     "meaning": "furniture"
   },
   {
-    "id": "46",
+    "id": "47",
     "kanji": "習慣",
     "reading": "しゅうかん",
     "meaning": "habit; (social) custom"
   },
   {
-    "id": "47",
+    "id": "48",
     "kanji": "伝統",
     "reading": "でんとう",
     "meaning": "tradition; convention"
   },
   {
-    "id": "48",
+    "id": "49",
     "kanji": "税金",
     "reading": "ぜいきん",
     "meaning": "tax"
   },
   {
-    "id": "49",
+    "id": "50",
     "kanji": "発表",
     "reading": "はっぴょう",
     "meaning": "announcement; presentation"
   },
   {
-    "id": "50",
+    "id": "51",
     "kanji": "保険",
     "reading": "ほけん",
     "meaning": "insurance"
   },
   {
-    "id": "51",
+    "id": "52",
     "kanji": "予定",
     "reading": "よてい",
     "meaning": "plans"
   },
   {
-    "id": "52",
+    "id": "53",
     "kanji": "旅館",
     "reading": "りょかん",
     "meaning": "traditional Japanese inn"
   },
   {
-    "id": "53",
+    "id": "54",
     "kanji": "割り引き券",
     "reading": "わりびきけん",
     "meaning": "discount coupon"
   },
   {
-    "id": "54",
+    "id": "55",
     "kanji": "下ろす",
     "reading": "おろす",
     "meaning": "to withdraw (money)"
   },
   {
-    "id": "55",
+    "id": "56",
     "kanji": "誘う",
     "reading": "さそう",
     "meaning": "to invite"
   },
   {
-    "id": "56",
+    "id": "57",
     "kanji": "探す",
     "reading": "さがす",
     "meaning": "to search for; to look for"
   },
   {
-    "id": "57",
+    "id": "58",
     "kanji": "着く",
     "reading": "つく",
     "meaning": "to arrive at (place に)"
   },
   {
-    "id": "58",
+    "id": "59",
     "kanji": "調べる",
     "reading": "しらべる",
     "meaning": "to examine; to look up; to investigate; to check up"
   },
   {
-    "id": "59",
+    "id": "60",
     "kanji": "見える",
     "reading": "みえる",
     "meaning": "to be seen; to be visible"
   },
   {
-    "id": "60",
+    "id": "61",
     "kanji": "観光",
     "reading": "かんこう",
     "meaning": "sightseeing; tourism"
   },
   {
-    "id": "61",
+    "id": "62",
     "kanji": "予約",
     "reading": "よやく",
     "meaning": "reservation; booking"
   },
   {
-    "id": "62",
+    "id": "63",
     "kanji": "生き残る",
     "reading": "いきのこる",
     "meaning": "to survive"
   },
   {
-    "id": "63",
+    "id": "64",
     "kanji": "自己啓発",
     "reading": "じこけいはつ",
     "meaning": "self-development"
   },
   {
-    "id": "64",
+    "id": "65",
     "kanji": "景色",
     "reading": "けしき",
     "meaning": "scenery"
   },
   {
-    "id": "65",
+    "id": "66",
     "kanji": "一般的",
     "reading": "いっぱんてき",
     "meaning": "general; common"
   },
   {
-    "id": "66",
+    "id": "67",
     "kanji": "一応",
     "reading": "いちおう",
     "meaning": "more or less; pretty much"
   },
   {
-    "id": "67",
+    "id": "68",
     "kanji": "挨拶",
     "reading": "あいさつ",
     "meaning": "greeting"
   },
   {
-    "id": "68",
+    "id": "69",
     "kanji": "種類",
     "reading": "しゅるい",
     "meaning": "type; variety"
   },
   {
-    "id": "69",
+    "id": "70",
     "kanji": "ある程度",
     "reading": "あるていど",
     "meaning": "to some extent"
   },
   {
-    "id": "70",
+    "id": "71",
     "kanji": "庶民",
     "reading": "しょみん",
     "meaning": "common people"
   },
   {
-    "id": "71",
+    "id": "72",
     "kanji": "裕福",
     "reading": "ゆうふく",
     "meaning": "wealthy; rich (na-adj)"
   },
   {
-    "id": "72",
+    "id": "73",
     "kanji": "家庭",
     "reading": "かてい",
     "meaning": "family"
   },
   {
-    "id": "73",
+    "id": "74",
     "kanji": "一般化する",
     "reading": "いっぱんかする",
     "meaning": "popularize"
   },
   {
-    "id": "74",
+    "id": "75",
     "kanji": "成長",
     "reading": "せいちょう",
     "meaning": "growth; development"
   },
   {
-    "id": "75",
+    "id": "76",
     "kanji": "髪を染める",
     "reading": "かみをそめる",
     "meaning": "to dye hair"
   },
   {
-    "id": "76",
+    "id": "77",
     "kanji": "割と",
     "reading": "わりと",
     "meaning": "comparatively; relatively"
   },
   {
-    "id": "77",
+    "id": "78",
     "kanji": "一人暮らし",
     "reading": "ひとりぐらし",
     "meaning": "living alone"
   },
   {
-    "id": "78",
+    "id": "79",
     "kanji": "大体",
     "reading": "だいたい",
     "meaning": "generally; mostly"
   },
   {
-    "id": "79",
+    "id": "80",
     "kanji": "浴槽",
     "reading": "よくそう",
     "meaning": "bathtub"
   },
   {
-    "id": "80",
+    "id": "81",
     "kanji": "湯船",
     "reading": "ゆぶね",
     "meaning": "bathtub"
   },
   {
-    "id": "81",
+    "id": "82",
     "kanji": "残る",
     "reading": "のこる",
     "meaning": "to remain; to be left"
   },
   {
-    "id": "82",
+    "id": "83",
     "kanji": "残す",
     "reading": "のこす",
     "meaning": "to leave behind (inanimate object)"
   },
   {
-    "id": "83",
+    "id": "84",
     "kanji": "置き去りにする",
     "reading": "おきざりにする",
     "meaning": "to leave behind; to abandon (living object)"
   },
   {
-    "id": "84",
+    "id": "85",
     "kanji": "銭湯",
     "reading": "せんとう",
     "meaning": "public bath"
   },
   {
-    "id": "85",
+    "id": "86",
     "kanji": null,
     "reading": "かなり",
     "meaning": "quite; rather; pretty"
   },
   {
-    "id": "86",
+    "id": "87",
     "kanji": "公共",
     "reading": "こうきょう",
     "meaning": "public (facilities, service, etc.)"
   },
   {
-    "id": "87",
+    "id": "88",
     "kanji": "基本的",
     "reading": "きほんてき",
     "meaning": "fundamental; basic"
   },
   {
-    "id": "88",
+    "id": "89",
     "kanji": "裸",
     "reading": "はだか",
     "meaning": "nakedness; nudity (+で - naked)"
   },
   {
-    "id": "89",
+    "id": "90",
     "kanji": "当たり前",
     "reading": "あたりまえ",
     "meaning": "natural; common"
   },
   {
-    "id": "90",
+    "id": "91",
     "kanji": "繰り返す",
     "reading": "くりかえす",
     "meaning": "to repeat; to do over again"
   },
   {
-    "id": "91",
+    "id": "92",
     "kanji": "水着",
     "reading": "みずぎ",
     "meaning": "bathing suit; swimsuit"
   },
   {
-    "id": "92",
+    "id": "93",
     "kanji": "結構",
     "reading": "けっこう",
     "meaning": "rather; quite; fairly; pretty"
   },
   {
-    "id": "93",
+    "id": "94",
     "kanji": "抵抗がある",
     "reading": "ていこうがある",
     "meaning": "not comfortable"
   },
   {
-    "id": "94",
+    "id": "95",
     "kanji": "気になる",
     "reading": "きになる",
     "meaning": "to worry about; to be concerned about; to care about"
   },
   {
-    "id": "95",
+    "id": "96",
     "kanji": "慣れる",
     "reading": "なれる",
     "meaning": "to get used to"
   },
   {
-    "id": "96",
+    "id": "97",
     "kanji": "保つ",
     "reading": "たもつ",
     "meaning": "to keep; to preserve"
   },
   {
-    "id": "97",
+    "id": "98",
     "kanji": "語り合う",
     "reading": "かたりあう",
     "meaning": "to talk together"
   },
   {
-    "id": "98",
+    "id": "99",
     "kanji": "聞き流す",
     "reading": "ききながす",
     "meaning": "to pay no attention to (while listening); to ignore"
   },
   {
-    "id": "99",
+    "id": "100",
     "kanji": "容姿",
     "reading": "ようし",
     "meaning": "(physical) appearance (of a person)"
   },
   {
-    "id": "100",
+    "id": "101",
     "kanji": "大人しい",
     "reading": "おとなしい",
     "meaning": "quiet; obedient; well-behaved;"
   },
   {
-    "id": "101",
+    "id": "102",
     "kanji": null,
     "reading": "しっかり",
     "meaning": "properly (ретельно)"
   },
   {
-    "id": "102",
+    "id": "103",
     "kanji": "奨学金",
     "reading": "しょうがくきん",
     "meaning": "scholarship"
   },
   {
-    "id": "103",
+    "id": "104",
     "kanji": "親戚",
     "reading": "しんせき",
     "meaning": "relatives"
   },
   {
-    "id": "104",
+    "id": "105",
     "kanji": "推薦状",
     "reading": "すいせんじょう",
     "meaning": "letter of recommendation"
   },
   {
-    "id": "105",
+    "id": "106",
     "kanji": "目覚まし時計",
     "reading": "めざましどけい",
     "meaning": "alarm clock"
   },
   {
-    "id": "106",
+    "id": "107",
     "kanji": "破る",
     "reading": "やぶる",
     "meaning": "to tear; to rip"
   },
   {
-    "id": "107",
+    "id": "108",
     "kanji": "鳴る",
     "reading": "なる",
     "meaning": "to sound; to ring"
   },
   {
-    "id": "108",
+    "id": "109",
     "kanji": "昨晩",
     "reading": "さくばん",
     "meaning": "last night"
   },
   {
-    "id": "109",
+    "id": "110",
     "kanji": "途中で",
     "reading": "とちゅうで",
     "meaning": "on the way; en route"
   },
   {
-    "id": "110",
+    "id": "111",
     "kanji": "投げ出す",
     "reading": "なげだす",
     "meaning": "to throw out; to resign"
   },
   {
-    "id": "111",
+    "id": "112",
     "kanji": "過ごす",
     "reading": "すごす",
     "meaning": "to spend (time)"
   },
   {
-    "id": "112",
+    "id": "113",
     "kanji": "乗り過ごす",
     "reading": "のりすごす",
     "meaning": "to ride past; to miss one's stop"
   },
   {
-    "id": "113",
+    "id": "114",
     "kanji": "乗り遅れる",
     "reading": "のりおくれる",
     "meaning": "to miss (a train, bus, etc.)"
   },
   {
-    "id": "114",
+    "id": "115",
     "kanji": "確認する",
     "reading": "かくにんする",
     "meaning": "to confirm"
   },
   {
-    "id": "115",
+    "id": "116",
     "kanji": "見逃す",
     "reading": "みのがす",
     "meaning": "to miss; to overlook"
   },
   {
-    "id": "116",
+    "id": "117",
     "kanji": "道に迷う",
     "reading": "みちにまよう",
     "meaning": "to lose one's way; to get lost"
   },
   {
-    "id": "117",
+    "id": "118",
     "kanji": "目的地",
     "reading": "もくてきち",
     "meaning": "destination; goal"
   },
   {
-    "id": "118",
+    "id": "119",
     "kanji": "壊れる",
     "reading": "こわれる",
     "meaning": "to be broken; to break"
   },
   {
-    "id": "119",
+    "id": "120",
     "kanji": "割る",
     "reading": "わる",
     "meaning": "to divide; to break; to crack"
   },
   {
-    "id": "120",
+    "id": "121",
     "kanji": "伝える",
     "reading": "つたえる",
     "meaning": "to convey; to report"
   },
   {
-    "id": "121",
+    "id": "122",
     "kanji": "起こす",
     "reading": "おこす",
     "meaning": "to wake someone up"
   },
   {
-    "id": "122",
+    "id": "123",
     "kanji": null,
     "reading": "おごる",
     "meaning": "to treat (someone) to (something) (person に meal を)"
   },
   {
-    "id": "123",
+    "id": "124",
     "kanji": "落ち込む",
     "reading": "おちこむ",
     "meaning": "to be depressed"
   },
   {
-    "id": "124",
+    "id": "125",
     "kanji": "直す",
     "reading": "なおす",
     "meaning": "to repair; to fix; to correct"
   },
   {
-    "id": "125",
+    "id": "126",
     "kanji": "治す",
     "reading": "なおす",
     "meaning": "to cure; to heal"
   },
   {
-    "id": "126",
+    "id": "127",
     "kanji": "見つかる",
     "reading": "みつかる",
     "meaning": "to be found"
   },
   {
-    "id": "127",
+    "id": "128",
     "kanji": "見つける",
     "reading": "みつける",
     "meaning": "to find; to spot"
   },
   {
-    "id": "128",
+    "id": "129",
     "kanji": "迎えに行く",
     "reading": "むかえにいく",
     "meaning": "to go to pick up (place まで/に person を)"
   },
   {
-    "id": "129",
+    "id": "130",
     "kanji": "訳す",
     "reading": "やくす",
     "meaning": "to translate"
   },
   {
-    "id": "130",
+    "id": "131",
     "kanji": "規律",
     "reading": "きりつ",
     "meaning": "law"
   },
   {
-    "id": "131",
+    "id": "132",
     "kanji": "初心者",
     "reading": "しょしんしゃ",
     "meaning": "beginner"
   },
   {
-    "id": "132",
+    "id": "133",
     "kanji": "振る",
     "reading": "ふる",
     "meaning": "to wave; to shake"
   },
   {
-    "id": "133",
+    "id": "134",
     "kanji": "放す",
     "reading": "はなす",
     "meaning": "to release; to let go; to free"
   },
   {
-    "id": "134",
+    "id": "135",
     "kanji": "秘密",
     "reading": "ひみつ",
     "meaning": "secret"
   },
   {
-    "id": "135",
+    "id": "136",
     "kanji": "引っ越し",
     "reading": "ひっこし",
     "meaning": "moving (dwelling, office, etc.)"
   },
   {
-    "id": "136",
+    "id": "137",
     "kanji": "悩む",
     "reading": "なやむ",
     "meaning": "to be worried; to be troubled"
   },
   {
-    "id": "137",
+    "id": "138",
     "kanji": "注ぐ",
     "reading": "そそぐ",
     "meaning": "to pour (place に smth. を)"
   },
   {
-    "id": "138",
+    "id": "139",
     "kanji": "現在",
     "reading": "げんざい",
     "meaning": "present time"
   },
   {
-    "id": "139",
+    "id": "140",
     "kanji": "過去",
     "reading": "かこ",
     "meaning": "the past"
   },
   {
-    "id": "140",
+    "id": "141",
     "kanji": "用が入る",
     "reading": "ようがはいる",
     "meaning": "have things to do"
   },
   {
-    "id": "141",
+    "id": "142",
     "kanji": "暫く",
     "reading": "しばらく",
     "meaning": "for a moment; for a minute"
   },
   {
-    "id": "142",
+    "id": "143",
     "kanji": "偉い",
     "reading": "えらい",
     "meaning": "great; excellent"
   },
   {
-    "id": "143",
+    "id": "144",
     "kanji": "震える",
     "reading": "ふるえる",
     "meaning": "to shiver; to shake"
   },
   {
-    "id": "144",
+    "id": "145",
     "kanji": "近所",
     "reading": "きんじょ",
     "meaning": "neighbourhood"
   },
   {
-    "id": "145",
+    "id": "146",
     "kanji": "粗品",
     "reading": "そしな",
     "meaning": "small present"
   },
   {
-    "id": "146",
+    "id": "147",
     "kanji": "用意",
     "reading": "ようい",
     "meaning": "preparation; arrangements"
   },
   {
-    "id": "147",
+    "id": "148",
     "kanji": "配る",
     "reading": "くばる",
     "meaning": "to distribute; to hand out"
   },
   {
-    "id": "148",
+    "id": "149",
     "kanji": "片付ける",
     "reading": "かたづける",
     "meaning": "to tidy up; to put in order"
   },
   {
-    "id": "149",
+    "id": "150",
     "kanji": "嗜好",
     "reading": "しこう",
     "meaning": "taste; liking; preference"
   },
   {
-    "id": "150",
+    "id": "151",
     "kanji": "腹減った",
     "reading": "はらへった",
     "meaning": "I'm hungry"
   },
   {
-    "id": "151",
+    "id": "152",
     "kanji": "拾う",
     "reading": "ひろう",
     "meaning": "to pick up; to gather"
   },
   {
-    "id": "152",
+    "id": "153",
     "kanji": "頼む",
     "reading": "たのむ",
     "meaning": "to request; to beg; to ask"
   },
   {
-    "id": "153",
+    "id": "154",
     "kanji": null,
     "reading": "やっぱり",
     "meaning": "as expected; in any case"
   },
   {
-    "id": "154",
+    "id": "155",
     "kanji": null,
     "reading": "もしかして",
     "meaning": "perhaps; possibly; maybe"
   },
   {
-    "id": "155",
+    "id": "156",
     "kanji": "電柱",
     "reading": "でんちゅう",
     "meaning": "utility pole"
   },
   {
-    "id": "156",
+    "id": "157",
     "kanji": null,
     "reading": "どういう風に",
     "meaning": "how; in what way"
   },
   {
-    "id": "157",
+    "id": "158",
     "kanji": "万全の",
     "reading": "ばんぜんの",
     "meaning": "flawless; thorough"
   },
   {
-    "id": "158",
+    "id": "159",
     "kanji": "休日",
     "reading": "きゅうじつ",
     "meaning": "holiday; day off"
   },
   {
-    "id": "159",
+    "id": "160",
     "kanji": "準備",
     "reading": "じゅんび",
     "meaning": "preparation"
   },
   {
-    "id": "160",
+    "id": "161",
     "kanji": "紅葉",
     "reading": "もみじ",
     "meaning": "maple (tree)​; red leaves"
   },
   {
-    "id": "161",
+    "id": "162",
     "kanji": "夕焼け",
     "reading": "ゆうやけ",
     "meaning": "red sunset"
   },
   {
-    "id": "162",
+    "id": "163",
     "kanji": "じゃん拳",
     "reading": "じゃんけん",
     "meaning": "rock-paper-scissors"
   },
   {
-    "id": "163",
+    "id": "164",
     "kanji": "相子",
     "reading": "あいこ",
     "meaning": "draw; tie"
   },
   {
-    "id": "164",
+    "id": "165",
     "kanji": "反対",
     "reading": "はんたい",
     "meaning": "reverse; opposite"
   },
   {
-    "id": "165",
+    "id": "166",
     "kanji": "遠い",
     "reading": "とおい",
     "meaning": "far; distant; far away"
   },
   {
-    "id": "166",
+    "id": "167",
     "kanji": "祖父母",
     "reading": "そふぼ",
     "meaning": "grandparents"
   },
   {
-    "id": "167",
+    "id": "168",
     "kanji": "信用",
     "reading": "しんよう",
     "meaning": "confidence; trust; faith"
   },
   {
-    "id": "168",
+    "id": "169",
     "kanji": "教会",
     "reading": "きょうかい",
     "meaning": "church"
   },
   {
-    "id": "169",
+    "id": "170",
     "kanji": "都市部",
     "reading": "としぶ",
     "meaning": "urban area"
   },
   {
-    "id": "170",
+    "id": "171",
     "kanji": "じゃが芋",
     "reading": "じゃがいも",
     "meaning": "potato"
   },
   {
-    "id": "171",
+    "id": "172",
     "kanji": "遅延する",
     "reading": "ちえんする",
     "meaning": "to delay"
   },
   {
-    "id": "172",
+    "id": "173",
     "kanji": "日中",
     "reading": "にっちゅう",
     "meaning": "during the day"
   },
   {
-    "id": "173",
+    "id": "174",
     "kanji": "昼間",
     "reading": "ひるま",
     "meaning": "during the day"
   },
   {
-    "id": "174",
+    "id": "175",
     "kanji": "飲み食い",
     "reading": "のみくい",
     "meaning": "food and drink"
   },
   {
-    "id": "175",
+    "id": "176",
     "kanji": "風景",
     "reading": "ふうけい",
     "meaning": "scenery"
   },
   {
-    "id": "176",
+    "id": "177",
     "kanji": "考え方",
     "reading": "かんがえかた",
     "meaning": "way of thinking"
   },
   {
-    "id": "177",
+    "id": "178",
     "kanji": "特徴",
     "reading": "とくちょう",
     "meaning": "feature; characteristic"
   },
   {
-    "id": "178",
+    "id": "179",
     "kanji": "地方",
     "reading": "ちほう",
     "meaning": "district; region"
   },
   {
-    "id": "179",
+    "id": "180",
     "kanji": "地域",
     "reading": "ちいき",
     "meaning": "area; region"
   },
   {
-    "id": "180",
+    "id": "181",
     "kanji": "雰囲気",
     "reading": "ふんいき",
     "meaning": "atmosphere; mood; aura"
   },
   {
-    "id": "181",
+    "id": "182",
     "kanji": "運ぶ",
     "reading": "はこぶ",
     "meaning": "to carry"
   },
   {
-    "id": "182",
+    "id": "183",
     "kanji": "比べる",
     "reading": "くらべる",
     "meaning": "to compare"
   },
   {
-    "id": "183",
+    "id": "184",
     "kanji": null,
     "reading": "ほど",
     "meaning": "as much as ...; like ..."
   },
   {
-    "id": "184",
+    "id": "185",
     "kanji": "複雑",
     "reading": "ふくざつ",
     "meaning": "complex; complicated"
   },
   {
-    "id": "185",
+    "id": "186",
     "kanji": "免許",
     "reading": "めんきょ",
     "meaning": "license"
   },
   {
-    "id": "186",
+    "id": "187",
     "kanji": "常に",
     "reading": "つねに",
     "meaning": "always; constantly"
   },
   {
-    "id": "187",
+    "id": "188",
     "kanji": null,
     "reading": "たまに",
     "meaning": "occasionally; sometimes"
   },
   {
-    "id": "188",
+    "id": "189",
     "kanji": "特に",
     "reading": "とくに",
     "meaning": "especially; in particular"
   },
   {
-    "id": "189",
+    "id": "190",
     "kanji": "地元",
     "reading": "じもと",
     "meaning": "local"
   },
   {
-    "id": "190",
+    "id": "191",
     "kanji": "寄る",
     "reading": "よる",
     "meaning": "to stop by; to approach"
   },
   {
-    "id": "191",
+    "id": "192",
     "kanji": "楽",
     "reading": "らく",
     "meaning": "easy (na-adj); comfort"
   },
   {
-    "id": "192",
+    "id": "193",
     "kanji": "期間限定",
     "reading": "きかんげんてい",
     "meaning": "limited edition"
   },
   {
-    "id": "193",
+    "id": "194",
     "kanji": "瞬間",
     "reading": "しゅんかん",
     "meaning": "moment"
   },
   {
-    "id": "194",
+    "id": "195",
     "kanji": null,
     "reading": "なかなか",
     "meaning": "very; considerably; quite"
   },
   {
-    "id": "195",
+    "id": "196",
     "kanji": "機会",
     "reading": "きかい",
     "meaning": "chance; opportunity"
   },
   {
-    "id": "196",
+    "id": "197",
     "kanji": "湖",
     "reading": "みずうみ",
     "meaning": "lake"
   },
   {
-    "id": "197",
+    "id": "198",
     "kanji": "設定",
     "reading": "せってい",
     "meaning": "options setting"
   },
   {
-    "id": "198",
+    "id": "199",
     "kanji": "小説",
     "reading": "しょうせつ",
     "meaning": "novel; story"
   },
   {
-    "id": "199",
+    "id": "200",
     "kanji": "泥",
     "reading": "どろ",
     "meaning": "mud"
   },
   {
-    "id": "200",
+    "id": "201",
     "kanji": "期末試験",
     "reading": "きまつしけん",
     "meaning": "final exam"
   },
   {
-    "id": "201",
+    "id": "202",
     "kanji": "書類",
     "reading": "しょるい",
     "meaning": "document; papers"
   },
   {
-    "id": "202",
+    "id": "203",
     "kanji": "朝寝坊する",
     "reading": "あさねぼうする",
     "meaning": "to oversleep"
   },
   {
-    "id": "203",
+    "id": "204",
     "kanji": "相変わらず",
     "reading": "あいかわらず",
     "meaning": "as usual; as always"
   },
   {
-    "id": "204",
+    "id": "205",
     "kanji": "いつも通り",
     "reading": "いつもどおり",
     "meaning": "as always; as usual"
   },
   {
-    "id": "205",
+    "id": "206",
     "kanji": "案内する",
     "reading": "あんないする",
     "meaning": "to guide; to show around (place を)"
   },
   {
-    "id": "206",
+    "id": "207",
     "kanji": "今日中に",
     "reading": "きょうじゅう",
     "meaning": "before the day is over"
   },
   {
-    "id": "207",
+    "id": "208",
     "kanji": "この間",
     "reading": "このあいだ",
     "meaning": "meanwhile; the other day; lately"
   },
   {
-    "id": "208",
+    "id": "209",
     "kanji": "殺す",
     "reading": "ころす",
     "meaning": "to kill"
   },
   {
-    "id": "209",
+    "id": "210",
     "kanji": "確かに",
     "reading": "たしかに",
     "meaning": "surely; certainly"
   },
   {
-    "id": "210",
+    "id": "211",
     "kanji": null,
     "reading": "ついに",
     "meaning": "finally; at last​"
   },
   {
-    "id": "211",
+    "id": "212",
     "kanji": "実際に",
     "reading": "じっさいに",
     "meaning": "actually; really"
   },
   {
-    "id": "212",
+    "id": "213",
     "kanji": "集中する",
     "reading": "しゅうちゅうする",
     "meaning": "to concentrate; to pay attention"
   },
   {
-    "id": "213",
+    "id": "214",
     "kanji": "騒々しい",
     "reading": "そうぞうしい",
     "meaning": "noisy; loud"
   },
   {
-    "id": "214",
+    "id": "215",
     "kanji": "生",
     "reading": "なま",
     "meaning": "raw; uncooked; fresh"
   },
   {
-    "id": "215",
+    "id": "216",
     "kanji": "混ぜる",
     "reading": "まぜる",
     "meaning": "to mix; to stir; to blend"
   },
   {
-    "id": "216",
+    "id": "217",
     "kanji": "黄身",
     "reading": "きみ",
     "meaning": "egg yolk​"
   },
   {
-    "id": "217",
+    "id": "218",
     "kanji": "白身",
     "reading": "しろみ",
     "meaning": "egg white"
   },
   {
-    "id": "218",
+    "id": "219",
     "kanji": "餡子",
     "reading": "あんこ",
     "meaning": "red bean paste"
   },
   {
-    "id": "219",
+    "id": "220",
     "kanji": "留守",
     "reading": "るす",
     "meaning": "absence; being away from home"
   },
   {
-    "id": "220",
+    "id": "221",
     "kanji": "手術を受ける",
     "reading": "しゅじゅつをうける",
     "meaning": "to undergo surgery"
   },
   {
-    "id": "221",
+    "id": "222",
     "kanji": null,
     "reading": "それぞれ",
     "meaning": "each; respectively​"
   },
   {
-    "id": "222",
+    "id": "223",
     "kanji": "横",
     "reading": "よこ",
     "meaning": "side; width; beside"
   },
   {
-    "id": "223",
+    "id": "224",
     "kanji": "左右する",
     "reading": "さゆうする",
     "meaning": "to control; to affect"
   },
   {
-    "id": "224",
+    "id": "225",
     "kanji": "上達する",
     "reading": "じょうたつする",
     "meaning": "to improve"
   },
   {
-    "id": "225",
+    "id": "226",
     "kanji": "新鮮",
     "reading": "しんせん",
     "meaning": "fresh"
   },
   {
-    "id": "226",
+    "id": "227",
     "kanji": null,
     "reading": "とういわけで",
     "meaning": "therefore"
   },
   {
-    "id": "227",
+    "id": "228",
     "kanji": "表現",
     "reading": "ひょうげん",
     "meaning": "expression"
   },
   {
-    "id": "228",
+    "id": "229",
     "kanji": "場合",
     "reading": "ばあい",
     "meaning": "case; situation"
   },
   {
-    "id": "229",
+    "id": "230",
     "kanji": "全く",
     "reading": "まったく",
     "meaning": "good grief; really; truly; entirely; completely; indeed"
   },
   {
-    "id": "230",
+    "id": "231",
     "kanji": "行方",
     "reading": "ゆくえ",
     "meaning": "(one's) whereabouts"
   },
   {
-    "id": "231",
+    "id": "232",
     "kanji": "生える",
     "reading": "はえる",
     "meaning": "to grow; to sprout"
   },
   {
-    "id": "232",
+    "id": "233",
     "kanji": "先に",
     "reading": "さきに",
     "meaning": "previously; earlier"
   },
   {
-    "id": "233",
+    "id": "234",
     "kanji": "行う",
     "reading": "おこなう ",
     "meaning": "to perform; to do; to carry out"
   },
   {
-    "id": "234",
+    "id": "235",
     "kanji": "明白",
     "reading": "めいはく",
     "meaning": "clear, obvious (na-adj)"
   },
   {
-    "id": "235",
+    "id": "236",
     "kanji": null,
     "reading": "すでに",
     "meaning": "already"
   },
   {
-    "id": "236",
+    "id": "237",
     "kanji": "第一に",
     "reading": "だいいちに",
     "meaning": "first of all, firstly"
   },
   {
-    "id": "237",
+    "id": "238",
     "kanji": "遅刻する",
     "reading": "ちこくする",
     "meaning": "to be late"
   },
   {
-    "id": "238",
+    "id": "239",
     "kanji": "水道",
     "reading": "すいどう",
     "meaning": "water supply; water service; tap water"
   },
   {
-    "id": "239",
+    "id": "240",
     "kanji": "次に",
     "reading": "つぎに",
     "meaning": "next; then; after that"
   },
   {
-    "id": "240",
+    "id": "241",
     "kanji": "遊び場",
     "reading": "あそびば",
     "meaning": "playground"
   },
   {
-    "id": "241",
+    "id": "242",
     "kanji": "自ら",
     "reading": "みずから",
     "meaning": "(by) oneself; personally"
   },
   {
-    "id": "242",
+    "id": "243",
     "kanji": "決断",
     "reading": "けつだん",
     "meaning": "decision"
   },
   {
-    "id": "243",
+    "id": "244",
     "kanji": "長男",
     "reading": "ちょうなん",
     "meaning": "eldest son (may be the only son)"
   },
   {
-    "id": "244",
+    "id": "245",
     "kanji": "長女",
     "reading": "ちょうじょ",
     "meaning": "eldest daughter (may be the only daughter)"
   },
   {
-    "id": "245",
+    "id": "246",
     "kanji": "後続の",
     "reading": "こうぞくの",
     "meaning": "following (vehicle etc.)"
   },
   {
-    "id": "246",
+    "id": "247",
     "kanji": "女神",
     "reading": "めがみ",
     "meaning": "goddess"
   },
   {
-    "id": "247",
+    "id": "248",
     "kanji": "主人",
     "reading": "しゅじん",
     "meaning": "one's husband; head (of a household)"
   },
   {
-    "id": "248",
+    "id": "249",
     "kanji": "苗字",
     "reading": "みょうじ",
     "meaning": "surname"
   },
   {
-    "id": "249",
+    "id": "250",
     "kanji": "引っかく",
     "reading": "ひっかく",
     "meaning": "to scratch; to claw"
   },
   {
-    "id": "250",
+    "id": "251",
     "kanji": "延期する",
     "reading": "えんきする",
     "meaning": "to postpone  (~になる - to be postponed)"
   },
   {
-    "id": "251",
+    "id": "252",
     "kanji": null,
     "reading": "しょうがない",
     "meaning": "nothing to do..."
   },
   {
-    "id": "252",
+    "id": "253",
     "kanji": null,
     "reading": "とんでもないです",
     "meaning": "don't mention it"
   },
   {
-    "id": "253",
+    "id": "254",
     "kanji": "中古車",
     "reading": "ちゅうこしゃ",
     "meaning": "used car; secondhand car"
   },
   {
-    "id": "254",
+    "id": "255",
     "kanji": "選手",
     "reading": "せんしゅ",
     "meaning": "player (of a sport)"
   },
   {
-    "id": "255",
+    "id": "256",
     "kanji": "未成年",
     "reading": "みせいねん",
     "meaning": "minor; underage"
   },
   {
-    "id": "256",
+    "id": "257",
     "kanji": "小切手",
     "reading": "こぎって",
     "meaning": "cheque; check"
   },
   {
-    "id": "257",
+    "id": "258",
     "kanji": "短気",
     "reading": "たんき",
     "meaning": "hot temper; impatience; irritability (na-adj)"
   },
   {
-    "id": "258",
+    "id": "259",
     "kanji": null,
     "reading": "だんボール",
     "meaning": "cardboard​ (картонна коробка)"
   },
   {
-    "id": "259",
+    "id": "260",
     "kanji": "身重",
     "reading": "みおも",
     "meaning": "pregnant"
   },
   {
-    "id": "260",
+    "id": "261",
     "kanji": null,
     "reading": "おまわりさん",
     "meaning": "police officer; cop"
   },
   {
-    "id": "261",
+    "id": "262",
     "kanji": "材料",
     "reading": "ざいりょう",
     "meaning": "materials; ingredients"
   },
   {
-    "id": "262",
+    "id": "263",
     "kanji": "玉ねぎ",
     "reading": "たまねぎ",
     "meaning": "onion"
   },
   {
-    "id": "263",
+    "id": "264",
     "kanji": "油",
     "reading": "あぶら",
     "meaning": "oil"
   },
   {
-    "id": "264",
+    "id": "265",
     "kanji": "炒める",
     "reading": "いためる",
     "meaning": "to fry"
   },
   {
-    "id": "265",
+    "id": "266",
     "kanji": "煮る",
     "reading": "にる",
     "meaning": "to boil"
   },
   {
-    "id": "266",
+    "id": "267",
     "kanji": "福神漬け",
     "reading": "ふくじんづけ",
     "meaning": "vegetables pickled in soy sauce"
   },
   {
-    "id": "269",
+    "id": "270",
     "kanji": "我慢",
     "reading": "がまん",
     "meaning": "patience; endurance"
   },
   {
-    "id": "270",
+    "id": "271",
     "kanji": "忍耐",
     "reading": "にんたい",
     "meaning": "patience; endurance (under difficult circumstances) (~に... ~する)"
   },
   {
-    "id": "271",
+    "id": "272",
     "kanji": "耐える",
     "reading": "たえる",
     "meaning": "to bear; to stand; to endure; to put up with (physical or emotional difficulties) (~に)"
   },
   {
-    "id": "272",
+    "id": "273",
     "kanji": "容忍する",
     "reading": "ようにんする",
     "meaning": "to endure the behavior (of living thing, al. rarely used)"
   },
   {
-    "id": "273",
+    "id": "274",
     "kanji": "困難",
     "reading": "こんなん",
     "meaning": "difficulty; trouble"
   },
   {
-    "id": "274",
+    "id": "275",
     "kanji": "試練",
     "reading": "しれん",
     "meaning": "test; trial"
   },
   {
-    "id": "275",
+    "id": "276",
     "kanji": "節約",
     "reading": "せつやく",
-    "meaning": "to save money"
+    "meaning": "to save (e.g. money, time)"
   },
   {
-    "id": "276",
+    "id": "277",
     "kanji": "国家",
     "reading": "こっか",
     "meaning": "state; country; nation"
   },
   {
-    "id": "277",
+    "id": "278",
     "kanji": "貧しい",
     "reading": "まずしい",
     "meaning": "poor; needy"
   },
   {
-    "id": "278",
+    "id": "279",
     "kanji": "滲む",
     "reading": "にじむ",
     "meaning": "to blur"
   },
   {
-    "id": "279",
+    "id": "280",
     "kanji": "数える",
     "reading": "かぞえる",
     "meaning": "to count"
   },
   {
-    "id": "280",
+    "id": "281",
     "kanji": "影",
     "reading": "かげ",
     "meaning": "shadow"
   },
   {
-    "id": "281",
+    "id": "282",
     "kanji": null,
     "reading": "~ぽっち",
     "meaning": "only..., mere... (used with loneliness to say \"completely alone\" and small amounts like しか)"
   },
   {
-    "id": "282",
+    "id": "283",
     "kanji": "勝手に",
     "reading": "かってに",
     "meaning": "of one's own accord (doing something on one's own judgement without consulting anyone else)"
   },
   {
-    "id": "283",
+    "id": "284",
     "kanji": "忍び込む",
     "reading": "しのびこむ",
     "meaning": "to creep in; to sneak in"
   },
   {
-    "id": "284",
+    "id": "285",
     "kanji": null,
     "reading": "しかも",
     "meaning": "moreover; furthermore​"
   },
   {
-    "id": "285",
+    "id": "286",
     "kanji": "奪う",
     "reading": "うばう",
     "meaning": "to take (by force); to steal; to rob (someone)"
   },
   {
-    "id": "286",
+    "id": "287",
     "kanji": "食いしん坊",
     "reading": "くいしんぼう",
     "meaning": "glutton; sweet tooth (ненажера; ласун)"
   },
   {
-    "id": "287",
+    "id": "288",
     "kanji": null,
     "reading": "セリフ",
     "meaning": "words; one's lines"
   },
   {
-    "id": "288",
+    "id": "289",
     "kanji": null,
     "reading": "わざと",
     "meaning": "on purpose; intentionally"
   },
   {
-    "id": "289",
+    "id": "290",
     "kanji": "日常的",
     "reading": "にちじょうてき",
     "meaning": "mundane; routine"
   },
   {
-    "id": "290",
+    "id": "291",
     "kanji": "役に立つ",
     "reading": "やくにたつ",
     "meaning": "to be helpful; to be useful"
   },
   {
-    "id": "291",
+    "id": "292",
     "kanji": null,
     "reading": "わくわく",
     "meaning": "to be excited; to be nervous"
   },
   {
-    "id": "292",
+    "id": "293",
     "kanji": null,
     "reading": "やっと",
     "meaning": "at last; finally"
   },
   {
-    "id": "293",
+    "id": "294",
     "kanji": null,
     "reading": "のんびり",
     "meaning": "at leisure; in a relaxed manner; quietly; peacefully"
   },
   {
-    "id": "294",
+    "id": "295",
     "kanji": "渡る",
     "reading": "わたる",
     "meaning": "to cross over"
   },
   {
-    "id": "295",
+    "id": "296",
     "kanji": "交差点",
     "reading": "こうさてん",
     "meaning": "crossing; intersection"
   },
   {
-    "id": "296",
+    "id": "297",
     "kanji": "休憩する",
     "reading": "きゅうけいする",
     "meaning": "to take a break"
   },
   {
-    "id": "297",
+    "id": "298",
     "kanji": null,
     "reading": "ぶつかる",
     "meaning": "to bump into; to run into"
   },
   {
-    "id": "298",
+    "id": "299",
     "kanji": "関係",
     "reading": "かんけい",
     "meaning": "relationship"
   },
   {
-    "id": "299",
+    "id": "300",
     "kanji": "石けん",
     "reading": "せっけん",
     "meaning": "soap"
   },
   {
-    "id": "300",
+    "id": "301",
     "kanji": "多少",
     "reading": "たしょう",
     "meaning": "somewhat; to some degree; amount; quantity"
   },
   {
-    "id": "301",
+    "id": "302",
     "kanji": "明らか",
     "reading": "あきらか",
     "meaning": "clear; obvious; evident (na-adj)"
   },
   {
-    "id": "302",
+    "id": "303",
     "kanji": "苦しみ",
     "reading": "くるしみ",
     "meaning": "suffering"
-  },
-  {
-    "id": "303",
-    "kanji": "行動",
-    "reading": "こうどう",
-    "meaning": "action; behaviour"
   },
   {
     "id": "304",
@@ -1998,12 +1998,6 @@
     "meaning": "to draw (something) toward one"
   },
   {
-    "id": "337",
-    "kanji": "行動する",
-    "reading": "こうどうする",
-    "meaning": "to take action"
-  },
-  {
     "id": "338",
     "kanji": "量",
     "reading": "りょう",
@@ -2104,5 +2098,395 @@
     "kanji": null,
     "reading": "つぶやく",
     "meaning": "to mutter; to murmur (бурмотіти)"
+  },
+  {
+    "id": "355",
+    "kanji": "逃す",
+    "reading": "のがす",
+    "meaning": "to miss (e.g. a chance) (機会を～)"
+  },
+  {
+    "id": "356",
+    "kanji": "命",
+    "reading": "いのち",
+    "meaning": "life"
+  },
+  {
+    "id": "357",
+    "kanji": "振る舞い",
+    "reading": "ふるまい",
+    "meaning": "behavior"
+  },
+  {
+    "id": "358",
+    "kanji": "懐かしい",
+    "reading": "なつかしい",
+    "meaning": "nostalgic"
+  },
+  {
+    "id": "359",
+    "kanji": "細かい",
+    "reading": "こまかい",
+    "meaning": "small (change); trivial; detailed"
+  },
+  {
+    "id": "360",
+    "kanji": "多忙",
+    "reading": "たぼう",
+    "meaning": "being very busy (na-adj)"
+  },
+  {
+    "id": "361",
+    "kanji": "浅い",
+    "reading": "あさい",
+    "meaning": "shallow; slight (wound); light (sleep)"
+  },
+  {
+    "id": "362",
+    "kanji": "深い",
+    "reading": "ふかい",
+    "meaning": "deep"
+  },
+  {
+    "id": "363",
+    "kanji": "開始する",
+    "reading": "かいしする",
+    "meaning": "to begin; to start"
+  },
+  {
+    "id": "364",
+    "kanji": "食う",
+    "reading": "くう ",
+    "meaning": "to eat (e.g. electricity, petrol, money etc.)"
+  },
+  {
+    "id": "365",
+    "kanji": "上回る",
+    "reading": "うわまわる",
+    "meaning": "to exceed; to surpass; to be more than"
+  },
+  {
+    "id": "366",
+    "kanji": "開発者",
+    "reading": "かいはつしゃ",
+    "meaning": "developer"
+  },
+  {
+    "id": "367",
+    "kanji": "普段",
+    "reading": "ふだん",
+    "meaning": "usual; normal; ordinary; habitual"
+  },
+  {
+    "id": "368",
+    "kanji": "高慢",
+    "reading": "こうまん",
+    "meaning": "proud; arrogant"
+  },
+  {
+    "id": "369",
+    "kanji": "限る",
+    "reading": "かぎる",
+    "meaning": "to restrict; to limit"
+  },
+  {
+    "id": "370",
+    "kanji": "昇進する",
+    "reading": "しょうしんする",
+    "meaning": "to get promoted (at job)"
+  },
+  {
+    "id": "371",
+    "kanji": "用具",
+    "reading": "ようぐ",
+    "meaning": "tools; instruments"
+  },
+  {
+    "id": "372",
+    "kanji": "親族",
+    "reading": "しんぞく",
+    "meaning": "relatives"
+  },
+  {
+    "id": "373",
+    "kanji": "狂っている",
+    "reading": "くるっている",
+    "meaning": "crazy"
+  },
+  {
+    "id": "374",
+    "kanji": "日付",
+    "reading": "ひづけ",
+    "meaning": "date"
+  },
+  {
+    "id": "375",
+    "kanji": "隠れる",
+    "reading": "かくれる",
+    "meaning": "to hide"
+  },
+  {
+    "id": "376",
+    "kanji": "飲み込む",
+    "reading": "のみこむ",
+    "meaning": "to gulp down (ковтати); to understand; to hold back from saying something"
+  },
+  {
+    "id": "377",
+    "kanji": "個性",
+    "reading": "こせい",
+    "meaning": "unique (personality)"
+  },
+  {
+    "id": "378",
+    "kanji": "忠誠",
+    "reading": "ちゅうせい",
+    "meaning": "loyalty; sincerity"
+  },
+  {
+    "id": "379",
+    "kanji": "忠誠心",
+    "reading": "ちゅうせいしん",
+    "meaning": "loyalty; sincerity"
+  },
+  {
+    "id": "380",
+    "kanji": "慌てる",
+    "reading": "あわてる",
+    "meaning": "to panic"
+  },
+  {
+    "id": "381",
+    "kanji": "悔しい",
+    "reading": "くやしい",
+    "meaning": "frustrated; disappointed; annoyed"
+  },
+  {
+    "id": "382",
+    "kanji": "真剣",
+    "reading": "しんけん",
+    "meaning": "serious (na-adj)"
+  },
+  {
+    "id": "383",
+    "kanji": "同僚",
+    "reading": "どうりょう",
+    "meaning": "coworker; colleague"
+  },
+  {
+    "id": "384",
+    "kanji": "旨味",
+    "reading": "うまみ",
+    "meaning": "good flavor"
+  },
+  {
+    "id": "385",
+    "kanji": "脂肪",
+    "reading": "しぼう",
+    "meaning": "fat"
+  },
+  {
+    "id": "386",
+    "kanji": "細菌",
+    "reading": "さいきん",
+    "meaning": "bacteria"
+  },
+  {
+    "id": "388",
+    "kanji": "幸い",
+    "reading": "さいわい",
+    "meaning": "happiness"
+  },
+  {
+    "id": "389",
+    "kanji": "行動",
+    "reading": "こうどう",
+    "meaning": "action; behavior"
+  },
+  {
+    "id": "390",
+    "kanji": "飴",
+    "reading": "あめ",
+    "meaning": "candy"
+  },
+  {
+    "id": "391",
+    "kanji": "高い可能性",
+    "reading": "たかいかのうせい",
+    "meaning": "high chance"
+  },
+  {
+    "id": "392",
+    "kanji": "低い可能性",
+    "reading": "ひくいかのうせい",
+    "meaning": "low chance"
+  },
+  {
+    "id": "393",
+    "kanji": "前回",
+    "reading": "ぜんかい",
+    "meaning": "previous time; last time"
+  },
+  {
+    "id": "394",
+    "kanji": "内容",
+    "reading": "ないよう",
+    "meaning": "contents (вміст, зміст)"
+  },
+  {
+    "id": "395",
+    "kanji": null,
+    "reading": "ぜひぜひ",
+    "meaning": "certainly; by all means"
+  },
+  {
+    "id": "396",
+    "kanji": "足りない",
+    "reading": "たりない",
+    "meaning": "insufficient; not enough"
+  },
+  {
+    "id": "397",
+    "kanji": "倒す",
+    "reading": "たおす",
+    "meaning": "to bring down; to defeat; to overthrow"
+  },
+  {
+    "id": "398",
+    "kanji": null,
+    "reading": "いきなり",
+    "meaning": "abruptly; suddenly; all of a sudden"
+  },
+  {
+    "id": "399",
+    "kanji": "想像",
+    "reading": "そうぞう",
+    "meaning": "imagination"
+  },
+  {
+    "id": "400",
+    "kanji": "幸福",
+    "reading": "こうふく",
+    "meaning": "happiness"
+  },
+  {
+    "id": "401",
+    "kanji": "状態",
+    "reading": "じょうたい",
+    "meaning": "state; condition"
+  },
+  {
+    "id": "402",
+    "kanji": "不安",
+    "reading": "ふあん",
+    "meaning": "anxiety (na-adj)"
+  },
+  {
+    "id": "403",
+    "kanji": "美容院",
+    "reading": "びよういん",
+    "meaning": "beauty salon"
+  },
+  {
+    "id": "404",
+    "kanji": "ご存じ",
+    "reading": "ごぞんじ",
+    "meaning": "knowing; acquaintance"
+  },
+  {
+    "id": "405",
+    "kanji": null,
+    "reading": "ほぼ",
+    "meaning": "almost; approximately"
+  },
+  {
+    "id": "406",
+    "kanji": "約",
+    "reading": "やく",
+    "meaning": "approximately"
+  },
+  {
+    "id": "407",
+    "kanji": null,
+    "reading": "どんどん",
+    "meaning": "rapidly; continuously"
+  },
+  {
+    "id": "408",
+    "kanji": "年齢",
+    "reading": "ねんれい",
+    "meaning": "age"
+  },
+  {
+    "id": "409",
+    "kanji": "恐ろしい",
+    "reading": "おそろしい",
+    "meaning": "terrible; terrifying; frightening"
+  },
+  {
+    "id": "410",
+    "kanji": "通り",
+    "reading": "とおり",
+    "meaning": "вулиця"
+  },
+  {
+    "id": "411",
+    "kanji": "保つ",
+    "reading": "たもつ",
+    "meaning": "to preserve; to hold; to maintain"
+  },
+  {
+    "id": "412",
+    "kanji": "やる気",
+    "reading": "やるき",
+    "meaning": "willingness (e.g. to do something); motivation"
+  },
+  {
+    "id": "413",
+    "kanji": "目標",
+    "reading": "もくひょう",
+    "meaning": "goal; target"
+  },
+  {
+    "id": "414",
+    "kanji": "段階",
+    "reading": "だんかい",
+    "meaning": "step; level; phase"
+  },
+  {
+    "id": "415",
+    "kanji": "苦手",
+    "reading": "にがて",
+    "meaning": "poor (at); weak (in); not very good (at)"
+  },
+  {
+    "id": "416",
+    "kanji": "交流会",
+    "reading": "こうりゅうかい",
+    "meaning": "gathering; meetup"
+  },
+  {
+    "id": "417",
+    "kanji": "字幕",
+    "reading": "じまく",
+    "meaning": "subtitles"
+  },
+  {
+    "id": "418",
+    "kanji": "交換留学",
+    "reading": "こうかんりゅうがく",
+    "meaning": "exchange student"
+  },
+  {
+    "id": "419",
+    "kanji": "食洗機き",
+    "reading": "しょくせんき",
+    "meaning": "dishwashing machine"
+  },
+  {
+    "id": "420",
+    "kanji": "現代",
+    "reading": "げんだい",
+    "meaning": "present day; modern times"
   }
 ]
