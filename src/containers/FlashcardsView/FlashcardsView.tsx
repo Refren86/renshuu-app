@@ -5,9 +5,9 @@ import { shuffleArray } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
 import { Flashcard } from "@/components/Flashcard";
+import { SentencesModal } from "@/components/SentencesModal";
 
 import flashcardsData from "@/assets/flashcards.json";
-import { SentencesModal } from "@/components/SentencesModal";
 
 const transitionProps: HTMLMotionProps<"div"> = {
   initial: { x: 600, opacity: 0 },
