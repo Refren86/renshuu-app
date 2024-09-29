@@ -109,17 +109,6 @@ export function useDynamicSizeList(props: UseDynamicSizeListProps) {
       scrollElement.removeEventListener("scroll", throttleHandleScroll);
   }, [getScrollElement]);
 
-  // cleanup when rowsCount changes (e.g. after search)
-  useEffect(() => {
-    setRowSizeCache({});
-    setScrollTop(0);
-
-    const scrollEl = getScrollElement();
-    if (scrollEl) {
-      scrollEl.scrollTo({ top: 0 });
-    }
-  }, [rowsCount, getScrollElement, getRowKey]);
-
   // detects when scrolling has stopped (after a delay)
   useEffect(() => {
     const scrollElement = getScrollElement();
@@ -156,7 +145,9 @@ export function useDynamicSizeList(props: UseDynamicSizeListProps) {
   const { virtualRows, rowStartIndex, rowEndIndex, totalHeight, allRows } =
     useMemo(() => {
       const getRowHeight = (index: number) => {
-        if (rowHeight) return rowHeight(index);
+        if (rowHeight) {
+          return rowHeight(index);
+        }
 
         const key = getRowKey(index);
         if (isNumber(rowSizeCache[key])) {
@@ -201,10 +192,10 @@ export function useDynamicSizeList(props: UseDynamicSizeListProps) {
       const virtualRows = allRows.slice(rowStartIndex, rowEndIndex + 1);
 
       return {
-        virtualRows,
+        virtualRows: virtualRows,
         rowStartIndex,
         rowEndIndex,
-        allRows,
+        allRows: allRows,
         totalHeight,
       };
     }, [
@@ -249,7 +240,7 @@ export function useDynamicSizeList(props: UseDynamicSizeListProps) {
 
       if (Number.isNaN(rowIndex)) {
         console.error(
-          "dynamic elements must have a valid `data-row-index` attribute"
+          "Dynamic elements must have a valid `data-row-index` attribute"
         );
         return;
       }
@@ -308,6 +299,16 @@ export function useDynamicSizeList(props: UseDynamicSizeListProps) {
     [rowsResizeObserver]
   );
 
+  const resetList = useCallback(() => {
+    setRowSizeCache({});
+    setScrollTop(0);
+
+    const scrollEl = getScrollElement();
+    if (scrollEl) {
+      scrollEl.scrollTo({ top: 0 });
+    }
+  }, [getScrollElement]);
+
   return {
     virtualRows,
     totalHeight,
@@ -316,5 +317,6 @@ export function useDynamicSizeList(props: UseDynamicSizeListProps) {
     isScrolling,
     allRows,
     measureRow,
+    resetList
   };
 }

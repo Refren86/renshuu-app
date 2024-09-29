@@ -1,8 +1,10 @@
 import { useEffect, useState, useCallback } from "react";
 import { motion, AnimatePresence, HTMLMotionProps } from "framer-motion";
 
+import { TFlashcard } from "@/types";
 import { shuffleArray } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
+import { StoreName, addWord } from "@/lib/db";
 import { Button } from "@/components/ui/button";
 import { Flashcard } from "@/components/Flashcard";
 import { SentencesModal } from "@/components/SentencesModal";
@@ -24,39 +26,48 @@ function FlashcardsView() {
   const [isAnimating, setIsAnimating] = useState(false);
   const [showExamplesModal, setShowExamplesModal] = useState(false);
 
+  const currentFlashcard = flashcardsData[shuffledIndices[currentIndex]];
+
   useEffect(() => {
     setShuffledIndices(shuffleArray([...Array(flashcardsData.length).keys()]));
   }, []);
 
-  const handleClick = useCallback(() => {
-    if (isAnimating) return;
+  const handleClick = useCallback(
+    async (storeName: StoreName, word: TFlashcard) => {
+      if (isAnimating) return;
 
-    setIsAnimating(true);
-    setCurrentIndex((prevIndex) => {
-      if (prevIndex + 1 >= shuffledIndices.length) {
-        setShuffledIndices(
-          shuffleArray([...Array(flashcardsData.length).keys()])
-        );
-        return 0;
+      setCurrentIndex((prevIndex) => {
+        if (prevIndex + 1 >= shuffledIndices.length) {
+          setShuffledIndices(
+            shuffleArray([...Array(flashcardsData.length).keys()])
+          );
+          return 0;
+        }
+        return prevIndex + 1;
+      });
+
+      try {
+        setIsAnimating(true);
+        await addWord(storeName, word);
+      } catch (error) {
+        console.error("Failed to add word:", error);
       }
-      return prevIndex + 1;
-    });
-  }, [isAnimating, shuffledIndices.length]);
+    },
+    [isAnimating, shuffledIndices.length, addWord]
+  );
 
-  useEffect(() => {
-    function handleKeyDown(event: KeyboardEvent) {
-      if (event.code === "Space") {
-        handleClick();
-      }
-    }
+  // useEffect(() => {
+  //   function handleKeyDown(event: KeyboardEvent) {
+  //     if (event.code === "Space") {
+  //       handleClick();
+  //     }
+  //   }
 
-    document.addEventListener("keydown", handleKeyDown);
-    return () => {
-      document.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [handleClick]);
-
-  const currentFlashcard = flashcardsData[shuffledIndices[currentIndex]];
+  //   document.addEventListener("keydown", handleKeyDown);
+  //   return () => {
+  //     document.removeEventListener("keydown", handleKeyDown);
+  //   };
+  // }, [handleClick]);
 
   async function handleCopyWord(word: string) {
     try {
@@ -98,13 +109,22 @@ function FlashcardsView() {
         </div>
 
         <div className="flex gap-x-4 mt-12">
-          <Button onClick={handleClick} variant="destructive">
+          <Button
+            onClick={() => handleClick("UnknownWords", currentFlashcard)}
+            variant="destructive"
+          >
             わからない
           </Button>
-          <Button onClick={handleClick} variant="outline">
+          <Button
+            onClick={() => handleClick("FamiliarWords", currentFlashcard)}
+            variant="outline"
+          >
             まあまあ
           </Button>
-          <Button onClick={handleClick} variant="default">
+          <Button
+            onClick={() => handleClick("KnownWords", currentFlashcard)}
+            variant="default"
+          >
             知っている
           </Button>
         </div>
@@ -113,7 +133,7 @@ function FlashcardsView() {
           <Button onClick={toggleExamplesModal}>Show examples</Button>
         </div>
       </div>
-      
+
       <SentencesModal
         isOpen={showExamplesModal}
         currentFlashcard={currentFlashcard}

@@ -35,15 +35,25 @@ export const HomeView = () => {
     );
   }, [searchQuery]);
 
-  const { virtualRows, totalHeight, measureRow } = useDynamicSizeList({
-    estimateRowHeight: useCallback(() => 60, []),
-    rowsCount: filteredData.length,
-    getScrollElement: useCallback(() => scrollElementRef.current, []),
-    getRowKey: useCallback((index) => filteredData[index].id, [filteredData]),
-  });
+  const { virtualRows, totalHeight, measureRow, resetList } =
+    useDynamicSizeList({
+      estimateRowHeight: useCallback(() => 60, []),
+      rowsCount: filteredData.length,
+      getScrollElement: useCallback(() => scrollElementRef.current, []),
+      getRowKey: useCallback(
+        (index) => filteredData[index]?.id,
+        [filteredData]
+      ),
+    });
 
   const handleInputChange = debounce((e: ChangeEvent<HTMLInputElement>) => {
-    setSearchQuery(e.target.value);
+    const newValue = e.target.value.trim();
+
+    if (newValue !== searchQuery) {
+      resetList();
+    }
+
+    setSearchQuery(newValue);
   }, 500);
 
   return (

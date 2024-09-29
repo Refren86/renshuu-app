@@ -52,8 +52,6 @@ export const SentencesModal = ({
     }
   }
 
-  console.log({ sentences });
-
   return (
     <Dialog open={isOpen} onOpenChange={onToggle}>
       <DialogContent className="max-h-[1000px] overflow-y-auto max-w-4xl">
