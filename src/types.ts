@@ -3,4 +3,5 @@ export type TFlashcard = {
   kanji: string | null;
   reading: string;
   meaning: string | null;
+  column?: string;
 };

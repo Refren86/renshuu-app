@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
 
 import { TFlashcard } from "@/types";
-import { StoreName, addWord, getAllWords } from "@/lib/db";
+import { getAllWords } from "@/lib/db";
+import { Column } from "@/components/dnd/Column";
+import { BurnBarrel } from "@/components/dnd/BurnBarrel";
+import { Wrapper } from "@/components/Wrapper";
 
-type DraggableCardData = TFlashcard & { type: StoreName };
+// await addWord(storeType, word);
 
 export const ReviewedWordsView = () => {
-  const [unknownWords, setUnknownWords] = useState<TFlashcard[]>([]);
-  const [familiarWords, setFamiliarWords] = useState<TFlashcard[]>([]);
-  const [knownWords, setKnownWords] = useState<TFlashcard[]>([]);
+  const [allWords, setAllWords] = useState<TFlashcard[]>([]);
 
   useEffect(() => {
     loadAllWords();
@@ -21,62 +22,45 @@ export const ReviewedWordsView = () => {
         getAllWords("FamiliarWords"),
         getAllWords("UnknownWords"),
       ]);
-      setKnownWords(known);
-      setFamiliarWords(familiar);
-      setUnknownWords(unknown);
+
+      const columns = ["unknown", "familiar", "known"];
+      const allWords = [...known, ...familiar, ...unknown].map((word) => ({
+        ...word,
+        column: columns[Math.floor(Math.random() * 3)],
+      }));
+
+      setAllWords(allWords);
     } catch (error) {
       console.error("Failed to load words:", error);
     }
   }
 
-  function handleOnDrag(e: React.DragEvent, cardData: DraggableCardData) {
-    e.dataTransfer.setData("cardData", JSON.stringify(cardData));
-  }
-
-  async function handleOnDrop(e: React.DragEvent) {
-    try {
-      const cardData = e.dataTransfer.getData("cardData");
-      const parsedCardData = JSON.parse(cardData) as DraggableCardData;
-
-      const { type: storeType, ...word } = parsedCardData;
-      await addWord(storeType, word);
-    } catch (error) {
-      console.log('Failed to add word', error);
-    }
-  }
-
-  function handleDragOver(e: React.DragEvent) {
-    e.preventDefault();
-  }
-
-  console.log({ knownWords, familiarWords, unknownWords });
-
   return (
-    <div className="grid grid-cols-3 gap-x-6">
-      <div className="rounded-lg border border-primary border-dashed">
-        <h2>知らない単語</h2>
-
-        <div className="space-y-4">
-          {unknownWords.map((word) => (
-            <div
-              key={word.id}
-              className="border flex justify-center items-center border-gray-700 rounded-md bg-gray-500 text-white"
-              draggable
-            >
-              <p>
-                {word?.kanji} ({word.reading})
-              </p>
-              <p>{word.meaning}</p>
-            </div>
-          ))}
-        </div>
+    <Wrapper>
+      <div className="py-12 min-h-[calc(100dvh-49px)] grid grid-cols-4 gap-x-6">
+        <Column
+          title="知らない単語"
+          cards={allWords}
+          column="unknown"
+          headingColor="text-neutral-500"
+          setCards={setAllWords}
+        />
+        <Column
+          title="五分五分単語"
+          cards={allWords}
+          column="familiar"
+          headingColor="text-blue-200"
+          setCards={setAllWords}
+        />
+        <Column
+          title="知っている単語"
+          cards={allWords}
+          column="known"
+          headingColor="text-emerald-200"
+          setCards={setAllWords}
+        />
+        <BurnBarrel setCards={setAllWords} />
       </div>
-
-      <div>
-        <h2>五分五分単語</h2>
-      </div>
-
-      <div>知っている単語</div>
-    </div>
+    </Wrapper>
   );
 };
