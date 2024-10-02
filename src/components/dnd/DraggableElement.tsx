@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 
-// import { StoreName } from "@/lib/db";
 import { TFlashcard } from "@/types";
 import { DropIndicator } from "./DropIndicator";
 
@@ -13,17 +12,17 @@ export const DraggableElement = ({
   word,
   onDragStart,
 }: DraggableElementProps) => {
-  const { id, column } = word;
+  const { id, status } = word;
 
   return (
     <>
-      <DropIndicator beforeId={id} column={column} />
+      <DropIndicator beforeId={id} column={status} />
       <motion.div
         layout
         layoutId={id}
         draggable
         onDragStart={(e) => onDragStart(e as unknown as React.DragEvent, word)}
-        className="cursor-grab rounded border border-neutral-700 bg-neutral-800 p-3 active:cursor-grabbing"
+        className="cursor-move rounded border border-neutral-700 bg-neutral-800 p-3 active:cursor-grabbing"
       >
         <p className="text-sm text-neutral-100">
           {word?.kanji} ({word.reading}) {word.meaning}

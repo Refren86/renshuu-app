@@ -9,6 +9,12 @@ export function isNumber(value: unknown): value is number {
   return typeof value === "number";
 }
 
+export function generateUniqueId() {
+  const timestamp = Date.now().toString(36);
+  const randomStr = Math.random().toString(36).substring(2, 7);
+  return `${timestamp}-${randomStr}`;
+}
+
 export function shuffleArray<T>(array: T[]): T[] {
   const newArray = [...array];
   for (let i = newArray.length - 1; i > 0; i--) {

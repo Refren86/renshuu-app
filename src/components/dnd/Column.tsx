@@ -1,9 +1,10 @@
 import { useState } from "react";
 
-import { TFlashcard } from "@/types";
+import { FlashcardStatus, TFlashcard } from "@/types";
 import { AddCard } from "./AddCard";
 import { DropIndicator } from "./DropIndicator";
 import { DraggableElement } from "./DraggableElement";
+import { updateWord } from "@/lib/db";
 
 type TSetCards = React.Dispatch<React.SetStateAction<TFlashcard[]>>;
 
@@ -11,7 +12,7 @@ type ColumnProps = {
   title: string;
   headingColor: string;
   cards: TFlashcard[];
-  column: string;
+  column: FlashcardStatus;
   setCards: TSetCards;
 };
 
@@ -31,6 +32,8 @@ export const Column = ({
   const handleDragEnd = (e: React.DragEvent) => {
     const cardId = e.dataTransfer.getData("cardId");
 
+    console.log({ cardId, column });
+
     setActive(false);
     clearHighlights();
 
@@ -46,7 +49,7 @@ export const Column = ({
 
       if (!cardToTransfer) return;
 
-      cardToTransfer = { ...cardToTransfer, column };
+      cardToTransfer = { ...cardToTransfer, status: column };
 
       copy = copy.filter((c) => c.id !== cardId);
 
@@ -61,6 +64,7 @@ export const Column = ({
         copy.splice(insertAtIndex, 0, cardToTransfer);
       }
 
+      updateWord(cardToTransfer);
       setCards(copy);
     }
   };
@@ -123,7 +127,7 @@ export const Column = ({
     setActive(false);
   };
 
-  const filteredCards = cards.filter((c) => c.column === column);
+  const filteredCards = cards.filter((card) => card.status === column);
 
   return (
     <div className="w-56 shrink-0">
@@ -141,6 +145,7 @@ export const Column = ({
           active ? "bg-neutral-800/50" : "bg-neutral-800/0"
         }`}
       >
+        <AddCard column={column} setCards={setCards} />
         {filteredCards.map((card) => {
           return (
             <DraggableElement
@@ -150,8 +155,7 @@ export const Column = ({
             />
           );
         })}
-        <DropIndicator beforeId={'-1'} column={column} />
-        <AddCard column={column} setCards={setCards} />
+        <DropIndicator beforeId="-1" column={column} />
       </div>
     </div>
   );

@@ -1,10 +1,10 @@
 import { useEffect, useState, useCallback } from "react";
 import { motion, AnimatePresence, HTMLMotionProps } from "framer-motion";
 
-import { TFlashcard } from "@/types";
+import { FlashcardStatus, TFlashcard } from "@/types";
 import { shuffleArray } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
-import { StoreName, addWord } from "@/lib/db";
+import { addWord } from "@/lib/db";
 import { Button } from "@/components/ui/button";
 import { Flashcard } from "@/components/Flashcard";
 import { SentencesModal } from "@/components/SentencesModal";
@@ -26,14 +26,14 @@ function FlashcardsView() {
   const [isAnimating, setIsAnimating] = useState(false);
   const [showExamplesModal, setShowExamplesModal] = useState(false);
 
-  const currentFlashcard = flashcardsData[shuffledIndices[currentIndex]];
+  const currentFlashcard = flashcardsData[shuffledIndices[currentIndex]] as TFlashcard;
 
   useEffect(() => {
     setShuffledIndices(shuffleArray([...Array(flashcardsData.length).keys()]));
   }, []);
 
   const handleClick = useCallback(
-    async (storeName: StoreName, word: TFlashcard) => {
+    async (word: TFlashcard, newStatus: FlashcardStatus) => {
       if (isAnimating) return;
 
       setCurrentIndex((prevIndex) => {
@@ -48,7 +48,7 @@ function FlashcardsView() {
 
       try {
         setIsAnimating(true);
-        await addWord(storeName, word);
+        await addWord({ ...word, status: newStatus });
       } catch (error) {
         console.error("Failed to add word:", error);
       }
@@ -110,19 +110,19 @@ function FlashcardsView() {
 
         <div className="flex gap-x-4 mt-12">
           <Button
-            onClick={() => handleClick("UnknownWords", currentFlashcard)}
+            onClick={() => handleClick(currentFlashcard, "unrecognized")}
             variant="destructive"
           >
             わからない
           </Button>
           <Button
-            onClick={() => handleClick("FamiliarWords", currentFlashcard)}
+            onClick={() => handleClick(currentFlashcard, "familiar")}
             variant="outline"
           >
             まあまあ
           </Button>
           <Button
-            onClick={() => handleClick("KnownWords", currentFlashcard)}
+            onClick={() => handleClick(currentFlashcard, "known")}
             variant="default"
           >
             知っている
@@ -144,3 +144,9 @@ function FlashcardsView() {
 }
 
 export default FlashcardsView;
+
+/**
+ * Todo: 
+ * 1) Make sure that duplicate words are not added into indexed db, but rather their status changes
+ * 2) Implement algorithm, which will show the unset, unrecognized and familiar words with high chance and known words with lower chance
+ */

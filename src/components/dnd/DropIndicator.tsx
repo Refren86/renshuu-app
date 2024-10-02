@@ -1,6 +1,8 @@
+import { FlashcardStatus } from "@/types";
+
 type DropIndicatorProps = {
   beforeId: string;
-  column?: string;
+  column: FlashcardStatus;
 };
 
 export const DropIndicator = ({ beforeId, column }: DropIndicatorProps) => {

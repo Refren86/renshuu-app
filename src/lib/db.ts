@@ -1,11 +1,8 @@
 import { TFlashcard } from "@/types";
 
-// Define the store names
-export type StoreName = "KnownWords" | "FamiliarWords" | "UnknownWords";
-
 const dbName = "VocabularyDB";
 const dbVersion = 1;
-const storeNames: StoreName[] = ["KnownWords", "FamiliarWords", "UnknownWords"];
+const storeName = "Words";
 
 const openDB = (): Promise<IDBDatabase> => {
   return new Promise((resolve, reject) => {
@@ -18,72 +15,41 @@ const openDB = (): Promise<IDBDatabase> => {
     request.onupgradeneeded = (event: IDBVersionChangeEvent) => {
       const db: IDBDatabase = (event.target as IDBOpenDBRequest).result;
 
-      storeNames.forEach((storeName) => {
-        if (!db.objectStoreNames.contains(storeName)) {
-          db.createObjectStore(storeName, { keyPath: "id" });
-        }
-      });
+      if (!db.objectStoreNames.contains(storeName)) {
+        db.createObjectStore(storeName, { keyPath: "id" });
+      }
     };
   });
 };
 
-const findWordById = async (
-  id: string
-): Promise<{ word: TFlashcard; storeName: StoreName } | null> => {
-  for (const storeName of storeNames) {
-    const word = await getWord(storeName, id);
-    if (word) {
-      return { word, storeName };
-    }
-  }
+const findWordById = async (id: string): Promise<TFlashcard | null> => {
+  const db = await openDB();
+  return new Promise((resolve, reject) => {
+    const transaction = db.transaction(storeName, "readonly");
+    const store = transaction.objectStore(storeName);
+    const request = store.get(id);
 
-  return null;
+    request.onerror = () => reject("Error getting word");
+    request.onsuccess = () => resolve(request.result || null);
+  });
 };
 
-const addWord = async (
-  storeName: StoreName,
-  word: TFlashcard
-): Promise<IDBValidKey> => {
+const addWord = async (word: TFlashcard): Promise<IDBValidKey> => {
   const db = await openDB();
-
-  // Check if a word with the same ID exists in any store
+  // Check if a word with the same ID exists
   const existingWord = await findWordById(word.id);
 
-  if (existingWord) {
-    // If the word exists, update it and move it to the new store if necessary
-    const updatedWord = { ...existingWord.word, ...word };
+  return new Promise((resolve, reject) => {
+    const transaction = db.transaction(storeName, "readwrite");
+    const store = transaction.objectStore(storeName);
+    const request = existingWord ? store.put(word) : store.add(word);
 
-    if (existingWord.storeName !== storeName) {
-      // Delete from old store
-      await deleteWord(existingWord.storeName, existingWord.word.id);
-    }
-
-    // Add/update in new store
-    return new Promise((resolve, reject) => {
-      const transaction = db.transaction(storeName, "readwrite");
-      const store = transaction.objectStore(storeName);
-      const request = store.put(updatedWord);
-
-      request.onerror = () => reject("Error updating word");
-      request.onsuccess = () => resolve(request.result);
-    });
-  } else {
-    // If the word doesn't exist, add it to the new store
-    return new Promise((resolve, reject) => {
-      const transaction = db.transaction(storeName, "readwrite");
-      const store = transaction.objectStore(storeName);
-      const request = store.add(word);
-
-      request.onerror = () => reject("Error adding word");
-      request.onsuccess = () => resolve(request.result);
-    });
-  }
+    request.onerror = () => reject("Error adding/updating word");
+    request.onsuccess = () => resolve(request.result);
+  });
 };
 
-const getWord = async (
-  storeName: StoreName,
-  id: string
-): Promise<TFlashcard | undefined> => {
+const getWord = async (id: string): Promise<TFlashcard | undefined> => {
   const db = await openDB();
   return new Promise((resolve, reject) => {
     const transaction = db.transaction(storeName, "readonly");
@@ -95,10 +61,7 @@ const getWord = async (
   });
 };
 
-const updateWord = async (
-  storeName: StoreName,
-  word: TFlashcard
-): Promise<IDBValidKey> => {
+const updateWord = async (word: TFlashcard): Promise<IDBValidKey> => {
   const db = await openDB();
   return new Promise((resolve, reject) => {
     const transaction = db.transaction(storeName, "readwrite");
@@ -110,8 +73,7 @@ const updateWord = async (
   });
 };
 
-// Delete (Remove a word by id)
-const deleteWord = async (storeName: StoreName, id: string): Promise<void> => {
+const deleteWord = async (id: string): Promise<void> => {
   const db = await openDB();
   return new Promise((resolve, reject) => {
     const transaction = db.transaction(storeName, "readwrite");
@@ -123,8 +85,7 @@ const deleteWord = async (storeName: StoreName, id: string): Promise<void> => {
   });
 };
 
-// Get all words from a store
-const getAllWords = async (storeName: StoreName): Promise<TFlashcard[]> => {
+const getAllWords = async (): Promise<TFlashcard[]> => {
   const db = await openDB();
   return new Promise((resolve, reject) => {
     const transaction = db.transaction(storeName, "readonly");

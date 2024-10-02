@@ -3,2766 +3,3549 @@
     "id": "1",
     "kanji": "定期的",
     "reading": "ていきてき",
-    "meaning": "regular (na-adj)"
+    "meaning": "regular (na-adj)",
+    "status": "unset"
   },
   {
     "id": "2",
     "kanji": "脳",
     "reading": "のう",
-    "meaning": "brain"
+    "meaning": "brain",
+    "status": "unset"
   },
   {
     "id": "3",
     "kanji": "増やす",
     "reading": "ふやす",
-    "meaning": "to increase"
+    "meaning": "to increase",
+    "status": "unset"
   },
   {
     "id": "4",
     "kanji": "減り",
     "reading": "へり",
-    "meaning": "decrease; reduction"
+    "meaning": "decrease; reduction",
+    "status": "unset"
   },
   {
     "id": "5",
     "kanji": "自然",
     "reading": "しぜん",
-    "meaning": "nature; natural (na-adj)"
+    "meaning": "nature; natural (na-adj)",
+    "status": "unset"
   },
   {
     "id": "6",
     "kanji": "虫歯",
     "reading": "むしば",
-    "meaning": "cavity (caries)"
+    "meaning": "cavity (caries)",
+    "status": "unset"
   },
   {
     "id": "7",
     "kanji": "変化",
     "reading": "へんか",
-    "meaning": "change; transformation"
+    "meaning": "change; transformation",
+    "status": "unset"
   },
   {
     "id": "8",
     "kanji": "転ぶ",
     "reading": "ころぶ",
-    "meaning": "to fall down; to fall over"
+    "meaning": "to fall down; to fall over",
+    "status": "unset"
   },
   {
     "id": "9",
     "kanji": "落ちる",
     "reading": "おちる",
-    "meaning": "to fall"
+    "meaning": "to fall",
+    "status": "unset"
   },
   {
     "id": "10",
     "kanji": "落とす",
     "reading": "おとす",
-    "meaning": "to drop"
+    "meaning": "to drop",
+    "status": "unset"
   },
   {
     "id": "11",
     "kanji": "訪れる",
     "reading": "おとずれる",
-    "meaning": "to visit"
+    "meaning": "to visit",
+    "status": "unset"
   },
   {
     "id": "12",
     "kanji": "訪ねる",
     "reading": "たずねる",
-    "meaning": "to visit"
+    "meaning": "to visit",
+    "status": "unset"
   },
   {
     "id": "13",
     "kanji": "性別",
     "reading": "せいべつ",
-    "meaning": "gender"
+    "meaning": "gender",
+    "status": "unset"
   },
   {
     "id": "14",
     "kanji": "向く",
     "reading": "むく",
-    "meaning": "to turn toward; to look (up, down, etc.)"
+    "meaning": "to turn toward; to look (up, down, etc.)",
+    "status": "unset"
   },
   {
     "id": "15",
     "kanji": "家賃",
     "reading": "やちん",
-    "meaning": "rent"
+    "meaning": "rent",
+    "status": "unset"
   },
   {
     "id": "16",
     "kanji": "怠け者",
     "reading": "なまけもの",
-    "meaning": "lazy person"
+    "meaning": "lazy person",
+    "status": "unset"
   },
   {
     "id": "17",
     "kanji": "情勢",
     "reading": "じょうせい",
-    "meaning": "state of affairs; situation (more global)"
+    "meaning": "state of affairs; situation (more global)",
+    "status": "unset"
   },
   {
     "id": "18",
     "kanji": "状況",
     "reading": "じょうきょう",
-    "meaning": "state of affairs; situation"
+    "meaning": "state of affairs; situation",
+    "status": "unset"
   },
   {
     "id": "19",
     "kanji": null,
     "reading": "ほとんど",
-    "meaning": "almost; most (of); almost all (of)​"
+    "meaning": "almost; most (of); almost all (of)​",
+    "status": "unset"
   },
   {
     "id": "20",
     "kanji": "個人的",
     "reading": "こじんてき",
-    "meaning": "personal; individual; private (na-adj)"
+    "meaning": "personal; individual; private (na-adj)",
+    "status": "unset"
   },
   {
     "id": "21",
     "kanji": "公正",
     "reading": "こうせい",
-    "meaning": "justice; fairness (na-adj)"
+    "meaning": "justice; fairness (na-adj)",
+    "status": "unset"
   },
   {
     "id": "22",
     "kanji": "大家さん",
     "reading": "おおやさん",
-    "meaning": "landlord; landlady​"
+    "meaning": "landlord; landlady​",
+    "status": "unset"
   },
   {
     "id": "23",
     "kanji": null,
     "reading": "どういたしまして",
-    "meaning": "you're welcome; don't mention it"
+    "meaning": "you're welcome; don't mention it",
+    "status": "unset"
   },
   {
     "id": "24",
     "kanji": "お返し",
     "reading": "おかえし",
-    "meaning": "return gift; return favour; change (in a cash transaction)"
+    "meaning": "return gift; return favour; change (in a cash transaction)",
+    "status": "unset"
   },
   {
     "id": "25",
     "kanji": null,
     "reading": "さすが",
-    "meaning": "as one would expect; just as you'd expect (from); just like (someone)"
+    "meaning": "as one would expect; just as you'd expect (from); just like (someone)",
+    "status": "unset"
   },
   {
     "id": "26",
     "kanji": "解ける",
     "reading": "とける",
-    "meaning": "to be solved; to be resolved (ru-verb)"
+    "meaning": "to be solved; to be resolved (ru-verb)",
+    "status": "unset"
   },
   {
     "id": "27",
     "kanji": "履歴書",
     "reading": "りれきしょ",
-    "meaning": "curriculum vitae"
+    "meaning": "curriculum vitae",
+    "status": "unset"
   },
   {
     "id": "28",
     "kanji": "身長",
     "reading": "しんちょう",
-    "meaning": "height (of body)"
+    "meaning": "height (of body)",
+    "status": "unset"
   },
   {
     "id": "29",
     "kanji": "住所",
     "reading": "じゅうしょ",
-    "meaning": "address"
+    "meaning": "address",
+    "status": "unset"
   },
   {
     "id": "30",
     "kanji": "農場",
     "reading": "のうじょう",
-    "meaning": "farm"
+    "meaning": "farm",
+    "status": "unset"
   },
   {
     "id": "31",
     "kanji": "似合う",
     "reading": "にあう",
-    "meaning": "to suit; to match"
+    "meaning": "to suit; to match",
+    "status": "unset"
   },
   {
     "id": "32",
     "kanji": "間に合う",
     "reading": "まにあう",
-    "meaning": "to be in time (for)"
+    "meaning": "to be in time (for)",
+    "status": "unset"
   },
   {
     "id": "33",
     "kanji": "付き合う",
     "reading": "つきあう",
-    "meaning": "1) to date (someone) (person と); 2) to keep company (purpose に)"
+    "meaning": "1) to date (someone) (person と); 2) to keep company (purpose に)",
+    "status": "unset"
   },
   {
     "id": "34",
     "kanji": "丁度",
     "reading": "ちょうど",
-    "meaning": "exactly; precisely"
+    "meaning": "exactly; precisely",
+    "status": "unset"
   },
   {
     "id": "35",
     "kanji": "経験",
     "reading": "けいけん",
-    "meaning": "experience"
+    "meaning": "experience",
+    "status": "unset"
   },
   {
     "id": "36",
     "kanji": "給料",
     "reading": "きゅうりょう",
-    "meaning": "salary"
+    "meaning": "salary",
+    "status": "unset"
   },
   {
     "id": "37",
     "kanji": "計画",
     "reading": "けいかく",
-    "meaning": "plan"
+    "meaning": "plan",
+    "status": "unset"
   },
   {
     "id": "38",
     "kanji": "変更する",
     "reading": "へんこうする",
-    "meaning": "to change"
+    "meaning": "to change",
+    "status": "unset"
   },
   {
     "id": "39",
     "kanji": "参加者",
     "reading": "さんかしゃ",
-    "meaning": "participant"
+    "meaning": "participant",
+    "status": "unset"
   },
   {
     "id": "40",
     "kanji": "数",
     "reading": "かず",
-    "meaning": "number; amount"
+    "meaning": "number; amount",
+    "status": "unset"
   },
   {
     "id": "41",
     "kanji": "選択",
     "reading": "せんたく",
-    "meaning": "choice; option"
+    "meaning": "choice; option",
+    "status": "unset"
   },
   {
     "id": "42",
     "kanji": "選択する",
     "reading": "せんたくする",
-    "meaning": "to choose; to select"
+    "meaning": "to choose; to select",
+    "status": "unset"
   },
   {
     "id": "43",
     "kanji": "科目",
     "reading": "かもく",
-    "meaning": "(school) subject"
+    "meaning": "(school) subject",
+    "status": "unset"
   },
   {
     "id": "44",
     "kanji": "異なる",
     "reading": "ことなる",
-    "meaning": "to differ; to be different"
+    "meaning": "to differ; to be different",
+    "status": "unset"
   },
   {
     "id": "45",
     "kanji": "期間",
     "reading": "きかん",
-    "meaning": "period; interval"
+    "meaning": "period; interval",
+    "status": "unset"
   },
   {
     "id": "46",
     "kanji": "受け取る",
     "reading": "うけとる",
-    "meaning": "to receive (al. もらう)"
+    "meaning": "to receive (al. もらう)",
+    "status": "unset"
   },
   {
     "id": "47",
     "kanji": "家具",
     "reading": "かぐ",
-    "meaning": "furniture"
+    "meaning": "furniture",
+    "status": "unset"
   },
   {
     "id": "48",
     "kanji": "習慣",
     "reading": "しゅうかん",
-    "meaning": "habit; (social) custom"
+    "meaning": "habit; (social) custom",
+    "status": "unset"
   },
   {
     "id": "49",
     "kanji": "伝統",
     "reading": "でんとう",
-    "meaning": "tradition; convention"
+    "meaning": "tradition; convention",
+    "status": "unset"
   },
   {
     "id": "50",
     "kanji": "税金",
     "reading": "ぜいきん",
-    "meaning": "tax"
+    "meaning": "tax",
+    "status": "unset"
   },
   {
     "id": "51",
     "kanji": "発表",
     "reading": "はっぴょう",
-    "meaning": "announcement; presentation"
+    "meaning": "announcement; presentation",
+    "status": "unset"
   },
   {
     "id": "52",
     "kanji": "保険",
     "reading": "ほけん",
-    "meaning": "insurance"
+    "meaning": "insurance",
+    "status": "unset"
   },
   {
     "id": "53",
     "kanji": "予定",
     "reading": "よてい",
-    "meaning": "plans"
+    "meaning": "plans",
+    "status": "unset"
   },
   {
     "id": "54",
     "kanji": "旅館",
     "reading": "りょかん",
-    "meaning": "traditional Japanese inn"
+    "meaning": "traditional Japanese inn",
+    "status": "unset"
   },
   {
     "id": "55",
     "kanji": "割り引き券",
     "reading": "わりびきけん",
-    "meaning": "discount coupon"
+    "meaning": "discount coupon",
+    "status": "unset"
   },
   {
     "id": "56",
     "kanji": "下ろす",
     "reading": "おろす",
-    "meaning": "to withdraw (money)"
+    "meaning": "to withdraw (money)",
+    "status": "unset"
   },
   {
     "id": "57",
     "kanji": "誘う",
     "reading": "さそう",
-    "meaning": "to invite"
+    "meaning": "to invite",
+    "status": "unset"
   },
   {
     "id": "58",
     "kanji": "探す",
     "reading": "さがす",
-    "meaning": "to search for; to look for"
+    "meaning": "to search for; to look for",
+    "status": "unset"
   },
   {
     "id": "59",
     "kanji": "着く",
     "reading": "つく",
-    "meaning": "to arrive at (place に)"
+    "meaning": "to arrive at (place に)",
+    "status": "unset"
   },
   {
     "id": "60",
     "kanji": "調べる",
     "reading": "しらべる",
-    "meaning": "to examine; to look up; to investigate; to check up"
+    "meaning": "to examine; to look up; to investigate; to check up",
+    "status": "unset"
   },
   {
     "id": "61",
     "kanji": "見える",
     "reading": "みえる",
-    "meaning": "to be seen; to be visible"
+    "meaning": "to be seen; to be visible",
+    "status": "unset"
   },
   {
     "id": "62",
     "kanji": "観光",
     "reading": "かんこう",
-    "meaning": "sightseeing; tourism"
+    "meaning": "sightseeing; tourism",
+    "status": "unset"
   },
   {
     "id": "63",
     "kanji": "予約",
     "reading": "よやく",
-    "meaning": "reservation; booking"
+    "meaning": "reservation; booking",
+    "status": "unset"
   },
   {
     "id": "64",
     "kanji": "生き残る",
     "reading": "いきのこる",
-    "meaning": "to survive"
+    "meaning": "to survive",
+    "status": "unset"
   },
   {
     "id": "65",
     "kanji": "自己啓発",
     "reading": "じこけいはつ",
-    "meaning": "self-development"
+    "meaning": "self-development",
+    "status": "unset"
   },
   {
     "id": "66",
     "kanji": "景色",
     "reading": "けしき",
-    "meaning": "scenery"
+    "meaning": "scenery",
+    "status": "unset"
   },
   {
     "id": "67",
     "kanji": "一般的",
     "reading": "いっぱんてき",
-    "meaning": "general; common"
+    "meaning": "general; common",
+    "status": "unset"
   },
   {
     "id": "68",
     "kanji": "一応",
     "reading": "いちおう",
-    "meaning": "more or less; pretty much"
+    "meaning": "more or less; pretty much",
+    "status": "unset"
   },
   {
     "id": "69",
     "kanji": "挨拶",
     "reading": "あいさつ",
-    "meaning": "greeting"
+    "meaning": "greeting",
+    "status": "unset"
   },
   {
     "id": "70",
     "kanji": "種類",
     "reading": "しゅるい",
-    "meaning": "type; variety"
+    "meaning": "type; variety",
+    "status": "unset"
   },
   {
     "id": "71",
     "kanji": "ある程度",
     "reading": "あるていど",
-    "meaning": "to some extent"
+    "meaning": "to some extent",
+    "status": "unset"
   },
   {
     "id": "72",
     "kanji": "庶民",
     "reading": "しょみん",
-    "meaning": "common people"
+    "meaning": "common people",
+    "status": "unset"
   },
   {
     "id": "73",
     "kanji": "裕福",
     "reading": "ゆうふく",
-    "meaning": "wealthy; rich (na-adj)"
+    "meaning": "wealthy; rich (na-adj)",
+    "status": "unset"
   },
   {
     "id": "74",
     "kanji": "家庭",
     "reading": "かてい",
-    "meaning": "family"
+    "meaning": "family",
+    "status": "unset"
   },
   {
     "id": "75",
     "kanji": "一般化する",
     "reading": "いっぱんかする",
-    "meaning": "popularize"
+    "meaning": "popularize",
+    "status": "unset"
   },
   {
     "id": "76",
     "kanji": "成長",
     "reading": "せいちょう",
-    "meaning": "growth; development"
+    "meaning": "growth; development",
+    "status": "unset"
   },
   {
     "id": "77",
     "kanji": "髪を染める",
     "reading": "かみをそめる",
-    "meaning": "to dye hair"
+    "meaning": "to dye hair",
+    "status": "unset"
   },
   {
     "id": "78",
     "kanji": "割と",
     "reading": "わりと",
-    "meaning": "comparatively; relatively"
+    "meaning": "comparatively; relatively",
+    "status": "unset"
   },
   {
     "id": "79",
     "kanji": "一人暮らし",
     "reading": "ひとりぐらし",
-    "meaning": "living alone"
+    "meaning": "living alone",
+    "status": "unset"
   },
   {
     "id": "80",
     "kanji": "大体",
     "reading": "だいたい",
-    "meaning": "generally; mostly"
+    "meaning": "generally; mostly",
+    "status": "unset"
   },
   {
     "id": "81",
     "kanji": "浴槽",
     "reading": "よくそう",
-    "meaning": "bathtub"
+    "meaning": "bathtub",
+    "status": "unset"
   },
   {
     "id": "82",
     "kanji": "湯船",
     "reading": "ゆぶね",
-    "meaning": "bathtub"
+    "meaning": "bathtub",
+    "status": "unset"
   },
   {
     "id": "83",
     "kanji": "残る",
     "reading": "のこる",
-    "meaning": "to remain; to be left"
+    "meaning": "to remain; to be left",
+    "status": "unset"
   },
   {
     "id": "84",
     "kanji": "残す",
     "reading": "のこす",
-    "meaning": "to leave behind (inanimate object)"
+    "meaning": "to leave behind (inanimate object)",
+    "status": "unset"
   },
   {
     "id": "85",
     "kanji": "置き去りにする",
     "reading": "おきざりにする",
-    "meaning": "to leave behind; to abandon (living object)"
+    "meaning": "to leave behind; to abandon (living object)",
+    "status": "unset"
   },
   {
     "id": "86",
     "kanji": "銭湯",
     "reading": "せんとう",
-    "meaning": "public bath"
+    "meaning": "public bath",
+    "status": "unset"
   },
   {
     "id": "87",
     "kanji": null,
     "reading": "かなり",
-    "meaning": "quite; rather; pretty"
+    "meaning": "quite; rather; pretty",
+    "status": "unset"
   },
   {
     "id": "88",
     "kanji": "公共",
     "reading": "こうきょう",
-    "meaning": "public (facilities, service, etc.)"
+    "meaning": "public (facilities, service, etc.)",
+    "status": "unset"
   },
   {
     "id": "89",
     "kanji": "基本的",
     "reading": "きほんてき",
-    "meaning": "fundamental; basic"
+    "meaning": "fundamental; basic",
+    "status": "unset"
   },
   {
     "id": "90",
     "kanji": "裸",
     "reading": "はだか",
-    "meaning": "nakedness; nudity (+で - naked)"
+    "meaning": "nakedness; nudity (+で - naked)",
+    "status": "unset"
   },
   {
     "id": "91",
     "kanji": "当たり前",
     "reading": "あたりまえ",
-    "meaning": "natural; common"
+    "meaning": "of course; natural; common",
+    "status": "unset"
   },
   {
     "id": "92",
     "kanji": "繰り返す",
     "reading": "くりかえす",
-    "meaning": "to repeat; to do over again"
+    "meaning": "to repeat; to do over again",
+    "status": "unset"
   },
   {
     "id": "93",
     "kanji": "水着",
     "reading": "みずぎ",
-    "meaning": "bathing suit; swimsuit"
+    "meaning": "bathing suit; swimsuit",
+    "status": "unset"
   },
   {
     "id": "94",
     "kanji": "結構",
     "reading": "けっこう",
-    "meaning": "rather; quite; fairly; pretty"
+    "meaning": "rather; quite; fairly; pretty",
+    "status": "unset"
   },
   {
     "id": "95",
     "kanji": "抵抗がある",
     "reading": "ていこうがある",
-    "meaning": "not comfortable"
+    "meaning": "not comfortable",
+    "status": "unset"
   },
   {
     "id": "96",
     "kanji": "気になる",
     "reading": "きになる",
-    "meaning": "to worry about; to be concerned about; to care about"
+    "meaning": "to worry about; to care about; to be interested (in)",
+    "status": "unset"
   },
   {
     "id": "97",
-    "kanji": "慣れる",
-    "reading": "なれる",
-    "meaning": "to get used to"
+    "kanji": "気に入る",
+    "reading": "きにいる",
+    "meaning": "to like",
+    "status": "unset"
   },
   {
     "id": "98",
-    "kanji": "保つ",
-    "reading": "たもつ",
-    "meaning": "to keep; to preserve"
+    "kanji": "慣れる",
+    "reading": "なれる",
+    "meaning": "to get used to",
+    "status": "unset"
   },
   {
     "id": "99",
-    "kanji": "語り合う",
-    "reading": "かたりあう",
-    "meaning": "to talk together"
+    "kanji": "保つ",
+    "reading": "たもつ",
+    "meaning": "to keep; to preserve",
+    "status": "unset"
   },
   {
     "id": "100",
-    "kanji": "聞き流す",
-    "reading": "ききながす",
-    "meaning": "to pay no attention to (while listening); to ignore"
+    "kanji": "語り合う",
+    "reading": "かたりあう",
+    "meaning": "to talk together",
+    "status": "unset"
   },
   {
     "id": "101",
-    "kanji": "容姿",
-    "reading": "ようし",
-    "meaning": "(physical) appearance (of a person)"
+    "kanji": "聞き流す",
+    "reading": "ききながす",
+    "meaning": "to pay no attention to (while listening); to ignore",
+    "status": "unset"
   },
   {
     "id": "102",
-    "kanji": "大人しい",
-    "reading": "おとなしい",
-    "meaning": "quiet; obedient; well-behaved;"
+    "kanji": "容姿",
+    "reading": "ようし",
+    "meaning": "(physical) appearance (of a person)",
+    "status": "unset"
   },
   {
     "id": "103",
-    "kanji": null,
-    "reading": "しっかり",
-    "meaning": "properly (ретельно)"
+    "kanji": "大人しい",
+    "reading": "おとなしい",
+    "meaning": "quiet; obedient; well-behaved;",
+    "status": "unset"
   },
   {
     "id": "104",
-    "kanji": "奨学金",
-    "reading": "しょうがくきん",
-    "meaning": "scholarship"
+    "kanji": null,
+    "reading": "しっかり",
+    "meaning": "properly (ретельно)",
+    "status": "unset"
   },
   {
     "id": "105",
-    "kanji": "親戚",
-    "reading": "しんせき",
-    "meaning": "relatives"
+    "kanji": "奨学金",
+    "reading": "しょうがくきん",
+    "meaning": "scholarship",
+    "status": "unset"
   },
   {
     "id": "106",
-    "kanji": "推薦状",
-    "reading": "すいせんじょう",
-    "meaning": "letter of recommendation"
+    "kanji": "親戚",
+    "reading": "しんせき",
+    "meaning": "relatives",
+    "status": "unset"
   },
   {
     "id": "107",
-    "kanji": "目覚まし時計",
-    "reading": "めざましどけい",
-    "meaning": "alarm clock"
+    "kanji": "推薦状",
+    "reading": "すいせんじょう",
+    "meaning": "letter of recommendation",
+    "status": "unset"
   },
   {
     "id": "108",
-    "kanji": "破る",
-    "reading": "やぶる",
-    "meaning": "to tear; to rip"
+    "kanji": "目覚まし時計",
+    "reading": "めざましどけい",
+    "meaning": "alarm clock",
+    "status": "unset"
   },
   {
     "id": "109",
-    "kanji": "鳴る",
-    "reading": "なる",
-    "meaning": "to sound; to ring"
+    "kanji": "破る",
+    "reading": "やぶる",
+    "meaning": "to tear; to rip",
+    "status": "unset"
   },
   {
     "id": "110",
-    "kanji": "昨晩",
-    "reading": "さくばん",
-    "meaning": "last night"
+    "kanji": "鳴る",
+    "reading": "なる",
+    "meaning": "to sound; to ring",
+    "status": "unset"
   },
   {
     "id": "111",
-    "kanji": "途中で",
-    "reading": "とちゅうで",
-    "meaning": "on the way; en route"
+    "kanji": "昨晩",
+    "reading": "さくばん",
+    "meaning": "last night",
+    "status": "unset"
   },
   {
     "id": "112",
-    "kanji": "投げ出す",
-    "reading": "なげだす",
-    "meaning": "to throw out; to resign"
+    "kanji": "途中で",
+    "reading": "とちゅうで",
+    "meaning": "on the way; en route",
+    "status": "unset"
   },
   {
     "id": "113",
-    "kanji": "過ごす",
-    "reading": "すごす",
-    "meaning": "to spend (time)"
+    "kanji": "投げ出す",
+    "reading": "なげだす",
+    "meaning": "to throw out; to resign",
+    "status": "unset"
   },
   {
     "id": "114",
-    "kanji": "乗り過ごす",
-    "reading": "のりすごす",
-    "meaning": "to ride past; to miss one's stop"
+    "kanji": "過ごす",
+    "reading": "すごす",
+    "meaning": "to spend (time)",
+    "status": "unset"
   },
   {
     "id": "115",
-    "kanji": "乗り遅れる",
-    "reading": "のりおくれる",
-    "meaning": "to miss (a train, bus, etc.)"
+    "kanji": "乗り過ごす",
+    "reading": "のりすごす",
+    "meaning": "to ride past; to miss one's stop",
+    "status": "unset"
   },
   {
     "id": "116",
-    "kanji": "確認する",
-    "reading": "かくにんする",
-    "meaning": "to confirm"
+    "kanji": "乗り遅れる",
+    "reading": "のりおくれる",
+    "meaning": "to miss (a train, bus, etc.)",
+    "status": "unset"
   },
   {
     "id": "117",
-    "kanji": "見逃す",
-    "reading": "みのがす",
-    "meaning": "to miss; to overlook"
+    "kanji": "確認する",
+    "reading": "かくにんする",
+    "meaning": "to confirm",
+    "status": "unset"
   },
   {
     "id": "118",
-    "kanji": "道に迷う",
-    "reading": "みちにまよう",
-    "meaning": "to lose one's way; to get lost"
+    "kanji": "見逃す",
+    "reading": "みのがす",
+    "meaning": "to miss; to overlook",
+    "status": "unset"
   },
   {
     "id": "119",
-    "kanji": "目的地",
-    "reading": "もくてきち",
-    "meaning": "destination; goal"
+    "kanji": "道に迷う",
+    "reading": "みちにまよう",
+    "meaning": "to lose one's way; to get lost",
+    "status": "unset"
   },
   {
     "id": "120",
-    "kanji": "壊れる",
-    "reading": "こわれる",
-    "meaning": "to be broken; to break"
+    "kanji": "目的地",
+    "reading": "もくてきち",
+    "meaning": "destination; goal",
+    "status": "unset"
   },
   {
     "id": "121",
-    "kanji": "割る",
-    "reading": "わる",
-    "meaning": "to divide; to break; to crack"
+    "kanji": "壊れる",
+    "reading": "こわれる",
+    "meaning": "to be broken; to break",
+    "status": "unset"
   },
   {
     "id": "122",
-    "kanji": "伝える",
-    "reading": "つたえる",
-    "meaning": "to convey; to report"
+    "kanji": "割る",
+    "reading": "わる",
+    "meaning": "to divide; to break; to crack",
+    "status": "unset"
   },
   {
     "id": "123",
-    "kanji": "起こす",
-    "reading": "おこす",
-    "meaning": "to wake someone up"
+    "kanji": "伝える",
+    "reading": "つたえる",
+    "meaning": "to convey; to report",
+    "status": "unset"
   },
   {
     "id": "124",
-    "kanji": null,
-    "reading": "おごる",
-    "meaning": "to treat (someone) to (something) (person に meal を)"
+    "kanji": "起こす",
+    "reading": "おこす",
+    "meaning": "to wake someone up",
+    "status": "unset"
   },
   {
     "id": "125",
-    "kanji": "落ち込む",
-    "reading": "おちこむ",
-    "meaning": "to be depressed"
+    "kanji": null,
+    "reading": "おごる",
+    "meaning": "to treat (someone) to (something) (person に meal を)",
+    "status": "unset"
   },
   {
     "id": "126",
-    "kanji": "直す",
-    "reading": "なおす",
-    "meaning": "to repair; to fix; to correct"
+    "kanji": "落ち込む",
+    "reading": "おちこむ",
+    "meaning": "to be depressed",
+    "status": "unset"
   },
   {
     "id": "127",
-    "kanji": "治す",
+    "kanji": "直す",
     "reading": "なおす",
-    "meaning": "to cure; to heal"
+    "meaning": "to repair; to fix; to correct",
+    "status": "unset"
   },
   {
     "id": "128",
-    "kanji": "見つかる",
-    "reading": "みつかる",
-    "meaning": "to be found"
+    "kanji": "治す",
+    "reading": "なおす",
+    "meaning": "to cure; to heal",
+    "status": "unset"
   },
   {
     "id": "129",
-    "kanji": "見つける",
-    "reading": "みつける",
-    "meaning": "to find; to spot"
+    "kanji": "見つかる",
+    "reading": "みつかる",
+    "meaning": "to be found",
+    "status": "unset"
   },
   {
     "id": "130",
-    "kanji": "迎えに行く",
-    "reading": "むかえにいく",
-    "meaning": "to go to pick up (place まで/に person を)"
+    "kanji": "見つける",
+    "reading": "みつける",
+    "meaning": "to find; to spot",
+    "status": "unset"
   },
   {
     "id": "131",
-    "kanji": "訳す",
-    "reading": "やくす",
-    "meaning": "to translate"
+    "kanji": "迎えに行く",
+    "reading": "むかえにいく",
+    "meaning": "to go to pick up (place まで/に person を)",
+    "status": "unset"
   },
   {
     "id": "132",
-    "kanji": "規律",
-    "reading": "きりつ",
-    "meaning": "law"
+    "kanji": "訳す",
+    "reading": "やくす",
+    "meaning": "to translate",
+    "status": "unset"
   },
   {
     "id": "133",
-    "kanji": "初心者",
-    "reading": "しょしんしゃ",
-    "meaning": "beginner"
+    "kanji": "規律",
+    "reading": "きりつ",
+    "meaning": "law",
+    "status": "unset"
   },
   {
     "id": "134",
-    "kanji": "振る",
-    "reading": "ふる",
-    "meaning": "to wave; to shake"
+    "kanji": "初心者",
+    "reading": "しょしんしゃ",
+    "meaning": "beginner",
+    "status": "unset"
   },
   {
     "id": "135",
-    "kanji": "放す",
-    "reading": "はなす",
-    "meaning": "to release; to let go; to free"
+    "kanji": "振る",
+    "reading": "ふる",
+    "meaning": "to wave; to shake",
+    "status": "unset"
   },
   {
     "id": "136",
-    "kanji": "秘密",
-    "reading": "ひみつ",
-    "meaning": "secret"
+    "kanji": "放す",
+    "reading": "はなす",
+    "meaning": "to release; to let go; to free",
+    "status": "unset"
   },
   {
     "id": "137",
-    "kanji": "引っ越し",
-    "reading": "ひっこし",
-    "meaning": "moving (dwelling, office, etc.)"
+    "kanji": "秘密",
+    "reading": "ひみつ",
+    "meaning": "secret",
+    "status": "unset"
   },
   {
     "id": "138",
-    "kanji": "悩む",
-    "reading": "なやむ",
-    "meaning": "to be worried; to be troubled"
+    "kanji": "引っ越し",
+    "reading": "ひっこし",
+    "meaning": "moving (dwelling, office, etc.)",
+    "status": "unset"
   },
   {
     "id": "139",
-    "kanji": "注ぐ",
-    "reading": "そそぐ",
-    "meaning": "to pour (place に smth. を)"
+    "kanji": "悩む",
+    "reading": "なやむ",
+    "meaning": "to be worried; to be troubled",
+    "status": "unset"
   },
   {
     "id": "140",
-    "kanji": "現在",
-    "reading": "げんざい",
-    "meaning": "present time"
+    "kanji": "注ぐ",
+    "reading": "そそぐ",
+    "meaning": "to pour (place に smth. を)",
+    "status": "unset"
   },
   {
     "id": "141",
-    "kanji": "過去",
-    "reading": "かこ",
-    "meaning": "the past"
+    "kanji": "現在",
+    "reading": "げんざい",
+    "meaning": "present time",
+    "status": "unset"
   },
   {
     "id": "142",
-    "kanji": "用が入る",
-    "reading": "ようがはいる",
-    "meaning": "have things to do"
+    "kanji": "過去",
+    "reading": "かこ",
+    "meaning": "the past",
+    "status": "unset"
   },
   {
     "id": "143",
-    "kanji": "暫く",
-    "reading": "しばらく",
-    "meaning": "for a moment; for a minute"
+    "kanji": "用が入る",
+    "reading": "ようがはいる",
+    "meaning": "have things to do",
+    "status": "unset"
   },
   {
     "id": "144",
-    "kanji": "偉い",
-    "reading": "えらい",
-    "meaning": "great; excellent"
+    "kanji": "暫く",
+    "reading": "しばらく",
+    "meaning": "for a moment; for a minute",
+    "status": "unset"
   },
   {
     "id": "145",
-    "kanji": "震える",
-    "reading": "ふるえる",
-    "meaning": "to shiver; to shake"
+    "kanji": "偉い",
+    "reading": "えらい",
+    "meaning": "great; excellent",
+    "status": "unset"
   },
   {
     "id": "146",
-    "kanji": "近所",
-    "reading": "きんじょ",
-    "meaning": "neighbourhood"
+    "kanji": "震える",
+    "reading": "ふるえる",
+    "meaning": "to shiver; to shake",
+    "status": "unset"
   },
   {
     "id": "147",
-    "kanji": "粗品",
-    "reading": "そしな",
-    "meaning": "small present"
+    "kanji": "近所",
+    "reading": "きんじょ",
+    "meaning": "neighbourhood",
+    "status": "unset"
   },
   {
     "id": "148",
-    "kanji": "用意",
-    "reading": "ようい",
-    "meaning": "preparation; arrangements"
+    "kanji": "粗品",
+    "reading": "そしな",
+    "meaning": "small present",
+    "status": "unset"
   },
   {
     "id": "149",
-    "kanji": "配る",
-    "reading": "くばる",
-    "meaning": "to distribute; to hand out"
+    "kanji": "用意",
+    "reading": "ようい",
+    "meaning": "preparation; arrangements",
+    "status": "unset"
   },
   {
     "id": "150",
-    "kanji": "片付ける",
-    "reading": "かたづける",
-    "meaning": "to tidy up; to put in order"
+    "kanji": "配る",
+    "reading": "くばる",
+    "meaning": "to distribute; to hand out",
+    "status": "unset"
   },
   {
     "id": "151",
-    "kanji": "嗜好",
-    "reading": "しこう",
-    "meaning": "taste; liking; preference"
+    "kanji": "片付ける",
+    "reading": "かたづける",
+    "meaning": "to tidy up; to put in order",
+    "status": "unset"
   },
   {
     "id": "152",
-    "kanji": "腹減った",
-    "reading": "はらへった",
-    "meaning": "I'm hungry"
+    "kanji": "嗜好",
+    "reading": "しこう",
+    "meaning": "taste; liking; preference",
+    "status": "unset"
   },
   {
     "id": "153",
-    "kanji": "拾う",
-    "reading": "ひろう",
-    "meaning": "to pick up; to gather"
+    "kanji": "腹減った",
+    "reading": "はらへった",
+    "meaning": "I'm hungry",
+    "status": "unset"
   },
   {
     "id": "154",
-    "kanji": "頼む",
-    "reading": "たのむ",
-    "meaning": "to request; to beg; to ask"
+    "kanji": "拾う",
+    "reading": "ひろう",
+    "meaning": "to pick up; to gather",
+    "status": "unset"
   },
   {
     "id": "155",
-    "kanji": null,
-    "reading": "やっぱり",
-    "meaning": "as expected; in any case"
+    "kanji": "頼む",
+    "reading": "たのむ",
+    "meaning": "to request; to beg; to ask",
+    "status": "unset"
   },
   {
     "id": "156",
     "kanji": null,
-    "reading": "もしかして",
-    "meaning": "perhaps; possibly; maybe"
+    "reading": "やっぱり",
+    "meaning": "as expected; in any case",
+    "status": "unset"
   },
   {
     "id": "157",
-    "kanji": "電柱",
-    "reading": "でんちゅう",
-    "meaning": "utility pole"
+    "kanji": null,
+    "reading": "もしかして",
+    "meaning": "perhaps; possibly; maybe",
+    "status": "unset"
   },
   {
     "id": "158",
-    "kanji": null,
-    "reading": "どういう風に",
-    "meaning": "how; in what way"
+    "kanji": "電柱",
+    "reading": "でんちゅう",
+    "meaning": "utility pole",
+    "status": "unset"
   },
   {
     "id": "159",
-    "kanji": "万全の",
-    "reading": "ばんぜんの",
-    "meaning": "flawless; thorough"
+    "kanji": null,
+    "reading": "どういう風に",
+    "meaning": "how; in what way",
+    "status": "unset"
   },
   {
     "id": "160",
-    "kanji": "休日",
-    "reading": "きゅうじつ",
-    "meaning": "holiday; day off"
+    "kanji": "万全の",
+    "reading": "ばんぜんの",
+    "meaning": "flawless; thorough",
+    "status": "unset"
   },
   {
     "id": "161",
-    "kanji": "準備",
-    "reading": "じゅんび",
-    "meaning": "preparation (more thorough - for something big and/or important)"
+    "kanji": "休日",
+    "reading": "きゅうじつ",
+    "meaning": "holiday; day off",
+    "status": "unset"
   },
   {
     "id": "162",
-    "kanji": "用意",
-    "reading": "ようい",
-    "meaning": "preparation (less thorough - for casual things)"
+    "kanji": "準備",
+    "reading": "じゅんび",
+    "meaning": "preparation (more thorough - for something big and/or important)",
+    "status": "unset"
   },
   {
     "id": "163",
-    "kanji": "紅葉",
-    "reading": "もみじ",
-    "meaning": "maple (tree)​; red leaves"
+    "kanji": "用意",
+    "reading": "ようい",
+    "meaning": "preparation (less thorough - for casual things)",
+    "status": "unset"
   },
   {
     "id": "164",
-    "kanji": "夕焼け",
-    "reading": "ゆうやけ",
-    "meaning": "red sunset"
+    "kanji": "紅葉",
+    "reading": "もみじ",
+    "meaning": "maple (tree)​; red leaves",
+    "status": "unset"
   },
   {
     "id": "165",
-    "kanji": "じゃん拳",
-    "reading": "じゃんけん",
-    "meaning": "rock-paper-scissors"
+    "kanji": "夕焼け",
+    "reading": "ゆうやけ",
+    "meaning": "red sunset",
+    "status": "unset"
   },
   {
     "id": "166",
-    "kanji": "相子",
-    "reading": "あいこ",
-    "meaning": "draw; tie"
+    "kanji": "じゃん拳",
+    "reading": "じゃんけん",
+    "meaning": "rock-paper-scissors",
+    "status": "unset"
   },
   {
     "id": "167",
-    "kanji": "反対",
-    "reading": "はんたい",
-    "meaning": "reverse; opposite"
+    "kanji": "相子",
+    "reading": "あいこ",
+    "meaning": "draw; tie",
+    "status": "unset"
   },
   {
     "id": "168",
-    "kanji": "遠い",
-    "reading": "とおい",
-    "meaning": "far; distant; far away"
+    "kanji": "反対",
+    "reading": "はんたい",
+    "meaning": "reverse; opposite",
+    "status": "unset"
   },
   {
     "id": "169",
-    "kanji": "祖父母",
-    "reading": "そふぼ",
-    "meaning": "grandparents"
+    "kanji": "遠い",
+    "reading": "とおい",
+    "meaning": "far; distant; far away",
+    "status": "unset"
   },
   {
     "id": "170",
-    "kanji": "信用",
-    "reading": "しんよう",
-    "meaning": "confidence; trust; faith"
+    "kanji": "祖父母",
+    "reading": "そふぼ",
+    "meaning": "grandparents",
+    "status": "unset"
   },
   {
     "id": "171",
-    "kanji": "教会",
-    "reading": "きょうかい",
-    "meaning": "church"
+    "kanji": "信用",
+    "reading": "しんよう",
+    "meaning": "confidence; trust; faith",
+    "status": "unset"
   },
   {
     "id": "172",
-    "kanji": "都市部",
-    "reading": "としぶ",
-    "meaning": "urban area"
+    "kanji": "教会",
+    "reading": "きょうかい",
+    "meaning": "church",
+    "status": "unset"
   },
   {
     "id": "173",
-    "kanji": "じゃが芋",
-    "reading": "じゃがいも",
-    "meaning": "potato"
+    "kanji": "都市部",
+    "reading": "としぶ",
+    "meaning": "urban area",
+    "status": "unset"
   },
   {
     "id": "174",
-    "kanji": "遅延する",
-    "reading": "ちえんする",
-    "meaning": "to delay"
+    "kanji": "じゃが芋",
+    "reading": "じゃがいも",
+    "meaning": "potato",
+    "status": "unset"
   },
   {
     "id": "175",
-    "kanji": "日中",
-    "reading": "にっちゅう",
-    "meaning": "during the day"
+    "kanji": "遅延する",
+    "reading": "ちえんする",
+    "meaning": "to delay",
+    "status": "unset"
   },
   {
     "id": "176",
-    "kanji": "昼間",
-    "reading": "ひるま",
-    "meaning": "during the day"
+    "kanji": "日中",
+    "reading": "にっちゅう",
+    "meaning": "during the day",
+    "status": "unset"
   },
   {
     "id": "177",
-    "kanji": "飲み食い",
-    "reading": "のみくい",
-    "meaning": "food and drink"
+    "kanji": "昼間",
+    "reading": "ひるま",
+    "meaning": "during the day",
+    "status": "unset"
   },
   {
     "id": "178",
-    "kanji": "風景",
-    "reading": "ふうけい",
-    "meaning": "scenery"
+    "kanji": "飲み食い",
+    "reading": "のみくい",
+    "meaning": "food and drink",
+    "status": "unset"
   },
   {
     "id": "179",
-    "kanji": "考え方",
-    "reading": "かんがえかた",
-    "meaning": "way of thinking"
+    "kanji": "風景",
+    "reading": "ふうけい",
+    "meaning": "scenery",
+    "status": "unset"
   },
   {
     "id": "180",
-    "kanji": "特徴",
-    "reading": "とくちょう",
-    "meaning": "feature; characteristic"
+    "kanji": "考え方",
+    "reading": "かんがえかた",
+    "meaning": "way of thinking",
+    "status": "unset"
   },
   {
     "id": "181",
-    "kanji": "地方",
-    "reading": "ちほう",
-    "meaning": "district; region"
+    "kanji": "特徴",
+    "reading": "とくちょう",
+    "meaning": "feature; characteristic",
+    "status": "unset"
   },
   {
     "id": "182",
-    "kanji": "地域",
-    "reading": "ちいき",
-    "meaning": "area; region"
+    "kanji": "地方",
+    "reading": "ちほう",
+    "meaning": "district; region",
+    "status": "unset"
   },
   {
     "id": "183",
-    "kanji": "雰囲気",
-    "reading": "ふんいき",
-    "meaning": "atmosphere; mood; aura"
+    "kanji": "地域",
+    "reading": "ちいき",
+    "meaning": "area; region",
+    "status": "unset"
   },
   {
     "id": "184",
-    "kanji": "運ぶ",
-    "reading": "はこぶ",
-    "meaning": "to carry"
+    "kanji": "雰囲気",
+    "reading": "ふんいき",
+    "meaning": "atmosphere; mood; aura",
+    "status": "unset"
   },
   {
     "id": "185",
-    "kanji": "比べる",
-    "reading": "くらべる",
-    "meaning": "to compare"
+    "kanji": "運ぶ",
+    "reading": "はこぶ",
+    "meaning": "to carry",
+    "status": "unset"
   },
   {
     "id": "186",
-    "kanji": null,
-    "reading": "ほど",
-    "meaning": "as much as ...; like ..."
+    "kanji": "比べる",
+    "reading": "くらべる",
+    "meaning": "to compare",
+    "status": "unset"
   },
   {
     "id": "187",
-    "kanji": "複雑",
-    "reading": "ふくざつ",
-    "meaning": "complex; complicated"
+    "kanji": null,
+    "reading": "ほど",
+    "meaning": "as much as ...; like ...",
+    "status": "unset"
   },
   {
     "id": "188",
-    "kanji": "免許",
-    "reading": "めんきょ",
-    "meaning": "license"
+    "kanji": "複雑",
+    "reading": "ふくざつ",
+    "meaning": "complex; complicated",
+    "status": "unset"
   },
   {
     "id": "189",
-    "kanji": "常に",
-    "reading": "つねに",
-    "meaning": "always; constantly"
+    "kanji": "免許",
+    "reading": "めんきょ",
+    "meaning": "license",
+    "status": "unset"
   },
   {
     "id": "190",
-    "kanji": null,
-    "reading": "たまに",
-    "meaning": "occasionally; sometimes"
+    "kanji": "常に",
+    "reading": "つねに",
+    "meaning": "always; constantly",
+    "status": "unset"
   },
   {
     "id": "191",
-    "kanji": "特に",
-    "reading": "とくに",
-    "meaning": "especially; in particular"
+    "kanji": null,
+    "reading": "たまに",
+    "meaning": "occasionally; sometimes",
+    "status": "unset"
   },
   {
     "id": "192",
-    "kanji": "地元",
-    "reading": "じもと",
-    "meaning": "local"
+    "kanji": "特に",
+    "reading": "とくに",
+    "meaning": "especially; in particular",
+    "status": "unset"
   },
   {
     "id": "193",
-    "kanji": "寄る",
-    "reading": "よる",
-    "meaning": "to stop by; to approach"
+    "kanji": "地元",
+    "reading": "じもと",
+    "meaning": "local",
+    "status": "unset"
   },
   {
     "id": "194",
-    "kanji": "楽",
-    "reading": "らく",
-    "meaning": "easy (na-adj); comfort"
+    "kanji": "寄る",
+    "reading": "よる",
+    "meaning": "to stop by; to approach",
+    "status": "unset"
   },
   {
     "id": "195",
-    "kanji": "期間限定",
-    "reading": "きかんげんてい",
-    "meaning": "limited edition"
+    "kanji": "楽",
+    "reading": "らく",
+    "meaning": "easy (na-adj); comfort",
+    "status": "unset"
   },
   {
     "id": "196",
-    "kanji": "瞬間",
-    "reading": "しゅんかん",
-    "meaning": "moment"
+    "kanji": "期間限定",
+    "reading": "きかんげんてい",
+    "meaning": "limited edition",
+    "status": "unset"
   },
   {
     "id": "197",
-    "kanji": null,
-    "reading": "なかなか",
-    "meaning": "very; considerably; quite"
+    "kanji": "瞬間",
+    "reading": "しゅんかん",
+    "meaning": "moment",
+    "status": "unset"
   },
   {
     "id": "198",
-    "kanji": "機会",
-    "reading": "きかい",
-    "meaning": "chance; opportunity"
+    "kanji": null,
+    "reading": "なかなか",
+    "meaning": "very; considerably; quite",
+    "status": "unset"
   },
   {
     "id": "199",
-    "kanji": "湖",
-    "reading": "みずうみ",
-    "meaning": "lake"
+    "kanji": "機会",
+    "reading": "きかい",
+    "meaning": "chance; opportunity",
+    "status": "unset"
   },
   {
     "id": "200",
-    "kanji": "設定",
-    "reading": "せってい",
-    "meaning": "options setting"
+    "kanji": "湖",
+    "reading": "みずうみ",
+    "meaning": "lake",
+    "status": "unset"
   },
   {
     "id": "201",
-    "kanji": "小説",
-    "reading": "しょうせつ",
-    "meaning": "novel; story"
+    "kanji": "設定",
+    "reading": "せってい",
+    "meaning": "options setting",
+    "status": "unset"
   },
   {
     "id": "202",
-    "kanji": "泥",
-    "reading": "どろ",
-    "meaning": "mud"
+    "kanji": "小説",
+    "reading": "しょうせつ",
+    "meaning": "novel; story",
+    "status": "unset"
   },
   {
     "id": "203",
-    "kanji": "期末試験",
-    "reading": "きまつしけん",
-    "meaning": "final exam"
+    "kanji": "泥",
+    "reading": "どろ",
+    "meaning": "mud",
+    "status": "unset"
   },
   {
     "id": "204",
-    "kanji": "書類",
-    "reading": "しょるい",
-    "meaning": "document; papers"
+    "kanji": "期末試験",
+    "reading": "きまつしけん",
+    "meaning": "final exam",
+    "status": "unset"
   },
   {
     "id": "205",
-    "kanji": "朝寝坊する",
-    "reading": "あさねぼうする",
-    "meaning": "to oversleep"
+    "kanji": "書類",
+    "reading": "しょるい",
+    "meaning": "document; papers",
+    "status": "unset"
   },
   {
     "id": "206",
-    "kanji": "相変わらず",
-    "reading": "あいかわらず",
-    "meaning": "as usual; as always"
+    "kanji": "朝寝坊する",
+    "reading": "あさねぼうする",
+    "meaning": "to oversleep",
+    "status": "unset"
   },
   {
     "id": "207",
-    "kanji": "いつも通り",
-    "reading": "いつもどおり",
-    "meaning": "as always; as usual"
+    "kanji": "相変わらず",
+    "reading": "あいかわらず",
+    "meaning": "as usual; as always",
+    "status": "unset"
   },
   {
     "id": "208",
-    "kanji": "案内する",
-    "reading": "あんないする",
-    "meaning": "to guide; to show around (place を)"
+    "kanji": "いつも通り",
+    "reading": "いつもどおり",
+    "meaning": "as always; as usual",
+    "status": "unset"
   },
   {
     "id": "209",
-    "kanji": "今日中に",
-    "reading": "きょうじゅう",
-    "meaning": "before the day is over"
+    "kanji": "案内する",
+    "reading": "あんないする",
+    "meaning": "to guide; to show around (place を)",
+    "status": "unset"
   },
   {
     "id": "210",
-    "kanji": "この間",
-    "reading": "このあいだ",
-    "meaning": "meanwhile; the other day; lately"
+    "kanji": "今日中に",
+    "reading": "きょうじゅう",
+    "meaning": "before the day is over",
+    "status": "unset"
   },
   {
     "id": "211",
-    "kanji": "殺す",
-    "reading": "ころす",
-    "meaning": "to kill"
+    "kanji": "この間",
+    "reading": "このあいだ",
+    "meaning": "meanwhile; the other day; lately",
+    "status": "unset"
   },
   {
     "id": "212",
-    "kanji": "確かに",
-    "reading": "たしかに",
-    "meaning": "surely; certainly"
+    "kanji": "殺す",
+    "reading": "ころす",
+    "meaning": "to kill",
+    "status": "unset"
   },
   {
     "id": "213",
-    "kanji": null,
-    "reading": "ついに",
-    "meaning": "finally; at last​"
+    "kanji": "確かに",
+    "reading": "たしかに",
+    "meaning": "surely; certainly",
+    "status": "unset"
   },
   {
     "id": "214",
-    "kanji": "実際に",
-    "reading": "じっさいに",
-    "meaning": "actually; really"
+    "kanji": null,
+    "reading": "ついに",
+    "meaning": "finally; at last​",
+    "status": "unset"
   },
   {
     "id": "215",
-    "kanji": "集中する",
-    "reading": "しゅうちゅうする",
-    "meaning": "to concentrate; to pay attention"
+    "kanji": "実際に",
+    "reading": "じっさいに",
+    "meaning": "actually; really",
+    "status": "unset"
   },
   {
     "id": "216",
-    "kanji": "騒々しい",
-    "reading": "そうぞうしい",
-    "meaning": "noisy; loud"
+    "kanji": "集中する",
+    "reading": "しゅうちゅうする",
+    "meaning": "to concentrate; to pay attention",
+    "status": "unset"
   },
   {
     "id": "217",
-    "kanji": "生",
-    "reading": "なま",
-    "meaning": "raw; uncooked; fresh"
+    "kanji": "騒々しい",
+    "reading": "そうぞうしい",
+    "meaning": "noisy; loud",
+    "status": "unset"
   },
   {
     "id": "218",
-    "kanji": "混ぜる",
-    "reading": "まぜる",
-    "meaning": "to mix; to stir; to blend"
+    "kanji": "生",
+    "reading": "なま",
+    "meaning": "raw; uncooked; fresh",
+    "status": "unset"
   },
   {
     "id": "219",
-    "kanji": "黄身",
-    "reading": "きみ",
-    "meaning": "egg yolk​"
+    "kanji": "混ぜる",
+    "reading": "まぜる",
+    "meaning": "to mix; to stir; to blend",
+    "status": "unset"
   },
   {
     "id": "220",
-    "kanji": "白身",
-    "reading": "しろみ",
-    "meaning": "egg white"
+    "kanji": "黄身",
+    "reading": "きみ",
+    "meaning": "egg yolk​",
+    "status": "unset"
   },
   {
     "id": "221",
-    "kanji": "餡子",
-    "reading": "あんこ",
-    "meaning": "red bean paste"
+    "kanji": "白身",
+    "reading": "しろみ",
+    "meaning": "egg white",
+    "status": "unset"
   },
   {
     "id": "222",
-    "kanji": "留守",
-    "reading": "るす",
-    "meaning": "absence; being away from home"
+    "kanji": "餡子",
+    "reading": "あんこ",
+    "meaning": "red bean paste",
+    "status": "unset"
   },
   {
     "id": "223",
-    "kanji": "手術を受ける",
-    "reading": "しゅじゅつをうける",
-    "meaning": "to undergo surgery"
+    "kanji": "留守",
+    "reading": "るす",
+    "meaning": "absence; being away from home",
+    "status": "unset"
   },
   {
     "id": "224",
-    "kanji": null,
-    "reading": "それぞれ",
-    "meaning": "each; respectively​"
+    "kanji": "手術を受ける",
+    "reading": "しゅじゅつをうける",
+    "meaning": "to undergo surgery",
+    "status": "unset"
   },
   {
     "id": "225",
-    "kanji": "横",
-    "reading": "よこ",
-    "meaning": "side; width; beside"
+    "kanji": null,
+    "reading": "それぞれ",
+    "meaning": "each; respectively​",
+    "status": "unset"
   },
   {
     "id": "226",
-    "kanji": "左右する",
-    "reading": "さゆうする",
-    "meaning": "to control; to affect"
+    "kanji": "横",
+    "reading": "よこ",
+    "meaning": "side; width; beside",
+    "status": "unset"
   },
   {
     "id": "227",
-    "kanji": "上達する",
-    "reading": "じょうたつする",
-    "meaning": "to improve"
+    "kanji": "左右する",
+    "reading": "さゆうする",
+    "meaning": "to control; to affect",
+    "status": "unset"
   },
   {
     "id": "228",
-    "kanji": "新鮮",
-    "reading": "しんせん",
-    "meaning": "fresh"
+    "kanji": "上達する",
+    "reading": "じょうたつする",
+    "meaning": "to improve",
+    "status": "unset"
   },
   {
     "id": "229",
-    "kanji": null,
-    "reading": "とういわけで",
-    "meaning": "therefore"
+    "kanji": "新鮮",
+    "reading": "しんせん",
+    "meaning": "fresh",
+    "status": "unset"
   },
   {
     "id": "230",
-    "kanji": "表現",
-    "reading": "ひょうげん",
-    "meaning": "expression"
+    "kanji": null,
+    "reading": "とういわけで",
+    "meaning": "therefore",
+    "status": "unset"
   },
   {
     "id": "231",
-    "kanji": "場合",
-    "reading": "ばあい",
-    "meaning": "case; situation"
+    "kanji": "表現",
+    "reading": "ひょうげん",
+    "meaning": "expression",
+    "status": "unset"
   },
   {
     "id": "232",
-    "kanji": "全く",
-    "reading": "まったく",
-    "meaning": "good grief; really; truly; entirely; completely; indeed"
+    "kanji": "場合",
+    "reading": "ばあい",
+    "meaning": "case; situation",
+    "status": "unset"
   },
   {
     "id": "233",
-    "kanji": "行方",
-    "reading": "ゆくえ",
-    "meaning": "(one's) whereabouts"
+    "kanji": "全く",
+    "reading": "まったく",
+    "meaning": "good grief; really; truly; entirely; completely; indeed",
+    "status": "unset"
   },
   {
     "id": "234",
-    "kanji": "生える",
-    "reading": "はえる",
-    "meaning": "to grow; to sprout"
+    "kanji": "行方",
+    "reading": "ゆくえ",
+    "meaning": "(one's) whereabouts",
+    "status": "unset"
   },
   {
     "id": "235",
-    "kanji": "先に",
-    "reading": "さきに",
-    "meaning": "previously; earlier"
+    "kanji": "生える",
+    "reading": "はえる",
+    "meaning": "to grow; to sprout",
+    "status": "unset"
   },
   {
     "id": "236",
-    "kanji": "行う",
-    "reading": "おこなう ",
-    "meaning": "to perform; to do; to carry out"
+    "kanji": "先に",
+    "reading": "さきに",
+    "meaning": "previously; earlier",
+    "status": "unset"
   },
   {
     "id": "237",
-    "kanji": "明白",
-    "reading": "めいはく",
-    "meaning": "clear, obvious (na-adj)"
+    "kanji": "行う",
+    "reading": "おこなう ",
+    "meaning": "to perform; to do; to carry out",
+    "status": "unset"
   },
   {
     "id": "238",
-    "kanji": null,
-    "reading": "すでに",
-    "meaning": "already"
+    "kanji": "明白",
+    "reading": "めいはく",
+    "meaning": "clear, obvious (na-adj)",
+    "status": "unset"
   },
   {
     "id": "239",
-    "kanji": "第一に",
-    "reading": "だいいちに",
-    "meaning": "first of all, firstly"
+    "kanji": null,
+    "reading": "すでに",
+    "meaning": "already",
+    "status": "unset"
   },
   {
     "id": "240",
-    "kanji": "遅刻する",
-    "reading": "ちこくする",
-    "meaning": "to be late"
+    "kanji": "第一に",
+    "reading": "だいいちに",
+    "meaning": "first of all, firstly",
+    "status": "unset"
   },
   {
     "id": "241",
-    "kanji": "水道",
-    "reading": "すいどう",
-    "meaning": "water supply; water service; tap water"
+    "kanji": "遅刻する",
+    "reading": "ちこくする",
+    "meaning": "to be late",
+    "status": "unset"
   },
   {
     "id": "242",
-    "kanji": "次に",
-    "reading": "つぎに",
-    "meaning": "next; then; after that"
+    "kanji": "水道",
+    "reading": "すいどう",
+    "meaning": "water supply; water service; tap water",
+    "status": "unset"
   },
   {
     "id": "243",
-    "kanji": "遊び場",
-    "reading": "あそびば",
-    "meaning": "playground"
+    "kanji": "次に",
+    "reading": "つぎに",
+    "meaning": "next; then; after that",
+    "status": "unset"
   },
   {
     "id": "244",
-    "kanji": "自ら",
-    "reading": "みずから",
-    "meaning": "(by) oneself; personally"
+    "kanji": "遊び場",
+    "reading": "あそびば",
+    "meaning": "playground",
+    "status": "unset"
   },
   {
     "id": "245",
-    "kanji": "決断",
-    "reading": "けつだん",
-    "meaning": "decision"
+    "kanji": "自ら",
+    "reading": "みずから",
+    "meaning": "(by) oneself; personally",
+    "status": "unset"
   },
   {
     "id": "246",
-    "kanji": "長男",
-    "reading": "ちょうなん",
-    "meaning": "eldest son (may be the only son)"
+    "kanji": "決断",
+    "reading": "けつだん",
+    "meaning": "decision",
+    "status": "unset"
   },
   {
     "id": "247",
-    "kanji": "長女",
-    "reading": "ちょうじょ",
-    "meaning": "eldest daughter (may be the only daughter)"
+    "kanji": "長男",
+    "reading": "ちょうなん",
+    "meaning": "eldest son (may be the only son)",
+    "status": "unset"
   },
   {
     "id": "248",
-    "kanji": "後続の",
-    "reading": "こうぞくの",
-    "meaning": "following (vehicle etc.)"
+    "kanji": "長女",
+    "reading": "ちょうじょ",
+    "meaning": "eldest daughter (may be the only daughter)",
+    "status": "unset"
   },
   {
     "id": "249",
-    "kanji": "女神",
-    "reading": "めがみ",
-    "meaning": "goddess"
+    "kanji": "後続の",
+    "reading": "こうぞくの",
+    "meaning": "following (vehicle etc.)",
+    "status": "unset"
   },
   {
     "id": "250",
-    "kanji": "主人",
-    "reading": "しゅじん",
-    "meaning": "one's husband; head (of a household)"
+    "kanji": "女神",
+    "reading": "めがみ",
+    "meaning": "goddess",
+    "status": "unset"
   },
   {
     "id": "251",
-    "kanji": "苗字",
-    "reading": "みょうじ",
-    "meaning": "surname"
+    "kanji": "主人",
+    "reading": "しゅじん",
+    "meaning": "one's husband; head (of a household)",
+    "status": "unset"
   },
   {
     "id": "252",
-    "kanji": "引っかく",
-    "reading": "ひっかく",
-    "meaning": "to scratch; to claw"
+    "kanji": "苗字",
+    "reading": "みょうじ",
+    "meaning": "surname",
+    "status": "unset"
   },
   {
     "id": "253",
-    "kanji": "延期する",
-    "reading": "えんきする",
-    "meaning": "to postpone  (~になる - to be postponed)"
+    "kanji": "引っかく",
+    "reading": "ひっかく",
+    "meaning": "to scratch; to claw",
+    "status": "unset"
   },
   {
     "id": "254",
-    "kanji": null,
-    "reading": "しょうがない",
-    "meaning": "nothing to do..."
+    "kanji": "延期する",
+    "reading": "えんきする",
+    "meaning": "to postpone  (~になる - to be postponed)",
+    "status": "unset"
   },
   {
     "id": "255",
     "kanji": null,
-    "reading": "とんでもないです",
-    "meaning": "don't mention it"
+    "reading": "しょうがない",
+    "meaning": "nothing to do...",
+    "status": "unset"
   },
   {
     "id": "256",
-    "kanji": "中古車",
-    "reading": "ちゅうこしゃ",
-    "meaning": "used car; secondhand car"
+    "kanji": null,
+    "reading": "とんでもないです",
+    "meaning": "don't mention it",
+    "status": "unset"
   },
   {
     "id": "257",
-    "kanji": "選手",
-    "reading": "せんしゅ",
-    "meaning": "player (of a sport)"
+    "kanji": "中古車",
+    "reading": "ちゅうこしゃ",
+    "meaning": "used car; secondhand car",
+    "status": "unset"
   },
   {
     "id": "258",
-    "kanji": "未成年",
-    "reading": "みせいねん",
-    "meaning": "minor; underage"
+    "kanji": "選手",
+    "reading": "せんしゅ",
+    "meaning": "player (of a sport)",
+    "status": "unset"
   },
   {
     "id": "259",
-    "kanji": "小切手",
-    "reading": "こぎって",
-    "meaning": "cheque; check"
+    "kanji": "未成年",
+    "reading": "みせいねん",
+    "meaning": "minor; underage",
+    "status": "unset"
   },
   {
     "id": "260",
-    "kanji": "短気",
-    "reading": "たんき",
-    "meaning": "hot temper; impatience; irritability (na-adj)"
+    "kanji": "小切手",
+    "reading": "こぎって",
+    "meaning": "cheque; check",
+    "status": "unset"
   },
   {
     "id": "261",
-    "kanji": null,
-    "reading": "だんボール",
-    "meaning": "cardboard​ (картонна коробка)"
+    "kanji": "短気",
+    "reading": "たんき",
+    "meaning": "hot temper; impatience; irritability (na-adj)",
+    "status": "unset"
   },
   {
     "id": "262",
-    "kanji": "身重",
-    "reading": "みおも",
-    "meaning": "pregnant"
+    "kanji": null,
+    "reading": "だんボール",
+    "meaning": "cardboard​ (картонна коробка)",
+    "status": "unset"
   },
   {
     "id": "263",
-    "kanji": null,
-    "reading": "おまわりさん",
-    "meaning": "police officer; cop"
+    "kanji": "身重",
+    "reading": "みおも",
+    "meaning": "pregnant",
+    "status": "unset"
   },
   {
     "id": "264",
-    "kanji": "材料",
-    "reading": "ざいりょう",
-    "meaning": "materials; ingredients"
+    "kanji": null,
+    "reading": "おまわりさん",
+    "meaning": "police officer; cop",
+    "status": "unset"
   },
   {
     "id": "265",
-    "kanji": "玉ねぎ",
-    "reading": "たまねぎ",
-    "meaning": "onion"
+    "kanji": "材料",
+    "reading": "ざいりょう",
+    "meaning": "materials; ingredients",
+    "status": "unset"
   },
   {
     "id": "266",
-    "kanji": "油",
-    "reading": "あぶら",
-    "meaning": "oil"
+    "kanji": "食材",
+    "reading": "しょくざい",
+    "meaning": "ingredients",
+    "status": "unset"
   },
   {
     "id": "267",
-    "kanji": "炒める",
-    "reading": "いためる",
-    "meaning": "to fry"
+    "kanji": "玉ねぎ",
+    "reading": "たまねぎ",
+    "meaning": "onion",
+    "status": "unset"
   },
   {
     "id": "268",
-    "kanji": "煮る",
-    "reading": "にる",
-    "meaning": "to boil"
+    "kanji": "油",
+    "reading": "あぶら",
+    "meaning": "oil",
+    "status": "unset"
   },
   {
     "id": "269",
+    "kanji": "炒める",
+    "reading": "いためる",
+    "meaning": "to fry",
+    "status": "unset"
+  },
+  {
+    "id": "270",
+    "kanji": "煮る",
+    "reading": "にる",
+    "meaning": "to boil",
+    "status": "unset"
+  },
+  {
+    "id": "271",
     "kanji": "福神漬け",
     "reading": "ふくじんづけ",
-    "meaning": "vegetables pickled in soy sauce"
-  },
-  {
-    "id": "272",
-    "kanji": "我慢",
-    "reading": "がまん",
-    "meaning": "patience; endurance"
-  },
-  {
-    "id": "273",
-    "kanji": "忍耐",
-    "reading": "にんたい",
-    "meaning": "patience; endurance (under difficult circumstances) (~に... ~する)"
+    "meaning": "vegetables pickled in soy sauce",
+    "status": "unset"
   },
   {
     "id": "274",
-    "kanji": "耐える",
-    "reading": "たえる",
-    "meaning": "to bear; to stand; to endure; to put up with (physical or emotional difficulties) (~に)"
+    "kanji": "我慢",
+    "reading": "がまん",
+    "meaning": "patience; endurance",
+    "status": "unset"
   },
   {
     "id": "275",
-    "kanji": "容忍する",
-    "reading": "ようにんする",
-    "meaning": "to endure the behavior (of living thing, al. rarely used)"
+    "kanji": "忍耐",
+    "reading": "にんたい",
+    "meaning": "patience; endurance (under difficult circumstances) (~に... ~する)",
+    "status": "unset"
   },
   {
     "id": "276",
-    "kanji": "困難",
-    "reading": "こんなん",
-    "meaning": "difficulty; trouble"
+    "kanji": "耐える",
+    "reading": "たえる",
+    "meaning": "to bear; to stand; to endure; to put up with (physical or emotional difficulties) (~に)",
+    "status": "unset"
   },
   {
     "id": "277",
-    "kanji": "試練",
-    "reading": "しれん",
-    "meaning": "test; trial"
+    "kanji": "容忍する",
+    "reading": "ようにんする",
+    "meaning": "to endure the behavior (of living thing, al. rarely used)",
+    "status": "unset"
   },
   {
     "id": "278",
-    "kanji": "節約",
-    "reading": "せつやく",
-    "meaning": "to save (e.g. money, time)"
+    "kanji": "困難",
+    "reading": "こんなん",
+    "meaning": "difficulty; trouble",
+    "status": "unset"
   },
   {
     "id": "279",
-    "kanji": "国家",
-    "reading": "こっか",
-    "meaning": "state; country; nation"
+    "kanji": "試練",
+    "reading": "しれん",
+    "meaning": "test; trial",
+    "status": "unset"
   },
   {
     "id": "280",
-    "kanji": "貧しい",
-    "reading": "まずしい",
-    "meaning": "poor; needy"
+    "kanji": "節約",
+    "reading": "せつやく",
+    "meaning": "to save (e.g. money, time)",
+    "status": "unset"
   },
   {
     "id": "281",
-    "kanji": "滲む",
-    "reading": "にじむ",
-    "meaning": "to blur"
+    "kanji": "国家",
+    "reading": "こっか",
+    "meaning": "state; country; nation",
+    "status": "unset"
   },
   {
     "id": "282",
-    "kanji": "数える",
-    "reading": "かぞえる",
-    "meaning": "to count"
+    "kanji": "貧しい",
+    "reading": "まずしい",
+    "meaning": "poor; needy",
+    "status": "unset"
   },
   {
     "id": "283",
-    "kanji": "影",
-    "reading": "かげ",
-    "meaning": "shadow"
+    "kanji": "滲む",
+    "reading": "にじむ",
+    "meaning": "to blur",
+    "status": "unset"
   },
   {
     "id": "284",
-    "kanji": null,
-    "reading": "~ぽっち",
-    "meaning": "only..., mere... (used with loneliness to say \"completely alone\" and small amounts like しか)"
+    "kanji": "数える",
+    "reading": "かぞえる",
+    "meaning": "to count",
+    "status": "unset"
   },
   {
     "id": "285",
-    "kanji": "勝手に",
-    "reading": "かってに",
-    "meaning": "of one's own accord (doing something on one's own judgement without consulting anyone else)"
+    "kanji": "影",
+    "reading": "かげ",
+    "meaning": "shadow",
+    "status": "unset"
   },
   {
     "id": "286",
-    "kanji": "忍び込む",
-    "reading": "しのびこむ",
-    "meaning": "to creep in; to sneak in"
+    "kanji": null,
+    "reading": "~ぽっち",
+    "meaning": "only..., mere... (used with loneliness to say \"completely alone\" and small amounts like しか)",
+    "status": "unset"
   },
   {
     "id": "287",
-    "kanji": null,
-    "reading": "しかも",
-    "meaning": "moreover; furthermore​"
+    "kanji": "勝手に",
+    "reading": "かってに",
+    "meaning": "of one's own accord (doing something on one's own judgement without consulting anyone else)",
+    "status": "unset"
   },
   {
     "id": "288",
-    "kanji": "奪う",
-    "reading": "うばう",
-    "meaning": "to take (by force); to steal; to rob (someone)"
+    "kanji": "忍び込む",
+    "reading": "しのびこむ",
+    "meaning": "to creep in; to sneak in",
+    "status": "unset"
   },
   {
     "id": "289",
-    "kanji": "食いしん坊",
-    "reading": "くいしんぼう",
-    "meaning": "glutton; sweet tooth (ненажера; ласун)"
+    "kanji": null,
+    "reading": "しかも",
+    "meaning": "moreover; furthermore​",
+    "status": "unset"
   },
   {
     "id": "290",
-    "kanji": null,
-    "reading": "セリフ",
-    "meaning": "words; one's lines"
+    "kanji": "奪う",
+    "reading": "うばう",
+    "meaning": "to take (by force); to steal; to rob (someone)",
+    "status": "unset"
   },
   {
     "id": "291",
-    "kanji": null,
-    "reading": "わざと",
-    "meaning": "on purpose; intentionally"
+    "kanji": "食いしん坊",
+    "reading": "くいしんぼう",
+    "meaning": "glutton; sweet tooth (ненажера; ласун)",
+    "status": "unset"
   },
   {
     "id": "292",
-    "kanji": "日常的",
-    "reading": "にちじょうてき",
-    "meaning": "mundane; routine"
+    "kanji": null,
+    "reading": "セリフ",
+    "meaning": "words; one's lines",
+    "status": "unset"
   },
   {
     "id": "293",
-    "kanji": "役に立つ",
-    "reading": "やくにたつ",
-    "meaning": "to be helpful; to be useful"
+    "kanji": null,
+    "reading": "わざと",
+    "meaning": "on purpose; intentionally",
+    "status": "unset"
   },
   {
     "id": "294",
-    "kanji": null,
-    "reading": "わくわく",
-    "meaning": "to be excited; to be nervous"
+    "kanji": "日常的",
+    "reading": "にちじょうてき",
+    "meaning": "mundane; routine",
+    "status": "unset"
   },
   {
     "id": "295",
-    "kanji": null,
-    "reading": "やっと",
-    "meaning": "at last; finally"
+    "kanji": "役に立つ",
+    "reading": "やくにたつ",
+    "meaning": "to be helpful; to be useful",
+    "status": "unset"
   },
   {
     "id": "296",
     "kanji": null,
-    "reading": "のんびり",
-    "meaning": "at leisure; in a relaxed manner; quietly; peacefully"
+    "reading": "わくわく",
+    "meaning": "to be excited; to be nervous",
+    "status": "unset"
   },
   {
     "id": "297",
-    "kanji": "渡る",
-    "reading": "わたる",
-    "meaning": "to cross over"
+    "kanji": null,
+    "reading": "やっと",
+    "meaning": "at last; finally",
+    "status": "unset"
   },
   {
     "id": "298",
-    "kanji": "交差点",
-    "reading": "こうさてん",
-    "meaning": "crossing; intersection"
+    "kanji": null,
+    "reading": "のんびり",
+    "meaning": "at leisure; in a relaxed manner; quietly; peacefully",
+    "status": "unset"
   },
   {
     "id": "299",
-    "kanji": "休憩する",
-    "reading": "きゅうけいする",
-    "meaning": "to take a break"
+    "kanji": "渡る",
+    "reading": "わたる",
+    "meaning": "to cross over",
+    "status": "unset"
   },
   {
     "id": "300",
-    "kanji": null,
-    "reading": "ぶつかる",
-    "meaning": "to bump into; to run into"
+    "kanji": "交差点",
+    "reading": "こうさてん",
+    "meaning": "crossing; intersection",
+    "status": "unset"
   },
   {
     "id": "301",
-    "kanji": "関係",
-    "reading": "かんけい",
-    "meaning": "relationship"
+    "kanji": "休憩する",
+    "reading": "きゅうけいする",
+    "meaning": "to take a break",
+    "status": "unset"
   },
   {
     "id": "302",
-    "kanji": "石けん",
-    "reading": "せっけん",
-    "meaning": "soap"
+    "kanji": null,
+    "reading": "ぶつかる",
+    "meaning": "to bump into; to run into",
+    "status": "unset"
   },
   {
     "id": "303",
-    "kanji": "多少",
-    "reading": "たしょう",
-    "meaning": "somewhat; to some degree; amount; quantity"
+    "kanji": "関係",
+    "reading": "かんけい",
+    "meaning": "relationship",
+    "status": "unset"
   },
   {
     "id": "304",
-    "kanji": "明らか",
-    "reading": "あきらか",
-    "meaning": "clear; obvious; evident (na-adj)"
+    "kanji": "石けん",
+    "reading": "せっけん",
+    "meaning": "soap",
+    "status": "unset"
   },
   {
     "id": "305",
-    "kanji": "苦しみ",
-    "reading": "くるしみ",
-    "meaning": "suffering"
+    "kanji": "多少",
+    "reading": "たしょう",
+    "meaning": "somewhat; to some degree; amount; quantity",
+    "status": "unset"
   },
   {
     "id": "306",
-    "kanji": "無関心",
-    "reading": "むかんしん",
-    "meaning": "apathetic; indifferent"
+    "kanji": "明らか",
+    "reading": "あきらか",
+    "meaning": "clear; obvious; evident (na-adj)",
+    "status": "unset"
   },
   {
     "id": "307",
-    "kanji": "空腹",
-    "reading": "くうふく",
-    "meaning": "hunger"
+    "kanji": "苦しみ",
+    "reading": "くるしみ",
+    "meaning": "suffering",
+    "status": "unset"
   },
   {
     "id": "308",
-    "kanji": "賃貸住宅",
-    "reading": "ちんたいじゅうたく",
-    "meaning": "rental house"
+    "kanji": "無関心",
+    "reading": "むかんしん",
+    "meaning": "apathetic; indifferent",
+    "status": "unset"
   },
   {
     "id": "309",
-    "kanji": "活発",
-    "reading": "かっぱつ",
-    "meaning": "lively; active (na-adj)"
+    "kanji": "空腹",
+    "reading": "くうふく",
+    "meaning": "hunger",
+    "status": "unset"
   },
   {
     "id": "310",
-    "kanji": "陽気",
-    "reading": "ようき",
-    "meaning": "cheerful (na-adj)"
+    "kanji": "賃貸住宅",
+    "reading": "ちんたいじゅうたく",
+    "meaning": "rental house",
+    "status": "unset"
   },
   {
     "id": "311",
-    "kanji": "許可する",
-    "reading": "きょかする",
-    "meaning": "to permit; to allow"
+    "kanji": "活発",
+    "reading": "かっぱつ",
+    "meaning": "lively; active (na-adj)",
+    "status": "unset"
+  },
+  {
+    "id": "312",
+    "kanji": "陽気",
+    "reading": "ようき",
+    "meaning": "cheerful (na-adj)",
+    "status": "unset"
   },
   {
     "id": "313",
-    "kanji": null,
-    "reading": "すでに",
-    "meaning": "already"
-  },
-  {
-    "id": "314",
-    "kanji": "低アルコール",
-    "reading": "ていアルコール",
-    "meaning": "low alcohol"
+    "kanji": "許可する",
+    "reading": "きょかする",
+    "meaning": "to permit; to allow",
+    "status": "unset"
   },
   {
     "id": "315",
-    "kanji": "教師",
-    "reading": "きょうし",
-    "meaning": "teacher"
+    "kanji": null,
+    "reading": "すでに",
+    "meaning": "already",
+    "status": "unset"
   },
   {
     "id": "316",
-    "kanji": "遠足",
-    "reading": "えんそく",
-    "meaning": "school trip; excursion"
+    "kanji": "低アルコール",
+    "reading": "ていアルコール",
+    "meaning": "low alcohol",
+    "status": "unset"
   },
   {
     "id": "317",
-    "kanji": "強引",
-    "reading": "ごういん",
-    "meaning": "forcible; pushy (примусовий, настирливий) (na-adj)"
+    "kanji": "教師",
+    "reading": "きょうし",
+    "meaning": "teacher",
+    "status": "unset"
   },
   {
     "id": "318",
-    "kanji": "強いる",
-    "reading": "しいる",
-    "meaning": "to force"
+    "kanji": "遠足",
+    "reading": "えんそく",
+    "meaning": "school trip; excursion",
+    "status": "unset"
   },
   {
     "id": "319",
-    "kanji": "若者",
-    "reading": "わかもの",
-    "meaning": "young people"
+    "kanji": "強引",
+    "reading": "ごういん",
+    "meaning": "forcible; pushy (примусовий, настирливий) (na-adj)",
+    "status": "unset"
   },
   {
     "id": "320",
-    "kanji": "弱点",
-    "reading": "じゃくてん",
-    "meaning": "weakness"
+    "kanji": "強いる",
+    "reading": "しいる",
+    "meaning": "to force",
+    "status": "unset"
   },
   {
     "id": "321",
-    "kanji": "広大",
-    "reading": "こうだい",
-    "meaning": "vast; huge (na-adj)"
+    "kanji": "若者",
+    "reading": "わかもの",
+    "meaning": "young people",
+    "status": "unset"
   },
   {
     "id": "322",
-    "kanji": "重大",
-    "reading": "じゅうだい",
-    "meaning": "serious; important; significant (na-adj)"
+    "kanji": "弱点",
+    "reading": "じゃくてん",
+    "meaning": "weakness",
+    "status": "unset"
   },
   {
     "id": "323",
-    "kanji": "曲",
-    "reading": "きょく",
-    "meaning": "song; track"
+    "kanji": "広大",
+    "reading": "こうだい",
+    "meaning": "vast; huge (na-adj)",
+    "status": "unset"
   },
   {
     "id": "324",
-    "kanji": "重ねる",
-    "reading": "かさねる",
-    "meaning": "to pile up; to repeat many times over"
+    "kanji": "重大",
+    "reading": "じゅうだい",
+    "meaning": "serious; important; significant (na-adj)",
+    "status": "unset"
   },
   {
     "id": "325",
-    "kanji": "悪事",
-    "reading": "あくじ",
-    "meaning": "crime"
+    "kanji": "曲",
+    "reading": "きょく",
+    "meaning": "song; track",
+    "status": "unset"
   },
   {
     "id": "326",
-    "kanji": "体調",
-    "reading": "たいちょう",
-    "meaning": "physical condition"
+    "kanji": "重ねる",
+    "reading": "かさねる",
+    "meaning": "to pile up; to repeat many times over",
+    "status": "unset"
   },
   {
     "id": "327",
-    "kanji": "調子",
-    "reading": "ちょうし",
-    "meaning": "condition; tune"
+    "kanji": "悪事",
+    "reading": "あくじ",
+    "meaning": "crime",
+    "status": "unset"
   },
   {
     "id": "328",
-    "kanji": "先ほど",
-    "reading": "さきほど",
-    "meaning": "a moment ago"
+    "kanji": "体調",
+    "reading": "たいちょう",
+    "meaning": "physical condition",
+    "status": "unset"
   },
   {
     "id": "329",
-    "kanji": "軽食",
-    "reading": "けいしょく",
-    "meaning": "light meal; snack"
+    "kanji": "調子",
+    "reading": "ちょうし",
+    "meaning": "condition; tune",
+    "status": "unset"
   },
   {
     "id": "330",
-    "kanji": "早朝",
-    "reading": "そうちょう",
-    "meaning": "early morning (noun)"
+    "kanji": "先ほど",
+    "reading": "さきほど",
+    "meaning": "a moment ago",
+    "status": "unset"
   },
   {
     "id": "331",
-    "kanji": "感情",
-    "reading": "かんじょう",
-    "meaning": "feelings"
+    "kanji": "軽食",
+    "reading": "けいしょく",
+    "meaning": "light meal; snack",
+    "status": "unset"
   },
   {
     "id": "332",
-    "kanji": "表現する",
-    "reading": "ひょうげんする",
-    "meaning": "to express"
+    "kanji": "早朝",
+    "reading": "そうちょう",
+    "meaning": "early morning (noun)",
+    "status": "unset"
   },
   {
     "id": "333",
-    "kanji": "導く",
-    "reading": "みちびく",
-    "meaning": "to guide; to lead; to show the way"
+    "kanji": "感情",
+    "reading": "かんじょう",
+    "meaning": "feelings",
+    "status": "unset"
   },
   {
     "id": "334",
-    "kanji": "幼い",
-    "reading": "おさない",
-    "meaning": "very young"
+    "kanji": "表現する",
+    "reading": "ひょうげんする",
+    "meaning": "to express",
+    "status": "unset"
   },
   {
     "id": "335",
-    "kanji": "健康",
-    "reading": "けんこう",
-    "meaning": "health"
+    "kanji": "導く",
+    "reading": "みちびく",
+    "meaning": "to guide; to lead; to show the way",
+    "status": "unset"
   },
   {
     "id": "336",
-    "kanji": "健康的",
-    "reading": "けんこうてき",
-    "meaning": "healthy"
+    "kanji": "幼い",
+    "reading": "おさない",
+    "meaning": "very young",
+    "status": "unset"
   },
   {
     "id": "337",
-    "kanji": "不思議",
-    "reading": "ふしぎ",
-    "meaning": "strange, mysteroius (na-adj)"
+    "kanji": "健康",
+    "reading": "けんこう",
+    "meaning": "health",
+    "status": "unset"
   },
   {
     "id": "338",
-    "kanji": "引き寄せる",
-    "reading": "ひきよせる",
-    "meaning": "to draw (something) toward one"
+    "kanji": "健康的",
+    "reading": "けんこうてき",
+    "meaning": "healthy",
+    "status": "unset"
   },
   {
     "id": "339",
-    "kanji": "量",
-    "reading": "りょう",
-    "meaning": "quantity; amount; volume; capacity; portion (of food)"
+    "kanji": "不思議",
+    "reading": "ふしぎ",
+    "meaning": "strange, mysteroius (na-adj)",
+    "status": "unset"
   },
   {
     "id": "340",
-    "kanji": null,
-    "reading": "ただ",
-    "meaning": "just; but; however; free of charge​"
+    "kanji": "引き寄せる",
+    "reading": "ひきよせる",
+    "meaning": "to draw (something) toward one",
+    "status": "unset"
   },
   {
     "id": "341",
-    "kanji": null,
-    "reading": "ままに",
-    "meaning": "as it is"
+    "kanji": "量",
+    "reading": "りょう",
+    "meaning": "quantity; amount; volume; capacity; portion (of food)",
+    "status": "unset"
   },
   {
     "id": "342",
-    "kanji": "運命",
-    "reading": "うんめい",
-    "meaning": "fate; destiny"
+    "kanji": null,
+    "reading": "ただ",
+    "meaning": "just; but; however; free of charge​",
+    "status": "unset"
   },
   {
     "id": "343",
-    "kanji": "小屋",
-    "reading": "こや",
-    "meaning": "hut"
+    "kanji": null,
+    "reading": "ままに",
+    "meaning": "as it is",
+    "status": "unset"
   },
   {
     "id": "344",
-    "kanji": "屋敷",
-    "reading": "やしき",
-    "meaning": "mansion"
+    "kanji": "運命",
+    "reading": "うんめい",
+    "meaning": "fate; destiny",
+    "status": "unset"
   },
   {
     "id": "345",
-    "kanji": "気を引く",
-    "reading": "きをひく",
-    "meaning": "to attract attention"
+    "kanji": "小屋",
+    "reading": "こや",
+    "meaning": "hut",
+    "status": "unset"
   },
   {
     "id": "346",
-    "kanji": null,
-    "reading": "ピエロ",
-    "meaning": "clown"
+    "kanji": "屋敷",
+    "reading": "やしき",
+    "meaning": "mansion",
+    "status": "unset"
   },
   {
     "id": "347",
-    "kanji": "涙を浮かべ",
-    "reading": "なみだをうかべ",
-    "meaning": "with tears in one's eyes (+Noun)"
+    "kanji": "気を引く",
+    "reading": "きをひく",
+    "meaning": "to attract attention",
+    "status": "unset"
   },
   {
     "id": "348",
-    "kanji": "抱く",
-    "reading": "いだく",
-    "meaning": "to embrace; to hug"
+    "kanji": null,
+    "reading": "ピエロ",
+    "meaning": "clown",
+    "status": "unset"
   },
   {
     "id": "349",
-    "kanji": "互いに",
-    "reading": "たがいに",
-    "meaning": "together; each other (один одному)"
+    "kanji": "涙を浮かべ",
+    "reading": "なみだをうかべ",
+    "meaning": "with tears in one's eyes (+Noun)",
+    "status": "unset"
   },
   {
     "id": "350",
-    "kanji": "微笑む",
-    "reading": "ほほえむ",
-    "meaning": "to smile"
+    "kanji": "抱く",
+    "reading": "いだく",
+    "meaning": "to embrace; to hug",
+    "status": "unset"
   },
   {
     "id": "351",
-    "kanji": "見つめ合う",
-    "reading": "みつめあう",
-    "meaning": "to stare at each other"
+    "kanji": "互いに",
+    "reading": "たがいに",
+    "meaning": "together; each other (один одному)",
+    "status": "unset"
   },
   {
     "id": "352",
-    "kanji": "見守る",
-    "reading": "みまもる",
-    "meaning": "to watch over; to keep an eye on"
+    "kanji": "微笑む",
+    "reading": "ほほえむ",
+    "meaning": "to smile",
+    "status": "unset"
   },
   {
     "id": "353",
-    "kanji": "離す",
-    "reading": "はなす",
-    "meaning": "to separate; to part (розходитись)"
+    "kanji": "見つめ合う",
+    "reading": "みつめあう",
+    "meaning": "to stare at each other",
+    "status": "unset"
   },
   {
     "id": "354",
-    "kanji": "姿",
-    "reading": "すがた",
-    "meaning": "figure; shape"
+    "kanji": "見守る",
+    "reading": "みまもる",
+    "meaning": "to watch over; to keep an eye on",
+    "status": "unset"
   },
   {
     "id": "355",
-    "kanji": null,
-    "reading": "つぶやく",
-    "meaning": "to mutter; to murmur (бурмотіти)"
+    "kanji": "離す",
+    "reading": "はなす",
+    "meaning": "to separate; to part (розходитись)",
+    "status": "unset"
   },
   {
     "id": "356",
-    "kanji": "逃す",
-    "reading": "のがす",
-    "meaning": "to miss (e.g. a chance) (機会を～)"
+    "kanji": "姿",
+    "reading": "すがた",
+    "meaning": "figure; shape",
+    "status": "unset"
   },
   {
     "id": "357",
-    "kanji": "命",
-    "reading": "いのち",
-    "meaning": "life"
+    "kanji": null,
+    "reading": "つぶやく",
+    "meaning": "to mutter; to murmur (бурмотіти)",
+    "status": "unset"
   },
   {
     "id": "358",
-    "kanji": "振る舞い",
-    "reading": "ふるまい",
-    "meaning": "behavior"
+    "kanji": "逃す",
+    "reading": "のがす",
+    "meaning": "to miss (e.g. a chance) (機会を～)",
+    "status": "unset"
   },
   {
     "id": "359",
-    "kanji": "懐かしい",
-    "reading": "なつかしい",
-    "meaning": "nostalgic"
+    "kanji": "命",
+    "reading": "いのち",
+    "meaning": "life",
+    "status": "unset"
   },
   {
     "id": "360",
-    "kanji": "細かい",
-    "reading": "こまかい",
-    "meaning": "small (change); trivial; detailed"
+    "kanji": "振る舞い",
+    "reading": "ふるまい",
+    "meaning": "behavior",
+    "status": "unset"
   },
   {
     "id": "361",
-    "kanji": "多忙",
-    "reading": "たぼう",
-    "meaning": "being very busy (na-adj)"
+    "kanji": "懐かしい",
+    "reading": "なつかしい",
+    "meaning": "nostalgic",
+    "status": "unset"
   },
   {
     "id": "362",
-    "kanji": "浅い",
-    "reading": "あさい",
-    "meaning": "shallow; slight (wound); light (sleep)"
+    "kanji": "細かい",
+    "reading": "こまかい",
+    "meaning": "small (change); trivial; detailed",
+    "status": "unset"
   },
   {
     "id": "363",
-    "kanji": "深い",
-    "reading": "ふかい",
-    "meaning": "deep"
+    "kanji": "多忙",
+    "reading": "たぼう",
+    "meaning": "being very busy (na-adj)",
+    "status": "unset"
   },
   {
     "id": "364",
-    "kanji": "開始する",
-    "reading": "かいしする",
-    "meaning": "to begin; to start"
+    "kanji": "浅い",
+    "reading": "あさい",
+    "meaning": "shallow; slight (wound); light (sleep)",
+    "status": "unset"
   },
   {
     "id": "365",
-    "kanji": "食う",
-    "reading": "くう ",
-    "meaning": "to eat (e.g. electricity, petrol, money etc.)"
+    "kanji": "深い",
+    "reading": "ふかい",
+    "meaning": "deep",
+    "status": "unset"
   },
   {
     "id": "366",
-    "kanji": "上回る",
-    "reading": "うわまわる",
-    "meaning": "to exceed; to surpass; to be more than"
+    "kanji": "開始する",
+    "reading": "かいしする",
+    "meaning": "to begin; to start",
+    "status": "unset"
   },
   {
     "id": "367",
-    "kanji": "開発者",
-    "reading": "かいはつしゃ",
-    "meaning": "developer"
+    "kanji": "食う",
+    "reading": "くう ",
+    "meaning": "to eat (e.g. electricity, petrol, money etc.)",
+    "status": "unset"
   },
   {
     "id": "368",
-    "kanji": "普段",
-    "reading": "ふだん",
-    "meaning": "usual; normal; ordinary; habitual"
+    "kanji": "上回る",
+    "reading": "うわまわる",
+    "meaning": "to exceed; to surpass; to be more than",
+    "status": "unset"
   },
   {
     "id": "369",
-    "kanji": "高慢",
-    "reading": "こうまん",
-    "meaning": "proud; arrogant"
+    "kanji": "開発者",
+    "reading": "かいはつしゃ",
+    "meaning": "developer",
+    "status": "unset"
   },
   {
     "id": "370",
-    "kanji": "限る",
-    "reading": "かぎる",
-    "meaning": "to restrict; to limit"
+    "kanji": "普段",
+    "reading": "ふだん",
+    "meaning": "usual; normal; ordinary; habitual",
+    "status": "unset"
   },
   {
     "id": "371",
-    "kanji": "昇進する",
-    "reading": "しょうしんする",
-    "meaning": "to get promoted (at job)"
+    "kanji": "高慢",
+    "reading": "こうまん",
+    "meaning": "proud; arrogant",
+    "status": "unset"
   },
   {
     "id": "372",
-    "kanji": "用具",
-    "reading": "ようぐ",
-    "meaning": "tools; instruments"
+    "kanji": "限る",
+    "reading": "かぎる",
+    "meaning": "to restrict; to limit",
+    "status": "unset"
   },
   {
     "id": "373",
-    "kanji": "親族",
-    "reading": "しんぞく",
-    "meaning": "relatives"
+    "kanji": "昇進する",
+    "reading": "しょうしんする",
+    "meaning": "to get promoted (at job)",
+    "status": "unset"
   },
   {
     "id": "374",
-    "kanji": "狂っている",
-    "reading": "くるっている",
-    "meaning": "crazy"
+    "kanji": "用具",
+    "reading": "ようぐ",
+    "meaning": "tools; instruments",
+    "status": "unset"
   },
   {
     "id": "375",
-    "kanji": "日付",
-    "reading": "ひづけ",
-    "meaning": "date"
+    "kanji": "親族",
+    "reading": "しんぞく",
+    "meaning": "relatives",
+    "status": "unset"
   },
   {
     "id": "376",
-    "kanji": "隠れる",
-    "reading": "かくれる",
-    "meaning": "to hide"
+    "kanji": "狂っている",
+    "reading": "くるっている",
+    "meaning": "crazy",
+    "status": "unset"
   },
   {
     "id": "377",
-    "kanji": "飲み込む",
-    "reading": "のみこむ",
-    "meaning": "to gulp down (ковтати); to understand; to hold back from saying something"
+    "kanji": "日付",
+    "reading": "ひづけ",
+    "meaning": "date",
+    "status": "unset"
   },
   {
     "id": "378",
-    "kanji": "個性",
-    "reading": "こせい",
-    "meaning": "unique (personality)"
+    "kanji": "隠れる",
+    "reading": "かくれる",
+    "meaning": "to hide (1-dan)",
+    "status": "unset"
   },
   {
     "id": "379",
-    "kanji": "忠誠",
-    "reading": "ちゅうせい",
-    "meaning": "loyalty; sincerity"
+    "kanji": "飲み込む",
+    "reading": "のみこむ",
+    "meaning": "to gulp down (ковтати); to understand; to hold back from saying something",
+    "status": "unset"
   },
   {
     "id": "380",
-    "kanji": "忠誠心",
-    "reading": "ちゅうせいしん",
-    "meaning": "loyalty; sincerity"
+    "kanji": "個性",
+    "reading": "こせい",
+    "meaning": "unique (personality)",
+    "status": "unset"
   },
   {
     "id": "381",
-    "kanji": "慌てる",
-    "reading": "あわてる",
-    "meaning": "to panic"
+    "kanji": "忠誠",
+    "reading": "ちゅうせい",
+    "meaning": "loyalty; sincerity",
+    "status": "unset"
   },
   {
     "id": "382",
-    "kanji": "悔しい",
-    "reading": "くやしい",
-    "meaning": "frustrated; disappointed; annoyed"
+    "kanji": "忠誠心",
+    "reading": "ちゅうせいしん",
+    "meaning": "loyalty; sincerity",
+    "status": "unset"
   },
   {
     "id": "383",
-    "kanji": "真剣",
-    "reading": "しんけん",
-    "meaning": "serious (na-adj)"
+    "kanji": "慌てる",
+    "reading": "あわてる",
+    "meaning": "to panic (1-dan)",
+    "status": "unset"
   },
   {
     "id": "384",
-    "kanji": "旨味",
-    "reading": "うまみ",
-    "meaning": "good flavor"
+    "kanji": "悔しい",
+    "reading": "くやしい",
+    "meaning": "frustrated; disappointed; annoyed",
+    "status": "unset"
   },
   {
     "id": "385",
-    "kanji": "脂肪",
-    "reading": "しぼう",
-    "meaning": "fat"
+    "kanji": "真剣",
+    "reading": "しんけん",
+    "meaning": "serious (na-adj)",
+    "status": "unset"
   },
   {
     "id": "386",
-    "kanji": "細菌",
-    "reading": "さいきん",
-    "meaning": "bacteria"
+    "kanji": "旨味",
+    "reading": "うまみ",
+    "meaning": "good flavor",
+    "status": "unset"
   },
   {
     "id": "387",
-    "kanji": "幸い",
-    "reading": "さいわい",
-    "meaning": "happiness"
+    "kanji": "脂肪",
+    "reading": "しぼう",
+    "meaning": "fat",
+    "status": "unset"
   },
   {
     "id": "388",
-    "kanji": "行動",
-    "reading": "こうどう",
-    "meaning": "action; behavior"
+    "kanji": "細菌",
+    "reading": "さいきん",
+    "meaning": "bacteria",
+    "status": "unset"
   },
   {
     "id": "389",
-    "kanji": "飴",
-    "reading": "あめ",
-    "meaning": "candy"
+    "kanji": "幸い",
+    "reading": "さいわい",
+    "meaning": "happiness",
+    "status": "unset"
   },
   {
     "id": "390",
-    "kanji": "高い可能性",
-    "reading": "たかいかのうせい",
-    "meaning": "high chance"
+    "kanji": "行動",
+    "reading": "こうどう",
+    "meaning": "action; behavior",
+    "status": "unset"
   },
   {
     "id": "391",
-    "kanji": "低い可能性",
-    "reading": "ひくいかのうせい",
-    "meaning": "low chance"
+    "kanji": "飴",
+    "reading": "あめ",
+    "meaning": "candy",
+    "status": "unset"
   },
   {
     "id": "392",
-    "kanji": "前回",
-    "reading": "ぜんかい",
-    "meaning": "previous time; last time"
+    "kanji": "高い可能性",
+    "reading": "たかいかのうせい",
+    "meaning": "high chance",
+    "status": "unset"
   },
   {
     "id": "393",
-    "kanji": "内容",
-    "reading": "ないよう",
-    "meaning": "contents (вміст, зміст)"
+    "kanji": "低い可能性",
+    "reading": "ひくいかのうせい",
+    "meaning": "low chance",
+    "status": "unset"
   },
   {
     "id": "394",
-    "kanji": null,
-    "reading": "ぜひぜひ",
-    "meaning": "certainly; by all means"
+    "kanji": "前回",
+    "reading": "ぜんかい",
+    "meaning": "previous time; last time",
+    "status": "unset"
   },
   {
     "id": "395",
-    "kanji": "足りない",
-    "reading": "たりない",
-    "meaning": "insufficient; not enough"
+    "kanji": "内容",
+    "reading": "ないよう",
+    "meaning": "contents (вміст, зміст)",
+    "status": "unset"
   },
   {
     "id": "396",
-    "kanji": "倒す",
-    "reading": "たおす",
-    "meaning": "to bring down; to defeat; to overthrow"
+    "kanji": null,
+    "reading": "ぜひぜひ",
+    "meaning": "certainly; by all means",
+    "status": "unset"
   },
   {
     "id": "397",
-    "kanji": null,
-    "reading": "いきなり",
-    "meaning": "abruptly; suddenly; all of a sudden"
+    "kanji": "足りない",
+    "reading": "たりない",
+    "meaning": "insufficient; not enough",
+    "status": "unset"
   },
   {
     "id": "398",
-    "kanji": "想像",
-    "reading": "そうぞう",
-    "meaning": "imagination"
+    "kanji": "倒す",
+    "reading": "たおす",
+    "meaning": "to bring down; to defeat; to overthrow",
+    "status": "unset"
   },
   {
     "id": "399",
-    "kanji": "幸福",
-    "reading": "こうふく",
-    "meaning": "happiness"
+    "kanji": null,
+    "reading": "いきなり",
+    "meaning": "abruptly; suddenly; all of a sudden",
+    "status": "unset"
   },
   {
     "id": "400",
-    "kanji": "状態",
-    "reading": "じょうたい",
-    "meaning": "state; condition"
+    "kanji": "想像",
+    "reading": "そうぞう",
+    "meaning": "imagination",
+    "status": "unset"
   },
   {
     "id": "401",
-    "kanji": "不安",
-    "reading": "ふあん",
-    "meaning": "anxiety (na-adj)"
+    "kanji": "幸福",
+    "reading": "こうふく",
+    "meaning": "happiness",
+    "status": "unset"
   },
   {
     "id": "402",
-    "kanji": "美容院",
-    "reading": "びよういん",
-    "meaning": "beauty salon"
+    "kanji": "状態",
+    "reading": "じょうたい",
+    "meaning": "state; condition",
+    "status": "unset"
   },
   {
     "id": "403",
-    "kanji": "ご存じ",
-    "reading": "ごぞんじ",
-    "meaning": "knowing; acquaintance"
+    "kanji": "不安",
+    "reading": "ふあん",
+    "meaning": "anxiety (na-adj)",
+    "status": "unset"
   },
   {
     "id": "404",
-    "kanji": null,
-    "reading": "ほぼ",
-    "meaning": "almost; approximately"
+    "kanji": "美容院",
+    "reading": "びよういん",
+    "meaning": "beauty salon",
+    "status": "unset"
   },
   {
     "id": "405",
-    "kanji": "約",
-    "reading": "やく",
-    "meaning": "approximately"
+    "kanji": "ご存じ",
+    "reading": "ごぞんじ",
+    "meaning": "knowing; acquaintance",
+    "status": "unset"
   },
   {
     "id": "406",
     "kanji": null,
-    "reading": "どんどん",
-    "meaning": "rapidly; continuously"
+    "reading": "ほぼ",
+    "meaning": "almost; approximately",
+    "status": "unset"
   },
   {
     "id": "407",
-    "kanji": "年齢",
-    "reading": "ねんれい",
-    "meaning": "age"
+    "kanji": "約",
+    "reading": "やく",
+    "meaning": "approximately",
+    "status": "unset"
   },
   {
     "id": "408",
-    "kanji": "恐ろしい",
-    "reading": "おそろしい",
-    "meaning": "terrible; terrifying; frightening"
+    "kanji": null,
+    "reading": "どんどん",
+    "meaning": "rapidly; continuously",
+    "status": "unset"
   },
   {
     "id": "409",
-    "kanji": "通り",
-    "reading": "とおり",
-    "meaning": "street"
+    "kanji": "年齢",
+    "reading": "ねんれい",
+    "meaning": "age",
+    "status": "unset"
   },
   {
     "id": "410",
-    "kanji": "通う",
-    "reading": "かよう",
-    "meaning": "to commute; to attend regularly"
+    "kanji": "恐ろしい",
+    "reading": "おそろしい",
+    "meaning": "terrible; terrifying; frightening",
+    "status": "unset"
   },
   {
     "id": "411",
-    "kanji": "保つ",
-    "reading": "たもつ",
-    "meaning": "to preserve; to hold; to maintain"
+    "kanji": "通り",
+    "reading": "とおり",
+    "meaning": "street",
+    "status": "unset"
   },
   {
     "id": "412",
-    "kanji": "やる気",
-    "reading": "やるき",
-    "meaning": "willingness (e.g. to do something); motivation"
+    "kanji": "通う",
+    "reading": "かよう",
+    "meaning": "to commute; to attend regularly",
+    "status": "unset"
   },
   {
     "id": "413",
-    "kanji": "目標",
-    "reading": "もくひょう",
-    "meaning": "goal; target"
+    "kanji": "保つ",
+    "reading": "たもつ",
+    "meaning": "to preserve; to hold; to maintain",
+    "status": "unset"
   },
   {
     "id": "414",
-    "kanji": "段階",
-    "reading": "だんかい",
-    "meaning": "step; level; phase"
+    "kanji": "やる気",
+    "reading": "やるき",
+    "meaning": "willingness (e.g. to do something); motivation",
+    "status": "unset"
   },
   {
     "id": "415",
-    "kanji": "苦手",
-    "reading": "にがて",
-    "meaning": "poor (at); weak (in); not very good (at)"
+    "kanji": "目標",
+    "reading": "もくひょう",
+    "meaning": "goal; target",
+    "status": "unset"
   },
   {
     "id": "416",
-    "kanji": "交流会",
-    "reading": "こうりゅうかい",
-    "meaning": "gathering; meetup"
+    "kanji": "段階",
+    "reading": "だんかい",
+    "meaning": "step; level; phase",
+    "status": "unset"
   },
   {
     "id": "417",
-    "kanji": "字幕",
-    "reading": "じまく",
-    "meaning": "subtitles"
+    "kanji": "苦手",
+    "reading": "にがて",
+    "meaning": "poor (at); weak (in); not very good (at)",
+    "status": "unset"
   },
   {
     "id": "418",
-    "kanji": "交換留学",
-    "reading": "こうかんりゅうがく",
-    "meaning": "exchange student"
+    "kanji": "交流会",
+    "reading": "こうりゅうかい",
+    "meaning": "gathering; meetup",
+    "status": "unset"
   },
   {
     "id": "419",
-    "kanji": "食洗機",
-    "reading": "しょくせんき",
-    "meaning": "dishwashing machine"
+    "kanji": "字幕",
+    "reading": "じまく",
+    "meaning": "subtitles",
+    "status": "unset"
   },
   {
     "id": "420",
-    "kanji": "現代",
-    "reading": "げんだい",
-    "meaning": "present day; modern times"
+    "kanji": "交換留学",
+    "reading": "こうかんりゅうがく",
+    "meaning": "exchange student",
+    "status": "unset"
   },
   {
     "id": "421",
-    "kanji": "進歩",
-    "reading": "しんぽ",
-    "meaning": "progress"
+    "kanji": "食洗機",
+    "reading": "しょくせんき",
+    "meaning": "dishwashing machine",
+    "status": "unset"
   },
   {
     "id": "422",
-    "kanji": "醜い",
-    "reading": "みにくい",
-    "meaning": "ugly"
+    "kanji": "現代",
+    "reading": "げんだい",
+    "meaning": "present day; modern times",
+    "status": "unset"
   },
   {
     "id": "423",
-    "kanji": "不細工な",
-    "reading": "ぶざいくな",
-    "meaning": "ugly"
+    "kanji": "進歩",
+    "reading": "しんぽ",
+    "meaning": "progress",
+    "status": "unset"
   },
   {
     "id": "424",
-    "kanji": "外見",
-    "reading": "がいけん",
-    "meaning": "beauty (appearance)"
+    "kanji": "醜い",
+    "reading": "みにくい",
+    "meaning": "ugly",
+    "status": "unset"
   },
   {
     "id": "425",
-    "kanji": "怠惰な",
-    "reading": "たいだな",
-    "meaning": "lazy (like vegetable)"
+    "kanji": "不細工な",
+    "reading": "ぶさいくな",
+    "meaning": "ugly",
+    "status": "unset"
   },
   {
     "id": "426",
-    "kanji": "痩せる",
-    "reading": "やせる",
-    "meaning": "to become thin; to lose weight"
+    "kanji": "外見",
+    "reading": "がいけん",
+    "meaning": "beauty (appearance)",
+    "status": "unset"
   },
   {
     "id": "427",
-    "kanji": "勤勉な",
-    "reading": "きんべんな",
-    "meaning": "hard-working"
+    "kanji": "怠惰な",
+    "reading": "たいだな",
+    "meaning": "lazy (like vegetable)",
+    "status": "unset"
   },
   {
     "id": "428",
-    "kanji": "性格",
-    "reading": "せいかく",
-    "meaning": "character (of a person); personality"
+    "kanji": "痩せる",
+    "reading": "やせる",
+    "meaning": "to become thin; to lose weight",
+    "status": "unset"
   },
   {
     "id": "429",
-    "kanji": "個性的",
-    "reading": "こせいてき",
-    "meaning": "individual; personal"
+    "kanji": "勤勉な",
+    "reading": "きんべんな",
+    "meaning": "hard-working",
+    "status": "unset"
   },
   {
     "id": "430",
-    "kanji": "親しみやすい",
-    "reading": "したしみやすい",
-    "meaning": "friendly; easy to talk to"
+    "kanji": "性格",
+    "reading": "せいかく",
+    "meaning": "character (of a person); personality",
+    "status": "unset"
   },
   {
     "id": "431",
-    "kanji": "畑",
-    "reading": "はたけ",
-    "meaning": "field (for fruits, vegetables, etc.)"
+    "kanji": "個性的",
+    "reading": "こせいてき",
+    "meaning": "individual; personal",
+    "status": "unset"
   },
   {
     "id": "432",
-    "kanji": "押し入れ",
-    "reading": "おしいれ",
-    "meaning": "closet"
+    "kanji": "親しみやすい",
+    "reading": "したしみやすい",
+    "meaning": "friendly; easy to talk to",
+    "status": "unset"
   },
   {
     "id": "433",
-    "kanji": "敷く",
-    "reading": "しく",
-    "meaning": "to spread out; to lay out"
+    "kanji": "畑",
+    "reading": "はたけ",
+    "meaning": "field (for fruits, vegetables, etc.)",
+    "status": "unset"
   },
   {
     "id": "434",
-    "kanji": "流れる",
-    "reading": "ながれる",
-    "meaning": "to flow (liquid, time, etc.)"
+    "kanji": "押し入れ",
+    "reading": "おしいれ",
+    "meaning": "closet",
+    "status": "unset"
   },
   {
     "id": "435",
-    "kanji": "戻す",
-    "reading": "もどす",
-    "meaning": "to put back; to return; to give back"
+    "kanji": "敷く",
+    "reading": "しく",
+    "meaning": "to spread out; to lay out",
+    "status": "unset"
   },
   {
     "id": "436",
-    "kanji": "心地よい",
-    "reading": "ここちよい",
-    "meaning": "pleasant"
+    "kanji": "流れる",
+    "reading": "ながれる",
+    "meaning": "to flow (liquid, time, etc.)",
+    "status": "unset"
   },
   {
     "id": "437",
-    "kanji": "強調",
-    "reading": "きょうちょう",
-    "meaning": "emphasis; highlight"
+    "kanji": "戻す",
+    "reading": "もどす",
+    "meaning": "to put back; to return; to give back",
+    "status": "unset"
   },
   {
     "id": "438",
-    "kanji": "大げさにする",
-    "reading": "おおげさにする",
-    "meaning": "to exaggerate"
+    "kanji": "心地よい",
+    "reading": "ここちよい",
+    "meaning": "pleasant",
+    "status": "unset"
   },
   {
     "id": "439",
-    "kanji": "上司",
-    "reading": "じょうし",
-    "meaning": "superior; boss"
+    "kanji": "強調",
+    "reading": "きょうちょう",
+    "meaning": "emphasis; highlight; належати",
+    "status": "unset"
   },
   {
     "id": "440",
-    "kanji": null,
-    "reading": "ふざける",
-    "meaning": "to joke (1-dan)"
+    "kanji": "大げさにする",
+    "reading": "おおげさにする",
+    "meaning": "to exaggerate",
+    "status": "unset"
   },
   {
     "id": "441",
-    "kanji": "流行る",
-    "reading": "はやる",
-    "meaning": "to be popular (about something) (5-dan)"
+    "kanji": "上司",
+    "reading": "じょうし",
+    "meaning": "superior; boss",
+    "status": "unset"
   },
   {
     "id": "442",
-    "kanji": "器",
-    "reading": "うつわ",
-    "meaning": "bowl"
+    "kanji": null,
+    "reading": "ふざける",
+    "meaning": "to joke (1-dan)",
+    "status": "unset"
   },
   {
     "id": "443",
-    "kanji": "輝き",
-    "reading": "かがやき",
-    "meaning": "brightness"
+    "kanji": "流行る",
+    "reading": "はやる",
+    "meaning": "to be popular (about something) (5-dan)",
+    "status": "unset"
   },
   {
     "id": "444",
-    "kanji": "完璧",
-    "reading": "かんぺき",
-    "meaning": "perfect"
+    "kanji": "器",
+    "reading": "うつわ",
+    "meaning": "bowl",
+    "status": "unset"
   },
   {
     "id": "445",
-    "kanji": "尊敬する",
-    "reading": "そんけいする",
-    "meaning": "to respect"
+    "kanji": "輝き",
+    "reading": "かがやき",
+    "meaning": "brightness",
+    "status": "unset"
   },
   {
     "id": "446",
-    "kanji": null,
-    "reading": "~ぶり",
-    "meaning": "style; manner; way (similar to 方 - かた)"
+    "kanji": "完璧",
+    "reading": "かんぺき",
+    "meaning": "perfect",
+    "status": "unset"
   },
   {
     "id": "447",
-    "kanji": null,
-    "reading": "こう",
-    "meaning": "in this way; thus; such"
+    "kanji": "尊敬する",
+    "reading": "そんけいする",
+    "meaning": "to respect",
+    "status": "unset"
   },
   {
     "id": "448",
-    "kanji": "満足",
-    "reading": "まんぞく",
-    "meaning": "satisfaction"
+    "kanji": null,
+    "reading": "~ぶり",
+    "meaning": "style; manner; way (similar to 方 - かた)",
+    "status": "unset"
   },
   {
     "id": "449",
     "kanji": null,
-    "reading": "いまいち",
-    "meaning": "not very good"
+    "reading": "こう",
+    "meaning": "in this way; thus; such",
+    "status": "unset"
   },
   {
     "id": "450",
-    "kanji": "才能",
-    "reading": "さいのう",
-    "meaning": "talent"
+    "kanji": "満足",
+    "reading": "まんぞく",
+    "meaning": "satisfaction",
+    "status": "unset"
   },
   {
     "id": "451",
-    "kanji": "太っ腹",
-    "reading": "ふとっぱら",
-    "meaning": "generous; big-hearted"
+    "kanji": null,
+    "reading": "いまいち",
+    "meaning": "not very good",
+    "status": "unset"
   },
   {
     "id": "452",
-    "kanji": "不可欠",
-    "reading": "ふかけつ",
-    "meaning": "essential; indispensable"
+    "kanji": "才能",
+    "reading": "さいのう",
+    "meaning": "talent",
+    "status": "unset"
   },
   {
     "id": "453",
-    "kanji": "必要不可欠",
-    "reading": "ひつようふかけつ",
-    "meaning": "absolutely essential"
+    "kanji": "太っ腹",
+    "reading": "ふとっぱら",
+    "meaning": "generous; big-hearted",
+    "status": "unset"
   },
   {
     "id": "454",
-    "kanji": "気持ちを込める",
-    "reading": "きもちをこめる",
-    "meaning": "put one's heart into something (al. 心を込める)"
+    "kanji": "不可欠",
+    "reading": "ふかけつ",
+    "meaning": "essential; indispensable",
+    "status": "unset"
   },
   {
     "id": "455",
-    "kanji": "知らせ",
-    "reading": "しらせ",
-    "meaning": "news"
+    "kanji": "必要不可欠",
+    "reading": "ひつようふかけつ",
+    "meaning": "absolutely essential",
+    "status": "unset"
   },
   {
     "id": "456",
-    "kanji": "在住",
-    "reading": "ざいじゅう",
-    "meaning": "living; dwelling"
+    "kanji": "気持ちを込める",
+    "reading": "きもちをこめる",
+    "meaning": "put one's heart into something (al. 心を込める)",
+    "status": "unset"
   },
   {
     "id": "457",
-    "kanji": "月収",
-    "reading": "げっしゅう",
-    "meaning": "monthly income"
+    "kanji": "知らせ",
+    "reading": "しらせ",
+    "meaning": "news",
+    "status": "unset"
   },
   {
     "id": "458",
-    "kanji": "持主",
-    "reading": "もちぬし",
-    "meaning": "owner; possessor (e.g. of talent, beauty, etc.)"
+    "kanji": "在住",
+    "reading": "ざいじゅう",
+    "meaning": "living; dwelling",
+    "status": "unset"
   },
   {
     "id": "459",
-    "kanji": "将来",
-    "reading": "しょうらい",
-    "meaning": "future"
+    "kanji": "月収",
+    "reading": "げっしゅう",
+    "meaning": "monthly income",
+    "status": "unset"
   },
   {
     "id": "460",
-    "kanji": "騒ぐ",
-    "reading": "さわぐ",
-    "meaning": "to make noise; to be noisy"
+    "kanji": "持主",
+    "reading": "もちぬし",
+    "meaning": "owner; possessor (e.g. of talent, beauty, etc.)",
+    "status": "unset"
   },
   {
     "id": "461",
-    "kanji": "触る",
-    "reading": "さわる",
-    "meaning": "to touch"
+    "kanji": "将来",
+    "reading": "しょうらい",
+    "meaning": "future",
+    "status": "unset"
   },
   {
     "id": "462",
-    "kanji": "宿",
-    "reading": "やど",
-    "meaning": "inn; hotel (in general - a place to sleep)"
+    "kanji": "騒ぐ",
+    "reading": "さわぐ",
+    "meaning": "to make noise; to be noisy",
+    "status": "unset"
   },
   {
     "id": "463",
-    "kanji": "時刻表",
-    "reading": "じこくひょう",
-    "meaning": "timetable; schedule (e.g. of a train)"
+    "kanji": "触る",
+    "reading": "さわる",
+    "meaning": "to touch",
+    "status": "unset"
   },
   {
     "id": "464",
+    "kanji": "宿",
+    "reading": "やど",
+    "meaning": "inn; hotel (in general - a place to sleep)",
+    "status": "unset"
+  },
+  {
+    "id": "465",
+    "kanji": "時刻表",
+    "reading": "じこくひょう",
+    "meaning": "timetable; schedule (e.g. of a train)",
+    "status": "unset"
+  },
+  {
+    "id": "466",
     "kanji": "悲観的",
     "reading": "ひかんてき",
-    "meaning": "pessimistic"
+    "meaning": "pessimistic",
+    "status": "unset"
+  },
+  {
+    "id": "467",
+    "kanji": "炊飯器",
+    "reading": "すいはんき",
+    "meaning": "rice cooker (а-ля мультиварка)",
+    "status": "unset"
+  },
+  {
+    "id": "468",
+    "kanji": "回答",
+    "reading": "かいとう",
+    "meaning": "reply; answer",
+    "status": "unset"
+  },
+  {
+    "id": "469",
+    "kanji": "麺",
+    "reading": "めん",
+    "meaning": "noodles",
+    "status": "unset"
+  },
+  {
+    "id": "470",
+    "kanji": "味噌汁",
+    "reading": "みそしる",
+    "meaning": "miso soup",
+    "status": "unset"
+  },
+  {
+    "id": "471",
+    "kanji": null,
+    "reading": "おかず",
+    "meaning": "small dish (usu. one of several accompanying rice)",
+    "status": "unset"
+  },
+  {
+    "id": "472",
+    "kanji": "和食",
+    "reading": "わしょく",
+    "meaning": "Japanese food",
+    "status": "unset"
+  },
+  {
+    "id": "473",
+    "kanji": "急に",
+    "reading": "きゅうに",
+    "meaning": "suddenly; immediately",
+    "status": "unset"
+  },
+  {
+    "id": "474",
+    "kanji": "定着する",
+    "reading": "ていちゃくする",
+    "meaning": "to establish (of a custom, system, etc.); to become standard",
+    "status": "unset"
+  },
+  {
+    "id": "475",
+    "kanji": "お酢",
+    "reading": "おす",
+    "meaning": "vinegar",
+    "status": "unset"
+  },
+  {
+    "id": "476",
+    "kanji": "宣伝",
+    "reading": "せんでん",
+    "meaning": "advertisement",
+    "status": "unset"
+  },
+  {
+    "id": "477",
+    "kanji": "食欲",
+    "reading": "しょくよく",
+    "meaning": "appetite (for food)",
+    "status": "unset"
+  },
+  {
+    "id": "478",
+    "kanji": "暮らす",
+    "reading": "くらす",
+    "meaning": "to live",
+    "status": "unset"
+  },
+  {
+    "id": "479",
+    "kanji": null,
+    "reading": "きっと",
+    "meaning": "surely; undoubtedly",
+    "status": "unset"
+  },
+  {
+    "id": "480",
+    "kanji": null,
+    "reading": "ニキビ",
+    "meaning": "pimple; acne",
+    "status": "unset"
+  },
+  {
+    "id": "481",
+    "kanji": "効果",
+    "reading": "こうか",
+    "meaning": "effect; effectiveness",
+    "status": "unset"
+  },
+  {
+    "id": "482",
+    "kanji": "効果的",
+    "reading": "こうかてき",
+    "meaning": "effective",
+    "status": "unset"
+  },
+  {
+    "id": "483",
+    "kanji": "この場合",
+    "reading": "このばあい",
+    "meaning": "in this case",
+    "status": "unset"
+  },
+  {
+    "id": "484",
+    "kanji": "随分",
+    "reading": "ずいぶん",
+    "meaning": "very; extremely",
+    "status": "unset"
+  },
+  {
+    "id": "485",
+    "kanji": "美の基準",
+    "reading": "びのきじゅん",
+    "meaning": "beauty standard",
+    "status": "unset"
+  },
+  {
+    "id": "486",
+    "kanji": "に関する",
+    "reading": "にかんする",
+    "meaning": "regarding...",
+    "status": "unset"
+  },
+  {
+    "id": "487",
+    "kanji": "個人",
+    "reading": "こじん",
+    "meaning": "individual",
+    "status": "unset"
+  },
+  {
+    "id": "488",
+    "kanji": "尊重",
+    "reading": "そんちょう",
+    "meaning": "respect",
+    "status": "unset"
+  },
+  {
+    "id": "489",
+    "kanji": "美容",
+    "reading": "びよう",
+    "meaning": "beauty",
+    "status": "unset"
+  },
+  {
+    "id": "490",
+    "kanji": "自分らしさ",
+    "reading": "じぶんらしさ",
+    "meaning": "individuality",
+    "status": "unset"
+  },
+  {
+    "id": "491",
+    "kanji": "一方",
+    "reading": "いっぽう",
+    "meaning": "on the other hand",
+    "status": "unset"
+  },
+  {
+    "id": "492",
+    "kanji": "協調性",
+    "reading": "きょうちょうせい",
+    "meaning": "cooperativeness",
+    "status": "unset"
+  },
+  {
+    "id": "493",
+    "kanji": "集団",
+    "reading": "しゅうだん",
+    "meaning": "group",
+    "status": "unset"
+  },
+  {
+    "id": "494",
+    "kanji": "調和",
+    "reading": "ちょうわ",
+    "meaning": "harmony",
+    "status": "unset"
+  },
+  {
+    "id": "495",
+    "kanji": "価値観",
+    "reading": "かちかん",
+    "meaning": "values (цінності)",
+    "status": "unset"
+  },
+  {
+    "id": "496",
+    "kanji": "重要",
+    "reading": "じゅうよう",
+    "meaning": "important",
+    "status": "unset"
+  },
+  {
+    "id": "497",
+    "kanji": "広告",
+    "reading": "こうこく",
+    "meaning": "advertisement",
+    "status": "unset"
+  },
+  {
+    "id": "498",
+    "kanji": null,
+    "reading": "として",
+    "meaning": "as (i.e. in the role of)",
+    "status": "unset"
+  },
+  {
+    "id": "499",
+    "kanji": "一部",
+    "reading": "いちぶ",
+    "meaning": "one part; part of (自然の一部 - part of nature)",
+    "status": "unset"
+  },
+  {
+    "id": "500",
+    "kanji": "責任感",
+    "reading": "せきにんかん",
+    "meaning": "sense of responsibility",
+    "status": "unset"
+  },
+  {
+    "id": "501",
+    "kanji": "体型",
+    "reading": "たいけい",
+    "meaning": "physique; shape of body",
+    "status": "unset"
+  },
+  {
+    "id": "502",
+    "kanji": "曲げる",
+    "reading": "まげる",
+    "meaning": "to bend (1-dan; transitive)",
+    "status": "unset"
+  },
+  {
+    "id": "503",
+    "kanji": "時間を守る",
+    "reading": "じかんをまもる",
+    "meaning": "to be punctual",
+    "status": "unset"
+  },
+  {
+    "id": "504",
+    "kanji": "ルールに従う",
+    "reading": "ルールにしたがう",
+    "meaning": "to obey the rules",
+    "status": "unset"
+  },
+  {
+    "id": "505",
+    "kanji": "非常に",
+    "reading": "ひじょうに",
+    "meaning": "very; extremely",
+    "status": "unset"
+  },
+  {
+    "id": "506",
+    "kanji": "職場",
+    "reading": "しょくば",
+    "meaning": "workplace",
+    "status": "unset"
+  },
+  {
+    "id": "507",
+    "kanji": null,
+    "reading": "さらに",
+    "meaning": "furthermore; more and more; moreover",
+    "status": "unset"
+  },
+  {
+    "id": "508",
+    "kanji": "規律正しい",
+    "reading": "きりつただしい",
+    "meaning": "systematic",
+    "status": "unset"
+  },
+  {
+    "id": "509",
+    "kanji": "海岸",
+    "reading": "かいがん",
+    "meaning": "beach",
+    "status": "unset"
+  },
+  {
+    "id": "510",
+    "kanji": "滅ぼす",
+    "reading": "ほろぼす",
+    "meaning": "to destroy",
+    "status": "unset"
   }
 ]

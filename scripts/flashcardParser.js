@@ -23,6 +23,7 @@ async function parseFlashcards() {
             kanji: kanjiReadingMeaningMatch[2],
             reading: kanjiReadingMeaningMatch[3],
             meaning: kanjiReadingMeaningMatch[4],
+            status: "unset" // "unset" | "unrecognized" | "familiar" | "known"
           };
         }
 
@@ -32,6 +33,7 @@ async function parseFlashcards() {
             kanji: null,
             reading: noKanjiMatch[2],
             meaning: noKanjiMatch[3],
+            status: "unset" // "unset" | "unrecognized" | "familiar" | "known"
           };
         }
 

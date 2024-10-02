@@ -6,8 +6,6 @@ import { Column } from "@/components/dnd/Column";
 import { BurnBarrel } from "@/components/dnd/BurnBarrel";
 import { Wrapper } from "@/components/Wrapper";
 
-// await addWord(storeType, word);
-
 export const ReviewedWordsView = () => {
   const [allWords, setAllWords] = useState<TFlashcard[]>([]);
 
@@ -17,19 +15,8 @@ export const ReviewedWordsView = () => {
 
   async function loadAllWords() {
     try {
-      const [known, familiar, unknown] = await Promise.all([
-        getAllWords("KnownWords"),
-        getAllWords("FamiliarWords"),
-        getAllWords("UnknownWords"),
-      ]);
-
-      const columns = ["unknown", "familiar", "known"];
-      const allWords = [...known, ...familiar, ...unknown].map((word) => ({
-        ...word,
-        column: columns[Math.floor(Math.random() * 3)],
-      }));
-
-      setAllWords(allWords);
+      const words = await getAllWords()
+      setAllWords(words);
     } catch (error) {
       console.error("Failed to load words:", error);
     }
@@ -41,7 +28,7 @@ export const ReviewedWordsView = () => {
         <Column
           title="知らない単語"
           cards={allWords}
-          column="unknown"
+          column="unrecognized"
           headingColor="text-neutral-500"
           setCards={setAllWords}
         />
