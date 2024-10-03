@@ -1,6 +1,19 @@
 import debounce from "lodash/debounce";
 import { Search } from "lucide-react";
-import { ChangeEvent, useCallback, useMemo, useRef, useState } from "react";
+import {
+  ChangeEvent,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
+import {
+  createColumnHelper,
+  useReactTable,
+  getCoreRowModel,
+  flexRender,
+} from "@tanstack/react-table";
 
 import {
   Table,
@@ -10,51 +23,90 @@ import {
   TableCell,
   TableRow,
 } from "@/components/ui/table";
+import { TFlashcard } from "@/types";
+import { getAllWords } from "@/lib/db";
 import { Input } from "@/components/ui/input";
 import { Wrapper } from "@/components/Wrapper";
 import { useDynamicSizeList } from "@/hooks/useDynamicSizeList";
 
-import flashcardsData from "@/assets/flashcards.json";
+const columnHelper = createColumnHelper<TFlashcard>();
+
+// recommended to wrap in useMemo if used inside component
+const columns = [
+  columnHelper.accessor("id", {
+    header: "#",
+    size: 80,
+  }),
+  columnHelper.accessor("kanji", {
+    header: "単語",
+    size: 200,
+  }),
+  columnHelper.accessor("reading", {
+    header: "読み方",
+    size: 250,
+  }),
+  columnHelper.accessor("meaning", {
+    header: "意味",
+  }),
+];
 
 export const HomeView = () => {
   const inputRef = useRef<HTMLInputElement>(null);
   const scrollElementRef = useRef<HTMLDivElement>(null);
 
+  const [words, setWords] = useState<TFlashcard[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
 
+  useEffect(() => {
+    loadAllWords();
+  }, []);
+
+  const loadAllWords = useCallback(async () => {
+    try {
+      const allWords = await getAllWords();
+      const sortedWords = allWords.toSorted((a, b) => +a.id - +b.id);
+      setWords(sortedWords);
+    } catch (error) {
+      console.log("Error loading words: ", error);
+    }
+  }, []);
+
   const filteredData = useMemo(() => {
-    if (!searchQuery) return flashcardsData;
+    if (!searchQuery) return words;
 
     const queryLowerCase = searchQuery.toLowerCase();
 
-    return flashcardsData.filter(
-      (item) =>
-        (item.kanji && item.kanji.includes(queryLowerCase)) ||
-        item.reading.includes(queryLowerCase) ||
-        item.meaning.toLowerCase().includes(queryLowerCase)
+    return words.filter(
+      (word) =>
+        (word.kanji && word.kanji.includes(queryLowerCase)) ||
+        word.reading.includes(queryLowerCase) ||
+        word.meaning.toLowerCase().includes(queryLowerCase)
     );
-  }, [searchQuery]);
+  }, [words, searchQuery]);
 
-  const { virtualRows, totalHeight, measureRow, resetList } =
-    useDynamicSizeList({
-      estimateRowHeight: useCallback(() => 60, []),
-      rowsCount: filteredData.length,
-      getScrollElement: useCallback(() => scrollElementRef.current, []),
-      getRowKey: useCallback(
-        (index) => filteredData[index]?.id,
-        [filteredData]
-      ),
-    });
+  const table = useReactTable({
+    data: filteredData,
+    columns,
+    getCoreRowModel: getCoreRowModel(),
+  });
 
-  const handleInputChange = debounce((e: ChangeEvent<HTMLInputElement>) => {
-    const newValue = e.target.value.trim();
+  const { virtualRows, totalHeight, measureRow } = useDynamicSizeList({
+    estimateRowHeight: useCallback(() => 60, []),
+    rowsCount: filteredData.length,
+    getScrollElement: useCallback(() => scrollElementRef.current, []),
+    getRowKey: useCallback((index) => filteredData[index]?.id, [filteredData]),
+  });
 
-    if (newValue !== searchQuery) {
-      resetList();
-    }
+  const handleInputChange = useCallback(
+    debounce((e: ChangeEvent<HTMLInputElement>) => {
+      const newValue = e.target.value.trim();
 
-    setSearchQuery(newValue);
-  }, 500);
+      setSearchQuery(newValue);
+    }, 500),
+    []
+  );
+
+  console.log("Rendered");
 
   return (
     <section className="mt-8 mb-12">
@@ -73,12 +125,26 @@ export const HomeView = () => {
           {filteredData.length > 0 ? (
             <Table className="w-full">
               <TableHeader>
-                <TableRow className="bg-primary">
-                  <TableHead className="w-[80px]">#</TableHead>
-                  <TableHead className="w-[200px]">単語</TableHead>
-                  <TableHead className="w-[250px]">読み方</TableHead>
-                  <TableHead>意味</TableHead>
-                </TableRow>
+                {table.getHeaderGroups().map((headerGroup) => (
+                  <TableRow key={headerGroup.id} className="bg-primary">
+                    {headerGroup.headers.map((header) => {
+                      console.log({ header });
+                      return (
+                        <TableHead
+                          key={header.id}
+                          className={`w-[${header.column.columnDef.size}px]`}
+                        >
+                          {header.isPlaceholder
+                            ? null
+                            : flexRender(
+                                header.column.columnDef.header,
+                                header.getContext()
+                              )}
+                        </TableHead>
+                      );
+                    })}
+                  </TableRow>
+                ))}
               </TableHeader>
 
               <TableBody className="relative" style={{ height: totalHeight }}>
@@ -98,7 +164,7 @@ export const HomeView = () => {
                       <TableCell className="min-w-[80px] max-w-[80px]">
                         {item?.id}
                       </TableCell>
-                      <TableCell className="min-w-[200px] max-w-[200px]">
+                      <TableCell className="min-w-[200px] text-xl max-w-[200px]">
                         {item?.kanji}
                       </TableCell>
                       <TableCell className="min-w-[250px] max-w-[250px]">

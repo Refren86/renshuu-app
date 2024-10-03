@@ -24,8 +24,9 @@ export const DraggableElement = ({
         onDragStart={(e) => onDragStart(e as unknown as React.DragEvent, word)}
         className="cursor-move rounded border border-neutral-700 bg-neutral-800 p-3 active:cursor-grabbing"
       >
-        <p className="text-sm text-neutral-100">
-          {word?.kanji} ({word.reading}) {word.meaning}
+        <p className="text-lg text-neutral-100">
+          <span className="text-xl">{word?.kanji}</span> ({word.reading}){" "}
+          {word.meaning}
         </p>
       </motion.div>
     </>

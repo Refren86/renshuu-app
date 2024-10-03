@@ -49,6 +49,43 @@ const addWord = async (word: TFlashcard): Promise<IDBValidKey> => {
   });
 };
 
+// runs only once to seed the indexed DB
+const addWordsInBatch = async (words: TFlashcard[]): Promise<void> => {
+  const db = await openDB();
+  return new Promise((resolve, reject) => {
+    const transaction = db.transaction(storeName, "readwrite");
+    const store = transaction.objectStore(storeName);
+
+    let addedCount = 0;
+
+    const addNext = () => {
+      if (addedCount < words.length) {
+        const request = store.put(words[addedCount]);
+        request.onsuccess = () => {
+          addedCount++;
+          addNext();
+        };
+        request.onerror = () => {
+          reject(`Error adding word: ${words[addedCount].id}`);
+        };
+      } else {
+        resolve();
+      }
+    };
+
+    transaction.oncomplete = () => {
+      console.log(`Successfully added ${addedCount} words`);
+      resolve();
+    };
+
+    transaction.onerror = () => {
+      reject("Transaction error");
+    };
+
+    addNext();
+  });
+};
+
 const getWord = async (id: string): Promise<TFlashcard | undefined> => {
   const db = await openDB();
   return new Promise((resolve, reject) => {
@@ -101,6 +138,7 @@ export {
   openDB,
   findWordById,
   addWord,
+  addWordsInBatch,
   getWord,
   updateWord,
   deleteWord,

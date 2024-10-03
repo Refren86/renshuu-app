@@ -299,16 +299,6 @@ export function useDynamicSizeList(props: UseDynamicSizeListProps) {
     [rowsResizeObserver]
   );
 
-  const resetList = useCallback(() => {
-    setRowSizeCache({});
-    setScrollTop(0);
-
-    const scrollEl = getScrollElement();
-    if (scrollEl) {
-      scrollEl.scrollTo({ top: 0 });
-    }
-  }, [getScrollElement]);
-
   return {
     virtualRows,
     totalHeight,
@@ -317,6 +307,5 @@ export function useDynamicSizeList(props: UseDynamicSizeListProps) {
     isScrolling,
     allRows,
     measureRow,
-    resetList
   };
 }
