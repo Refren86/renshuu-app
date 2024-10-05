@@ -130,7 +130,7 @@ export const Column = ({
   const filteredCards = cards.filter((card) => card.status === column);
 
   return (
-    <div className="w-56 shrink-0">
+    <div className="w-full shrink-0 max-h-[800px] px-2 overflow-y-auto">
       <div className="mb-3 flex items-center justify-between">
         <h3 className={`font-medium ${headingColor}`}>{title}</h3>
         <span className="rounded text-sm text-neutral-400">

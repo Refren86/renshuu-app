@@ -56,19 +56,6 @@ function FlashcardsView() {
     [isAnimating, shuffledIndices.length, addWord]
   );
 
-  // useEffect(() => {
-  //   function handleKeyDown(event: KeyboardEvent) {
-  //     if (event.code === "Space") {
-  //       handleClick();
-  //     }
-  //   }
-
-  //   document.addEventListener("keydown", handleKeyDown);
-  //   return () => {
-  //     document.removeEventListener("keydown", handleKeyDown);
-  //   };
-  // }, [handleClick]);
-
   async function handleCopyWord(word: string) {
     try {
       await navigator.clipboard.writeText(word);
@@ -89,7 +76,7 @@ function FlashcardsView() {
 
   return (
     <>
-      <div className="flex flex-col justify-center items-center h-[calc(100dvh-41px)] overflow-hidden">
+      <div className="flex flex-col justify-center items-center h-[calc(100dvh-49px)] overflow-hidden">
         <div className="relative w-full max-w-md h-96">
           <AnimatePresence onExitComplete={() => setIsAnimating(false)}>
             <motion.div
@@ -117,7 +104,7 @@ function FlashcardsView() {
           </Button>
           <Button
             onClick={() => handleClick(currentFlashcard, "familiar")}
-            variant="outline"
+            variant="secondary"
           >
             まあまあ
           </Button>
@@ -147,6 +134,5 @@ export default FlashcardsView;
 
 /**
  * Todo: 
- * 1) Make sure that duplicate words are not added into indexed db, but rather their status changes
- * 2) Implement algorithm, which will show the unset, unrecognized and familiar words with high chance and known words with lower chance
+ * Implement algorithm, which will show the unset, unrecognized and familiar words with high chance and known words with lower chance
  */

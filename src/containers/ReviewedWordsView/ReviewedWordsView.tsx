@@ -29,21 +29,21 @@ export const ReviewedWordsView = () => {
           title="知らない単語"
           cards={allWords}
           column="unrecognized"
-          headingColor="text-neutral-500"
+          headingColor="text-red-300"
           setCards={setAllWords}
         />
         <Column
           title="五分五分単語"
           cards={allWords}
           column="familiar"
-          headingColor="text-blue-200"
+          headingColor="text-blue-300"
           setCards={setAllWords}
         />
         <Column
           title="知っている単語"
           cards={allWords}
           column="known"
-          headingColor="text-emerald-200"
+          headingColor="text-emerald-300"
           setCards={setAllWords}
         />
         <BurnBarrel setCards={setAllWords} />

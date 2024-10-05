@@ -104,7 +104,7 @@ export const HomeView = () => {
           />
         </div>
 
-        <div ref={scrollElementRef} className="h-[800px] overflow-y-auto">
+        <div ref={scrollElementRef} className="h-[800px] overflow-y-auto pr-2">
           {filteredData.length > 0 ? (
             <Table className="w-full">
               <TableHeader>
@@ -112,7 +112,7 @@ export const HomeView = () => {
                   <TableHead className="w-[80px]">#</TableHead>
                   <TableHead className="w-[200px]">漢字</TableHead>
                   <TableHead className="w-[250px]">読み方</TableHead>
-                  <TableHead>意味</TableHead>
+                  <TableHead colSpan={2}>意味</TableHead>
                 </TableRow>
               </TableHeader>
 

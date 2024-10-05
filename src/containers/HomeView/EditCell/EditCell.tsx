@@ -44,7 +44,7 @@ export const EditCell = ({
           <Button onClick={handleEdit} variant="destructive" name="cancel">
             <CircleX className="size-4" />
           </Button>{" "}
-          <Button onClick={handleEdit} className="bg-teal-700" name="done">
+          <Button onClick={handleEdit} variant="success" name="done">
             <CircleCheck className="size-4" />
           </Button>
         </div>
