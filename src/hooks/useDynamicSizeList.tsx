@@ -7,37 +7,37 @@ import {
 } from "react";
 
 import { useLatest } from "./useLatest";
-import { useResizeObserver } from "./useResizeObserver";
 import { isNumber, rafThrottle, scheduleDOMUpdate } from "@/lib/utils";
+import { useResizeObserver } from "./useResizeObserver";
 
 type Key = string | number;
 
-interface UseDynamicSizeListProps {
-  rowsCount: number;
-  rowHeight?: (index: number) => number;
-  estimateRowHeight?: (index: number) => number;
-  getRowKey: (index: number) => Key;
-  overscanY?: number;
+type UseDynamicSizeListProps = {
+  itemsCount: number;
+  itemHeight?: (index: number) => number;
+  estimateItemHeight?: (index: number) => number;
+  getItemKey: (index: number) => Key;
+  overscan?: number;
   scrollingDelay?: number;
   getScrollElement: () => HTMLElement | null;
-}
+};
 
-interface DynamicSizeListRow {
+type DynamicSizeListItem = {
   key: Key;
   index: number;
   offsetTop: number;
   height: number;
-}
+};
 
-const DEFAULT_OVERSCAN_Y = 3;
+const DEFAULT_OVERSCAN = 3;
 const DEFAULT_SCROLLING_DELAY = 150;
 
 function validateProps(props: UseDynamicSizeListProps) {
-  const { rowHeight, estimateRowHeight } = props;
+  const { itemHeight, estimateItemHeight } = props;
 
-  if (!rowHeight && !estimateRowHeight) {
+  if (!itemHeight && !estimateItemHeight) {
     throw new Error(
-      `You must pass either "rowHeight" or "estimateRowHeight" prop`
+      `You must pass either "itemHeight" or "estimateItemHeight" prop`
     );
   }
 }
@@ -46,17 +46,19 @@ export function useDynamicSizeList(props: UseDynamicSizeListProps) {
   validateProps(props);
 
   const {
-    rowHeight,
-    estimateRowHeight,
-    getRowKey,
-    rowsCount,
+    itemHeight,
+    estimateItemHeight,
+    getItemKey,
+    itemsCount,
     scrollingDelay = DEFAULT_SCROLLING_DELAY,
-    overscanY = DEFAULT_OVERSCAN_Y,
+    overscan = DEFAULT_OVERSCAN,
     getScrollElement,
   } = props;
 
-  const [rowSizeCache, setRowSizeCache] = useState<Record<Key, number>>({});
-  const [virtualRowHeight, setVirtualRowHeight] = useState(0);
+  const [measurementCache, setMeasurementCache] = useState<Record<Key, number>>(
+    {}
+  );
+  const [listHeight, setListHeight] = useState(0);
   const [scrollTop, setScrollTop] = useState(0);
   const [isScrolling, setIsScrolling] = useState(false);
 
@@ -72,13 +74,11 @@ export function useDynamicSizeList(props: UseDynamicSizeListProps) {
       if (!entry) {
         return;
       }
-      const size = entry.borderBoxSize[0]
-        ? {
-            height: entry.borderBoxSize[0].blockSize,
-          }
-        : entry.target.getBoundingClientRect();
+      const height =
+        entry.borderBoxSize[0]?.blockSize ??
+        entry.target.getBoundingClientRect().height;
 
-      setVirtualRowHeight(size.height);
+      setListHeight(height);
     });
 
     resizeObserver.observe(scrollElement);
@@ -97,14 +97,14 @@ export function useDynamicSizeList(props: UseDynamicSizeListProps) {
 
     const handleScroll = () => {
       const { scrollTop } = scrollElement;
+
       setScrollTop(scrollTop);
     };
-
-    handleScroll();
 
     const throttleHandleScroll = rafThrottle(handleScroll);
 
     scrollElement.addEventListener("scroll", throttleHandleScroll);
+
     return () =>
       scrollElement.removeEventListener("scroll", throttleHandleScroll);
   }, [getScrollElement]);
@@ -142,35 +142,36 @@ export function useDynamicSizeList(props: UseDynamicSizeListProps) {
   }, [getScrollElement]);
 
   // calculate the rows that should be rendered based on scroll position
-  const { virtualRows, rowStartIndex, rowEndIndex, totalHeight, allRows } =
+  const { virtualItems, startIndex, endIndex, totalHeight, allItems } =
     useMemo(() => {
-      const getRowHeight = (index: number) => {
-        if (rowHeight) {
-          return rowHeight(index);
+      const getItemHeight = (index: number) => {
+        if (itemHeight) {
+          return itemHeight(index);
         }
 
-        const key = getRowKey(index);
-        if (isNumber(rowSizeCache[key])) {
-          return rowSizeCache[key]!;
+        const key = getItemKey(index);
+
+        if (isNumber(measurementCache[key])) {
+          return measurementCache[key]!;
         }
 
-        return estimateRowHeight!(index);
+        return estimateItemHeight!(index);
       };
 
       const rangeStart = scrollTop;
-      const rangeEnd = scrollTop + virtualRowHeight;
+      const rangeEnd = scrollTop + listHeight;
 
       let totalHeight = 0;
-      let rowStartIndex = 0;
-      let rowEndIndex = 0;
-      const allRows: DynamicSizeListRow[] = Array(rowsCount);
+      let startIndex = -1;
+      let endIndex = -1;
+      const allRows: DynamicSizeListItem[] = Array(itemsCount);
 
-      for (let index = 0; index < rowsCount; index++) {
-        const key = getRowKey(index);
+      for (let index = 0; index < itemsCount; index++) {
+        const key = getItemKey(index);
         const row = {
           key,
-          index,
-          height: getRowHeight(index),
+          index: index,
+          height: getItemHeight(index),
           offsetTop: totalHeight,
         };
 
@@ -178,48 +179,47 @@ export function useDynamicSizeList(props: UseDynamicSizeListProps) {
         allRows[index] = row;
 
         if (row.offsetTop + row.height < rangeStart) {
-          rowStartIndex++;
+          startIndex++;
         }
 
         if (row.offsetTop + row.height < rangeEnd) {
-          rowEndIndex++;
+          endIndex++;
         }
       }
 
-      rowStartIndex = Math.max(0, rowStartIndex - overscanY);
-      rowEndIndex = Math.min(rowsCount - 1, rowEndIndex + overscanY);
+      startIndex = Math.max(0, startIndex - overscan);
+      endIndex = Math.min(itemsCount - 1, endIndex + overscan);
 
-      const virtualRows = allRows.slice(rowStartIndex, rowEndIndex + 1);
+      const virtualRows = allRows.slice(startIndex, endIndex + 1);
 
       return {
-        virtualRows: virtualRows,
-        rowStartIndex,
-        rowEndIndex,
-        allRows: allRows,
+        virtualItems: virtualRows,
+        startIndex,
+        endIndex,
+        allItems: allRows,
         totalHeight,
       };
     }, [
       scrollTop,
-      overscanY,
-      virtualRowHeight,
-      rowHeight,
-      getRowKey,
-      estimateRowHeight,
-      rowSizeCache,
-      rowsCount,
+      overscan,
+      listHeight,
+      itemHeight,
+      getItemKey,
+      estimateItemHeight,
+      measurementCache,
+      itemsCount,
     ]);
 
   // keep track of the latest values in a ref to avoid stale closures
   const latestData = useLatest({
-    rowSizeCache,
-    getRowKey,
-    allRows,
+    measurementCache,
+    getItemKey,
+    allItems,
     getScrollElement,
     scrollTop,
   });
 
-  // measure the height of individual rows
-  const measureRowHeightInner = useCallback(
+  const measureElementInner = useCallback(
     (
       element: Element | null,
       resizeObserver: ResizeObserver,
@@ -235,24 +235,24 @@ export function useDynamicSizeList(props: UseDynamicSizeListProps) {
         return;
       }
 
-      const rowIndexAttribute = element.getAttribute("data-row-index") || "";
-      const rowIndex = parseInt(rowIndexAttribute, 10);
+      const indexAttribute = element.getAttribute("data-index") || "";
+      const index = parseInt(indexAttribute, 10);
 
-      if (Number.isNaN(rowIndex)) {
+      if (Number.isNaN(index)) {
         console.error(
-          "Dynamic elements must have a valid `data-row-index` attribute"
+          "Dynamic elements must have a valid `data-index` attribute"
         );
         return;
       }
-      const { rowSizeCache, getRowKey, allRows, scrollTop } =
+      const { measurementCache, getItemKey, allItems, scrollTop } =
         latestData.current;
 
-      const key = getRowKey(rowIndex);
+      const key = getItemKey(index);
       const isResize = Boolean(entry);
 
       resizeObserver.observe(element);
 
-      if (!isResize && isNumber(rowSizeCache[key])) {
+      if (!isResize && isNumber(measurementCache[key])) {
         return;
       }
 
@@ -260,19 +260,14 @@ export function useDynamicSizeList(props: UseDynamicSizeListProps) {
         entry?.borderBoxSize[0]?.blockSize ??
         element.getBoundingClientRect().height;
 
-      if (rowSizeCache[key] === height) {
+      if (measurementCache[key] === height) {
         return;
       }
 
-      const row = allRows[rowIndex];
+      const item = allItems[index]!;
+      const delta = height - item.height;
 
-      if (!row) {
-        return;
-      }
-
-      const delta = height - row.height;
-
-      if (delta !== 0 && scrollTop > row.offsetTop) {
+      if (delta !== 0 && scrollTop > item.offsetTop) {
         const element = getScrollElement();
         if (element) {
           scheduleDOMUpdate(() => {
@@ -281,31 +276,31 @@ export function useDynamicSizeList(props: UseDynamicSizeListProps) {
         }
       }
 
-      setRowSizeCache((cache) => ({ ...cache, [key]: height }));
+      setMeasurementCache((cache) => ({ ...cache, [key]: height }));
     },
     []
   );
 
   const rowsResizeObserver = useResizeObserver((entries, observer) => {
     entries.forEach((entry) => {
-      measureRowHeightInner(entry.target, observer, entry);
+      measureElementInner(entry.target, observer, entry);
     });
   });
 
-  const measureRow = useCallback(
+  const measureElement = useCallback(
     (element: Element | null) => {
-      measureRowHeightInner(element, rowsResizeObserver);
+      measureElementInner(element, rowsResizeObserver);
     },
     [rowsResizeObserver]
   );
 
   return {
-    virtualRows,
+    virtualItems,
     totalHeight,
-    rowStartIndex,
-    rowEndIndex,
+    startIndex,
+    endIndex,
     isScrolling,
-    allRows,
-    measureRow,
+    allItems,
+    measureElement,
   };
 }

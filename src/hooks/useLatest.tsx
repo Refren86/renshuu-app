@@ -1,11 +1,9 @@
 import { useInsertionEffect, useRef } from "react";
 
 export function useLatest<T>(value: T) {
-  const latestValue = useRef(value);
-
+  const valueRef = useRef(value);
   useInsertionEffect(() => {
-    latestValue.current = value;
-  }, []);
-
-  return latestValue;
+    valueRef.current = value;
+  });
+  return valueRef;
 }

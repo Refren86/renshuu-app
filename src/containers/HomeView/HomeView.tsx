@@ -8,12 +8,6 @@ import {
   useRef,
   useState,
 } from "react";
-import {
-  createColumnHelper,
-  useReactTable,
-  getCoreRowModel,
-  flexRender,
-} from "@tanstack/react-table";
 
 import {
   Table,
@@ -24,31 +18,12 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { TFlashcard } from "@/types";
-import { getAllWords } from "@/lib/db";
 import { Input } from "@/components/ui/input";
+import { EditCell } from "./EditCell/EditCell";
 import { Wrapper } from "@/components/Wrapper";
+import { getAllWords, updateWord } from "@/lib/db";
 import { useDynamicSizeList } from "@/hooks/useDynamicSizeList";
-
-const columnHelper = createColumnHelper<TFlashcard>();
-
-// recommended to wrap in useMemo if used inside component
-const columns = [
-  columnHelper.accessor("id", {
-    header: "#",
-    size: 80,
-  }),
-  columnHelper.accessor("kanji", {
-    header: "単語",
-    size: 200,
-  }),
-  columnHelper.accessor("reading", {
-    header: "読み方",
-    size: 250,
-  }),
-  columnHelper.accessor("meaning", {
-    header: "意味",
-  }),
-];
+import { EditableTableCell } from "./EditableTableCell/EditableTableCell";
 
 export const HomeView = () => {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -56,6 +31,7 @@ export const HomeView = () => {
 
   const [words, setWords] = useState<TFlashcard[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
+  const [editedRows, setEditedRows] = useState<Record<string, TFlashcard>>({});
 
   useEffect(() => {
     loadAllWords();
@@ -84,17 +60,26 @@ export const HomeView = () => {
     );
   }, [words, searchQuery]);
 
-  const table = useReactTable({
-    data: filteredData,
-    columns,
-    getCoreRowModel: getCoreRowModel(),
-  });
+  const updateData = useCallback((wordId: string, updatedWord: TFlashcard) => {
+    setWords((words) => {
+      const wordsCopy = structuredClone(words);
+      const wordIdx = wordsCopy.findIndex((word) => word.id === wordId);
+      wordsCopy.splice(wordIdx, 1, updatedWord);
+      return wordsCopy;
+    });
+    setEditedRows((prevState) => {
+      const prevStateCopy = structuredClone(prevState);
+      delete prevStateCopy[wordId];
+      return prevStateCopy;
+    });
+    updateWord(updatedWord);
+  }, [setWords, setEditedRows]) 
 
-  const { virtualRows, totalHeight, measureRow } = useDynamicSizeList({
-    estimateRowHeight: useCallback(() => 60, []),
-    rowsCount: filteredData.length,
+  const { virtualItems, totalHeight, measureElement } = useDynamicSizeList({
+    estimateItemHeight: useCallback(() => 72, []),
+    itemsCount: filteredData.length,
     getScrollElement: useCallback(() => scrollElementRef.current, []),
-    getRowKey: useCallback((index) => filteredData[index]?.id, [filteredData]),
+    getItemKey: useCallback((index) => filteredData[index]?.id, [filteredData]),
   });
 
   const handleInputChange = useCallback(
@@ -106,12 +91,10 @@ export const HomeView = () => {
     []
   );
 
-  console.log("Rendered");
-
   return (
-    <section className="mt-8 mb-12">
+    <section className="pt-8 min-h-[calc(100dvh-49px)]">
       <Wrapper>
-        <div className="relative max-w-[500px]">
+        <div className="relative max-w-[500px] mb-8">
           <Search className="absolute -translate-y-1/2 left-2 text-muted-foreground top-1/2" />
           <Input
             ref={inputRef}
@@ -121,56 +104,63 @@ export const HomeView = () => {
           />
         </div>
 
-        <div ref={scrollElementRef} className="h-[800px] overflow-y-auto mt-8">
+        <div ref={scrollElementRef} className="h-[800px] overflow-y-auto">
           {filteredData.length > 0 ? (
             <Table className="w-full">
               <TableHeader>
-                {table.getHeaderGroups().map((headerGroup) => (
-                  <TableRow key={headerGroup.id} className="bg-primary">
-                    {headerGroup.headers.map((header) => {
-                      console.log({ header });
-                      return (
-                        <TableHead
-                          key={header.id}
-                          className={`w-[${header.column.columnDef.size}px]`}
-                        >
-                          {header.isPlaceholder
-                            ? null
-                            : flexRender(
-                                header.column.columnDef.header,
-                                header.getContext()
-                              )}
-                        </TableHead>
-                      );
-                    })}
-                  </TableRow>
-                ))}
+                <TableRow>
+                  <TableHead className="w-[80px]">#</TableHead>
+                  <TableHead className="w-[200px]">漢字</TableHead>
+                  <TableHead className="w-[250px]">読み方</TableHead>
+                  <TableHead>意味</TableHead>
+                </TableRow>
               </TableHeader>
 
               <TableBody className="relative" style={{ height: totalHeight }}>
-                {virtualRows.map((virtualRow) => {
+                {virtualItems.map((virtualRow) => {
                   const item = filteredData[virtualRow.index];
 
                   return (
                     <TableRow
                       key={item?.id}
-                      data-row-index={virtualRow.index}
-                      ref={measureRow}
+                      data-index={virtualRow.index}
+                      ref={measureElement}
                       className="absolute top-0"
                       style={{
                         transform: `translateY(${virtualRow.offsetTop}px)`,
                       }}
                     >
                       <TableCell className="min-w-[80px] max-w-[80px]">
-                        {item?.id}
+                        <span>{item?.id}</span>
                       </TableCell>
-                      <TableCell className="min-w-[200px] text-xl max-w-[200px]">
-                        {item?.kanji}
-                      </TableCell>
-                      <TableCell className="min-w-[250px] max-w-[250px]">
-                        {item?.reading}
-                      </TableCell>
-                      <TableCell className="w-full">{item?.meaning}</TableCell>
+                      <EditableTableCell
+                        keyToUpdate="kanji"
+                        word={item}
+                        editedRows={editedRows}
+                        setEditedRows={setEditedRows}
+                        className="min-w-[200px] text-xl max-w-[200px]"
+                      />
+                      <EditableTableCell
+                        keyToUpdate="reading"
+                        word={item}
+                        editedRows={editedRows}
+                        setEditedRows={setEditedRows}
+                        className="min-w-[250px] max-w-[250px]"
+                      />
+                      <EditableTableCell
+                        keyToUpdate="meaning"
+                        word={item}
+                        editedRows={editedRows}
+                        setEditedRows={setEditedRows}
+                        className="w-full"
+                      />
+                      <EditCell
+                        word={item}
+                        editedRows={editedRows}
+                        className="min-w-[150px] max-w-[150px]"
+                        setEditedRows={setEditedRows}
+                        updateData={updateData}
+                      />
                     </TableRow>
                   );
                 })}
