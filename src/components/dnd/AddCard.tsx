@@ -40,7 +40,7 @@ export const AddCard = ({ column, setCards }: AddCardProps) => {
     )
       return;
 
-    const newCard = {
+    const newCard: TFlashcard = {
       id: generateUniqueId(),
       status: column,
       kanji,

@@ -32,8 +32,6 @@ export const Column = ({
   const handleDragEnd = (e: React.DragEvent) => {
     const cardId = e.dataTransfer.getData("cardId");
 
-    console.log({ cardId, column });
-
     setActive(false);
     clearHighlights();
 
@@ -141,7 +139,7 @@ export const Column = ({
         onDrop={handleDragEnd}
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
-        className={`h-full w-full transition-colors ${
+        className={`w-full transition-colors ${
           active ? "bg-neutral-800/50" : "bg-neutral-800/0"
         }`}
       >

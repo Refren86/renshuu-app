@@ -3048,7 +3048,7 @@
     "id": "439",
     "kanji": "強調",
     "reading": "きょうちょう",
-    "meaning": "emphasis; highlight; належати",
+    "meaning": "emphasis; highlight",
     "status": "unset"
   },
   {
@@ -3377,7 +3377,7 @@
     "id": "486",
     "kanji": "に関する",
     "reading": "にかんする",
-    "meaning": "regarding...",
+    "meaning": "regarding...; about...",
     "status": "unset"
   },
   {
@@ -3546,6 +3546,146 @@
     "kanji": "滅ぼす",
     "reading": "ほろぼす",
     "meaning": "to destroy",
+    "status": "unset"
+  },
+  {
+    "id": "511",
+    "kanji": "情報",
+    "reading": "じょうほう",
+    "meaning": "information",
+    "status": "unset"
+  },
+  {
+    "id": "512",
+    "kanji": "無用",
+    "reading": "むよう",
+    "meaning": "useless; unnecessary",
+    "status": "unset"
+  },
+  {
+    "id": "513",
+    "kanji": "銃",
+    "reading": "じゅう",
+    "meaning": "gun",
+    "status": "unset"
+  },
+  {
+    "id": "514",
+    "kanji": "構える",
+    "reading": "かまえる",
+    "meaning": "to set up (a house, store, etc.); to have at the ready; to stand ready",
+    "status": "unset"
+  },
+  {
+    "id": "515",
+    "kanji": "武器",
+    "reading": "ぶき",
+    "meaning": "weapon",
+    "status": "unset"
+  },
+  {
+    "id": "516",
+    "kanji": "攻撃する",
+    "reading": "こうげきする",
+    "meaning": "to attack",
+    "status": "unset"
+  },
+  {
+    "id": "517",
+    "kanji": "比較",
+    "reading": "ひかく",
+    "meaning": "comparison",
+    "status": "unset"
+  },
+  {
+    "id": "518",
+    "kanji": "離れる",
+    "reading": "はなれる",
+    "meaning": "to leave; to go away",
+    "status": "unset"
+  },
+  {
+    "id": "519",
+    "kanji": "難なく",
+    "reading": "なんなく",
+    "meaning": "easily",
+    "status": "unset"
+  },
+  {
+    "id": "520",
+    "kanji": "扉",
+    "reading": "とびら",
+    "meaning": "door",
+    "status": "unset"
+  },
+  {
+    "id": "521",
+    "kanji": "抜ける",
+    "reading": "ぬける",
+    "meaning": "to come out; to fall out; to be missing; to go through",
+    "status": "unset"
+  },
+  {
+    "id": "522",
+    "kanji": "届く",
+    "reading": "とどく",
+    "meaning": "to reach; to be delivered",
+    "status": "unset"
+  },
+  {
+    "id": "523",
+    "kanji": null,
+    "reading": "つか",
+    "meaning": "or rather (say); or better (say); or perhaps I should say",
+    "status": "unset"
+  },
+  {
+    "id": "524",
+    "kanji": "解消",
+    "reading": "かいしょう",
+    "meaning": "cancellation; relief (e.g. stress)",
+    "status": "unset"
+  },
+  {
+    "id": "525",
+    "kanji": "構う",
+    "reading": "かまう",
+    "meaning": "to mind; to care about",
+    "status": "unset"
+  },
+  {
+    "id": "526",
+    "kanji": "連絡する",
+    "reading": "れんらくする",
+    "meaning": "to contact",
+    "status": "unset"
+  },
+  {
+    "id": "527",
+    "kanji": "絨毯",
+    "reading": "じゅうたん",
+    "meaning": "carpet; rug",
+    "status": "unset"
+  },
+  {
+    "id": "528",
+    "kanji": "柔らかい",
+    "reading": "やわらかい",
+    "meaning": "soft; gentle",
+    "status": "unset"
+  },
+  {
+    "id": "529",
+    "kanji": null,
+    "reading": "リハーサル",
+    "meaning": "rehearsal; repetition",
+    "status": "unset"
+  },
+  {
+    "id": "530",
+    "kanji": "家事",
+    "reading": "かじ",
+    "meaning": "housework",
     "status": "unset"
   }
 ]

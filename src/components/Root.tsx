@@ -2,7 +2,7 @@ import { AnimatePresence } from "framer-motion";
 import { TanStackRouterDevtools } from "@tanstack/router-devtools";
 import { useMatches, useMatch } from "@tanstack/react-router";
 
-import {Header} from "./Header";
+import { Header } from "./Header";
 import { Providers } from "./Providers";
 import { AnimatedOutlet } from "./AnimateOutlet";
 

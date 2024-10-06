@@ -21,9 +21,10 @@ import { TFlashcard } from "@/types";
 import { Input } from "@/components/ui/input";
 import { EditCell } from "./EditCell/EditCell";
 import { Wrapper } from "@/components/Wrapper";
-import { getAllWords, updateWord } from "@/lib/db";
+import { deleteWord, getAllWords, updateWord } from "@/lib/db";
 import { useDynamicSizeList } from "@/hooks/useDynamicSizeList";
 import { EditableTableCell } from "./EditableTableCell/EditableTableCell";
+import { AddNewWordForm } from "./AddNewWordForm/AddNewWordForm";
 
 export const HomeView = () => {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -60,20 +61,41 @@ export const HomeView = () => {
     );
   }, [words, searchQuery]);
 
-  const updateData = useCallback((wordId: string, updatedWord: TFlashcard) => {
-    setWords((words) => {
-      const wordsCopy = structuredClone(words);
-      const wordIdx = wordsCopy.findIndex((word) => word.id === wordId);
-      wordsCopy.splice(wordIdx, 1, updatedWord);
-      return wordsCopy;
-    });
-    setEditedRows((prevState) => {
-      const prevStateCopy = structuredClone(prevState);
-      delete prevStateCopy[wordId];
-      return prevStateCopy;
-    });
-    updateWord(updatedWord);
-  }, [setWords, setEditedRows]) 
+  const updateData = useCallback(
+    (wordId: string, updatedWord: TFlashcard) => {
+      setWords((words) => {
+        const wordsCopy = structuredClone(words);
+        const wordIdx = wordsCopy.findIndex((word) => word.id === wordId);
+        wordsCopy.splice(wordIdx, 1, updatedWord);
+        return wordsCopy;
+      });
+      setEditedRows((prevState) => {
+        const prevStateCopy = structuredClone(prevState);
+        delete prevStateCopy[wordId];
+        return prevStateCopy;
+      });
+      updateWord(updatedWord);
+    },
+    [setWords, setEditedRows]
+  );
+
+  const removeWord = useCallback(
+    (wordId: string) => {
+      setWords((words) => {
+        const wordsCopy = structuredClone(words);
+        const wordIdx = wordsCopy.findIndex((word) => word.id === wordId);
+        wordsCopy.splice(wordIdx, 1);
+        return wordsCopy;
+      });
+      setEditedRows((prevState) => {
+        const prevStateCopy = structuredClone(prevState);
+        delete prevStateCopy[wordId];
+        return prevStateCopy;
+      });
+      deleteWord(wordId);
+    },
+    [setWords, setEditedRows]
+  );
 
   const { virtualItems, totalHeight, measureElement } = useDynamicSizeList({
     estimateItemHeight: useCallback(() => 72, []),
@@ -94,14 +116,20 @@ export const HomeView = () => {
   return (
     <section className="pt-8 min-h-[calc(100dvh-49px)]">
       <Wrapper>
-        <div className="relative max-w-[500px] mb-8">
-          <Search className="absolute -translate-y-1/2 left-2 text-muted-foreground top-1/2" />
-          <Input
-            ref={inputRef}
-            onChange={handleInputChange}
-            placeholder="Search..."
-            className="pl-10"
-          />
+        <div className="flex items-center gap-x-4 mb-8">
+          <div className="relative">
+            <Search className="absolute -translate-y-1/2 left-2 text-muted-foreground top-1/2" />
+            <Input
+              ref={inputRef}
+              onChange={handleInputChange}
+              placeholder="Search..."
+              className="pl-10"
+            />
+          </div>
+
+          <div className="h-[30px] w-[2px] bg-green-200" />
+
+          <AddNewWordForm setWords={setWords} />
         </div>
 
         <div ref={scrollElementRef} className="h-[800px] overflow-y-auto pr-2">
@@ -109,7 +137,7 @@ export const HomeView = () => {
             <Table className="w-full">
               <TableHeader>
                 <TableRow>
-                  <TableHead className="w-[80px]">#</TableHead>
+                  <TableHead className="w-[120px]">ID</TableHead>
                   <TableHead className="w-[200px]">漢字</TableHead>
                   <TableHead className="w-[250px]">読み方</TableHead>
                   <TableHead colSpan={2}>意味</TableHead>
@@ -130,7 +158,7 @@ export const HomeView = () => {
                         transform: `translateY(${virtualRow.offsetTop}px)`,
                       }}
                     >
-                      <TableCell className="min-w-[80px] max-w-[80px]">
+                      <TableCell className="min-w-[120px] max-w-[120px]">
                         <span>{item?.id}</span>
                       </TableCell>
                       <EditableTableCell
@@ -160,6 +188,7 @@ export const HomeView = () => {
                         className="min-w-[150px] max-w-[150px]"
                         setEditedRows={setEditedRows}
                         updateData={updateData}
+                        removeWord={removeWord}
                       />
                     </TableRow>
                   );
