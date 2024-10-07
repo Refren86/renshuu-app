@@ -3,7 +3,7 @@ import { Flame, Trash2 } from "lucide-react";
 
 import { TFlashcard } from "@/types";
 import { deleteWord } from "@/lib/db";
-import { SpringDialog } from "../SpringDialog";
+import { WordDeletionConfirmModal } from "../WordDeletionConfirmModal";
 
 type TSetCards = React.Dispatch<React.SetStateAction<TFlashcard[]>>;
 
@@ -64,7 +64,7 @@ export const BurnBarrel = ({ setCards }: BurnBarrelProps) => {
         )}
       </div>
 
-      <SpringDialog
+      <WordDeletionConfirmModal
         isOpen={showConfirmationDialog}
         onClose={handleCloseConfirmationDialog}
         onConfirm={handleDeleteCard}

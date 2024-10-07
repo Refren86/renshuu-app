@@ -5,11 +5,19 @@ import {
   Dialog,
   DialogContent,
   DialogDescription,
+  DialogFooter,
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Loader } from "./Loader";
 import { TFlashcard } from "@/types";
+import {
+  Pagination,
+  PaginationContent,
+  PaginationItem,
+  PaginationNext,
+  PaginationPrevious,
+} from "./ui/pagination";
 
 type SentencesModalProps = {
   isOpen: boolean;
@@ -31,6 +39,11 @@ export const SentencesModal = ({
 }: SentencesModalProps) => {
   const [sentences, setSentences] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [pagination, setPagination] = useState({
+    page: 1,
+    prevPage: false,
+    nextPage: false,
+  });
 
   const searchWord = currentFlashcard?.kanji || currentFlashcard?.reading;
 
@@ -43,8 +56,49 @@ export const SentencesModal = ({
   async function fetchSentences() {
     try {
       setIsLoading(true);
-      const { results } = await loadExamples(searchWord, 1);
+      const { results, paging } = await loadExamples(searchWord, 1);
+      const { page, prevPage, nextPage } = paging.Sentences;
+      setPagination({
+        page,
+        prevPage,
+        nextPage,
+      });
       setSentences(results);
+    } catch (error) {
+      console.log("Error: ", error);
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
+  async function handleChangePage(moveTo: "prev" | "next") {
+    try {
+      setIsLoading(true);
+      if (moveTo === "next" && pagination.nextPage) {
+        const { results, paging } = await loadExamples(
+          searchWord,
+          pagination.page + 1
+        );
+        const { page, prevPage, nextPage } = paging.Sentences;
+        setPagination({
+          page,
+          prevPage,
+          nextPage,
+        });
+        setSentences(results);
+      } else if (moveTo === "prev" && pagination.prevPage) {
+        const { results, paging } = await loadExamples(
+          searchWord,
+          pagination.page - 1
+        );
+        const { page, prevPage, nextPage } = paging.Sentences;
+        setPagination({
+          page,
+          prevPage,
+          nextPage,
+        });
+        setSentences(results);
+      }
     } catch (error) {
       console.log("Error: ", error);
     } finally {
@@ -54,7 +108,10 @@ export const SentencesModal = ({
 
   return (
     <Dialog open={isOpen} onOpenChange={onToggle}>
-      <DialogContent className="max-h-[1000px] overflow-y-auto max-w-4xl">
+      <DialogContent
+        className="max-h-[1000px] overflow-y-auto max-w-4xl"
+        aria-describedby={`${searchWord} sentences`}
+      >
         <DialogHeader>
           <DialogTitle className="text-3xl mb-6">
             {searchWord}{" "}
@@ -62,7 +119,7 @@ export const SentencesModal = ({
             {currentFlashcard?.meaning}
           </DialogTitle>
 
-          <DialogDescription>
+          <DialogDescription asChild>
             {isLoading ? (
               <Loader />
             ) : (
@@ -94,6 +151,25 @@ export const SentencesModal = ({
             )}
           </DialogDescription>
         </DialogHeader>
+
+        <DialogFooter>
+          <Pagination>
+            <PaginationContent>
+              <PaginationItem>
+                <PaginationPrevious
+                  isActive={pagination.prevPage}
+                  onClick={() => handleChangePage("prev")}
+                />
+              </PaginationItem>
+              <PaginationItem>
+                <PaginationNext
+                  isActive={pagination.nextPage}
+                  onClick={() => handleChangePage("next")}
+                />
+              </PaginationItem>
+            </PaginationContent>
+          </Pagination>
+        </DialogFooter>
       </DialogContent>
     </Dialog>
   );

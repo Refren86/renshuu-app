@@ -780,7 +780,7 @@
     "id": "112",
     "kanji": "途中で",
     "reading": "とちゅうで",
-    "meaning": "on the way; en route",
+    "meaning": "on the way; in the middle of",
     "status": "unset"
   },
   {
@@ -2005,7 +2005,7 @@
     "id": "289",
     "kanji": null,
     "reading": "しかも",
-    "meaning": "moreover; furthermore​",
+    "meaning": "moreover; furthermore​; nevertheless",
     "status": "unset"
   },
   {
@@ -3686,6 +3686,132 @@
     "kanji": "家事",
     "reading": "かじ",
     "meaning": "housework",
+    "status": "unset"
+  },
+  {
+    "id": "531",
+    "kanji": "正義",
+    "reading": "せいぎ",
+    "meaning": "justice",
+    "status": "unset"
+  },
+  {
+    "id": "532",
+    "kanji": "輸入",
+    "reading": "ゆにゅう",
+    "meaning": "import",
+    "status": "unset"
+  },
+  {
+    "id": "533",
+    "kanji": "輸出",
+    "reading": "ゆしゅつ",
+    "meaning": "export",
+    "status": "unset"
+  },
+  {
+    "id": "534",
+    "kanji": "最初",
+    "reading": "さいしょ",
+    "meaning": "beginning",
+    "status": "unset"
+  },
+  {
+    "id": "535",
+    "kanji": "中心",
+    "reading": "ちゅうしん",
+    "meaning": "center",
+    "status": "unset"
+  },
+  {
+    "id": "536",
+    "kanji": "離れる",
+    "reading": "はなれる",
+    "meaning": "to be separated; to leave (e.g. job); to go away",
+    "status": "unset"
+  },
+  {
+    "id": "537",
+    "kanji": "無事に",
+    "reading": "ぶじに",
+    "meaning": "safely; peacefully",
+    "status": "unset"
+  },
+  {
+    "id": "538",
+    "kanji": "成人",
+    "reading": "せいじん",
+    "meaning": "adult",
+    "status": "unset"
+  },
+  {
+    "id": "539",
+    "kanji": "理解",
+    "reading": "りかい",
+    "meaning": "understanding",
+    "status": "unset"
+  },
+  {
+    "id": "540",
+    "kanji": "適当",
+    "reading": "てきとう",
+    "meaning": "suitable; appropriate",
+    "status": "unset"
+  },
+  {
+    "id": "541",
+    "kanji": "正確",
+    "reading": "せいかく",
+    "meaning": "accurate; correct",
+    "status": "unset"
+  },
+  {
+    "id": "542",
+    "kanji": null,
+    "reading": "ぴったり",
+    "meaning": "exactly; perfectly (suited); ideally; suddenly (stopping)",
+    "status": "unset"
+  },
+  {
+    "id": "543",
+    "kanji": "迷惑",
+    "reading": "めいわく",
+    "meaning": "trouble; inconvenience",
+    "status": "unset"
+  },
+  {
+    "id": "544",
+    "kanji": null,
+    "reading": "ちゃんと",
+    "meaning": "seriously; properly",
+    "status": "unset"
+  },
+  {
+    "id": "545",
+    "kanji": "深夜",
+    "reading": "しんや",
+    "meaning": "late at night",
+    "status": "unset"
+  },
+  {
+    "id": "546",
+    "kanji": "決して",
+    "reading": "けっして",
+    "meaning": "ever; by any means; in any way (used with negative form)",
+    "status": "unset"
+  },
+  {
+    "id": "547",
+    "kanji": "裏切る",
+    "reading": "うらぎる",
+    "meaning": "to betray (5-dan)",
+    "status": "unset"
+  },
+  {
+    "id": "548",
+    "kanji": "去る",
+    "reading": "さる",
+    "meaning": "to leave; to go away (5-dan)",
     "status": "unset"
   }
 ]

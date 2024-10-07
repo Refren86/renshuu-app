@@ -1,12 +1,12 @@
 import { useEffect, useState, useCallback } from "react";
 import { motion, AnimatePresence, HTMLMotionProps } from "framer-motion";
 
-import { FlashcardStatus, TFlashcard } from "@/types";
+import { addWord } from "@/lib/db";
 import { shuffleArray } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
-import { addWord } from "@/lib/db";
 import { Button } from "@/components/ui/button";
 import { Flashcard } from "@/components/Flashcard";
+import { FlashcardStatus, TFlashcard } from "@/types";
 import { SentencesModal } from "@/components/SentencesModal";
 
 import flashcardsData from "@/assets/flashcards.json";
@@ -31,6 +31,10 @@ function FlashcardsView() {
   useEffect(() => {
     setShuffledIndices(shuffleArray([...Array(flashcardsData.length).keys()]));
   }, []);
+
+  // useEffect(() => {
+  //   addWordsInBatch(flashcardsData as TFlashcard[])
+  // }, []) 
 
   const handleClick = useCallback(
     async (word: TFlashcard, newStatus: FlashcardStatus) => {
