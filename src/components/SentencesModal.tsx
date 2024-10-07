@@ -1,6 +1,5 @@
+import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useEffect, useState } from "react";
-
 import {
   Dialog,
   DialogContent,
@@ -25,21 +24,29 @@ type SentencesModalProps = {
   onToggle: () => void;
 };
 
-async function loadExamples(keyword: string = "", page: number = 1) {
-  const { data } = await axios.get(
-    `http://localhost:5000/api/search?keyword=${keyword}&page=${page}`
-  );
-  return data;
-}
+type Sentence = {
+  id: string;
+  transcriptions: Array<{ html: string }>;
+  translations: Array<Array<{ text: string }>>;
+  text: string;
+};
 
-export const SentencesModal = ({
+type PaginationState = {
+  page: number;
+  prevPage: boolean;
+  nextPage: boolean;
+};
+
+const API_BASE_URL = "http://localhost:5000/api";
+
+export const SentencesModal: React.FC<SentencesModalProps> = ({
   isOpen,
   currentFlashcard,
   onToggle,
-}: SentencesModalProps) => {
-  const [sentences, setSentences] = useState<any[]>([]);
+}) => {
+  const [sentences, setSentences] = useState<Sentence[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [pagination, setPagination] = useState({
+  const [pagination, setPagination] = useState<PaginationState>({
     page: 1,
     prevPage: false,
     nextPage: false,
@@ -47,64 +54,67 @@ export const SentencesModal = ({
 
   const searchWord = currentFlashcard?.kanji || currentFlashcard?.reading;
 
+  const loadExamples = async (keyword: string = "", page: number = 1) => {
+    const { data } = await axios.get(`${API_BASE_URL}/search`, {
+      params: { keyword, page },
+    });
+    return data;
+  };
+
+  const fetchSentences = async (page: number = 1) => {
+    try {
+      setIsLoading(true);
+      const { results, paging } = await loadExamples(searchWord, page);
+      const { page: newPage, prevPage, nextPage } = paging.Sentences;
+      setPagination({ page: newPage, prevPage, nextPage });
+      setSentences(results);
+    } catch (error) {
+      console.error("Error fetching sentences:", error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   useEffect(() => {
     if (isOpen) {
       fetchSentences();
     }
-  }, [isOpen, currentFlashcard]);
+  }, [isOpen, searchWord]);
 
-  async function fetchSentences() {
-    try {
-      setIsLoading(true);
-      const { results, paging } = await loadExamples(searchWord, 1);
-      const { page, prevPage, nextPage } = paging.Sentences;
-      setPagination({
-        page,
-        prevPage,
-        nextPage,
-      });
-      setSentences(results);
-    } catch (error) {
-      console.log("Error: ", error);
-    } finally {
-      setIsLoading(false);
-    }
-  }
+  const handleChangePage = (moveTo: "prev" | "next") => {
+    const newPage =
+      moveTo === "next" ? pagination.page + 1 : pagination.page - 1;
 
-  async function handleChangePage(moveTo: "prev" | "next") {
-    try {
-      setIsLoading(true);
-      if (moveTo === "next" && pagination.nextPage) {
-        const { results, paging } = await loadExamples(
-          searchWord,
-          pagination.page + 1
-        );
-        const { page, prevPage, nextPage } = paging.Sentences;
-        setPagination({
-          page,
-          prevPage,
-          nextPage,
-        });
-        setSentences(results);
-      } else if (moveTo === "prev" && pagination.prevPage) {
-        const { results, paging } = await loadExamples(
-          searchWord,
-          pagination.page - 1
-        );
-        const { page, prevPage, nextPage } = paging.Sentences;
-        setPagination({
-          page,
-          prevPage,
-          nextPage,
-        });
-        setSentences(results);
-      }
-    } catch (error) {
-      console.log("Error: ", error);
-    } finally {
-      setIsLoading(false);
+    if (
+      (moveTo === "next" && pagination.nextPage) ||
+      (moveTo === "prev" && pagination.prevPage)
+    ) {
+      fetchSentences(newPage);
     }
-  }
+  };
+
+  const renderSentence = (sentence: Sentence) => (
+    <div key={sentence.id} className="text-2xl py-2">
+      {sentence?.transcriptions?.[0] ? (
+        <div className="flex items-start gap-x-3">
+          <div
+            className="flex-1"
+            dangerouslySetInnerHTML={{
+              __html: sentence.transcriptions[0].html,
+            }}
+          />
+          <div className="flex-1">
+            {sentence.translations
+              .flat(2)
+              .map((translation: { text: string }) => translation.text)
+              .join(" / ")}
+          </div>
+        </div>
+      ) : (
+        <div>{sentence.text}</div>
+      )}
+    </div>
+  );
 
   return (
     <Dialog open={isOpen} onOpenChange={onToggle}>
@@ -118,40 +128,16 @@ export const SentencesModal = ({
             {currentFlashcard?.kanji && `(${currentFlashcard?.reading})`} -{" "}
             {currentFlashcard?.meaning}
           </DialogTitle>
-
           <DialogDescription asChild>
             {isLoading ? (
               <Loader />
             ) : (
               <div className="divide-y divide-slate-700">
-                {sentences.length > 0 &&
-                  sentences.map((sentence) => (
-                    <div key={sentence.id} className="text-2xl py-2">
-                      {sentence?.transcriptions?.[0] ? (
-                        <div className="flex items-start gap-x-3">
-                          <div
-                            className="flex-1"
-                            dangerouslySetInnerHTML={{
-                              __html: sentence?.transcriptions?.[0]?.html,
-                            }}
-                          />
-                          <div className="flex-1">
-                            {sentence.translations
-                              .flat(2)
-                              .map((translation: any) => translation.text)
-                              .join(" / ")}
-                          </div>
-                        </div>
-                      ) : (
-                        <div>{sentence.text}</div>
-                      )}
-                    </div>
-                  ))}
+                {sentences.map(renderSentence)}
               </div>
             )}
           </DialogDescription>
         </DialogHeader>
-
         <DialogFooter>
           <Pagination>
             <PaginationContent>
