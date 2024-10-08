@@ -20,7 +20,7 @@ export const DraggableElement = ({
       <motion.div
         layout
         layoutId={id}
-        draggable
+        draggable="true"
         onDragStart={(e) => onDragStart(e as unknown as React.DragEvent, word)}
         className="cursor-move rounded border border-neutral-700 bg-neutral-800 p-3 active:cursor-grabbing"
       >

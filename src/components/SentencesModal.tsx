@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import {
   Dialog,
@@ -143,12 +143,14 @@ export const SentencesModal: React.FC<SentencesModalProps> = ({
             <PaginationContent>
               <PaginationItem>
                 <PaginationPrevious
+                  className="w-32"
                   isActive={pagination.prevPage}
                   onClick={() => handleChangePage("prev")}
                 />
               </PaginationItem>
               <PaginationItem>
                 <PaginationNext
+                  className="w-32"
                   isActive={pagination.nextPage}
                   onClick={() => handleChangePage("next")}
                 />

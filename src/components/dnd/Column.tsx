@@ -128,18 +128,19 @@ export const Column = ({
   const filteredCards = cards.filter((card) => card.status === column);
 
   return (
-    <div className="w-full shrink-0 max-h-[800px] px-2 overflow-y-auto">
+    <div className="w-full shrink-0 px-2 ">
       <div className="mb-3 flex items-center justify-between">
         <h3 className={`font-medium ${headingColor}`}>{title}</h3>
         <span className="rounded text-sm text-neutral-400">
           {filteredCards.length}
         </span>
       </div>
+
       <div
         onDrop={handleDragEnd}
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
-        className={`w-full transition-colors ${
+        className={`h-full max-h-[800px] overflow-y-auto overflow-x-hidden w-full transition-colors ${
           active ? "bg-neutral-800/50" : "bg-neutral-800/0"
         }`}
       >
