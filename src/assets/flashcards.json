@@ -766,7 +766,7 @@
     "id": "110",
     "kanji": "鳴る",
     "reading": "なる",
-    "meaning": "to sound; to ring",
+    "meaning": "to sound; to ring (5-dan)",
     "status": "unset"
   },
   {
@@ -1002,7 +1002,7 @@
   },
   {
     "id": "144",
-    "kanji": "暫く",
+    "kanji": null,
     "reading": "しばらく",
     "meaning": "for a moment; for a minute",
     "status": "unset"
@@ -2472,7 +2472,7 @@
   },
   {
     "id": "357",
-    "kanji": null,
+    "kanji": "呟く",
     "reading": "つぶやく",
     "meaning": "to mutter; to murmur (бурмотіти)",
     "status": "unset"
@@ -3812,6 +3812,510 @@
     "kanji": "去る",
     "reading": "さる",
     "meaning": "to leave; to go away (5-dan)",
+    "status": "unset"
+  },
+  {
+    "id": "549",
+    "kanji": "背負う",
+    "reading": "せおう",
+    "meaning": "to carry on one's back; to take responsibility for",
+    "status": "unset"
+  },
+  {
+    "id": "550",
+    "kanji": "試験に合格する",
+    "reading": "しけんにごうかくする",
+    "meaning": "to pass an exam",
+    "status": "unset"
+  },
+  {
+    "id": "551",
+    "kanji": "怒鳴る",
+    "reading": "どなる",
+    "meaning": "to shout (in anger); to yell (5-dan)",
+    "status": "unset"
+  },
+  {
+    "id": "552",
+    "kanji": "各",
+    "reading": "かく",
+    "meaning": "each; every",
+    "status": "unset"
+  },
+  {
+    "id": "553",
+    "kanji": "大胆",
+    "reading": "だいたん",
+    "meaning": "bold; daring (сміливий)",
+    "status": "unset"
+  },
+  {
+    "id": "555",
+    "kanji": "提案",
+    "reading": "ていあん",
+    "meaning": "suggestion",
+    "status": "unset"
+  },
+  {
+    "id": "556",
+    "kanji": "調整",
+    "reading": "ちょうせい",
+    "meaning": "adjustment",
+    "status": "unset"
+  },
+  {
+    "id": "557",
+    "kanji": "翌日",
+    "reading": "よくじつ",
+    "meaning": "next day",
+    "status": "unset"
+  },
+  {
+    "id": "558",
+    "kanji": "成功",
+    "reading": "せいこう",
+    "meaning": "success",
+    "status": "unset"
+  },
+  {
+    "id": "559",
+    "kanji": "妙",
+    "reading": "みょう",
+    "meaning": "strange; weird",
+    "status": "unset"
+  },
+  {
+    "id": "560",
+    "kanji": "反応",
+    "reading": "はんのう",
+    "meaning": "reaction; response",
+    "status": "unset"
+  },
+  {
+    "id": "561",
+    "kanji": "侵入者",
+    "reading": "しんにゅうしゃ",
+    "meaning": "intruder; invader",
+    "status": "unset"
+  },
+  {
+    "id": "562",
+    "kanji": "真っ直すぐ",
+    "reading": "まっすぐ",
+    "meaning": "straight (ahead); straightforward; honest",
+    "status": "unset"
+  },
+  {
+    "id": "563",
+    "kanji": null,
+    "reading": "ようやく",
+    "meaning": "finally; at last",
+    "status": "unset"
+  },
+  {
+    "id": "564",
+    "kanji": "別れ",
+    "reading": "わかれ",
+    "meaning": "farewell",
+    "status": "unset"
+  },
+  {
+    "id": "565",
+    "kanji": "雑談",
+    "reading": "ざつだん",
+    "meaning": "chatting",
+    "status": "unset"
+  },
+  {
+    "id": "566",
+    "kanji": "口出する",
+    "reading": "くちだしする",
+    "meaning": "to interfere",
+    "status": "unset"
+  },
+  {
+    "id": "567",
+    "kanji": "騒ぎ",
+    "reading": "さわぎ",
+    "meaning": "uproar (галас)",
+    "status": "unset"
+  },
+  {
+    "id": "568",
+    "kanji": "塞がる",
+    "reading": "ふさがる",
+    "meaning": "to be blocked (5-dan)",
+    "status": "unset"
+  },
+  {
+    "id": "569",
+    "kanji": "真似",
+    "reading": "まね",
+    "meaning": "behavior; imitating (+する - to imitate)",
+    "status": "unset"
+  },
+  {
+    "id": "570",
+    "kanji": "無茶",
+    "reading": "むちゃ",
+    "meaning": "absurd",
+    "status": "unset"
+  },
+  {
+    "id": "571",
+    "kanji": "容疑者",
+    "reading": "ようぎしゃ",
+    "meaning": "suspect (person)",
+    "status": "unset"
+  },
+  {
+    "id": "572",
+    "kanji": "独身",
+    "reading": "どくしん",
+    "meaning": "single; unmarried",
+    "status": "unset"
+  },
+  {
+    "id": "573",
+    "kanji": "全員",
+    "reading": "ぜんいん",
+    "meaning": "everyone",
+    "status": "unset"
+  },
+  {
+    "id": "574",
+    "kanji": "選択肢",
+    "reading": "せんたくし",
+    "meaning": "choices; options",
+    "status": "unset"
+  },
+  {
+    "id": "575",
+    "kanji": "出会",
+    "reading": "であい",
+    "meaning": "meeting",
+    "status": "unset"
+  },
+  {
+    "id": "576",
+    "kanji": "必然",
+    "reading": "ひつぜん",
+    "meaning": "inevitable; necessary",
+    "status": "unset"
+  },
+  {
+    "id": "577",
+    "kanji": "単に",
+    "reading": "たんに",
+    "meaning": "simply; only",
+    "status": "unset"
+  },
+  {
+    "id": "578",
+    "kanji": "具合",
+    "reading": "ぐあい",
+    "meaning": "condition; state (of health)",
+    "status": "unset"
+  },
+  {
+    "id": "579",
+    "kanji": "恋愛",
+    "reading": "れんあい",
+    "meaning": "love",
+    "status": "unset"
+  },
+  {
+    "id": "580",
+    "kanji": "正直",
+    "reading": "しょうじき",
+    "meaning": "honest; honestly",
+    "status": "unset"
+  },
+  {
+    "id": "581",
+    "kanji": "気まずい",
+    "reading": "きまずい",
+    "meaning": "unpleasant; awkward",
+    "status": "unset"
+  },
+  {
+    "id": "582",
+    "kanji": "購入",
+    "reading": "こうにゅう",
+    "meaning": "purchase; buy",
+    "status": "unset"
+  },
+  {
+    "id": "583",
+    "kanji": "気遣い",
+    "reading": "きづかい",
+    "meaning": "hospitality (гостинність)",
+    "status": "unset"
+  },
+  {
+    "id": "584",
+    "kanji": "当然",
+    "reading": "とうぜん",
+    "meaning": "of course; natural; deserved",
+    "status": "unset"
+  },
+  {
+    "id": "585",
+    "kanji": null,
+    "reading": "おしっこをする",
+    "meaning": "to pee",
+    "status": "unset"
+  },
+  {
+    "id": "586",
+    "kanji": "結局",
+    "reading": "けっきょく",
+    "meaning": "after all; in the end",
+    "status": "unset"
+  },
+  {
+    "id": "587",
+    "kanji": "浮気",
+    "reading": "うわき",
+    "meaning": "cheating (in relationship)",
+    "status": "unset"
+  },
+  {
+    "id": "588",
+    "kanji": "制服",
+    "reading": "せいふく",
+    "meaning": "uniform",
+    "status": "unset"
+  },
+  {
+    "id": "589",
+    "kanji": "紐パン",
+    "reading": "ひもパン",
+    "meaning": "G-string",
+    "status": "unset"
+  },
+  {
+    "id": "590",
+    "kanji": "理不尽",
+    "reading": "りふじん",
+    "meaning": "unreasonable; irrational (нерозсудливий)",
+    "status": "unset"
+  },
+  {
+    "id": "591",
+    "kanji": "後悔",
+    "reading": "こうかい",
+    "meaning": "regret; remorse",
+    "status": "unset"
+  },
+  {
+    "id": "592",
+    "kanji": "引き起こす",
+    "reading": "ひきおこす",
+    "meaning": "to cause; to bring about",
+    "status": "unset"
+  },
+  {
+    "id": "593",
+    "kanji": "発生",
+    "reading": "はっせい",
+    "meaning": "outbreak; occurrence (виникати)",
+    "status": "unset"
+  },
+  {
+    "id": "594",
+    "kanji": "順調",
+    "reading": "じゅんちょう",
+    "meaning": "OK; all right (more formal)",
+    "status": "unset"
+  },
+  {
+    "id": "596",
+    "kanji": "組み合わせる",
+    "reading": "くみあわせる",
+    "meaning": "to combine",
+    "status": "unset"
+  },
+  {
+    "id": "600",
+    "kanji": "お祝い",
+    "reading": "おいわい",
+    "meaning": "congratulation",
+    "status": "unset"
+  },
+  {
+    "id": "601",
+    "kanji": "植物",
+    "reading": "しょくぶつ",
+    "meaning": "plant",
+    "status": "unset"
+  },
+  {
+    "id": "602",
+    "kanji": null,
+    "reading": "おしまい",
+    "meaning": "the end",
+    "status": "unset"
+  },
+  {
+    "id": "603",
+    "kanji": "進行",
+    "reading": "しんこう",
+    "meaning": "progress",
+    "status": "unset"
+  },
+  {
+    "id": "604",
+    "kanji": null,
+    "reading": "きっちりとする",
+    "meaning": "to do properly; punctually; precisely",
+    "status": "unset"
+  },
+  {
+    "id": "605",
+    "kanji": "支持",
+    "reading": "しじ",
+    "meaning": "support",
+    "status": "unset"
+  },
+  {
+    "id": "606",
+    "kanji": "支える",
+    "reading": "ささえる",
+    "meaning": "to support (1-dan)",
+    "status": "unset"
+  },
+  {
+    "id": "607",
+    "kanji": "装飾",
+    "reading": "そうしょく",
+    "meaning": "ornament; decoration",
+    "status": "unset"
+  },
+  {
+    "id": "608",
+    "kanji": "文章",
+    "reading": "ぶんしょう",
+    "meaning": "writing; sentence",
+    "status": "unset"
+  },
+  {
+    "id": "609",
+    "kanji": "注意を払う",
+    "reading": "ちゅういをはらう",
+    "meaning": "to pay attention",
+    "status": "unset"
+  },
+  {
+    "id": "610",
+    "kanji": "軽やかな",
+    "reading": "かろやかな",
+    "meaning": "light",
+    "status": "unset"
+  },
+  {
+    "id": "611",
+    "kanji": "変わり目",
+    "reading": "かわりめ",
+    "meaning": "turning point; transition",
+    "status": "unset"
+  },
+  {
+    "id": "612",
+    "kanji": null,
+    "reading": "どうやら",
+    "meaning": "apparently; possibly",
+    "status": "unset"
+  },
+  {
+    "id": "613",
+    "kanji": null,
+    "reading": "タンス",
+    "meaning": "chest of drawers (комод)",
+    "status": "unset"
+  },
+  {
+    "id": "614",
+    "kanji": "傲慢",
+    "reading": "ごうまん",
+    "meaning": "arrogant",
+    "status": "unset"
+  },
+  {
+    "id": "615",
+    "kanji": "常識",
+    "reading": "じょうしき",
+    "meaning": "common sense (здоровий глузд)",
+    "status": "unset"
+  },
+  {
+    "id": "616",
+    "kanji": "自殺",
+    "reading": "じさつ",
+    "meaning": "suicide",
+    "status": "unset"
+  },
+  {
+    "id": "617",
+    "kanji": "喜ぶ",
+    "reading": "よろこぶ",
+    "meaning": "to be delighted; to be glad",
+    "status": "unset"
+  },
+  {
+    "id": "618",
+    "kanji": "出勤",
+    "reading": "しゅっきん",
+    "meaning": "going to work",
+    "status": "unset"
+  },
+  {
+    "id": "619",
+    "kanji": "理想",
+    "reading": "りそう",
+    "meaning": "ideal",
+    "status": "unset"
+  },
+  {
+    "id": "620",
+    "kanji": "品質",
+    "reading": "ひんしつ",
+    "meaning": "quality (of a product or a service)",
+    "status": "unset"
+  },
+  {
+    "id": "621",
+    "kanji": "気がつく",
+    "reading": "きがつく",
+    "meaning": "to notice; to realize",
+    "status": "unset"
+  },
+  {
+    "id": "622",
+    "kanji": "完成",
+    "reading": "かんせい",
+    "meaning": "completion",
+    "status": "unset"
+  },
+  {
+    "id": "623",
+    "kanji": "出来上がる",
+    "reading": "できあがる",
+    "meaning": "to be completed; to be finished (1-dan)",
+    "status": "unset"
+  },
+  {
+    "id": "624",
+    "kanji": "歌詞",
+    "reading": "かし",
+    "meaning": "song lyrics",
+    "status": "unset"
+  },
+  {
+    "id": "625",
+    "kanji": "完璧主義",
+    "reading": "かんぺきしゅぎ",
+    "meaning": "perfectionism",
     "status": "unset"
   }
 ]

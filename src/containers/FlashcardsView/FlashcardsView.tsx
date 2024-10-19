@@ -1,15 +1,13 @@
 import { useEffect, useState, useCallback } from "react";
 import { motion, AnimatePresence, HTMLMotionProps } from "framer-motion";
 
-import { addWord } from "@/lib/db";
-import { shuffleArray } from "@/lib/utils";
+import { addWord, getAllWords } from "@/lib/db";
+import { priorityShuffleFlashcards } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
 import { Flashcard } from "@/components/Flashcard";
 import { FlashcardStatus, TFlashcard } from "@/types";
 import { SentencesModal } from "@/components/SentencesModal";
-
-import flashcardsData from "@/assets/flashcards.json";
 
 const transitionProps: HTMLMotionProps<"div"> = {
   initial: { x: 600, opacity: 0 },
@@ -21,20 +19,25 @@ const transitionProps: HTMLMotionProps<"div"> = {
 function FlashcardsView() {
   const { toast } = useToast();
 
+  const [flashcards, setFlashcards] = useState<TFlashcard[]>([]);
   const [shuffledIndices, setShuffledIndices] = useState<number[]>([]);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [isAnimating, setIsAnimating] = useState(false);
   const [showExamplesModal, setShowExamplesModal] = useState(false);
 
-  const currentFlashcard = flashcardsData[shuffledIndices[currentIndex]] as TFlashcard;
+  const currentFlashcard = flashcards[
+    shuffledIndices[currentIndex]
+  ] as TFlashcard;
 
   useEffect(() => {
-    setShuffledIndices(shuffleArray([...Array(flashcardsData.length).keys()]));
+    retrieveAllWords();
   }, []);
 
-  // useEffect(() => {
-  //   addWordsInBatch(flashcardsData as TFlashcard[])
-  // }, []) 
+  async function retrieveAllWords() {
+    const words = await getAllWords();
+    setFlashcards(words);
+    setShuffledIndices(priorityShuffleFlashcards(words));
+  }
 
   const handleClick = useCallback(
     async (word: TFlashcard, newStatus: FlashcardStatus) => {
@@ -42,9 +45,14 @@ function FlashcardsView() {
 
       setCurrentIndex((prevIndex) => {
         if (prevIndex + 1 >= shuffledIndices.length) {
-          setShuffledIndices(
-            shuffleArray([...Array(flashcardsData.length).keys()])
-          );
+          // When we reach the end, reshuffle with updated statuses
+          const updatedFlashcards = structuredClone(flashcards);
+          const wordIndex = flashcards.findIndex((w) => w.id === word.id);
+          if (wordIndex !== -1) {
+            updatedFlashcards[wordIndex] = { ...word, status: newStatus };
+          }
+          setFlashcards(updatedFlashcards);
+          setShuffledIndices(priorityShuffleFlashcards(updatedFlashcards));
           return 0;
         }
         return prevIndex + 1;
@@ -57,7 +65,7 @@ function FlashcardsView() {
         console.error("Failed to add word:", error);
       }
     },
-    [isAnimating, shuffledIndices.length, addWord]
+    [isAnimating, shuffledIndices.length, flashcards]
   );
 
   async function handleCopyWord(word: string) {
@@ -135,8 +143,3 @@ function FlashcardsView() {
 }
 
 export default FlashcardsView;
-
-/**
- * Todo: 
- * Implement algorithm, which will show the unset, unrecognized and familiar words with high chance and known words with lower chance
- */

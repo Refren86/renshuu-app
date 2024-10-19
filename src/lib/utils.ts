@@ -1,8 +1,9 @@
-import { clsx, type ClassValue } from "clsx"
-import { twMerge } from "tailwind-merge"
+import { TFlashcard } from "@/types";
+import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
 
 export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs))
+  return twMerge(clsx(inputs));
 }
 
 export function isNumber(value: unknown): value is number {
@@ -16,12 +17,52 @@ export function generateUniqueId() {
 }
 
 export function shuffleArray<T>(array: T[]): T[] {
-  const newArray = [...array];
+  const newArray = structuredClone(array);
   for (let i = newArray.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
   }
   return newArray;
+}
+
+export function priorityShuffleFlashcards(flashcards: TFlashcard[]): number[] {
+  // Group flashcards by status
+  const unsetCards: number[] = [];
+  const unrecognizedCards: number[] = [];
+  const familiarCards: number[] = [];
+  const knownCards: number[] = [];
+
+  // Populate groups with indices
+  flashcards.forEach((card, index) => {
+    switch (card.status) {
+      case "unset":
+        unsetCards.push(index);
+        break;
+      case "unrecognized":
+        unrecognizedCards.push(index);
+        break;
+      case "familiar":
+        familiarCards.push(index);
+        break;
+      case "known":
+        knownCards.push(index);
+        break;
+    }
+  });
+
+  // Shuffle each group independently
+  const shuffledUnset = shuffleArray(unsetCards);
+  const shuffledUnrecognized = shuffleArray(unrecognizedCards);
+  const shuffledFamiliar = shuffleArray(familiarCards);
+  const shuffledKnown = shuffleArray(knownCards);
+
+  // Concatenate arrays in priority order
+  return [
+    ...shuffledUnset,
+    ...shuffledUnrecognized,
+    ...shuffledFamiliar,
+    ...shuffledKnown,
+  ];
 }
 
 export function rafThrottle<Fn extends (...args: any[]) => any>(cb: Fn) {

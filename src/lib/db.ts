@@ -8,9 +8,8 @@ const openDB = (): Promise<IDBDatabase> => {
   return new Promise((resolve, reject) => {
     const request: IDBOpenDBRequest = indexedDB.open(dbName, dbVersion);
 
-    request.onerror = (event: Event) => reject("Error opening database");
-
-    request.onsuccess = (event: Event) => resolve(request.result);
+    request.onerror = () => reject("Error opening database");
+    request.onsuccess = () => resolve(request.result);
 
     request.onupgradeneeded = (event: IDBVersionChangeEvent) => {
       const db: IDBDatabase = (event.target as IDBOpenDBRequest).result;
