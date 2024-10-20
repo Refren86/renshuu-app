@@ -201,6 +201,8 @@ export const HomeView = () => {
             </h2>
           )}
         </div>
+
+        <p className="text-end mt-6 ">Total words: {words.length}</p>
       </Wrapper>
     </section>
   );

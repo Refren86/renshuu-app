@@ -7,14 +7,17 @@ import { generateUniqueId } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
+const initialCardData = { kanji: "", reading: "", meaning: "" };
+
 type AddNewWordFormProps = {
   setWords: React.Dispatch<React.SetStateAction<TFlashcard[]>>;
 };
 
 export const AddNewWordForm = ({ setWords }: AddNewWordFormProps) => {
-  const [newCardData, setNewCardData] = useState<
-    Pick<TFlashcard, "kanji" | "reading" | "meaning">
-  >({ kanji: "", reading: "", meaning: "" });
+  const [newCardData, setNewCardData] =
+    useState<Pick<TFlashcard, "kanji" | "reading" | "meaning">>(
+      initialCardData
+    );
   const [adding, setAdding] = useState(false);
 
   function handleCreateNewWord(e: React.FormEvent<HTMLFormElement>) {
@@ -42,6 +45,7 @@ export const AddNewWordForm = ({ setWords }: AddNewWordFormProps) => {
 
     setWords((prev) => [...prev, newCard]);
     addWord(newCard);
+    setNewCardData(initialCardData);
     setAdding(false);
   }
 
