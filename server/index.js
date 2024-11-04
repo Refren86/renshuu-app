@@ -1,12 +1,33 @@
-const express = require("express");
-const axios = require("axios");
+const fs = require("fs");
+const path = require("path");
 const cors = require("cors");
+const axios = require("axios");
+const express = require("express");
+const { createYoga, createSchema } = require("graphql-yoga");
+
+const { resolvers } = require('./resolvers');
+
+const typeDefs = fs.readFileSync(
+  path.join(__dirname, "schema.graphql"),
+  "utf8"
+);
 
 const app = express();
+
+const schema = createSchema({
+  typeDefs,
+  resolvers,
+});
+
+const yoga = createYoga({
+  schema,
+});
 
 const PORT = 5000;
 
 app.use(cors());
+
+app.use("/graphql", yoga);
 
 app.get("/api/search", async (req, res) => {
   const { keyword, page } = req.query;
