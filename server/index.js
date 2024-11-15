@@ -5,7 +5,7 @@ const axios = require("axios");
 const express = require("express");
 const { createYoga, createSchema } = require("graphql-yoga");
 
-const { resolvers } = require('./resolvers');
+const { resolvers } = require("./resolvers");
 
 const typeDefs = fs.readFileSync(
   path.join(__dirname, "schema.graphql"),
@@ -29,6 +29,7 @@ app.use(cors());
 
 app.use("/graphql", yoga);
 
+// Tatoeba API word lookup
 app.get("/api/search", async (req, res) => {
   const { keyword, page } = req.query;
   try {

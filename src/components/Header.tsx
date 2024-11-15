@@ -9,7 +9,10 @@ export const Header = () => {
         <nav className="p-3 flex gap-x-4">
           <Link to="/" className="[&.active]:font-bold">
             Home
-          </Link>{" "}
+          </Link>
+          <Link to="/vocabulary" className="[&.active]:font-bold">
+            Vocabulary
+          </Link>
           <Link to="/flashcards" className="[&.active]:font-bold">
             Flashcards
           </Link>

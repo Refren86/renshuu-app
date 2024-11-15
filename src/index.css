@@ -73,6 +73,12 @@
   }
 }
 
+html,
+body
+{
+    overflow: hidden;
+}
+
 body {
   font-family: "Noto Sans JP", sans-serif;
   background-color: hsl(var(--muted));

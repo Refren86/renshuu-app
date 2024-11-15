@@ -11,11 +11,12 @@ const Root = () => {
   const match = useMatch({ strict: false });
   const nextMatchIndex = matches.findIndex((d) => d.id === match.id) + 1;
   const nextMatch = matches[nextMatchIndex];
+  const onHomePage = matches.some((m) => m.id === "/");
 
   return (
     <Providers>
       <main className="overflow-x-hidden">
-        <Header />
+        <AnimatePresence>{!onHomePage && <Header />}</AnimatePresence>
         <hr />
         <AnimatePresence mode="popLayout">
           <AnimatedOutlet key={nextMatch?.id || match.id} />

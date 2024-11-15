@@ -16,11 +16,17 @@ import { Route as rootRoute } from './routes/__root'
 
 // Create Virtual Routes
 
+const VocabularyLazyImport = createFileRoute('/vocabulary')()
 const ReviewedWordsLazyImport = createFileRoute('/reviewed-words')()
 const FlashcardsLazyImport = createFileRoute('/flashcards')()
 const IndexLazyImport = createFileRoute('/')()
 
 // Create/Update Routes
+
+const VocabularyLazyRoute = VocabularyLazyImport.update({
+  path: '/vocabulary',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() => import('./routes/vocabulary.lazy').then((d) => d.Route))
 
 const ReviewedWordsLazyRoute = ReviewedWordsLazyImport.update({
   path: '/reviewed-words',
@@ -64,6 +70,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ReviewedWordsLazyImport
       parentRoute: typeof rootRoute
     }
+    '/vocabulary': {
+      id: '/vocabulary'
+      path: '/vocabulary'
+      fullPath: '/vocabulary'
+      preLoaderRoute: typeof VocabularyLazyImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
@@ -73,12 +86,14 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexLazyRoute
   '/flashcards': typeof FlashcardsLazyRoute
   '/reviewed-words': typeof ReviewedWordsLazyRoute
+  '/vocabulary': typeof VocabularyLazyRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexLazyRoute
   '/flashcards': typeof FlashcardsLazyRoute
   '/reviewed-words': typeof ReviewedWordsLazyRoute
+  '/vocabulary': typeof VocabularyLazyRoute
 }
 
 export interface FileRoutesById {
@@ -86,14 +101,15 @@ export interface FileRoutesById {
   '/': typeof IndexLazyRoute
   '/flashcards': typeof FlashcardsLazyRoute
   '/reviewed-words': typeof ReviewedWordsLazyRoute
+  '/vocabulary': typeof VocabularyLazyRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/flashcards' | '/reviewed-words'
+  fullPaths: '/' | '/flashcards' | '/reviewed-words' | '/vocabulary'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/flashcards' | '/reviewed-words'
-  id: '__root__' | '/' | '/flashcards' | '/reviewed-words'
+  to: '/' | '/flashcards' | '/reviewed-words' | '/vocabulary'
+  id: '__root__' | '/' | '/flashcards' | '/reviewed-words' | '/vocabulary'
   fileRoutesById: FileRoutesById
 }
 
@@ -101,12 +117,14 @@ export interface RootRouteChildren {
   IndexLazyRoute: typeof IndexLazyRoute
   FlashcardsLazyRoute: typeof FlashcardsLazyRoute
   ReviewedWordsLazyRoute: typeof ReviewedWordsLazyRoute
+  VocabularyLazyRoute: typeof VocabularyLazyRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexLazyRoute: IndexLazyRoute,
   FlashcardsLazyRoute: FlashcardsLazyRoute,
   ReviewedWordsLazyRoute: ReviewedWordsLazyRoute,
+  VocabularyLazyRoute: VocabularyLazyRoute,
 }
 
 export const routeTree = rootRoute
@@ -123,7 +141,8 @@ export const routeTree = rootRoute
       "children": [
         "/",
         "/flashcards",
-        "/reviewed-words"
+        "/reviewed-words",
+        "/vocabulary"
       ]
     },
     "/": {
@@ -134,6 +153,9 @@ export const routeTree = rootRoute
     },
     "/reviewed-words": {
       "filePath": "reviewed-words.lazy.tsx"
+    },
+    "/vocabulary": {
+      "filePath": "vocabulary.lazy.tsx"
     }
   }
 }
