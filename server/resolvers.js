@@ -11,7 +11,11 @@ const resolvers = {
     },
 
     allFlashcards: async () => {
-      return await prisma.flashcard.findMany();
+      return prisma.flashcard.findMany({
+        orderBy: {
+          id: 'asc'
+        }
+      });
     },
   },
 
@@ -31,8 +35,6 @@ const resolvers = {
     },
 
     updateFlashcard: async (_, { id, ...data }) => {
-      console.log({ updateData: data });
-
       return await prisma.flashcard.update({
         where: { id },
         data: {

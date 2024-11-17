@@ -1,19 +1,21 @@
 import { useState } from "react";
 
-import { FlashcardStatus, TFlashcard } from "@/types";
 import { AddCard } from "./AddCard";
 import { DropIndicator } from "./DropIndicator";
+import { FlashcardStatus, TFlashcard } from "@/types";
 import { DraggableElement } from "./DraggableElement";
-import { updateWord } from "@/lib/db";
+import { UpdateFlashcardInput } from "@/hooks/useFlashcards";
 
-type TSetCards = React.Dispatch<React.SetStateAction<TFlashcard[]>>;
+type TSetWords = React.Dispatch<React.SetStateAction<TFlashcard[]>>;
 
 type ColumnProps = {
   title: string;
   headingColor: string;
   cards: TFlashcard[];
   column: FlashcardStatus;
-  setCards: TSetCards;
+  onCreateFlashcard: (flashcard: Omit<TFlashcard, "id">) => Promise<any>;
+  onUpdateFlashcard: (updateData: UpdateFlashcardInput) => Promise<any>;
+  setWords: TSetWords;
 };
 
 export const Column = ({
@@ -21,7 +23,9 @@ export const Column = ({
   headingColor,
   cards,
   column,
-  setCards,
+  onCreateFlashcard,
+  onUpdateFlashcard,
+  setWords
 }: ColumnProps) => {
   const [active, setActive] = useState(false);
 
@@ -38,6 +42,7 @@ export const Column = ({
     const indicators = getIndicators();
     const { element } = getNearestIndicator(e, indicators);
 
+    // Determine the ID of the card before which the dragged card should be inserted
     const before = (element as HTMLElement).dataset.before || "-1";
 
     if (before !== cardId) {
@@ -62,8 +67,8 @@ export const Column = ({
         copy.splice(insertAtIndex, 0, cardToTransfer);
       }
 
-      updateWord(cardToTransfer);
-      setCards(copy);
+      onUpdateFlashcard(cardToTransfer);
+      setWords(copy);
     }
   };
 
@@ -74,8 +79,8 @@ export const Column = ({
     setActive(true);
   };
 
-  const clearHighlights = (els?: Element[]) => {
-    const indicators = els || getIndicators();
+  const clearHighlights = (elements?: Element[]) => {
+    const indicators = elements || getIndicators();
 
     indicators.forEach((indicator) => {
       (indicator as HTMLElement).style.opacity = "0";
@@ -144,7 +149,7 @@ export const Column = ({
           active ? "bg-neutral-800/50" : "bg-neutral-800/0"
         }`}
       >
-        <AddCard column={column} setCards={setCards} />
+        <AddCard column={column} onCreateFlashcard={onCreateFlashcard} />
         {filteredCards.map((card) => {
           return (
             <DraggableElement

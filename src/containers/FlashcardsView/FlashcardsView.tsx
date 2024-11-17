@@ -1,13 +1,13 @@
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 import { motion, AnimatePresence, HTMLMotionProps } from "framer-motion";
 
-import { addWord, getAllWords } from "@/lib/db";
 import { priorityShuffleFlashcards } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
 import { Flashcard } from "@/components/Flashcard";
 import { FlashcardStatus, TFlashcard } from "@/types";
 import { SentencesModal } from "@/components/SentencesModal";
+import { useFlashcards } from "@/hooks/useFlashcards";
 
 const transitionProps: HTMLMotionProps<"div"> = {
   initial: { x: 600, opacity: 0 },
@@ -19,7 +19,10 @@ const transitionProps: HTMLMotionProps<"div"> = {
 function FlashcardsView() {
   const { toast } = useToast();
 
-  const [flashcards, setFlashcards] = useState<TFlashcard[]>([]);
+  const isShuffled = useRef(false);
+
+  const { flashcards, handleUpdateFlashcard } = useFlashcards();
+
   const [shuffledIndices, setShuffledIndices] = useState<number[]>([]);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -30,14 +33,13 @@ function FlashcardsView() {
   ] as TFlashcard;
 
   useEffect(() => {
-    retrieveAllWords();
-  }, []);
+    if (!isShuffled.current && flashcards.length > 0) {
+      setShuffledIndices(priorityShuffleFlashcards(flashcards));
+      isShuffled.current = true;
+    }
+  }, [flashcards]);
 
-  async function retrieveAllWords() {
-    const words = await getAllWords();
-    setFlashcards(words);
-    setShuffledIndices(priorityShuffleFlashcards(words));
-  }
+  console.log({ shuffledIndices, flashcards });
 
   const handleClick = useCallback(
     async (word: TFlashcard, newStatus: FlashcardStatus) => {
@@ -51,7 +53,6 @@ function FlashcardsView() {
           if (wordIndex !== -1) {
             updatedFlashcards[wordIndex] = { ...word, status: newStatus };
           }
-          setFlashcards(updatedFlashcards);
           setShuffledIndices(priorityShuffleFlashcards(updatedFlashcards));
           return 0;
         }
@@ -60,7 +61,7 @@ function FlashcardsView() {
 
       try {
         setIsAnimating(true);
-        await addWord({ ...word, status: newStatus });
+        await handleUpdateFlashcard({ ...word, status: newStatus });
       } catch (error) {
         console.error("Failed to add word:", error);
       }

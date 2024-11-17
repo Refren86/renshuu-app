@@ -1,50 +1,19 @@
-# React + TypeScript + Vite
+Setting up the project:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The GraphQL server is using the PostgreSQL database with prisma ORM
 
-Currently, two official plugins are available:
+Make sure that Postgres is installed - https://www.postgresql.org/download/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Optionally you can install pgAdmin, or other UI tools for managing the DB - https://www.pgadmin.org/download/
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+1) Clone the repository
+```git clone https://github.com/Refren86/renshuu-app.git```
+2) Enter the root directory and run ```npm i```
+3) ```cd server && npm i```
+4) Create .env file inside server directory and copy the content from .env.example, make sure that data is changed inside angle brackets
+# next create a db and populate it with mock data
+# -h = host; -p = port; -U = user
+5) ```createdb -h localhost -p 5432 -U postgres renshuu-app```
+6) ```pg_restore --verbose --clean --no-acl --no-owner -h localhost -U postgres -d renshuu-app ./db/renshuu-db.dump```
+# run both server and client
+7) ```cd ../ && npm run go```

@@ -1,7 +1,19 @@
-export const Loader = () => {
+import clsx from "clsx";
+
+type LoaderProps = {
+  size?: "sm" | "md" | "lg";
+};
+
+export const Loader = ({ size = "md" }: LoaderProps) => {
   return (
     <div className="flex items-center justify-center">
-      <div className="relative w-24 h-24">
+      <div
+        className={clsx("relative", {
+          "size-12": size === "sm",
+          "size-24": size === "md",
+          "size-36": size === "lg",
+        })}
+      >
         {[...Array(5)].map((_, index) => (
           <div
             key={index}

@@ -1,17 +1,14 @@
 import { useRef, useState } from "react";
 import { Flame, Trash2 } from "lucide-react";
 
-import { TFlashcard } from "@/types";
-import { deleteWord } from "@/lib/db";
 import { WordDeletionConfirmModal } from "../WordDeletionConfirmModal";
 
-type TSetCards = React.Dispatch<React.SetStateAction<TFlashcard[]>>;
 
 type BurnBarrelProps = {
-  setCards: TSetCards;
+  onRemoveFlashcard: (id: string) => Promise<any>
 };
 
-export const BurnBarrel = ({ setCards }: BurnBarrelProps) => {
+export const BurnBarrel = ({ onRemoveFlashcard }: BurnBarrelProps) => {
   const cardId = useRef<string | null>(null);
   const [active, setActive] = useState(false);
   const [showConfirmationDialog, setShowConfirmationDialog] = useState(false);
@@ -40,8 +37,7 @@ export const BurnBarrel = ({ setCards }: BurnBarrelProps) => {
 
     if (!id) return;
 
-    setCards((pv) => pv.filter((c) => c.id !== id));
-    deleteWord(id);
+    onRemoveFlashcard(id);
     handleCloseConfirmationDialog();
   };
 

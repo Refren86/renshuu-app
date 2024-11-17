@@ -1,7 +1,7 @@
 import { gql, useQuery, useMutation } from "@apollo/client";
 import type { TFlashcard } from "@/types";
 
-type UpdateFlashcardInput = Partial<Omit<TFlashcard, "id">> & { id: string };
+export type UpdateFlashcardInput = Partial<Omit<TFlashcard, "id">> & { id: string };
 
 const GET_ALL_FLASHCARDS = gql`
   query GetAllFlashcards {
@@ -82,7 +82,12 @@ const SEED_FLASHCARDS = gql`
 `;
 
 export function useFlashcards() {
-  const { data, loading, error, refetch } = useQuery<{
+  const {
+    data,
+    loading,
+    error,
+    refetch: refetchFlashcards,
+  } = useQuery<{
     allFlashcards: TFlashcard[];
   }>(GET_ALL_FLASHCARDS);
 
@@ -102,7 +107,7 @@ export function useFlashcards() {
     refetchQueries: [{ query: GET_ALL_FLASHCARDS }],
   });
 
-  const create = async (flashcard: Omit<TFlashcard, "id">) => {
+  const handleCreateFlashcard = async (flashcard: Omit<TFlashcard, "id">) => {
     try {
       const { data } = await createFlashcard({
         variables: flashcard,
@@ -114,7 +119,7 @@ export function useFlashcards() {
     }
   };
 
-  const update = async (updateData: UpdateFlashcardInput) => {
+  const handleUpdateFlashcard = async (updateData: UpdateFlashcardInput) => {
     const { id, ...rest } = updateData;
     try {
       const { data } = await updateFlashcard({
@@ -130,7 +135,7 @@ export function useFlashcards() {
     }
   };
 
-  const remove = async (id: string) => {
+  const handleRemoveFlashcard = async (id: string) => {
     try {
       const { data } = await deleteFlashcard({
         variables: { id },
@@ -142,30 +147,19 @@ export function useFlashcards() {
     }
   };
 
-  // const seed = async (flashcards: TFlashcard[]) => {
-  //   try {
-  //     const { data } = await seedFlashcards({
-  //       variables: { flashcards },
-  //     });
+  const handleSeedFlashcards = async (flashcards: TFlashcard[]) => {
+    console.log({ flashcards });
 
-  //     return data.seedFlashcards;
-  //   } catch (error) {
-  //     console.error("Error seeding flashcards:", error);
-  //     throw error;
-  //   }
-  // };
-
-  const seed = async (flashcards: TFlashcard[]) => {
     try {
       const { data } = await seedFlashcards({
         variables: {
-          flashcards: flashcards.map(card => ({
+          flashcards: flashcards.map((card) => ({
             id: card.id,
             kanji: card.kanji,
             reading: card.reading,
             meaning: card.meaning,
-            status: card.status
-          }))
+            status: card.status,
+          })),
         },
       });
 
@@ -180,10 +174,10 @@ export function useFlashcards() {
     flashcards: data?.allFlashcards ?? [],
     loading,
     error,
-    refetch,
-    create,
-    update,
-    remove,
-    seed,
+    refetchFlashcards,
+    handleCreateFlashcard,
+    handleUpdateFlashcard,
+    handleRemoveFlashcard,
+    handleSeedFlashcards,
   };
 }

@@ -2,25 +2,24 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { CopyPlus } from "lucide-react";
 
-import { addWord } from "@/lib/db";
-import { generateUniqueId } from "@/lib/utils";
+import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
 import { FlashcardStatus, TFlashcard } from "@/types";
 
-type TSetCards = React.Dispatch<React.SetStateAction<TFlashcard[]>>;
-
 type AddCardProps = {
   column: FlashcardStatus;
-  setCards: TSetCards;
+  onCreateFlashcard: (flashcard: Omit<TFlashcard, "id">) => Promise<any>;
 };
 
-export const AddCard = ({ column, setCards }: AddCardProps) => {
+export const AddCard = ({ column, onCreateFlashcard }: AddCardProps) => {
   const [newCardData, setNewCardData] = useState<
     Pick<TFlashcard, "kanji" | "reading" | "meaning">
   >({ kanji: "", reading: "", meaning: "" });
   const [adding, setAdding] = useState(false);
 
-  function handleInputChange(e: React.ChangeEvent<HTMLTextAreaElement>) {
+  function handleInputChange(
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) {
     const { name, value } = e.target;
     setNewCardData((prevState) => ({ ...prevState, [name]: value }));
   }
@@ -40,16 +39,15 @@ export const AddCard = ({ column, setCards }: AddCardProps) => {
     )
       return;
 
-    const newCard: TFlashcard = {
-      id: generateUniqueId(),
+    const newCard: Omit<TFlashcard, "id"> = {
+      // id: generateUniqueId(),
       status: column,
       kanji,
       reading,
       meaning,
     };
 
-    setCards((pv) => [...pv, newCard]);
-    addWord(newCard);
+    onCreateFlashcard(newCard);
     setAdding(false);
   }
 
@@ -58,13 +56,13 @@ export const AddCard = ({ column, setCards }: AddCardProps) => {
       {adding ? (
         <motion.form layout onSubmit={handleSubmit}>
           <div className="space-y-2">
-            <Textarea
+            <Input
               name={"kanji" as FlashcardStatus}
               onChange={handleInputChange}
               autoFocus
               placeholder="Kanji"
             />
-            <Textarea
+            <Input
               name={"reading" as FlashcardStatus}
               onChange={handleInputChange}
               placeholder="Reading"
