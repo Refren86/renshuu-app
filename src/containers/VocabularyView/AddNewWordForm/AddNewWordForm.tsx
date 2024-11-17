@@ -33,6 +33,7 @@ export const AddNewWordForm = memo(
         onSubmit={(e) => {
           onCreateNewFlashcard(e, newCardData);
           setNewCardData(initialCardData);
+          setAdding(false);
         }}
       >
         {adding && (
