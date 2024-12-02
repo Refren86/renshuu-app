@@ -6,7 +6,7 @@
   "scripts": {
     "go": "concurrently \"npm run server\" \"npm run client\"",
     "client": "vite",
-    "server": "node ./server/index.js",
+    "server": "cd ./server && npm start",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "start": "vite preview"

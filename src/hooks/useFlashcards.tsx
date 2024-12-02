@@ -69,18 +69,6 @@ const DELETE_FLASHCARD = gql`
   }
 `;
 
-const SEED_FLASHCARDS = gql`
-  mutation SeedFlashcards($flashcards: [FlashcardInput!]!) {
-    seedFlashcards(flashcards: $flashcards) {
-      id
-      kanji
-      reading
-      meaning
-      status
-    }
-  }
-`;
-
 export function useFlashcards() {
   const {
     data,
@@ -100,10 +88,6 @@ export function useFlashcards() {
   });
 
   const [deleteFlashcard] = useMutation(DELETE_FLASHCARD, {
-    refetchQueries: [{ query: GET_ALL_FLASHCARDS }],
-  });
-
-  const [seedFlashcards] = useMutation(SEED_FLASHCARDS, {
     refetchQueries: [{ query: GET_ALL_FLASHCARDS }],
   });
 
@@ -147,29 +131,6 @@ export function useFlashcards() {
     }
   };
 
-  const handleSeedFlashcards = async (flashcards: TFlashcard[]) => {
-    console.log({ flashcards });
-
-    try {
-      const { data } = await seedFlashcards({
-        variables: {
-          flashcards: flashcards.map((card) => ({
-            id: card.id,
-            kanji: card.kanji,
-            reading: card.reading,
-            meaning: card.meaning,
-            status: card.status,
-          })),
-        },
-      });
-
-      return data.seedFlashcards;
-    } catch (error) {
-      console.error("Error seeding flashcards:", error);
-      throw error;
-    }
-  };
-
   return {
     flashcards: data?.allFlashcards ?? [],
     loading,
@@ -178,6 +139,5 @@ export function useFlashcards() {
     handleCreateFlashcard,
     handleUpdateFlashcard,
     handleRemoveFlashcard,
-    handleSeedFlashcards,
   };
 }

@@ -1,14 +1,19 @@
-const fs = require("fs");
-const path = require("path");
-const cors = require("cors");
-const axios = require("axios");
-const express = require("express");
-const { createYoga, createSchema } = require("graphql-yoga");
+import fs from "fs";
+import path from "path";
+import cors from "cors";
+import axios from "axios";
+import express from "express";
+import { fileURLToPath } from 'url';
+import type { Request, Response } from "express";
+import { createYoga, createSchema } from "graphql-yoga";
 
-const { resolvers } = require("./resolvers");
+import { resolvers } from "./resolvers";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const typeDefs = fs.readFileSync(
-  path.join(__dirname, "schema.graphql"),
+  path.join(__dirname, "schemas", "schema.graphql"),
   "utf8"
 );
 
@@ -30,7 +35,7 @@ app.use(cors());
 app.use("/graphql", yoga);
 
 // Tatoeba API word lookup
-app.get("/api/search", async (req, res) => {
+app.get("/api/search", async (req: Request, res: Response) => {
   const { keyword, page } = req.query;
   try {
     const { data } = await axios.get(

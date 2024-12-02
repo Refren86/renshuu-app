@@ -11,6 +11,8 @@ type Flashcard {
   reading: String!
   meaning: String!
   status: FlashcardStatus!
+  created_at: String!
+  updated_at: String!
 }
 
 type Query {
@@ -35,8 +37,6 @@ type Mutation {
   ): Flashcard!
   
   deleteFlashcard(id: String!): Flashcard
-  
-  seedFlashcards(flashcards: [FlashcardInput!]!): [Flashcard!]!
 }
 
 input FlashcardInput {
