@@ -1,4 +1,4 @@
-import { eq, sql } from "drizzle-orm";
+import { sql } from "drizzle-orm";
 
 import { db } from "./db";
 import { flashcardsTable } from "./db/schema";
@@ -33,10 +33,6 @@ export const resolvers = {
     },
 
     allFlashcards: async () => {
-      const res = await db.select().from(flashcardsTable);
-
-      console.log({ res });
-
       return await db
         .select()
         .from(flashcardsTable)
@@ -49,33 +45,46 @@ export const resolvers = {
       _: unknown,
       { id, kanji, reading, meaning, status = "unset" }: CreateFlashcardArgs
     ) => {
-      return await db.insert(flashcardsTable).values({
-        id,
-        kanji,
-        reading,
-        meaning,
-        status,
-      });
+      const data = await db
+        .insert(flashcardsTable)
+        .values({
+          id,
+          kanji,
+          reading,
+          meaning,
+          status,
+        })
+        .returning();
+
+      return data[0];
     },
 
     updateFlashcard: async (
       _: unknown,
       { id, ...data }: UpdateFlashcardArgs
     ) => {
-      return await db
+      const filteredData = {
+        ...Object.fromEntries(
+          Object.entries(data).filter(([_, v]) => v !== undefined)
+        ),
+      };
+
+      const updatedRecords = await db
         .update(flashcardsTable)
-        .set({
-          ...Object.fromEntries(
-            Object.entries(data).filter(([_, v]) => v !== undefined)
-          ),
-        })
-        .where(sql`${flashcardsTable.id} = ${id}`);
+        .set(filteredData)
+        .where(sql`${flashcardsTable.id} = ${id}`)
+        .returning();
+
+      return updatedRecords[0] || null;
     },
 
     deleteFlashcard: async (_: unknown, { id }: FlashcardArgs) => {
-      return await db
+      const deletedFlashcards = await db
         .delete(flashcardsTable)
-        .where(sql`${flashcardsTable.id} = ${id}`);
+        .where(sql`${flashcardsTable.id} = ${id}`)
+        .returning();
+
+      return deletedFlashcards[0];
     },
   },
 };

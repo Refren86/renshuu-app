@@ -1,8 +1,6 @@
 import { gql, useQuery, useMutation } from "@apollo/client";
 import type { TFlashcard } from "@/types";
 
-export type UpdateFlashcardInput = Partial<Omit<TFlashcard, "id">> & { id: string };
-
 const GET_ALL_FLASHCARDS = gql`
   query GetAllFlashcards {
     allFlashcards {
@@ -17,12 +15,14 @@ const GET_ALL_FLASHCARDS = gql`
 
 const CREATE_FLASHCARD = gql`
   mutation CreateFlashcard(
+    $id: String!
     $kanji: String
     $reading: String!
     $meaning: String!
     $status: FlashcardStatus
   ) {
     createFlashcard(
+      id: $id
       kanji: $kanji
       reading: $reading
       meaning: $meaning
@@ -91,19 +91,18 @@ export function useFlashcards() {
     refetchQueries: [{ query: GET_ALL_FLASHCARDS }],
   });
 
-  const handleCreateFlashcard = async (flashcard: Omit<TFlashcard, "id">) => {
+  const handleCreateFlashcard = async (flashcard: TFlashcard) => {
     try {
-      const { data } = await createFlashcard({
+      await createFlashcard({
         variables: flashcard,
       });
-      return data.createFlashcard;
     } catch (error) {
       console.error("Error creating flashcard:", error);
       throw error;
     }
   };
 
-  const handleUpdateFlashcard = async (updateData: UpdateFlashcardInput) => {
+  const handleUpdateFlashcard = async (updateData: TFlashcard) => {
     const { id, ...rest } = updateData;
     try {
       const { data } = await updateFlashcard({
@@ -121,10 +120,10 @@ export function useFlashcards() {
 
   const handleRemoveFlashcard = async (id: string) => {
     try {
-      const { data } = await deleteFlashcard({
+      const res = await deleteFlashcard({
         variables: { id },
       });
-      return data.deleteFlashcard;
+
     } catch (error) {
       console.error("Error deleting flashcard:", error);
       throw error;

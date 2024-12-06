@@ -1,13 +1,13 @@
-import { useEffect, useState, useCallback, useRef } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 import { motion, AnimatePresence, HTMLMotionProps } from "framer-motion";
 
 import { priorityShuffleFlashcards } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
-import { Button } from "@/components/ui/button";
 import { Flashcard } from "@/components/Flashcard";
 import { FlashcardStatus, TFlashcard } from "@/types";
 import { SentencesModal } from "@/components/SentencesModal";
 import { useFlashcards } from "@/hooks/useFlashcards";
+import { ActionBtns } from "./ActionBtns/ActionBtns";
 
 const transitionProps: HTMLMotionProps<"div"> = {
   initial: { x: 600, opacity: 0 },
@@ -20,6 +20,10 @@ function FlashcardsView() {
   const { toast } = useToast();
 
   const isShuffled = useRef(false);
+  const answerClickFnRef = useRef<
+    ((word: TFlashcard, newStatus: FlashcardStatus) => Promise<void>) | null
+  >(null);
+  const toggleExamplesFnRef = useRef<(() => void) | null>(null);
 
   const { flashcards, handleUpdateFlashcard } = useFlashcards();
 
@@ -28,9 +32,7 @@ function FlashcardsView() {
   const [isAnimating, setIsAnimating] = useState(false);
   const [showExamplesModal, setShowExamplesModal] = useState(false);
 
-  const currentFlashcard = flashcards[
-    shuffledIndices[currentIndex]
-  ] as TFlashcard;
+  const currentFlashcard = flashcards[shuffledIndices[currentIndex]];
 
   useEffect(() => {
     if (!isShuffled.current && flashcards.length > 0) {
@@ -39,35 +41,58 @@ function FlashcardsView() {
     }
   }, [flashcards]);
 
-  console.log({ shuffledIndices, flashcards });
+  useEffect(() => {
+    toggleExamplesFnRef.current = () => {
+      setShowExamplesModal((prev) => !prev);
+    };
+  }, []);
+
+  useEffect(() => {
+    answerClickFnRef.current = async (word, newStatus) => {
+      if (isAnimating) return;
+
+      setIsAnimating(true);
+      try {
+        const updatedWord = { ...word, status: newStatus };
+        reshuffleFlashcards(updatedWord);
+        await handleUpdateFlashcard(updatedWord);
+      } catch (error) {
+        toast({
+          description: "Failed to update flashcard. Please try again.",
+          variant: "destructive",
+        });
+      } finally {
+        setIsAnimating(false);
+      }
+    };
+  }, [flashcards, isAnimating, reshuffleFlashcards, handleUpdateFlashcard]);
+
+  function reshuffleFlashcards(updatedWord: TFlashcard) {
+    setCurrentIndex((prevIndex) => {
+      if (prevIndex + 1 >= shuffledIndices.length) {
+        // When we reach the end, reshuffle with updated statuses
+        const updatedFlashcards = structuredClone(flashcards);
+        const wordIndex = flashcards.findIndex((w) => w.id === updatedWord.id);
+        if (wordIndex !== -1) {
+          updatedFlashcards[wordIndex] = updatedWord;
+        }
+        setShuffledIndices(priorityShuffleFlashcards(updatedFlashcards));
+        return 0;
+      }
+      return prevIndex + 1;
+    });
+  }
 
   const handleClick = useCallback(
     async (word: TFlashcard, newStatus: FlashcardStatus) => {
-      if (isAnimating) return;
-
-      setCurrentIndex((prevIndex) => {
-        if (prevIndex + 1 >= shuffledIndices.length) {
-          // When we reach the end, reshuffle with updated statuses
-          const updatedFlashcards = structuredClone(flashcards);
-          const wordIndex = flashcards.findIndex((w) => w.id === word.id);
-          if (wordIndex !== -1) {
-            updatedFlashcards[wordIndex] = { ...word, status: newStatus };
-          }
-          setShuffledIndices(priorityShuffleFlashcards(updatedFlashcards));
-          return 0;
-        }
-        return prevIndex + 1;
-      });
-
-      try {
-        setIsAnimating(true);
-        await handleUpdateFlashcard({ ...word, status: newStatus });
-      } catch (error) {
-        console.error("Failed to add word:", error);
-      }
+      answerClickFnRef.current!(word, newStatus);
     },
-    [isAnimating, shuffledIndices.length, flashcards]
+    []
   );
+
+  const toggleExamplesModal = useCallback(() => {
+    toggleExamplesFnRef.current!();
+  }, []);
 
   async function handleCopyWord(word: string) {
     try {
@@ -83,9 +108,7 @@ function FlashcardsView() {
     }
   }
 
-  function toggleExamplesModal() {
-    setShowExamplesModal((prev) => !prev);
-  }
+  // console.log({ shuffledIndices, flashcards });
 
   return (
     <>
@@ -108,37 +131,20 @@ function FlashcardsView() {
           </AnimatePresence>
         </div>
 
-        <div className="flex gap-x-4 mt-12">
-          <Button
-            onClick={() => handleClick(currentFlashcard, "unrecognized")}
-            variant="destructive"
-          >
-            わからない
-          </Button>
-          <Button
-            onClick={() => handleClick(currentFlashcard, "familiar")}
-            variant="secondary"
-          >
-            まあまあ
-          </Button>
-          <Button
-            onClick={() => handleClick(currentFlashcard, "known")}
-            variant="default"
-          >
-            知っている
-          </Button>
-        </div>
-
-        <div className="flex justify-center mt-6">
-          <Button onClick={toggleExamplesModal}>Show examples</Button>
-        </div>
+        <ActionBtns
+          currentFlashcard={currentFlashcard}
+          handleClick={handleClick}
+          toggleExamplesModal={toggleExamplesModal}
+        />
       </div>
 
-      <SentencesModal
-        isOpen={showExamplesModal}
-        currentFlashcard={currentFlashcard}
-        onToggle={toggleExamplesModal}
-      />
+      {showExamplesModal && (
+        <SentencesModal
+          isOpen={showExamplesModal}
+          currentFlashcard={currentFlashcard}
+          onToggle={toggleExamplesModal}
+        />
+      )}
     </>
   );
 }

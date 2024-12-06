@@ -18,6 +18,7 @@ import { EditableTableCell } from "./EditableTableCell/EditableTableCell";
 import { AddNewWordForm } from "./AddNewWordForm/AddNewWordForm";
 import { useFlashcards } from "@/hooks/useFlashcards";
 import { Loader } from "@/components/Loader";
+import { generateUniqueId } from "@/lib/utils";
 
 export const VocabularyView = () => {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -66,59 +67,59 @@ export const VocabularyView = () => {
     []
   );
 
-  const handleCreateNewFlashcard = useCallback(
-    async (
-      e: React.FormEvent<HTMLFormElement>,
-      newCardData: Pick<TFlashcard, "kanji" | "reading" | "meaning">
-    ) => {
-      e.preventDefault();
+  const handleCreateNewFlashcard = async (
+    e: React.FormEvent<HTMLFormElement>,
+    newCardData: Pick<TFlashcard, "kanji" | "reading" | "meaning">
+  ) => {
+    e.preventDefault();
 
-      const kanji = newCardData?.kanji?.trim().length
-        ? newCardData.kanji.trim()
-        : null;
-      const reading = newCardData.reading.trim();
-      const meaning = newCardData.meaning.trim();
+    const kanji = newCardData?.kanji?.trim().length
+      ? newCardData.kanji.trim()
+      : null;
+    const reading = newCardData.reading.trim();
+    const meaning = newCardData.meaning.trim();
 
-      if (
-        !newCardData.reading.trim().length ||
-        !newCardData.meaning.trim().length
-      )
-        return;
+    if (
+      !newCardData.reading.trim().length ||
+      !newCardData.meaning.trim().length
+    )
+      return;
 
-      const newCard: Omit<TFlashcard, "id"> = {
-        // id: generateUniqueId(),
-        status: "unset",
-        kanji,
-        reading,
-        meaning,
-      };
+    const newCard: TFlashcard = {
+      id: generateUniqueId(),
+      status: "unset",
+      kanji,
+      reading,
+      meaning,
+    };
 
-      await handleCreateFlashcard(newCard);
-    },
-    [handleCreateFlashcard]
-  );
+    console.log({newCard});
+    
 
-  const handleEditFlashcard = useCallback(
-    async (e: React.MouseEvent<HTMLButtonElement>, word: TFlashcard) => {
-      const elName = e.currentTarget.name;
+    await handleCreateFlashcard(newCard);
+  };
 
-      if (elName === "edit") {
-        setEditedRows((prevState) => ({ ...prevState, [word.id]: word }));
-        return;
-      } else if (elName === "done") {
-        await handleUpdateFlashcard(editedRows[word.id]);
-      } else if (elName === "delete") {
-        await handleRemoveFlashcard(word.id);
-      }
+  const handleEditFlashcard = async (
+    e: React.MouseEvent<HTMLButtonElement>,
+    word: TFlashcard
+  ) => {
+    const elName = e.currentTarget.name;
 
-      setEditedRows((prevState) => {
-        const prevStateCopy = structuredClone(prevState);
-        delete prevStateCopy[word.id];
-        return prevStateCopy;
-      });
-    },
-    [setEditedRows, handleUpdateFlashcard, handleRemoveFlashcard]
-  );
+    if (elName === "edit") {
+      setEditedRows((prevState) => ({ ...prevState, [word.id]: word }));
+      return;
+    } else if (elName === "done") {
+      await handleUpdateFlashcard(editedRows[word.id]);
+    } else if (elName === "delete") {
+      await handleRemoveFlashcard(word.id);
+    }
+
+    setEditedRows((prevState) => {
+      const prevStateCopy = structuredClone(prevState);
+      delete prevStateCopy[word.id];
+      return prevStateCopy;
+    });
+  };
 
   return (
     <section className="pt-8 min-h-[calc(100dvh-49px)]">
