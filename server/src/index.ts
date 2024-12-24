@@ -3,7 +3,7 @@ import path from "path";
 import cors from "cors";
 import axios from "axios";
 import express from "express";
-import { fileURLToPath } from 'url';
+import { fileURLToPath } from "url";
 import type { Request, Response } from "express";
 import { createYoga, createSchema } from "graphql-yoga";
 
@@ -28,7 +28,8 @@ const yoga = createYoga({
   schema,
 });
 
-const PORT = 5000;
+const PORT = +process.env.PORT!;
+const HOST = process.env.HOST!;
 
 app.use(cors());
 
@@ -53,6 +54,6 @@ app.get("/api/search", async (req: Request, res: Response) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+app.listen(PORT, HOST, () => {
+  console.log(`Server started on ${HOST}:${PORT}`);
 });

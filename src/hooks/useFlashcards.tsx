@@ -120,10 +120,9 @@ export function useFlashcards() {
 
   const handleRemoveFlashcard = async (id: string) => {
     try {
-      const res = await deleteFlashcard({
+      await deleteFlashcard({
         variables: { id },
       });
-
     } catch (error) {
       console.error("Error deleting flashcard:", error);
       throw error;
