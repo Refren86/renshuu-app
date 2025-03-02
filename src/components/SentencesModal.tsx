@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import axios from "axios";
 import {
   Dialog,
@@ -61,7 +61,7 @@ export const SentencesModal: React.FC<SentencesModalProps> = ({
     return data;
   };
 
-  const fetchSentences = async (page: number = 1) => {
+  const fetchSentences = useCallback(async (page: number = 1) => {
     try {
       setIsLoading(true);
       const { results, paging } = await loadExamples(searchWord, page);
@@ -73,13 +73,13 @@ export const SentencesModal: React.FC<SentencesModalProps> = ({
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [searchWord]);
 
   useEffect(() => {
     if (isOpen) {
       fetchSentences();
     }
-  }, [isOpen, searchWord]);
+  }, [isOpen, fetchSentences, searchWord]);
 
   const handleChangePage = (moveTo: "prev" | "next") => {
     const newPage =

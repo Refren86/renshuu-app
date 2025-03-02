@@ -91,7 +91,7 @@ export function useFlashcards() {
     refetchQueries: [{ query: GET_ALL_FLASHCARDS }],
   });
 
-  const handleCreateFlashcard = async (flashcard: TFlashcard) => {
+  const handleCreateFlashcard = async (flashcard: Omit<TFlashcard, "id">) => {
     try {
       await createFlashcard({
         variables: flashcard,

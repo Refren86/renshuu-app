@@ -65,7 +65,7 @@ export const resolvers = {
     ) => {
       const filteredData = {
         ...Object.fromEntries(
-          Object.entries(data).filter(([_, v]) => v !== undefined)
+          Object.entries(data).filter(([, v]) => v !== undefined)
         ),
       };
 

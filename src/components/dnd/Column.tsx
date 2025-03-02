@@ -4,7 +4,6 @@ import { AddCard } from "./AddCard";
 import { DropIndicator } from "./DropIndicator";
 import { FlashcardStatus, TFlashcard } from "@/types";
 import { DraggableElement } from "./DraggableElement";
-import { UpdateFlashcardInput } from "@/hooks/useFlashcards";
 
 type TSetWords = React.Dispatch<React.SetStateAction<TFlashcard[]>>;
 
@@ -13,8 +12,8 @@ type ColumnProps = {
   headingColor: string;
   cards: TFlashcard[];
   column: FlashcardStatus;
-  onCreateFlashcard: (flashcard: Omit<TFlashcard, "id">) => Promise<any>;
-  onUpdateFlashcard: (updateData: UpdateFlashcardInput) => Promise<any>;
+  onCreateFlashcard: (flashcard: Omit<TFlashcard, "id">) => Promise<void>;
+  onUpdateFlashcard: (updateData: TFlashcard) => Promise<void>;
   setWords: TSetWords;
 };
 

@@ -66,7 +66,7 @@ export function priorityShuffleFlashcards(flashcards: TFlashcard[]): number[] {
   ];
 }
 
-export function rafThrottle<Fn extends (...args: any[]) => any>(cb: Fn) {
+export function rafThrottle<Fn extends (...args: unknown[]) => unknown>(cb: Fn) {
   let rafId: number | null = null;
   let latestArgs: Parameters<Fn>;
 

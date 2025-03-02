@@ -9,10 +9,10 @@ export function useResizeObserver(cb: ResizeObserverCallback) {
       new ResizeObserver((entires, observer) => {
         latestCb.current(entires, observer);
       }),
-    []
+    [latestCb]
   );
 
-  useEffect(() => () => resizeObserver.disconnect(), []);
+  useEffect(() => () => resizeObserver.disconnect(), [resizeObserver]);
 
   return resizeObserver;
 }

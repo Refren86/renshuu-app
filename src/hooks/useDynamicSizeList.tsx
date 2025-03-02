@@ -139,7 +139,7 @@ export function useDynamicSizeList(props: UseDynamicSizeListProps) {
       }
       scrollElement.removeEventListener("scroll", handleScroll);
     };
-  }, [getScrollElement]);
+  }, [scrollingDelay, getScrollElement]);
 
   // calculate the rows that should be rendered based on scroll position
   const { virtualItems, startIndex, endIndex, totalHeight, allItems } =
@@ -278,7 +278,7 @@ export function useDynamicSizeList(props: UseDynamicSizeListProps) {
 
       setMeasurementCache((cache) => ({ ...cache, [key]: height }));
     },
-    []
+    [getScrollElement, latestData]
   );
 
   const rowsResizeObserver = useResizeObserver((entries, observer) => {
@@ -291,7 +291,7 @@ export function useDynamicSizeList(props: UseDynamicSizeListProps) {
     (element: Element | null) => {
       measureElementInner(element, rowsResizeObserver);
     },
-    [rowsResizeObserver]
+    [rowsResizeObserver, measureElementInner]
   );
 
   return {
