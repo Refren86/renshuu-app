@@ -5,7 +5,7 @@ import { WordDeletionConfirmModal } from "../WordDeletionConfirmModal";
 
 
 type BurnBarrelProps = {
-  onRemoveFlashcard: (id: string) => Promise<any>
+  onRemoveFlashcard: (id: string) => Promise<unknown>
 };
 
 export const BurnBarrel = ({ onRemoveFlashcard }: BurnBarrelProps) => {

@@ -11,8 +11,6 @@ type ActionBtnsProps = {
 
 export const ActionBtns = React.memo(
   ({ currentFlashcard, handleClick, toggleExamplesModal }: ActionBtnsProps) => {
-    console.log('REDNERED');
-    
     return (
       <>
         <div className="flex gap-x-4 mt-12">

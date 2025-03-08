@@ -1,14 +1,8 @@
 import debounce from "lodash/debounce";
 import { Search } from "lucide-react";
-import { ChangeEvent, useCallback, useMemo, useRef, useState } from "react";
+import { ChangeEvent, useCallback, useEffect, useMemo, useRef, useState } from "react";
 
-import {
-  Table,
-  TableHeader,
-  TableBody,
-  TableHead,
-  TableRow,
-} from "@/components/ui/table";
+import { Table, TableHeader, TableBody, TableHead, TableRow } from "@/components/ui/table";
 import { TFlashcard } from "@/types";
 import { Input } from "@/components/ui/input";
 import { EditCell } from "./EditCell/EditCell";
@@ -27,13 +21,19 @@ export const VocabularyView = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [editedRows, setEditedRows] = useState<Record<string, TFlashcard>>({});
 
-  const {
-    flashcards,
-    loading,
-    handleCreateFlashcard,
-    handleUpdateFlashcard,
-    handleRemoveFlashcard,
-  } = useFlashcards();
+  const debouncedSearch = useRef(
+    debounce((value: string) => {
+      setSearchQuery(value);
+    }, 500)
+  ).current;
+
+  useEffect(() => {
+    return () => {
+      debouncedSearch.cancel();
+    };
+  }, [debouncedSearch]);
+
+  const { flashcards, loading, handleCreateFlashcard, handleUpdateFlashcard, handleRemoveFlashcard } = useFlashcards();
 
   const filteredData = useMemo(() => {
     if (!searchQuery) return flashcards;
@@ -51,21 +51,14 @@ export const VocabularyView = () => {
   const { virtualItems, totalHeight, measureElement } = useDynamicSizeList({
     estimateItemHeight: useCallback(() => 72, []),
     itemsCount: filteredData.length,
-    getScrollElement: useCallback(
-      () => (!loading ? scrollElementRef.current : null),
-      [loading]
-    ),
+    getScrollElement: useCallback(() => (!loading ? scrollElementRef.current : null), [loading]),
     getItemKey: useCallback((index) => filteredData[index]?.id, [filteredData]),
   });
 
-  const handleInputChange = useCallback(
-    debounce((e: ChangeEvent<HTMLInputElement>) => {
-      const newValue = e.target.value.trim();
-
-      setSearchQuery(newValue);
-    }, 500),
-    []
-  );
+  const handleInputChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
+    const newValue = e.target.value.trim();
+    debouncedSearch(newValue);
+  }, [debouncedSearch]);
 
   const handleCreateNewFlashcard = async (
     e: React.FormEvent<HTMLFormElement>,
@@ -73,17 +66,11 @@ export const VocabularyView = () => {
   ) => {
     e.preventDefault();
 
-    const kanji = newCardData?.kanji?.trim().length
-      ? newCardData.kanji.trim()
-      : null;
+    const kanji = newCardData?.kanji?.trim().length ? newCardData.kanji.trim() : null;
     const reading = newCardData.reading.trim();
     const meaning = newCardData.meaning.trim();
 
-    if (
-      !newCardData.reading.trim().length ||
-      !newCardData.meaning.trim().length
-    )
-      return;
+    if (!newCardData.reading.trim().length || !newCardData.meaning.trim().length) return;
 
     const newCard: TFlashcard = {
       id: generateUniqueId(),
@@ -93,16 +80,10 @@ export const VocabularyView = () => {
       meaning,
     };
 
-    console.log({newCard});
-    
-
     await handleCreateFlashcard(newCard);
   };
 
-  const handleEditFlashcard = async (
-    e: React.MouseEvent<HTMLButtonElement>,
-    word: TFlashcard
-  ) => {
+  const handleEditFlashcard = async (e: React.MouseEvent<HTMLButtonElement>, word: TFlashcard) => {
     const elName = e.currentTarget.name;
 
     if (elName === "edit") {
@@ -127,12 +108,7 @@ export const VocabularyView = () => {
         <div className="flex items-center gap-x-4 mb-8">
           <div className="relative">
             <Search className="absolute -translate-y-1/2 left-2 text-muted-foreground top-1/2" />
-            <Input
-              ref={inputRef}
-              onChange={handleInputChange}
-              placeholder="Search..."
-              className="pl-10"
-            />
+            <Input ref={inputRef} onChange={handleInputChange} placeholder="Search..." className="pl-10" />
           </div>
 
           <div className="h-[30px] w-[2px] bg-green-200" />
@@ -146,10 +122,7 @@ export const VocabularyView = () => {
           </div>
         ) : (
           <>
-            <div
-              ref={scrollElementRef}
-              className="h-[800px] overflow-y-auto pr-2"
-            >
+            <div ref={scrollElementRef} className="h-[800px] overflow-y-auto pr-2">
               {filteredData.length > 0 ? (
                 <Table className="w-full">
                   <TableHeader>
@@ -160,10 +133,7 @@ export const VocabularyView = () => {
                     </TableRow>
                   </TableHeader>
 
-                  <TableBody
-                    className="relative"
-                    style={{ height: totalHeight }}
-                  >
+                  <TableBody className="relative" style={{ height: totalHeight }}>
                     {virtualItems.map((virtualRow) => {
                       const item = filteredData[virtualRow.index];
 
@@ -210,9 +180,7 @@ export const VocabularyView = () => {
                   </TableBody>
                 </Table>
               ) : (
-                <h2 className="text-center mt-8 text-3xl font-semibold">
-                  何も見つからなかった
-                </h2>
+                <h2 className="text-center mt-8 text-3xl font-semibold">何も見つからなかった</h2>
               )}
             </div>
 

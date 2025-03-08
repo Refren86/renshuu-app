@@ -2,7 +2,7 @@ import { useEffect, useState, useRef, useCallback } from "react";
 import { motion, AnimatePresence, HTMLMotionProps } from "framer-motion";
 
 import { priorityShuffleFlashcards } from "@/lib/utils";
-import { useToast } from "@/hooks/use-toast";
+import { useToast } from "@/hooks/useToast";
 import { Flashcard } from "@/components/Flashcard";
 import { FlashcardStatus, TFlashcard } from "@/types";
 import { SentencesModal } from "@/components/SentencesModal";
@@ -54,9 +54,27 @@ function FlashcardsView() {
       setIsAnimating(true);
       try {
         const updatedWord = { ...word, status: newStatus };
+
+        function reshuffleFlashcards(updatedWord: TFlashcard) {
+          setCurrentIndex((prevIndex) => {
+            if (prevIndex + 1 >= shuffledIndices.length) {
+              // When we reach the end, reshuffle with updated statuses
+              const updatedFlashcards = structuredClone(flashcards);
+              const wordIndex = flashcards.findIndex((w) => w.id === updatedWord.id);
+              if (wordIndex !== -1) {
+                updatedFlashcards[wordIndex] = updatedWord;
+              }
+              setShuffledIndices(priorityShuffleFlashcards(updatedFlashcards));
+              return 0;
+            }
+            return prevIndex + 1;
+          });
+        }
+
         reshuffleFlashcards(updatedWord);
         await handleUpdateFlashcard(updatedWord);
-      } catch (error) {
+      } catch (error: unknown) {
+        console.error("Update flashcard error: ", error);
         toast({
           description: "Failed to update flashcard. Please try again.",
           variant: "destructive",
@@ -65,23 +83,7 @@ function FlashcardsView() {
         setIsAnimating(false);
       }
     };
-  }, [flashcards, isAnimating, reshuffleFlashcards, handleUpdateFlashcard]);
-
-  function reshuffleFlashcards(updatedWord: TFlashcard) {
-    setCurrentIndex((prevIndex) => {
-      if (prevIndex + 1 >= shuffledIndices.length) {
-        // When we reach the end, reshuffle with updated statuses
-        const updatedFlashcards = structuredClone(flashcards);
-        const wordIndex = flashcards.findIndex((w) => w.id === updatedWord.id);
-        if (wordIndex !== -1) {
-          updatedFlashcards[wordIndex] = updatedWord;
-        }
-        setShuffledIndices(priorityShuffleFlashcards(updatedFlashcards));
-        return 0;
-      }
-      return prevIndex + 1;
-    });
-  }
+  }, [flashcards, isAnimating, shuffledIndices.length, handleUpdateFlashcard, toast]);
 
   const handleClick = useCallback(
     async (word: TFlashcard, newStatus: FlashcardStatus) => {
@@ -100,7 +102,8 @@ function FlashcardsView() {
       toast({
         description: "Copied to clipboard",
       });
-    } catch (error) {
+    } catch (error: unknown) {
+      console.error("Copy error: ", error);
       toast({
         description: `Failed to copy ${word}`,
         variant: "destructive",

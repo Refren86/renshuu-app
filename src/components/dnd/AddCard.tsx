@@ -8,7 +8,7 @@ import { FlashcardStatus, TFlashcard } from "@/types";
 
 type AddCardProps = {
   column: FlashcardStatus;
-  onCreateFlashcard: (flashcard: Omit<TFlashcard, "id">) => Promise<any>;
+  onCreateFlashcard: (flashcard: Omit<TFlashcard, "id">) => Promise<unknown>;
 };
 
 export const AddCard = ({ column, onCreateFlashcard }: AddCardProps) => {
