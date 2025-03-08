@@ -17,6 +17,8 @@ export const AnimatedOutlet = forwardRef<HTMLDivElement>((_, ref) => {
   const routerContext = useContext(RouterContext);
   const renderedContext = useRef(routerContext);
 
+  console.log("test");
+
   if (isPresent) {
     renderedContext.current = cloneDeep(routerContext);
   }
