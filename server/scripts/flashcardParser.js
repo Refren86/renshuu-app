@@ -12,9 +12,7 @@ async function parseFlashcards() {
     const flashcards = lines
       .map((line) => {
         const idMatch = line.match(/^(\d+)\./); // Match the id number before the dot
-        const kanjiReadingMeaningMatch = line.match(
-          /^(\d+)\.\s*(\S+)\s+\((.*?)\)\s+-\s+(.*)$/
-        ); // Match the id, kanji, reading, and meaning
+        const kanjiReadingMeaningMatch = line.match(/^(\d+)\.\s*(\S+)\s+\((.*?)\)\s+-\s+(.*)$/); // Match the id, kanji, reading, and meaning
         const noKanjiMatch = line.match(/^(\d+)\.\s*(\S+)\s+-\s+(.*)$/); // Match id, reading (without parentheses), and meaning
 
         if (kanjiReadingMeaningMatch) {
@@ -23,7 +21,7 @@ async function parseFlashcards() {
             kanji: kanjiReadingMeaningMatch[2],
             reading: kanjiReadingMeaningMatch[3],
             meaning: kanjiReadingMeaningMatch[4],
-            status: "unset" // "unset" | "unrecognized" | "familiar" | "known"
+            status: "unset", // "unset" | "unrecognized" | "familiar" | "known"
           };
         }
 
@@ -33,7 +31,7 @@ async function parseFlashcards() {
             kanji: null,
             reading: noKanjiMatch[2],
             meaning: noKanjiMatch[3],
-            status: "unset" // "unset" | "unrecognized" | "familiar" | "known"
+            status: "unset", // "unset" | "unrecognized" | "familiar" | "known"
           };
         }
 
