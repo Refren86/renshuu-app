@@ -1,0 +1,43 @@
+services:
+  db:
+    image: postgres:17-alpine
+    env_file:
+      - .env
+    volumes:
+      - ./postgres_db:/data/db
+      # Mount the dump file into the container
+      - ./server/db/renshuu-db.dump:/docker-entrypoint-initdb.d/renshuu-db.dump
+      - ./server/db/restore.sh:/docker-entrypoint-initdb.d/restore.sh:ro # read only
+    ports:
+      # my port:docker port
+      - "5432:5432"
+    # restart: always
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  app:
+    build: 
+      context: .
+    env_file:
+      - .env
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./server:/app
+      - /app/node_modules
+    restart: on-failure
+    depends_on:
+      db:
+        condition: service_healthy
+  
+  web:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    restart: on-failure
+    volumes:
+      - ./client:/usr/share/nginx/html
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf

@@ -64,3 +64,6 @@ To apply a new dump V2 (while container is running):
 
 2) Restore the database (dropping existing data)
 ```docker exec -it <db-container-name> pg_restore -U postgres -d renshuu-app -c -v /tmp/renshuu-db.dump```
+
+# Compose up specific file:
+```docker compose -f docker-compose.prod.yml up -d```

@@ -7,6 +7,16 @@ import { TanStackRouterVite } from "@tanstack/router-plugin/vite";
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [TanStackRouterVite(), react(), glsl()],
+  preview: {
+    port: 3000, // prod
+  },
+  server: {
+    port: 3000, // dev
+  },
+  build: {
+    outDir: path.resolve(__dirname, "../client"),
+    emptyOutDir: true,
+  },
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
