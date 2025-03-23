@@ -1,8 +1,13 @@
-import { render } from "@testing-library/react";
 import { MockedProvider, MockedResponse } from "@apollo/client/testing";
-import { createMemoryHistory, createRouter, getRouterContext } from "@tanstack/react-router";
+import { render, type RenderOptions } from "@testing-library/react";
+import { RouterProvider, createMemoryHistory, createRouter } from "@tanstack/react-router";
 
 import { routeTree } from "@/routeTree.gen";
+import { StrictMode } from "react";
+
+interface CustomRenderOptions extends Omit<RenderOptions, "wrapper"> {
+  initialRoute?: string;
+}
 
 // Apollo client wrapper
 export function renderWithApollo(children: React.ReactElement, mocks: MockedResponse[] = [], options = {}) {
@@ -15,40 +20,16 @@ export function renderWithApollo(children: React.ReactElement, mocks: MockedResp
 }
 
 // Tanstack router wrapper
-export function renderWithRouter(children: React.ReactElement, { route = "/", params = {} } = {}) {
-  const RouterContext = getRouterContext();
-
-  // Create a memory history
-  const memoryHistory = createMemoryHistory({
-    initialEntries: [route],
-  });
-
-  // Create a test router instance
-  const router = createRouter({
-    routeTree,
-    history: memoryHistory,
-  });
-
-  // Initialize the router
-  router.navigate({
-    to: route,
-    params,
-  });
-
-  return {
-    ...render(<RouterContext.Provider value={router}>{children}</RouterContext.Provider>),
-    // Return additional router utilities
-    router,
-    history: memoryHistory,
-  };
-}
-
-// Combined wrapper for both Apollo and Router
-export function renderWithAll(children: React.ReactElement, { mocks = [], route = "/", params = {} } = {}) {
-  const RouterContext = getRouterContext();
+export function renderWithRouter(
+  ui: React.ReactElement,
+  { initialRoute = "/", ...renderOptions }: CustomRenderOptions = {}
+) {
+  if (typeof window === "undefined") {
+    throw new Error("renderWithRouter must only be used in a client-side environment.");
+  }
 
   const memoryHistory = createMemoryHistory({
-    initialEntries: [route],
+    initialEntries: [initialRoute],
   });
 
   const router = createRouter({
@@ -56,18 +37,15 @@ export function renderWithAll(children: React.ReactElement, { mocks = [], route 
     history: memoryHistory,
   });
 
-  router.navigate({
-    to: route,
-    params,
-  });
+  const Wrapper = ({ children }: { children: React.ReactNode }) => (
+    <StrictMode>
+      <RouterProvider router={router} />
+      {children}
+    </StrictMode>
+  );
 
   return {
-    ...render(
-      <MockedProvider mocks={mocks} addTypename={false}>
-        <RouterContext.Provider value={router}>{children}</RouterContext.Provider>
-      </MockedProvider>
-    ),
+    ...render(ui, { wrapper: Wrapper, ...renderOptions }),
     router,
-    history: memoryHistory,
   };
 }

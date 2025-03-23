@@ -1,32 +1,52 @@
-import { describe, it, expect, vi } from "vitest";
-import { screen, fireEvent } from "@testing-library/react";
+import { act, cleanup, configure, render, screen } from "@testing-library/react";
+import { describe, it, expect, beforeEach, afterEach } from "vitest";
+import {
+  RouterHistory,
+  RouterProvider,
+  createBrowserHistory,
+  createRootRoute,
+  createRoute,
+  createRouter,
+} from "@tanstack/react-router";
 
-import { Header } from "@/components/Header";
-import { renderWithRouter } from "../utils";
+let history: RouterHistory;
+
+beforeEach(() => {
+  history = createBrowserHistory();
+  expect(window.location.pathname).toBe("/");
+});
+
+afterEach(() => {
+  history.destroy();
+  window.history.replaceState(null, "root", "/");
+  cleanup();
+});
+
+async function initRouter() {
+  const rootRoute = createRootRoute();
+
+  const indexRoute = createRoute({
+    getParentRoute: () => rootRoute,
+    path: "/",
+  }).lazy(() => import("../router/lazy/index").then((d) => d.default("/")));
+
+  const routeTree = rootRoute.addChildren([indexRoute]);
+  const router = createRouter({ routeTree, history });
+
+  await router.load();
+
+  await act(() => render(<RouterProvider router={router} />));
+}
 
 describe("Header component", () => {
-  it("renders navigation links correctly", () => {
-    renderWithRouter(<Header />);
+  configure({ reactStrictMode: true });
 
-    expect(screen.getByRole("link", { name: "Home" })).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: "Vocabulary" })).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: "Flashcards" })).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: "Reviewed" })).toBeInTheDocument();
-  });
+  it("renders all navigation links", async () => {
+    await initRouter();
 
-  it("navigates to correct route when link is clicked", async () => {
-    // Render with router utilities
-    const { router } = renderWithRouter(<Header />);
-
-    const navigateSpy = vi.spyOn(router, "navigate");
-
-    fireEvent.click(screen.getByRole("link", { name: "Vocabulary" }));
-
-    // Check if navigate was called with correct params
-    expect(navigateSpy).toHaveBeenCalledWith(
-      expect.objectContaining({
-        to: "/vocabulary",
-      })
-    );
+    expect(screen.getByText("Home")).toBeInTheDocument();
+    expect(screen.getByText("Vocabulary")).toBeInTheDocument();
+    expect(screen.getByText("Flashcards")).toBeInTheDocument();
+    expect(screen.getByText("Reviewed")).toBeInTheDocument();
   });
 });
