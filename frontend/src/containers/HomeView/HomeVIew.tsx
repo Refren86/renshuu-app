@@ -22,7 +22,7 @@ export const HomeView = () => {
             damping: 10,
           }}
         >
-          練習アプリ
+          Renshuu app
         </motion.h1>
 
         <motion.div
@@ -37,7 +37,7 @@ export const HomeView = () => {
           }}
         >
           <Button asChild className="text-xl" size="lg">
-            <Link to="/vocabulary">単語学習を始める</Link>
+            <Link to="/vocabulary">Start learning</Link>
           </Button>
         </motion.div>
       </div>
