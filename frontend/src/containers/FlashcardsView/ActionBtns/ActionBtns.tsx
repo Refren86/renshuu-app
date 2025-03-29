@@ -14,13 +14,13 @@ export const ActionBtns = React.memo(({ currentFlashcard, handleClick, toggleExa
     <>
       <div className="flex gap-x-4 mt-12">
         <Button onClick={() => handleClick(currentFlashcard, "unrecognized")} variant="destructive">
-          わからない
+          Don't know
         </Button>
         <Button onClick={() => handleClick(currentFlashcard, "familiar")} variant="secondary">
-          まあまあ
+          Familiar
         </Button>
         <Button onClick={() => handleClick(currentFlashcard, "known")} variant="default">
-          知っている
+          Easy one
         </Button>
       </div>
 

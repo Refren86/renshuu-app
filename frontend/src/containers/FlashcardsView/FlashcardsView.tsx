@@ -8,6 +8,7 @@ import { FlashcardStatus, TFlashcard } from "@/types";
 import { SentencesModal } from "@/components/SentencesModal";
 import { useFlashcards } from "@/hooks/useFlashcards";
 import { ActionBtns } from "./ActionBtns/ActionBtns";
+import { Layout } from "@/components/Layout";
 
 const transitionProps: HTMLMotionProps<"div"> = {
   initial: { x: 600, opacity: 0 },
@@ -109,8 +110,8 @@ function FlashcardsView() {
   // console.log({ shuffledIndices, flashcards });
 
   return (
-    <>
-      <div className="flex flex-col justify-center items-center h-[calc(100dvh-49px)] overflow-hidden">
+    <Layout>
+      <section className="flex flex-col justify-center items-center h-[calc(100dvh-49px)] overflow-hidden">
         <div className="relative w-full max-w-md h-96">
           <AnimatePresence onExitComplete={() => setIsAnimating(false)}>
             <motion.div
@@ -130,12 +131,12 @@ function FlashcardsView() {
           handleClick={handleClick}
           toggleExamplesModal={toggleExamplesModal}
         />
-      </div>
+      </section>
 
       {showExamplesModal && (
         <SentencesModal isOpen={showExamplesModal} currentFlashcard={currentFlashcard} onToggle={toggleExamplesModal} />
       )}
-    </>
+    </Layout>
   );
 }
 

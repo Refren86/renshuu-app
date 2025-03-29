@@ -1,10 +1,10 @@
 import { createLazyRoute } from "@tanstack/react-router";
 
 import { FileRoutesById } from "@/routeTree.gen";
-import { HomeView } from "@/containers/HomeView/HomeView";
+import { VocabularyView } from "@/containers/VocabularyView/VocabularyView";
 
 export default function Route(id: keyof FileRoutesById) {
   return createLazyRoute(id)({
-    component: HomeView,
+    component: VocabularyView,
   });
 }

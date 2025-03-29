@@ -18,7 +18,7 @@ export const Loader = ({ size = "md" }: LoaderProps) => {
           <div key={index} className="absolute w-full h-full border-t-4 border-red-500 rounded-full animate-spin" />
         ))}
         <div className="absolute inset-0 flex items-center justify-center">
-          <span className="text-2xl font-bold text-red-500">待つ</span>
+          <span className="text-2xl font-bold text-red-500">Loading</span>
         </div>
       </div>
     </div>
