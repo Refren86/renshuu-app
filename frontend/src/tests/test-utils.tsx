@@ -21,6 +21,7 @@ export function renderWithApollo(children: React.ReactElement, mocks: MockedResp
   );
 }
 
+// Tanstack router and apollo setup
 export async function initRouter(history: RouterHistory) {
   const rootRoute = createRootRoute({
     component: () => (
