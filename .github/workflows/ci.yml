@@ -17,6 +17,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+
+      - name: Install TypeScript
+        run: npm install -g typescript
           
       - name: Install frontend dependencies
         working-directory: ./frontend
