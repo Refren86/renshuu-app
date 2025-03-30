@@ -4,7 +4,7 @@ import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { GradientCanvas } from "./GradientCanvas/GradientCanvas";
 
-export const HomeView = () => {
+export const StartView = () => {
   return (
     <section className="relative">
       <GradientCanvas />
