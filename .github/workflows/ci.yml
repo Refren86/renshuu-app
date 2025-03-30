@@ -1,10 +1,10 @@
 name: CI
 
 on:
-  # push:
-  #   branches: [ dev ]
+  push:
+    branches: [ dev ]
   pull_request:
-    branches: [ main ]
+    branches: [ main, dev ]
 
 jobs:
   frontend-tests:
@@ -22,14 +22,14 @@ jobs:
         working-directory: ./frontend
         run: npm ci
 
-      # - name: Check TypeScript compilation
-      #   working-directory: ./frontend
-      #   run: npx tsc -b
+      - name: Check TypeScript compilation
+        working-directory: ./frontend
+        run: npx tsc -b
         
-      # - name: Run frontend tests
-      #   working-directory: ./frontend
-      #   run: npm run test
+      - name: Run frontend tests
+        working-directory: ./frontend
+        run: npm run test
         
-      # - name: Build frontend
-      #   working-directory: ./frontend
-      #   run: npm run build
+      - name: Build frontend
+        working-directory: ./frontend
+        run: npm run build
