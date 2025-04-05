@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useState } from "react";
-import axios from "axios";
 import {
   Dialog,
   DialogContent,
@@ -10,6 +9,7 @@ import {
 } from "@/components/ui/dialog";
 import { Loader } from "./Loader";
 import { TFlashcard } from "@/types";
+import { loadExamplesFromTatoeba } from "@/utils/requestService";
 import { Pagination, PaginationContent, PaginationItem, PaginationNext, PaginationPrevious } from "./ui/pagination";
 
 type SentencesModalProps = {
@@ -31,8 +31,6 @@ type PaginationState = {
   nextPage: boolean;
 };
 
-const API_BASE_URL = "http://localhost:5000/api";
-
 export const SentencesModal: React.FC<SentencesModalProps> = ({ isOpen, currentFlashcard, onToggle }) => {
   const [sentences, setSentences] = useState<Sentence[]>([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -44,18 +42,11 @@ export const SentencesModal: React.FC<SentencesModalProps> = ({ isOpen, currentF
 
   const searchWord = currentFlashcard?.kanji || currentFlashcard?.reading;
 
-  const loadExamples = async (keyword: string = "", page: number = 1) => {
-    const { data } = await axios.get(`${API_BASE_URL}/search`, {
-      params: { keyword, page },
-    });
-    return data;
-  };
-
   const fetchSentences = useCallback(
     async (page: number = 1) => {
       try {
         setIsLoading(true);
-        const { results, paging } = await loadExamples(searchWord, page);
+        const { results, paging } = await loadExamplesFromTatoeba(searchWord, page);
         const { page: newPage, prevPage, nextPage } = paging.Sentences;
         setPagination({ page: newPage, prevPage, nextPage });
         setSentences(results);
@@ -113,7 +104,11 @@ export const SentencesModal: React.FC<SentencesModalProps> = ({ isOpen, currentF
             {searchWord} {currentFlashcard?.kanji && `(${currentFlashcard?.reading})`} - {currentFlashcard?.meaning}
           </DialogTitle>
           <DialogDescription asChild>
-            {isLoading ? <Loader /> : <div className="divide-y divide-slate-700">{sentences.map(renderSentence)}</div>}
+            {isLoading ? (
+              <Loader size="lg" />
+            ) : (
+              <div className="divide-y divide-slate-700">{sentences.map(renderSentence)}</div>
+            )}
           </DialogDescription>
         </DialogHeader>
         <DialogFooter>

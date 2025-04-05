@@ -14,8 +14,12 @@ import { Loader } from "@/components/Loader";
 import { generateUniqueId } from "@/lib/utils";
 import { Layout } from "@/components/Layout";
 import { Table, TableHeader, TableBody, TableHead, TableRow } from "@/components/ui/table";
+import { uploadImageToCloudinary } from "@/utils/requestService";
+import { useToast } from "@/hooks/useToast";
 
 export const VocabularyView = () => {
+  const { toast } = useToast();
+
   const inputRef = useRef<HTMLInputElement>(null);
   const scrollElementRef = useRef<HTMLDivElement>(null);
 
@@ -34,7 +38,14 @@ export const VocabularyView = () => {
     };
   }, [debouncedSearch]);
 
-  const { flashcards, loading, handleCreateFlashcard, handleUpdateFlashcard, handleRemoveFlashcard } = useFlashcards();
+  const {
+    flashcards,
+    loading,
+    handleCreateFlashcard,
+    handleUpdateFlashcard,
+    handleUploadFlashcardImage,
+    handleRemoveFlashcard,
+  } = useFlashcards();
 
   const filteredData = useMemo(() => {
     if (!searchQuery) return flashcards;
@@ -66,7 +77,8 @@ export const VocabularyView = () => {
 
   const handleCreateNewFlashcard = async (
     e: React.FormEvent<HTMLFormElement>,
-    newCardData: Pick<TFlashcard, "kanji" | "reading" | "meaning">
+    newCardData: Pick<TFlashcard, "kanji" | "reading" | "meaning">,
+    imageFile: File | null
   ) => {
     e.preventDefault();
 
@@ -76,8 +88,10 @@ export const VocabularyView = () => {
 
     if (!newCardData.reading.trim().length || !newCardData.meaning.trim().length) return;
 
+    const flashcardId = generateUniqueId();
+
     const newCard: TFlashcard = {
-      id: generateUniqueId(),
+      id: flashcardId,
       status: "unset",
       kanji,
       reading,
@@ -85,6 +99,27 @@ export const VocabularyView = () => {
     };
 
     await handleCreateFlashcard(newCard);
+
+    if (imageFile) {
+      const formData = new FormData();
+      formData.append("image", imageFile);
+      formData.append("flashcardId", flashcardId);
+
+      const { imageUrl } = await uploadImageToCloudinary(formData);
+
+      if (imageUrl === null) {
+        toast({
+          description: "Error ocurred while uploading image",
+          variant: "destructive",
+        });
+        return;
+      }
+
+      await handleUploadFlashcardImage({
+        id: flashcardId,
+        imageUrl: imageUrl,
+      });
+    }
   };
 
   const handleEditFlashcard = async (e: React.MouseEvent<HTMLButtonElement>, word: TFlashcard) => {
@@ -132,9 +167,9 @@ export const VocabularyView = () => {
                   <Table className="w-full">
                     <TableHeader>
                       <TableRow>
-                        <TableHead className="w-[200px]">漢字</TableHead>
-                        <TableHead className="w-[250px]">読み方</TableHead>
-                        <TableHead colSpan={2}>意味</TableHead>
+                        <TableHead className="w-[200px]">Kanji</TableHead>
+                        <TableHead className="w-[250px]">Reading</TableHead>
+                        <TableHead colSpan={2}>Meaning</TableHead>
                       </TableRow>
                     </TableHeader>
 

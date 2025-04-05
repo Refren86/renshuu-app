@@ -1,3 +1,5 @@
+export const abiBaseURL = "http://localhost:5000/api";
+
 export const actionTypes = {
   ADD_TOAST: "ADD_TOAST",
   UPDATE_TOAST: "UPDATE_TOAST",

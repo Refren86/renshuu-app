@@ -11,6 +11,7 @@ type Flashcard {
   reading: String!
   meaning: String!
   status: FlashcardStatus!
+  imageUrl: String
   created_at: String!
   updated_at: String!
 }
@@ -36,6 +37,11 @@ type Mutation {
     meaning: String
     status: FlashcardStatus
   ): Flashcard!
+
+  uploadFlashcardImage(
+    id: String!
+    word: String!
+  ): String!
   
   deleteFlashcard(id: String!): Flashcard
 }

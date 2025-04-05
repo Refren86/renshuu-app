@@ -9,6 +9,7 @@ const GET_ALL_FLASHCARDS = gql`
       reading
       meaning
       status
+      imageUrl
     }
   }
 `;
@@ -43,6 +44,15 @@ const UPDATE_FLASHCARD = gql`
   }
 `;
 
+const UPLOAD_FLASHCARD_IMAGE = gql`
+  mutation UploadFlashcardImage($id: String!, $word: String!) {
+    uploadFlashcardImage(id: $id, word: $word) {
+      id
+      word
+    }
+  }
+`;
+
 const DELETE_FLASHCARD = gql`
   mutation DeleteFlashcard($id: String!) {
     deleteFlashcard(id: $id) {
@@ -66,6 +76,10 @@ export function useFlashcards() {
   });
 
   const [updateFlashcard] = useMutation(UPDATE_FLASHCARD, {
+    refetchQueries: [{ query: GET_ALL_FLASHCARDS }],
+  });
+
+  const [uploadFlashcardImage] = useMutation(UPLOAD_FLASHCARD_IMAGE, {
     refetchQueries: [{ query: GET_ALL_FLASHCARDS }],
   });
 
@@ -93,9 +107,26 @@ export function useFlashcards() {
           ...rest,
         },
       });
+
       return data.updateFlashcard;
     } catch (error) {
       console.error("Error updating flashcard:", error);
+      throw error;
+    }
+  };
+
+  const handleUploadFlashcardImage = async ({ id, imageUrl }: { id: string; imageUrl: string }) => {
+    try {
+      const uploadImgRes = await uploadFlashcardImage({
+        variables: {
+          id,
+          imageUrl,
+        },
+      });
+
+      console.log({ uploadImgRes });
+    } catch (error) {
+      console.error("Error uploading flashcard image:", error);
       throw error;
     }
   };
@@ -118,6 +149,7 @@ export function useFlashcards() {
     refetchFlashcards,
     handleCreateFlashcard,
     handleUpdateFlashcard,
+    handleUploadFlashcardImage,
     handleRemoveFlashcard,
   };
 }
