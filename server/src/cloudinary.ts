@@ -52,3 +52,24 @@ export async function uploadImageToCloudinary(imageFile: string, name: string) {
     }
   }
 }
+
+export async function deleteImageFromCloudinary(flashcardId: string) {
+  try {
+    const fullPublicId = `renshuu/${flashcardId}`;
+
+    const result = await cloudinary.uploader.destroy(fullPublicId);
+
+    console.log("Image deletion result: ", result);
+
+    return {
+      success: result.result === "ok",
+      result: result,
+    };
+  } catch (error) {
+    console.error("Cloudinary deletion failed:", error);
+
+    if (error instanceof Error) {
+      throw new Error(`Image deletion failed: ${error.message}`);
+    }
+  }
+}

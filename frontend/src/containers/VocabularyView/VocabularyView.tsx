@@ -16,6 +16,7 @@ import { Layout } from "@/components/Layout";
 import { Table, TableHeader, TableBody, TableHead, TableRow } from "@/components/ui/table";
 import { uploadImageToCloudinary } from "@/utils/requestService";
 import { useToast } from "@/hooks/useToast";
+import { ImageTableCell } from "./ImageTableCell/ImageTableCell";
 
 export const VocabularyView = () => {
   const { toast } = useToast();
@@ -25,6 +26,7 @@ export const VocabularyView = () => {
 
   const [searchQuery, setSearchQuery] = useState("");
   const [editedRows, setEditedRows] = useState<Record<string, TFlashcard>>({});
+  const [isAddingNewFlashcard, setIsAddingNewFlashcard] = useState(false);
 
   const debouncedSearch = useRef(
     debounce((value: string) => {
@@ -75,32 +77,8 @@ export const VocabularyView = () => {
     [debouncedSearch]
   );
 
-  const handleCreateNewFlashcard = async (
-    e: React.FormEvent<HTMLFormElement>,
-    newCardData: Pick<TFlashcard, "kanji" | "reading" | "meaning">,
-    imageFile: File | null
-  ) => {
-    e.preventDefault();
-
-    const kanji = newCardData?.kanji?.trim().length ? newCardData.kanji.trim() : null;
-    const reading = newCardData.reading.trim();
-    const meaning = newCardData.meaning.trim();
-
-    if (!newCardData.reading.trim().length || !newCardData.meaning.trim().length) return;
-
-    const flashcardId = generateUniqueId();
-
-    const newCard: TFlashcard = {
-      id: flashcardId,
-      status: "unset",
-      kanji,
-      reading,
-      meaning,
-    };
-
-    await handleCreateFlashcard(newCard);
-
-    if (imageFile) {
+  const handleImageUpload = useCallback(
+    async (imageFile: File, flashcardId: string) => {
       const formData = new FormData();
       formData.append("image", imageFile);
       formData.append("flashcardId", flashcardId);
@@ -119,6 +97,59 @@ export const VocabularyView = () => {
         id: flashcardId,
         imageUrl: imageUrl,
       });
+    },
+    [uploadImageToCloudinary, handleUploadFlashcardImage]
+  );
+
+  const handleCreateNewFlashcard = useCallback(
+    async (
+      e: React.FormEvent<HTMLFormElement>,
+      newCardData: Pick<TFlashcard, "kanji" | "reading" | "meaning">,
+      imageFile: File | null
+    ) => {
+      try {
+        setIsAddingNewFlashcard(true);
+
+        e.preventDefault();
+
+        const kanji = newCardData?.kanji?.trim().length ? newCardData.kanji.trim() : null;
+        const reading = newCardData.reading.trim();
+        const meaning = newCardData.meaning.trim();
+
+        if (!newCardData.reading.trim().length || !newCardData.meaning.trim().length) return;
+
+        const flashcardId = generateUniqueId();
+
+        const newCard: TFlashcard = {
+          id: flashcardId,
+          status: "unset",
+          kanji,
+          reading,
+          meaning,
+          imageUrl: null,
+        };
+
+        await handleCreateFlashcard(newCard);
+
+        if (imageFile) {
+          await handleImageUpload(imageFile, flashcardId);
+        }
+      } catch (error) {
+        console.log("Error adding flashcard: ", error);
+      } finally {
+        setIsAddingNewFlashcard(false);
+      }
+    },
+    [handleCreateFlashcard, handleImageUpload]
+  );
+
+  const handleChangeImage = async (e: React.ChangeEvent<HTMLInputElement>, flashcardId: string) => {
+    const { files } = e.target;
+
+    if (files && files.length > 0) {
+      const file = files[0];
+
+      await handleImageUpload(file, flashcardId);
     }
   };
 
@@ -141,6 +172,8 @@ export const VocabularyView = () => {
     });
   };
 
+  console.log({ filteredData });
+
   return (
     <Layout>
       <section className="pt-8 min-h-[calc(100dvh-49px)]">
@@ -153,7 +186,7 @@ export const VocabularyView = () => {
 
             <div className="h-[30px] w-[2px] bg-green-200" />
 
-            <AddNewWordForm onCreateNewFlashcard={handleCreateNewFlashcard} />
+            <AddNewWordForm isLoading={isAddingNewFlashcard} onCreateNewFlashcard={handleCreateNewFlashcard} />
           </div>
 
           {loading ? (
@@ -164,11 +197,12 @@ export const VocabularyView = () => {
             <>
               <div ref={scrollElementRef} className="h-[800px] overflow-y-auto pr-2">
                 {filteredData.length > 0 ? (
-                  <Table className="w-full">
+                  <Table>
                     <TableHeader>
                       <TableRow>
                         <TableHead className="w-[200px]">Kanji</TableHead>
                         <TableHead className="w-[250px]">Reading</TableHead>
+                        <TableHead className="w-[200px]">Image</TableHead>
                         <TableHead colSpan={2}>Meaning</TableHead>
                       </TableRow>
                     </TableHeader>
@@ -200,6 +234,11 @@ export const VocabularyView = () => {
                               editedRows={editedRows}
                               setEditedRows={setEditedRows}
                               className="min-w-[250px] max-w-[250px]"
+                            />
+                            <ImageTableCell
+                              word={item}
+                              handleChangeImage={handleChangeImage}
+                              className="min-w-[200px] max-w-[200px]"
                             />
                             <EditableTableCell
                               keyToUpdate="meaning"

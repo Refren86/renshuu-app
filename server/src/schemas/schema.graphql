@@ -40,10 +40,12 @@ type Mutation {
 
   uploadFlashcardImage(
     id: String!
-    word: String!
-  ): String!
+    imageUrl: String!
+  ): Flashcard!
   
   deleteFlashcard(id: String!): Flashcard
+
+  deleteFlashcardImage(id: String!): Flashcard!
 }
 
 input FlashcardInput {

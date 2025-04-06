@@ -1,11 +1,8 @@
-import { sql, eq } from "drizzle-orm";
+import { sql } from "drizzle-orm";
 
 import { db } from "./db";
 import { flashcardsTable } from "./db/schema";
-
-type FlashcardArgs = {
-  id: number;
-};
+import { deleteImageFromCloudinary } from "./cloudinary";
 
 type UploadFlashcardImgArgs = {
   id: string;
@@ -21,7 +18,7 @@ type CreateFlashcardArgs = {
 };
 
 type UpdateFlashcardArgs = {
-  id: number;
+  id: string;
   kanji?: string;
   reading?: string;
   meaning?: string;
@@ -30,7 +27,14 @@ type UpdateFlashcardArgs = {
 
 export const resolvers = {
   Query: {
-    flashcard: async (_: unknown, { id }: FlashcardArgs) => {
+    flashcard: async (
+      _: unknown,
+      {
+        id,
+      }: {
+        id: string;
+      }
+    ) => {
       return await db
         .select()
         .from(flashcardsTable)
@@ -77,7 +81,7 @@ export const resolvers = {
         const updatedFlashcard = await db
           .update(flashcardsTable)
           .set({ imageUrl })
-          .where(eq(flashcardsTable.id, id))
+          .where(sql`${flashcardsTable.id} = ${id}`)
           .returning();
 
         if (!updatedFlashcard || updatedFlashcard.length === 0) {
@@ -96,13 +100,61 @@ export const resolvers = {
       }
     },
 
-    deleteFlashcard: async (_: unknown, { id }: FlashcardArgs) => {
+    deleteFlashcard: async (
+      _: unknown,
+      {
+        id,
+      }: {
+        id: string;
+      }
+    ) => {
       const deletedFlashcards = await db
         .delete(flashcardsTable)
         .where(sql`${flashcardsTable.id} = ${id}`)
         .returning();
 
       return deletedFlashcards[0];
+    },
+
+    deleteFlashcardImage: async (
+      _: unknown,
+      {
+        id,
+      }: {
+        id: string;
+      }
+    ) => {
+      try {
+        // First get the current flashcard to access its imageUrl
+        const flashcard = await db
+          .select()
+          .from(flashcardsTable)
+          .where(sql`${flashcardsTable.id} = ${id}`)
+          .limit(1);
+
+        if (!flashcard || flashcard.length === 0) {
+          throw new Error(`Flashcard with id ${id} not found`);
+        }
+
+        await deleteImageFromCloudinary(id);
+
+        // Update the flashcard to remove the imageUrl
+        const updatedFlashcard = await db
+          .update(flashcardsTable)
+          .set({ imageUrl: null })
+          .where(sql`${flashcardsTable.id} = ${id}`)
+          .returning();
+
+        return updatedFlashcard[0];
+      } catch (error) {
+        console.log("Error removing flashcard image:", error);
+
+        if (error instanceof Error) {
+          return `Failed to remove flashcard image: ${error.message}`;
+        }
+
+        return "Error occurred while removing image from cloudinary";
+      }
     },
   },
 };

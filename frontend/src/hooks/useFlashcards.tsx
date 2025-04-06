@@ -1,5 +1,6 @@
-import { gql, useQuery, useMutation } from "@apollo/client";
 import type { TFlashcard } from "@/types";
+import { gql, useQuery, useMutation } from "@apollo/client";
+import { useCallback } from "react";
 
 const GET_ALL_FLASHCARDS = gql`
   query GetAllFlashcards {
@@ -45,10 +46,10 @@ const UPDATE_FLASHCARD = gql`
 `;
 
 const UPLOAD_FLASHCARD_IMAGE = gql`
-  mutation UploadFlashcardImage($id: String!, $word: String!) {
-    uploadFlashcardImage(id: $id, word: $word) {
+  mutation UploadFlashcardImage($id: String!, $imageUrl: String!) {
+    uploadFlashcardImage(id: $id, imageUrl: $imageUrl) {
       id
-      word
+      imageUrl
     }
   }
 `;
@@ -87,60 +88,72 @@ export function useFlashcards() {
     refetchQueries: [{ query: GET_ALL_FLASHCARDS }],
   });
 
-  const handleCreateFlashcard = async (flashcard: Omit<TFlashcard, "id">) => {
-    try {
-      await createFlashcard({
-        variables: flashcard,
-      });
-    } catch (error) {
-      console.error("Error creating flashcard:", error);
-      throw error;
-    }
-  };
+  const handleCreateFlashcard = useCallback(
+    async (flashcard: Omit<TFlashcard, "id">) => {
+      try {
+        await createFlashcard({
+          variables: flashcard,
+        });
+      } catch (error) {
+        console.error("Error creating flashcard:", error);
+        throw error;
+      }
+    },
+    [createFlashcard]
+  );
 
-  const handleUpdateFlashcard = async (updateData: TFlashcard) => {
-    const { id, ...rest } = updateData;
-    try {
-      const { data } = await updateFlashcard({
-        variables: {
-          id,
-          ...rest,
-        },
-      });
+  const handleUpdateFlashcard = useCallback(
+    async (updateData: TFlashcard) => {
+      const { id, ...rest } = updateData;
+      try {
+        const { data } = await updateFlashcard({
+          variables: {
+            id,
+            ...rest,
+          },
+        });
 
-      return data.updateFlashcard;
-    } catch (error) {
-      console.error("Error updating flashcard:", error);
-      throw error;
-    }
-  };
+        return data.updateFlashcard;
+      } catch (error) {
+        console.error("Error updating flashcard:", error);
+        throw error;
+      }
+    },
+    [updateFlashcard]
+  );
 
-  const handleUploadFlashcardImage = async ({ id, imageUrl }: { id: string; imageUrl: string }) => {
-    try {
-      const uploadImgRes = await uploadFlashcardImage({
-        variables: {
-          id,
-          imageUrl,
-        },
-      });
+  const handleUploadFlashcardImage = useCallback(
+    async ({ id, imageUrl }: { id: string; imageUrl: string }) => {
+      try {
+        const uploadImgRes = await uploadFlashcardImage({
+          variables: {
+            id,
+            imageUrl,
+          },
+        });
 
-      console.log({ uploadImgRes });
-    } catch (error) {
-      console.error("Error uploading flashcard image:", error);
-      throw error;
-    }
-  };
+        return uploadImgRes;
+      } catch (error) {
+        console.error("Error uploading flashcard image:", error);
+        throw error;
+      }
+    },
+    [uploadFlashcardImage]
+  );
 
-  const handleRemoveFlashcard = async (id: string) => {
-    try {
-      await deleteFlashcard({
-        variables: { id },
-      });
-    } catch (error) {
-      console.error("Error deleting flashcard:", error);
-      throw error;
-    }
-  };
+  const handleRemoveFlashcard = useCallback(
+    async (id: string) => {
+      try {
+        await deleteFlashcard({
+          variables: { id },
+        });
+      } catch (error) {
+        console.error("Error deleting flashcard:", error);
+        throw error;
+      }
+    },
+    [deleteFlashcard]
+  );
 
   return {
     flashcards: data?.allFlashcards ?? [],

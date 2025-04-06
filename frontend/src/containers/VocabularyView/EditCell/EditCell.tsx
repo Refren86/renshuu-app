@@ -25,10 +25,10 @@ export const EditCell = ({ word, editedRows, className, onEdit }: EditCellProps)
         </div>
       ) : (
         <div className="flex gap-x-2">
-          <Button name="edit" onClick={(e) => onEdit(e, word)}>
+          <Button title="Edit flashcard" name="edit" onClick={(e) => onEdit(e, word)}>
             <Pencil className="size-4" />
           </Button>
-          <Button name="delete" variant="destructive" onClick={(e) => onEdit(e, word)}>
+          <Button title="Remove flashcard" name="delete" variant="destructive" onClick={(e) => onEdit(e, word)}>
             <Trash2 className="size-4" />
           </Button>
         </div>
