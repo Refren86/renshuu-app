@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { actionTypes } from "@/utils/const";
+import { actionTypes } from "@/lib/const";
 import type { ToastActionElement, ToastProps } from "@/components/ui/toast";
 
 const TOAST_LIMIT = 1;

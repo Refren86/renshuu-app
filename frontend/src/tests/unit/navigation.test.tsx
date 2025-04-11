@@ -2,7 +2,7 @@ import { describe, it, expect, beforeEach, afterEach } from "vitest";
 import { RouterHistory, createBrowserHistory } from "@tanstack/react-router";
 import { act, cleanup, configure, fireEvent, screen, waitFor } from "@testing-library/react";
 
-import { sleep } from "@/utils";
+import { sleep } from "@/lib";
 import { initRouter } from "../test-utils";
 
 let history: RouterHistory;

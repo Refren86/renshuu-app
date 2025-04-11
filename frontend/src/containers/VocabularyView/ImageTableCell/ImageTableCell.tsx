@@ -9,10 +9,11 @@ import { TableCell } from "@/components/ui/table";
 type ImageTableCellProps = {
   word: TFlashcard;
   className?: string;
+  handleWordPreview: () => void;
   handleChangeImage: (e: React.ChangeEvent<HTMLInputElement>, flashcardId: string) => Promise<void>;
 };
 
-export const ImageTableCell = ({ word, className, handleChangeImage }: ImageTableCellProps) => {
+export const ImageTableCell = ({ word, className, handleWordPreview, handleChangeImage }: ImageTableCellProps) => {
   const imgRef = useRef<HTMLInputElement | null>(null);
 
   return (
@@ -24,7 +25,7 @@ export const ImageTableCell = ({ word, className, handleChangeImage }: ImageTabl
         className="sr-only"
         onChange={(e) => handleChangeImage(e, word.id)}
       />
-      <Button title="Upload image" onClick={() => imgRef.current?.click()}>
+      <Button title="Upload image" onClick={() => (word.imageUrl ? handleWordPreview() : imgRef.current?.click())}>
         {word.imageUrl ? <Image size={16} /> : <Upload size={16} />}
       </Button>
     </TableCell>

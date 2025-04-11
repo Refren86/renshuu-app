@@ -45,6 +45,14 @@ const UPDATE_FLASHCARD = gql`
   }
 `;
 
+const DELETE_FLASHCARD = gql`
+  mutation DeleteFlashcard($id: String!) {
+    deleteFlashcard(id: $id) {
+      id
+    }
+  }
+`;
+
 const UPLOAD_FLASHCARD_IMAGE = gql`
   mutation UploadFlashcardImage($id: String!, $imageUrl: String!) {
     uploadFlashcardImage(id: $id, imageUrl: $imageUrl) {
@@ -54,9 +62,9 @@ const UPLOAD_FLASHCARD_IMAGE = gql`
   }
 `;
 
-const DELETE_FLASHCARD = gql`
-  mutation DeleteFlashcard($id: String!) {
-    deleteFlashcard(id: $id) {
+const DELETE_FLASHCARD_IMAGE = gql`
+  mutation DeleteFlashcardImage($id: String!) {
+    deleteFlashcardImage(id: $id) {
       id
     }
   }
@@ -80,11 +88,15 @@ export function useFlashcards() {
     refetchQueries: [{ query: GET_ALL_FLASHCARDS }],
   });
 
+  const [deleteFlashcard] = useMutation(DELETE_FLASHCARD, {
+    refetchQueries: [{ query: GET_ALL_FLASHCARDS }],
+  });
+
   const [uploadFlashcardImage] = useMutation(UPLOAD_FLASHCARD_IMAGE, {
     refetchQueries: [{ query: GET_ALL_FLASHCARDS }],
   });
 
-  const [deleteFlashcard] = useMutation(DELETE_FLASHCARD, {
+  const [deleteFlashcardImage] = useMutation(DELETE_FLASHCARD_IMAGE, {
     refetchQueries: [{ query: GET_ALL_FLASHCARDS }],
   });
 
@@ -122,6 +134,20 @@ export function useFlashcards() {
     [updateFlashcard]
   );
 
+  const handleRemoveFlashcard = useCallback(
+    async (id: string) => {
+      try {
+        await deleteFlashcard({
+          variables: { id },
+        });
+      } catch (error) {
+        console.error("Error deleting flashcard:", error);
+        throw error;
+      }
+    },
+    [deleteFlashcard]
+  );
+
   const handleUploadFlashcardImage = useCallback(
     async ({ id, imageUrl }: { id: string; imageUrl: string }) => {
       try {
@@ -141,18 +167,18 @@ export function useFlashcards() {
     [uploadFlashcardImage]
   );
 
-  const handleRemoveFlashcard = useCallback(
+  const handleRemoveFlashcardImage = useCallback(
     async (id: string) => {
       try {
-        await deleteFlashcard({
+        await deleteFlashcardImage({
           variables: { id },
         });
       } catch (error) {
-        console.error("Error deleting flashcard:", error);
+        console.error("Error deleting flashcard image:", error);
         throw error;
       }
     },
-    [deleteFlashcard]
+    [deleteFlashcardImage]
   );
 
   return {
@@ -162,7 +188,8 @@ export function useFlashcards() {
     refetchFlashcards,
     handleCreateFlashcard,
     handleUpdateFlashcard,
-    handleUploadFlashcardImage,
     handleRemoveFlashcard,
+    handleUploadFlashcardImage,
+    handleRemoveFlashcardImage,
   };
 }

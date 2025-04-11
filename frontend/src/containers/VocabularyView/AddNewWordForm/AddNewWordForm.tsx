@@ -56,7 +56,7 @@ export const AddNewWordForm = memo(({ isLoading, onCreateNewFlashcard }: AddNewW
 
   return (
     <>
-      <ImagePreviewModal isOpen={showImagePreview} onClose={toggleImagePreview} image={imagePreview} />
+      <ImagePreviewModal isOpen={showImagePreview} onClose={toggleImagePreview} imageSrc={imagePreview} />
       <form
         className="flex gap-x-4"
         onSubmit={(e) => {
