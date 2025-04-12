@@ -6,7 +6,7 @@ import { useToast } from "@/hooks/useToast";
 import { Flashcard } from "@/components/Flashcard";
 import { FlashcardStatus, TFlashcard } from "@/types";
 import { SentencesModal } from "@/components/SentencesModal";
-import { useFlashcards } from "@/hooks/useFlashcards";
+import { useFlashcards } from "@/hooks/graphql/useFlashcardQueries";
 import { ActionBtns } from "./ActionBtns/ActionBtns";
 import { Layout } from "@/components/Layout";
 
@@ -31,7 +31,8 @@ function FlashcardsView() {
   const [isAnimating, setIsAnimating] = useState(false);
   const [showExamplesModal, setShowExamplesModal] = useState(false);
 
-  const currentFlashcard = flashcards[shuffledIndices[currentIndex]];
+  // const currentFlashcard = flashcards[shuffledIndices[currentIndex]];
+  const currentFlashcard = flashcards[flashcards.length - 1];
 
   useEffect(() => {
     if (!isShuffled.current && flashcards.length > 0) {
@@ -106,8 +107,6 @@ function FlashcardsView() {
       });
     }
   }
-
-  // console.log({ shuffledIndices, flashcards });
 
   return (
     <Layout>

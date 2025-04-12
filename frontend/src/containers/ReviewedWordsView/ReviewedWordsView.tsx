@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { Column } from "@/components/dnd/Column";
 import { BurnBarrel } from "@/components/dnd/BurnBarrel";
 import { Wrapper } from "@/components/Wrapper";
-import { useFlashcards } from "@/hooks/useFlashcards";
+import { useFlashcards } from "@/hooks/graphql/useFlashcardQueries";
 import { TFlashcard } from "@/types";
 import { Layout } from "@/components/Layout";
 

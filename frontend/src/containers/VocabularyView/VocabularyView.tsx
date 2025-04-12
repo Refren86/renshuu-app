@@ -3,22 +3,22 @@ import { Search } from "lucide-react";
 import { ChangeEvent, useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import { TFlashcard } from "@/types";
+import { Loader } from "@/components/Loader";
+import { generateUniqueId } from "@/lib/utils";
+import { Layout } from "@/components/Layout";
+import { useToast } from "@/hooks/useToast";
 import { Input } from "@/components/ui/input";
 import { EditCell } from "./EditCell/EditCell";
 import { Wrapper } from "@/components/Wrapper";
 import { useDynamicSizeList } from "@/hooks/useDynamicSizeList";
 import { EditableTableCell } from "./EditableTableCell/EditableTableCell";
 import { AddNewWordForm } from "./AddNewWordForm/AddNewWordForm";
-import { useFlashcards } from "@/hooks/useFlashcards";
-import { Loader } from "@/components/Loader";
-import { generateUniqueId } from "@/lib/utils";
-import { Layout } from "@/components/Layout";
 import { Table, TableHeader, TableBody, TableHead, TableRow } from "@/components/ui/table";
 import { removeImageFromCloudinary, uploadImageToCloudinary } from "@/lib/requestService";
-import { useToast } from "@/hooks/useToast";
 import { ImageTableCell } from "./ImageTableCell/ImageTableCell";
 import { WordDeletionConfirmModal } from "@/components/WordDeletionConfirmModal";
 import { ImagePreviewModal } from "./ImagePreviewModal/ImagePreviewModal";
+import { useFlashcards } from "@/hooks/graphql/useFlashcards";
 
 export const VocabularyView = () => {
   const { toast } = useToast();
@@ -50,7 +50,7 @@ export const VocabularyView = () => {
     handleCreateFlashcard,
     handleUpdateFlashcard,
     handleRemoveFlashcard,
-    handleUploadFlashcardImage,
+    // handleUploadFlashcardImage,
     handleRemoveFlashcardImage,
   } = useFlashcards();
 
@@ -98,12 +98,10 @@ export const VocabularyView = () => {
         return;
       }
 
-      const { data } = await handleUploadFlashcardImage({
+      const { data } = await handleUpdateFlashcard({
         id: flashcardId,
         imageUrl: imageUrl,
       });
-
-      console.log("Data: ", data);
 
       if (wordForPreview) {
         setWordForPreview((prev) => {
@@ -115,10 +113,8 @@ export const VocabularyView = () => {
         });
       }
     },
-    [uploadImageToCloudinary, handleUploadFlashcardImage]
+    [uploadImageToCloudinary, handleUpdateFlashcard, setWordForPreview, toast]
   );
-
-  console.log({ wordForPreview });
 
   const handleCreateNewFlashcard = useCallback(
     async (
@@ -216,8 +212,6 @@ export const VocabularyView = () => {
       console.error("Image delete error: ", error);
     }
   };
-
-  console.log({ filteredData });
 
   return (
     <>

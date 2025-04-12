@@ -23,6 +23,7 @@ type UpdateFlashcardArgs = {
   reading?: string;
   meaning?: string;
   status?: string;
+  imageUrl?: string;
 };
 
 export const resolvers = {
@@ -63,6 +64,8 @@ export const resolvers = {
     },
 
     updateFlashcard: async (_: unknown, { id, ...data }: UpdateFlashcardArgs) => {
+      console.log({ data });
+
       const filteredData = {
         ...Object.fromEntries(Object.entries(data).filter(([, v]) => v !== undefined)),
       };
@@ -125,7 +128,6 @@ export const resolvers = {
       }
     ) => {
       try {
-        // First get the current flashcard to access its imageUrl
         const flashcard = await db
           .select()
           .from(flashcardsTable)
@@ -138,7 +140,6 @@ export const resolvers = {
 
         await deleteImageFromCloudinary(id);
 
-        // Update the flashcard to remove the imageUrl
         const updatedFlashcard = await db
           .update(flashcardsTable)
           .set({ imageUrl: null })
