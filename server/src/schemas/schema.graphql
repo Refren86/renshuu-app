@@ -38,6 +38,11 @@ type Mutation {
     status: FlashcardStatus
     imageUrl: String
   ): Flashcard!
+
+  uploadFlashcardImage(
+    id: String!
+    word: String!
+  ): String!
   
   deleteFlashcard(id: String!): Flashcard
 

@@ -35,7 +35,6 @@ export const cloudinaryController = {
   deleteImage: async (req: Request, res: Response): Promise<void> => {
     try {
       const flashcardId = req.params.flashcardId || (req.query.flashcardId as string);
-
       if (!flashcardId) {
         res.status(400).json({ error: "flashcardId was not provided" });
         return;
