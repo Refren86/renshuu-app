@@ -8,7 +8,7 @@ type FlashcardProps = {
 };
 
 export const Flashcard = ({ flashcard, isAnimating, onCopy }: FlashcardProps) => {
-  const { kanji, reading, meaning } = flashcard;
+  const { kanji, reading, meaning, imageUrl } = flashcard;
 
   return (
     <button
@@ -26,6 +26,7 @@ export const Flashcard = ({ flashcard, isAnimating, onCopy }: FlashcardProps) =>
         {/* Back Face */}
         <div className="absolute inset-0 h-full w-full rounded-xl bg-primary/60 px-12 text-center text-slate-200 [transform:rotateY(180deg)] [backface-visibility:hidden]">
           <div className="flex min-h-full flex-col items-center justify-center">
+            {imageUrl && <img className="mb-4" src={imageUrl} alt={meaning} width={200} height={200} />}
             <h2 className="text-2xl font-bold mb-4">{reading}</h2>
             <p className="text-xl text-pretty text-center mb-4">{meaning}</p>
           </div>

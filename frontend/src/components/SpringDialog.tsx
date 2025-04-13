@@ -17,7 +17,14 @@ export const SpringDialog = ({ children, isOpen, onClose }: SpringModalProps) =>
           onClick={onClose}
           className="bg-slate-900/20 backdrop-blur p-8 fixed inset-0 z-50 grid place-items-center overflow-y-scroll cursor-pointer"
         >
-          {children}
+          <div
+            className="cursor-default"
+            onClick={(e) => {
+              e.stopPropagation();
+            }}
+          >
+            {children}
+          </div>
         </motion.div>
       )}
     </AnimatePresence>

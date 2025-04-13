@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 import { ApolloProvider as BaseApolloProvider } from "@apollo/client";
 
 import { Toaster } from "./ui/toaster";
-import { client } from "../lib/apollo-client";
+import { client } from "../lib/apolloClient";
 
 type ProvidersProps = {
   children: ReactNode;

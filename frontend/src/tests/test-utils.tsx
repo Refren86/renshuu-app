@@ -8,26 +8,37 @@ import {
   createRoute,
   createRouter,
 } from "@tanstack/react-router";
+import { DefaultOptions } from "@apollo/client";
 
 import { NotFoundView } from "@/containers/NotFoundView/NotFoundView";
 
-// Apollo client wrapper
-export function renderWithApollo(children: React.ReactElement, mocks: MockedResponse[] = [], options = {}) {
-  return render(
-    <MockedProvider mocks={mocks} addTypename={false}>
-      {children}
-    </MockedProvider>,
-    options
-  );
-}
+type ApolloWrapperProps = {
+  children: React.ReactNode;
+  mocks?: MockedResponse[];
+  addTypename?: boolean;
+  defaultOptions?: DefaultOptions;
+};
 
-// Tanstack router and apollo setup
-export async function initRouter(history: RouterHistory) {
+export const ApolloWrapper: React.FC<ApolloWrapperProps> = ({
+  children,
+  mocks = [],
+  addTypename = false,
+  defaultOptions,
+}) => {
+  return (
+    <MockedProvider mocks={mocks} addTypename={addTypename} defaultOptions={defaultOptions}>
+      {children}
+    </MockedProvider>
+  );
+};
+
+// Tanstack router and apollo initializer
+export async function initRouter(history: RouterHistory, mocks: MockedResponse[] = []) {
   const rootRoute = createRootRoute({
     component: () => (
-      <MockedProvider mocks={[]}>
+      <ApolloWrapper mocks={mocks}>
         <Outlet />
-      </MockedProvider>
+      </ApolloWrapper>
     ),
     notFoundComponent: NotFoundView,
   });

@@ -9,6 +9,7 @@ import { ImagePreviewModal } from "../ImagePreviewModal/ImagePreviewModal";
 const initialCardData = { kanji: "", reading: "", meaning: "" };
 
 type AddNewWordFormProps = {
+  isLoading: boolean;
   onCreateNewFlashcard: (
     e: React.FormEvent<HTMLFormElement>,
     newCardData: Pick<TFlashcard, "kanji" | "reading" | "meaning">,
@@ -16,7 +17,7 @@ type AddNewWordFormProps = {
   ) => void;
 };
 
-export const AddNewWordForm = memo(({ onCreateNewFlashcard }: AddNewWordFormProps) => {
+export const AddNewWordForm = memo(({ isLoading, onCreateNewFlashcard }: AddNewWordFormProps) => {
   const imgRef = useRef<HTMLInputElement>(null);
 
   const [adding, setAdding] = useState(false);
@@ -55,7 +56,7 @@ export const AddNewWordForm = memo(({ onCreateNewFlashcard }: AddNewWordFormProp
 
   return (
     <>
-      <ImagePreviewModal isOpen={showImagePreview} onClose={toggleImagePreview} image={imagePreview} />
+      <ImagePreviewModal isOpen={showImagePreview} onClose={toggleImagePreview} imageSrc={imagePreview} />
       <form
         className="flex gap-x-4"
         onSubmit={(e) => {
@@ -72,13 +73,13 @@ export const AddNewWordForm = memo(({ onCreateNewFlashcard }: AddNewWordFormProp
             <Input ref={imgRef} type="file" accept="image/*" className="sr-only" onChange={handleImageChange} />
             {imagePreview ? (
               <Button type="button" onClick={toggleImagePreview}>
-                <Eye className="mr-2" />
-                <span>Preview image</span>
+                <Eye />
+                <span className="ml-2">Preview image</span>
               </Button>
             ) : (
               <Button type="button" onClick={() => imgRef.current?.click()}>
-                <Upload className="mr-2" />
-                <span>Upload image</span>
+                <Upload />
+                <span className="ml-2">Upload image</span>
               </Button>
             )}
           </div>
@@ -91,7 +92,7 @@ export const AddNewWordForm = memo(({ onCreateNewFlashcard }: AddNewWordFormProp
               <span className="ml-2">Cancel</span>
             </Button>
 
-            <Button variant="success" type="submit">
+            <Button variant="success" type="submit" isLoading={isLoading} loadingText="Adding">
               <CircleCheck />
               <span className="ml-2">Add</span>
             </Button>

@@ -30,7 +30,7 @@ const yoga = createYoga({
   schema,
 });
 
-const storage = multer.memoryStorage(); // Store files in memory
+const storage = multer.memoryStorage();
 const upload = multer({
   storage,
   limits: {
@@ -50,11 +50,12 @@ app.use(cors());
 
 app.use("/graphql", yoga);
 
-// Tatoeba API word lookup
+// Tatoeba API
 app.get("/api/search", tatoebaController.getSentences);
 
-// Cloudinary image upload
+// Cloudinary API
 app.post("/api/uploadFlashcardImage", upload.single("image"), cloudinaryController.uploadImage);
+app.delete("/api/deleteFlashcardImage/:flashcardId", cloudinaryController.deleteImage);
 
 app.listen(PORT, HOST, () => {
   console.log(`Server started on ${HOST}:${PORT}`);

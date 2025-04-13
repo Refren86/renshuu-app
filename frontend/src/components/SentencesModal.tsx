@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/dialog";
 import { Loader } from "./Loader";
 import { TFlashcard } from "@/types";
-import { loadExamplesFromTatoeba } from "@/utils/requestService";
+import { loadExamplesFromTatoeba } from "@/lib/requestService";
 import { Pagination, PaginationContent, PaginationItem, PaginationNext, PaginationPrevious } from "./ui/pagination";
 
 type SentencesModalProps = {

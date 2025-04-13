@@ -10,12 +10,11 @@ cloudinary.config({
 
 export async function uploadImageToCloudinary(imageFile: string, name: string) {
   try {
-    // Upload the image file directly
     const uploadResult = await cloudinary.uploader.upload(imageFile, {
       public_id: name,
-      folder: "renshuu", // Optional: organize images in a folder
+      folder: "renshuu",
       resource_type: "image",
-      overwrite: true, // Replace existing images with the same name
+      overwrite: true, // Replace existing images with same public_id
     });
 
     console.log("Upload successful:", uploadResult.secure_url);
@@ -36,6 +35,7 @@ export async function uploadImageToCloudinary(imageFile: string, name: string) {
       fetch_format: "auto",
       quality: "auto",
       secure: true,
+      version: uploadResult.version, // Prevent caching issues
     });
 
     return {
@@ -49,6 +49,24 @@ export async function uploadImageToCloudinary(imageFile: string, name: string) {
 
     if (error instanceof Error) {
       throw new Error(`Image upload failed: ${error.message}`);
+    }
+  }
+}
+
+export async function deleteImageFromCloudinary(flashcardId: string) {
+  try {
+    const fullPublicId = `renshuu/${flashcardId}`;
+
+    const result = await cloudinary.uploader.destroy(fullPublicId);
+
+    console.log("Image deletion result: ", result);
+
+    return { result };
+  } catch (error) {
+    console.error("Cloudinary deletion failed:", error);
+
+    if (error instanceof Error) {
+      throw new Error(`Image deletion failed: ${error.message}`);
     }
   }
 }

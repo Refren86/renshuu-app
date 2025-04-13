@@ -39,6 +39,7 @@ export const AddCard = ({ column, onCreateFlashcard }: AddCardProps) => {
       kanji,
       reading,
       meaning,
+      imageUrl: null,
     };
 
     onCreateFlashcard(newCard);

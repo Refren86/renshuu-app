@@ -6,9 +6,10 @@ import { useToast } from "@/hooks/useToast";
 import { Flashcard } from "@/components/Flashcard";
 import { FlashcardStatus, TFlashcard } from "@/types";
 import { SentencesModal } from "@/components/SentencesModal";
-import { useFlashcards } from "@/hooks/useFlashcards";
 import { ActionBtns } from "./ActionBtns/ActionBtns";
 import { Layout } from "@/components/Layout";
+import { useGetAllFlashcards } from "@/hooks/graphql/useFlashcardQueries";
+import { useUpdateFlashcard } from "@/hooks/graphql/useFlashcardMutations";
 
 const transitionProps: HTMLMotionProps<"div"> = {
   initial: { x: 600, opacity: 0 },
@@ -24,7 +25,8 @@ function FlashcardsView() {
   const answerClickFnRef = useRef<((word: TFlashcard, newStatus: FlashcardStatus) => Promise<void>) | null>(null);
   const toggleExamplesFnRef = useRef<(() => void) | null>(null);
 
-  const { flashcards, handleUpdateFlashcard } = useFlashcards();
+  const { flashcards } = useGetAllFlashcards();
+  const handleUpdateFlashcard = useUpdateFlashcard();
 
   const [shuffledIndices, setShuffledIndices] = useState<number[]>([]);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
@@ -106,8 +108,6 @@ function FlashcardsView() {
       });
     }
   }
-
-  // console.log({ shuffledIndices, flashcards });
 
   return (
     <Layout>

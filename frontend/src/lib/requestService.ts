@@ -21,3 +21,8 @@ export const uploadImageToCloudinary = async (formData: FormData) => {
   const { data } = await apiInstance.post<UploadImageRes>("/uploadFlashcardImage", formData);
   return data;
 };
+
+export const removeImageFromCloudinary = async (flashcardId: string) => {
+  const { data } = await apiInstance.delete<unknown>(`/deleteFlashcardImage/${flashcardId}`);
+  return data;
+};
