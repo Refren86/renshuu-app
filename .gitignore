@@ -27,3 +27,5 @@ dump
 *.sw?
 
 .env
+/frontend/tsconfig.app.tsbuildinfo
+/frontend/tsconfig.node.tsbuildinfo
