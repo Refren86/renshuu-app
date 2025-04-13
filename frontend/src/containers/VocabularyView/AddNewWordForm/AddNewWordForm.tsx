@@ -1,5 +1,5 @@
 import { memo, useRef, useState } from "react";
-import { CircleCheck, CirclePlus, CircleX, Eye, Upload } from "lucide-react";
+import { CircleX, CopyPlus, Eye, Upload } from "lucide-react";
 
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -93,13 +93,13 @@ export const AddNewWordForm = memo(({ isLoading, onCreateNewFlashcard }: AddNewW
             </Button>
 
             <Button variant="success" type="submit" isLoading={isLoading} loadingText="Adding">
-              <CircleCheck />
+              <CopyPlus />
               <span className="ml-2">Add</span>
             </Button>
           </div>
         ) : (
           <Button type="button" onClick={toggleForm}>
-            <CirclePlus />
+            <CopyPlus />
             <span className="ml-2">Add new word</span>
           </Button>
         )}
