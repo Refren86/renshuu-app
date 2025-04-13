@@ -14,7 +14,7 @@ beforeEach(() => {
 afterEach(() => {
   history.destroy();
   window.history.replaceState(null, "root", "/");
-  cleanup();
+  cleanup(); // unmounts react components
 });
 
 describe("Navigation", () => {
@@ -32,7 +32,9 @@ describe("Navigation", () => {
 
     expect(startLink).toBeVisible();
 
-    fireEvent.click(startLink);
+    await act(async () => {
+      fireEvent.click(startLink);
+    });
 
     const homeLink = await screen.findByRole("link", { name: "Home" });
     const vocabularyLink = await screen.findByRole("link", { name: "Vocabulary" });
@@ -47,28 +49,36 @@ describe("Navigation", () => {
     expect(router.state.location.pathname).toBe("/vocabulary");
     expect(window.location.pathname).toBe("/vocabulary");
 
-    fireEvent.click(flashcardsLink);
+    await act(async () => {
+      fireEvent.click(flashcardsLink);
+    });
 
     await waitFor(() => {
       expect(router.state.location.pathname).toBe("/flashcards");
       expect(window.location.pathname).toBe("/flashcards");
     });
 
-    fireEvent.click(reviewedLink);
+    await act(async () => {
+      fireEvent.click(reviewedLink);
+    });
 
     await waitFor(() => {
       expect(router.state.location.pathname).toBe("/reviewed-words");
       expect(window.location.pathname).toBe("/reviewed-words");
     });
 
-    fireEvent.click(vocabularyLink);
+    await act(async () => {
+      fireEvent.click(vocabularyLink);
+    });
 
     await waitFor(() => {
       expect(router.state.location.pathname).toBe("/vocabulary");
       expect(window.location.pathname).toBe("/vocabulary");
     });
 
-    fireEvent.click(homeLink);
+    await act(async () => {
+      fireEvent.click(homeLink);
+    });
 
     await waitFor(() => {
       expect(window.location.pathname).toBe("/");
@@ -79,7 +89,7 @@ describe("Navigation", () => {
   it("shows 404 page with invalid route", async () => {
     const { router } = await initRouter(history);
 
-    act(() => {
+    await act(async () => {
       history.push("/invalid-route");
     });
 
