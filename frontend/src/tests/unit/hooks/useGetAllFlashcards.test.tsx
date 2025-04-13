@@ -3,7 +3,7 @@ import { renderHook, waitFor } from "@testing-library/react";
 
 import { ApolloWrapper } from "@/tests/test-utils";
 import { GET_ALL_FLASHCARDS } from "@/lib/gqlQueries";
-import { useFlashcardQueries } from "@/hooks/graphql/useFlashcardQueries";
+import { useGetAllFlashcards } from "@/hooks/graphql/useFlashcardQueries";
 
 describe("useFlashcardQueries", () => {
   const mockFlashcards = [
@@ -32,13 +32,13 @@ describe("useFlashcardQueries", () => {
   ];
 
   it("should fetch flashcards successfully", async () => {
-    const { result } = renderHook(() => useFlashcardQueries(), {
+    const { result } = renderHook(() => useGetAllFlashcards(), {
       wrapper: ({ children }) => <ApolloWrapper mocks={successMocks}>{children}</ApolloWrapper>,
     });
 
-    await waitFor(() => expect(result.current.loading).toBe(false));
+    await waitFor(() => expect(result.current.flashcardsLoading).toBe(false));
 
     expect(result.current.flashcards).toEqual(mockFlashcards);
-    expect(result.current.error).toBe(undefined);
+    expect(result.current.flashcardsError).toBe(undefined);
   });
 });

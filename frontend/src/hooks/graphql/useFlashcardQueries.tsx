@@ -3,7 +3,7 @@ import { useQuery } from "@apollo/client";
 import type { TFlashcard } from "@/types";
 import { GET_ALL_FLASHCARDS } from "@/lib/gqlQueries";
 
-export function useFlashcardQueries() {
+export function useGetAllFlashcards() {
   const {
     data,
     loading,
@@ -15,8 +15,8 @@ export function useFlashcardQueries() {
 
   return {
     flashcards: data?.allFlashcards ?? [],
-    loading,
-    error,
+    flashcardsLoading: loading,
+    flashcardsError: error,
     refetchFlashcards,
   };
 }

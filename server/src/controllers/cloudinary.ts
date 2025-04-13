@@ -23,8 +23,6 @@ export const cloudinaryController = {
 
       const uploadResult = await uploadImageToCloudinary(base64Image, flashcardId);
 
-      console.log({ uploadResult });
-
       res.json({
         imageUrl: uploadResult?.croppedUrl || null,
         imageDetails: uploadResult || null,

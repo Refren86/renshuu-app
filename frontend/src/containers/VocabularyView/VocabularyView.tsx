@@ -18,7 +18,7 @@ import { removeImageFromCloudinary, uploadImageToCloudinary } from "@/lib/reques
 import { ImageTableCell } from "./ImageTableCell/ImageTableCell";
 import { WordDeletionConfirmModal } from "@/components/WordDeletionConfirmModal";
 import { ImagePreviewModal } from "./ImagePreviewModal/ImagePreviewModal";
-import { useFlashcards } from "@/hooks/graphql/useFlashcards";
+import useFlashcards from "@/hooks/graphql/useFlashcards";
 
 export const VocabularyView = () => {
   const { toast } = useToast();
@@ -46,11 +46,10 @@ export const VocabularyView = () => {
 
   const {
     flashcards,
-    loading,
+    flashcardsLoading,
     handleCreateFlashcard,
     handleUpdateFlashcard,
     handleRemoveFlashcard,
-    // handleUploadFlashcardImage,
     handleRemoveFlashcardImage,
   } = useFlashcards();
 
@@ -70,7 +69,7 @@ export const VocabularyView = () => {
   const { virtualItems, totalHeight, measureElement } = useDynamicSizeList({
     estimateItemHeight: useCallback(() => 72, []),
     itemsCount: filteredData.length,
-    getScrollElement: useCallback(() => (!loading ? scrollElementRef.current : null), [loading]),
+    getScrollElement: useCallback(() => (!flashcardsLoading ? scrollElementRef.current : null), [flashcardsLoading]),
     getItemKey: useCallback((index) => filteredData[index]?.id, [filteredData]),
   });
 
@@ -113,7 +112,7 @@ export const VocabularyView = () => {
         });
       }
     },
-    [uploadImageToCloudinary, handleUpdateFlashcard, setWordForPreview, toast]
+    [uploadImageToCloudinary, handleUpdateFlashcard, wordForPreview, setWordForPreview, toast]
   );
 
   const handleCreateNewFlashcard = useCallback(
@@ -229,7 +228,7 @@ export const VocabularyView = () => {
               <AddNewWordForm isLoading={isAddingNewFlashcard} onCreateNewFlashcard={handleCreateNewFlashcard} />
             </div>
 
-            {loading ? (
+            {flashcardsLoading ? (
               <div className="pt-10">
                 <Loader size="lg" />
               </div>

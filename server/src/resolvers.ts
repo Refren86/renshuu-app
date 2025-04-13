@@ -4,11 +4,6 @@ import { db } from "./db";
 import { flashcardsTable } from "./db/schema";
 import { deleteImageFromCloudinary } from "./cloudinary";
 
-type UploadFlashcardImgArgs = {
-  id: string;
-  imageUrl: string;
-};
-
 type CreateFlashcardArgs = {
   id: string;
   kanji: string;
@@ -64,8 +59,6 @@ export const resolvers = {
     },
 
     updateFlashcard: async (_: unknown, { id, ...data }: UpdateFlashcardArgs) => {
-      console.log({ data });
-
       const filteredData = {
         ...Object.fromEntries(Object.entries(data).filter(([, v]) => v !== undefined)),
       };
@@ -77,30 +70,6 @@ export const resolvers = {
         .returning();
 
       return updatedRecords[0] || null;
-    },
-
-    uploadFlashcardImage: async (_: unknown, { id, imageUrl }: UploadFlashcardImgArgs) => {
-      try {
-        const updatedFlashcard = await db
-          .update(flashcardsTable)
-          .set({ imageUrl })
-          .where(sql`${flashcardsTable.id} = ${id}`)
-          .returning();
-
-        if (!updatedFlashcard || updatedFlashcard.length === 0) {
-          throw new Error(`Flashcard with id ${id} not found`);
-        }
-
-        return updatedFlashcard[0];
-      } catch (error) {
-        console.log("Error updating flashcard image:", error);
-
-        if (error instanceof Error) {
-          return `Failed to update flashcard image: ${error.message}`;
-        }
-
-        return "Error occurred while uploading image to cloudinary";
-      }
     },
 
     deleteFlashcard: async (

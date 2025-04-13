@@ -25,7 +25,10 @@ export const ImageTableCell = ({ word, className, handleWordPreview, handleChang
         className="sr-only"
         onChange={(e) => handleChangeImage(e, word.id)}
       />
-      <Button title="Upload image" onClick={() => (word.imageUrl ? handleWordPreview() : imgRef.current?.click())}>
+      <Button
+        title={word.imageUrl ? "View image" : "Upload image"}
+        onClick={() => (word.imageUrl ? handleWordPreview() : imgRef.current?.click())}
+      >
         {word.imageUrl ? <Image size={16} /> : <Upload size={16} />}
       </Button>
     </TableCell>

@@ -1,15 +1,9 @@
 import { useCallback } from "react";
 import { useMutation } from "@apollo/client";
 
-import {
-  CREATE_FLASHCARD,
-  UPDATE_FLASHCARD,
-  DELETE_FLASHCARD,
-  UPLOAD_FLASHCARD_IMAGE,
-  DELETE_FLASHCARD_IMAGE,
-} from "@/lib/gqlMutations";
-import { GET_ALL_FLASHCARDS } from "@/lib/gqlQueries";
 import type { TFlashcard } from "@/types";
+import { GET_ALL_FLASHCARDS } from "@/lib/gqlQueries";
+import { CREATE_FLASHCARD, UPDATE_FLASHCARD, DELETE_FLASHCARD, DELETE_FLASHCARD_IMAGE } from "@/lib/gqlMutations";
 
 export function useCreateFlashcard() {
   const [createFlashcard] = useMutation(CREATE_FLASHCARD, {
@@ -78,40 +72,21 @@ export function useRemoveFlashcard() {
   );
 }
 
-export function useFlashcardImages() {
-  const [uploadFlashcardImage] = useMutation(UPLOAD_FLASHCARD_IMAGE, {
-    refetchQueries: [{ query: GET_ALL_FLASHCARDS }],
-  });
-
+export function useRemoveFlashcardImage() {
   const [deleteFlashcardImage] = useMutation(DELETE_FLASHCARD_IMAGE, {
     refetchQueries: [{ query: GET_ALL_FLASHCARDS }],
   });
 
-  const handleUploadFlashcardImage = useCallback(
-    async ({ id, imageUrl }: { id: string; imageUrl: string }) => {
-      try {
-        const uploadImgRes = await uploadFlashcardImage({
-          variables: {
-            id,
-            imageUrl,
-          },
-        });
-
-        return uploadImgRes;
-      } catch (error) {
-        console.error("Error uploading flashcard image:", error);
-        throw error;
-      }
-    },
-    [uploadFlashcardImage]
-  );
-
-  const handleRemoveFlashcardImage = useCallback(
+  return useCallback(
     async (id: string) => {
       try {
-        await deleteFlashcardImage({
+        const { data } = await deleteFlashcardImage({
           variables: { id },
         });
+
+        console.log("Remove img data: ", data);
+
+        return data.deleteFlashcardImage;
       } catch (error) {
         console.error("Error deleting flashcard image:", error);
         throw error;
@@ -119,9 +94,4 @@ export function useFlashcardImages() {
     },
     [deleteFlashcardImage]
   );
-
-  return {
-    handleUploadFlashcardImage,
-    handleRemoveFlashcardImage,
-  };
 }

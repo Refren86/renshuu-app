@@ -53,15 +53,6 @@ export const DELETE_FLASHCARD = gql`
   }
 `;
 
-export const UPLOAD_FLASHCARD_IMAGE = gql`
-  mutation UploadFlashcardImage($id: String!, $imageUrl: String!) {
-    uploadFlashcardImage(id: $id, imageUrl: $imageUrl) {
-      id
-      imageUrl
-    }
-  }
-`;
-
 export const DELETE_FLASHCARD_IMAGE = gql`
   mutation DeleteFlashcardImage($id: String!) {
     deleteFlashcardImage(id: $id) {
