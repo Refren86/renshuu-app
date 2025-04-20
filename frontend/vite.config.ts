@@ -29,6 +29,7 @@ export default defineConfig({
   },
   server: {
     port: 3000, // dev
+    host: "0.0.0.0",
   },
   build: {
     outDir: path.resolve(__dirname, "../client"),

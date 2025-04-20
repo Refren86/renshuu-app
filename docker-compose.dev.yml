@@ -5,29 +5,49 @@ services:
       - .env
     volumes:
       - ./postgres_db:/data/db
-      # Mount the dump file into the container
       - ./server/db/renshuu-db.dump:/docker-entrypoint-initdb.d/renshuu-db.dump
       - ./server/db/restore.sh:/docker-entrypoint-initdb.d/restore.sh:ro # read only
     ports:
       - "5432:5432"
-    # restart: always
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres"]
       interval: 5s
       timeout: 5s
       retries: 5
 
-  app:
+  backend:
     build: 
-      context: .
+      context: ./server
+      dockerfile: Dockerfile.dev
     env_file:
       - .env
     ports:
       - "5000:5000"
     volumes:
-      - ./server:/app
-      - /app/node_modules
+      - ./server:/app:cached # Better performance
+      - /app/node_modules # This prevents the node_modules from being overwritten
+    environment:
+      - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true # For Windows file watching
     restart: on-failure
     depends_on:
       db:
         condition: service_healthy
+    command: npm run dev
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app:cached # Better performance
+      - /app/node_modules # This prevents the node_modules from being overwritten
+    environment:
+      - VITE_API_URL=http://localhost:5000
+      - CHOKIDAR_USEPOLLING=true # This helps with file watching on Windows
+      - WATCHPACK_POLLING=true # Another option that helps with file watching
+    depends_on:
+      - backend
+    command: npm run dev -- --host 0.0.0.0
