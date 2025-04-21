@@ -67,3 +67,7 @@ To apply a new dump V2 (while container is running):
 
 # Compose up specific file:
 ```docker compose -f docker-compose.prod.yml up -d```
+
+# Rebuild project
+```docker compose -f docker-compose.dev.yml down```
+```docker compose -f docker-compose.dev.yml up --build -d```
