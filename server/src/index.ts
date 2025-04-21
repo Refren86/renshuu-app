@@ -1,9 +1,6 @@
-import fs from "fs";
-import path from "path";
 import cors from "cors";
 import multer from "multer";
 import express from "express";
-import { fileURLToPath } from "url";
 
 import { createYoga, createSchema } from "graphql-yoga";
 
@@ -11,13 +8,11 @@ import { resolvers } from "./resolvers";
 import { tatoebaController } from "./controllers/tatoeba";
 import { cloudinaryController } from "./controllers/cloudinary";
 
+import typeDefs from "./schemas/schema.graphql?raw";
+
 const PORT = +process.env.PORT!;
 const HOST = process.env.HOST!;
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-const typeDefs = fs.readFileSync(path.join(__dirname, "schemas", "schema.graphql"), "utf8");
+const isProd = import.meta.env.PROD;
 
 const app = express();
 
@@ -57,6 +52,10 @@ app.get("/api/search", tatoebaController.getSentences);
 app.post("/api/uploadFlashcardImage", upload.single("image"), cloudinaryController.uploadImage);
 app.delete("/api/deleteFlashcardImage/:flashcardId", cloudinaryController.deleteImage);
 
-app.listen(PORT, HOST, () => {
-  console.log(`Server started on ${HOST}:${PORT}`);
-});
+export { app };
+
+if (isProd) {
+  app.listen(PORT, HOST, () => {
+    console.log(`Server started on ${HOST}:${PORT}`);
+  });
+}

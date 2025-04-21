@@ -4,8 +4,10 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "start": "tsx src/index.ts",
-    "dev": "tsx watch src/index.ts",
+    "start": "node dist/index.cjs",
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview",
     "db:generate": "drizzle-kit generate --config=drizzle.config.ts",
     "db:migrate": "drizzle-kit migrate --config=drizzle.config.ts"
   },
@@ -25,10 +27,12 @@
     "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0",
     "@types/multer": "^1.4.12",
-    "@types/node": "^22.10.1",
+    "@types/node": "^22.14.1",
     "@types/pg": "^8.11.10",
     "drizzle-kit": "^0.28.1",
     "tsx": "^4.19.2",
-    "typescript": "^5.7.2"
+    "typescript": "^5.7.2",
+    "vite": "^6.3.2",
+    "vite-plugin-node": "^5.0.1"
   }
 }

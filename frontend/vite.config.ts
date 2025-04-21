@@ -1,12 +1,28 @@
 import path from "path";
-import { UserConfig, defineConfig } from "vite";
 import glsl from "vite-plugin-glsl";
 import react from "@vitejs/plugin-react";
+import { UserConfig, defineConfig } from "vite";
 import { TanStackRouterVite } from "@tanstack/router-plugin/vite";
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [TanStackRouterVite(), react(), glsl()],
+  preview: {
+    port: 3000, // prod
+  },
+  server: {
+    port: 3000, // dev
+    host: "0.0.0.0",
+  },
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+    },
+  },
+  build: {
+    outDir: path.resolve(__dirname, "../client"),
+    emptyOutDir: true,
+  },
   test: {
     // describe, it, expect functions etc. will be available without importing
     globals: true,
@@ -22,22 +38,6 @@ export default defineConfig({
       provider: "c8",
       // formats for coverage reports
       reporter: ["text", "json", "html"],
-    },
-  },
-  preview: {
-    port: 3000, // prod
-  },
-  server: {
-    port: 3000, // dev
-    host: "0.0.0.0",
-  },
-  build: {
-    outDir: path.resolve(__dirname, "../client"),
-    emptyOutDir: true,
-  },
-  resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "./src"),
     },
   },
 } as UserConfig);
