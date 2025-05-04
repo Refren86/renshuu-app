@@ -3,12 +3,14 @@ import { Outlet } from "@tanstack/react-router";
 
 import { Providers } from "./Providers";
 
+const isProd = import.meta.env.PROD;
+
 const Root = () => {
   return (
     <Providers>
       <main className="overflow-x-hidden">
         <Outlet />
-        <TanStackRouterDevtools />
+        {!isProd && <TanStackRouterDevtools />}
       </main>
     </Providers>
   );

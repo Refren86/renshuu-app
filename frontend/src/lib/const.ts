@@ -1,4 +1,6 @@
-export const abiBaseURL = "http://localhost:5000/api";
+const isProd = import.meta.env.PROD;
+
+export const abiBaseURL = isProd ? "/api" : "http://localhost:5000/api";
 
 export const actionTypes = {
   ADD_TOAST: "ADD_TOAST",

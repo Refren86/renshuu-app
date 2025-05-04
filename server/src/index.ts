@@ -10,8 +10,8 @@ import { cloudinaryController } from "./controllers/cloudinary";
 
 import typeDefs from "./schemas/schema.graphql?raw";
 
-const PORT = +process.env.APP_PORT!;
-const HOST = process.env.APP_HOST!;
+const PORT = +process.env.PORT! || 5000;
+const HOST = process.env.HOST!;
 const isProd = import.meta.env.PROD;
 
 const app = express();
