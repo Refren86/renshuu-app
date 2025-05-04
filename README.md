@@ -9,14 +9,9 @@ Optionally you can install pgAdmin, or other UI tools for managing the DB - http
 # Local set-up guide 
 1) Clone the repository
 ```git clone https://github.com/Refren86/renshuu-app.git```
-2) Enter the root directory and run ```npm i```
-3) Install server modules - ```cd server && npm i```
-4) Create .env file inside server directory and copy the content from .env.example, make sure that data is changed inside angle brackets
-Next create a db and populate it with mock data
--h = host; -p = port; -U = user
-5) Create DB - ```createdb -h localhost -p 5432 -U postgres renshuu-app```
-6) Initialize backup dump - ```pg_restore --verbose --clean --no-acl --no-owner -h localhost -U postgres -d renshuu-app ./db/renshuu-db.dump```
-7) Run both server and client ```cd ../ && npm run go```
+2) Get .env files from me
+3) Enter the root directory and run ```docker compose -f docker-compose.prod.yml up -d```
+4) Go to http://localhost
 
 
 -- Other helpful stuff (my personal notes)
@@ -71,3 +66,16 @@ To apply a new dump V2 (while container is running):
 # Rebuild project
 ```docker compose -f docker-compose.dev.yml down```
 ```docker compose -f docker-compose.dev.yml up --build -d```
+
+# Adding access for docker commands for google cloud dev
+```gcloud auth configure-docker us-central1-docker.pkg.dev```
+
+# Tagging and pushing docker images to the google cloud repo
+```docker tag renshuu-web us-central1-docker.pkg.dev/renshuu-457316/renshuu-repo/renshuu-web```
+```docker push us-central1-docker.pkg.dev/renshuu-457316/renshuu-repo/renshuu-web```
+
+```docker tag renshuu-backend us-central1-docker.pkg.dev/renshuu-457316/renshuu-repo/renshuu-backend```
+```docker push us-central1-docker.pkg.dev/renshuu-457316/renshuu-repo/renshuu-backend```
+
+```docker tag postgres:17-alpine us-central1-docker.pkg.dev/renshuu-457316/renshuu-repo/postgres:17-alpine```
+```docker push us-central1-docker.pkg.dev/renshuu-457316/renshuu-repo/postgres:17-alpine```
