@@ -1,23 +1,18 @@
-Setting up the project:
+# Project URL:
+https://renshuu-919923031785.us-central1.run.app
 
-The GraphQL server is using the PostgreSQL database with prisma ORM
-
-Make sure that Postgres is installed - https://www.postgresql.org/download/
-
-Optionally you can install pgAdmin, or other UI tools for managing the DB - https://www.pgadmin.org/download/
-
-# Local set-up guide 
+# Local set-up guide
 1) Clone the repository
 ```git clone https://github.com/Refren86/renshuu-app.git```
 2) Get .env files from me
-3) Enter the root directory and run ```docker compose -f docker-compose.prod.yml up -d```
-4) Go to http://localhost
+3) Enter the root directory and run ```docker compose -f docker-compose.dev.yml up -d```
+4) Go to http://localhost:3000
 
+## The rest are my personal notes for developing and deploying
 
--- Other helpful stuff (my personal notes)
 # Testing the dump file from docker:
 1) Generate dump 
-```pg_dump -U postgres -h localhost -p 5432 -d renshuu-app -F c -f renshuu-app.dump```
+```pg_dump -U postgres -h localhost -p 5432 -d renshuu-app --no-owner --no-acl -F c -f ./server/db/renshuu-db.dump```
 
 2) Enter Password
 
@@ -34,7 +29,7 @@ Optionally you can install pgAdmin, or other UI tools for managing the DB - http
 ```pg_restore -U postgres -d postgres /tmp/renshuu-app.dump```
 
 7) Run PostgreSQL cli from container
-```docker exec -it pg-test psql -U postgres```
+```pg-test psql -U postgres```
 
 8) Run some basic query
 ```SELECT * FROM "Flashcards";```
@@ -46,14 +41,7 @@ docker rm pg-test
 ```
 
 # Applying new dump
-To apply a new dump V1:
-1) Stop containers and remove volumes
-```docker compose down -v```
-
-2) Start containers again (this will apply the new dump)
-```docker compose up```
-
-To apply a new dump V2 (while container is running):
+To apply a new dump (while container is running):
 1) Copy the new dump file into the container
 ```docker cp ./server/db/renshuu-db.dump <db-container-name>:/tmp/```
 

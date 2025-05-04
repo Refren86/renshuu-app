@@ -1,5 +1,9 @@
 import { ApolloClient, InMemoryCache, createHttpLink } from "@apollo/client";
 
+const isProd = import.meta.env.PROD;
+
+export const graphqlBaseURL = isProd ? "/graphql" : "http://localhost:5000/graphql";
+
 const httpLink = createHttpLink({
   uri: "http://localhost:5000/graphql", // graphql endpoint
 });
