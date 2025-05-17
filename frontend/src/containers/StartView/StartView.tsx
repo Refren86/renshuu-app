@@ -22,7 +22,7 @@ export const StartView = () => {
             damping: 10,
           }}
         >
-          Renshuu app
+          Renshuu - flashcards learning app
         </motion.h1>
 
         <motion.div
