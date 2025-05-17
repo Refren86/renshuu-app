@@ -11,7 +11,7 @@ export const StartView = () => {
 
       <div className="absolute flex flex-col items-center gap-y-14 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
         <motion.h1
-          className="text-7xl pointer-events-none"
+          className="text-7xl pointer-events-none text-center"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{
