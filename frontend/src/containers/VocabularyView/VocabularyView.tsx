@@ -1,5 +1,5 @@
 import debounce from "lodash/debounce";
-import { Search } from "lucide-react";
+import { Download, Search } from "lucide-react";
 import { ChangeEvent, useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import { TFlashcard } from "@/types";
@@ -10,6 +10,7 @@ import { useToast } from "@/hooks/useToast";
 import { Input } from "@/components/ui/input";
 import { EditCell } from "./EditCell/EditCell";
 import { Wrapper } from "@/components/Wrapper";
+import { Button } from "@/components/ui/button";
 import { useDynamicSizeList } from "@/hooks/useDynamicSizeList";
 import { EditableTableCell } from "./EditableTableCell/EditableTableCell";
 import { AddNewWordForm } from "./AddNewWordForm/AddNewWordForm";
@@ -28,7 +29,6 @@ export const VocabularyView = () => {
 
   const [searchQuery, setSearchQuery] = useState("");
   const [editedRows, setEditedRows] = useState<Record<string, TFlashcard>>({});
-  const [isAddingNewFlashcard, setIsAddingNewFlashcard] = useState(false);
   const [wordForPreview, setWordForPreview] = useState<TFlashcard | null>(null);
   const [wordToRemove, setWordToRemove] = useState<TFlashcard | null>(null);
 
@@ -112,20 +112,12 @@ export const VocabularyView = () => {
         });
       }
     },
-    [uploadImageToCloudinary, handleUpdateFlashcard, wordForPreview, setWordForPreview, toast]
+    [wordForPreview, handleUpdateFlashcard, setWordForPreview, toast]
   );
 
   const handleCreateNewFlashcard = useCallback(
-    async (
-      e: React.FormEvent<HTMLFormElement>,
-      newCardData: Pick<TFlashcard, "kanji" | "reading" | "meaning">,
-      imageFile: File | null
-    ) => {
+    async (newCardData: Pick<TFlashcard, "kanji" | "reading" | "meaning">, imageFile: File | null) => {
       try {
-        setIsAddingNewFlashcard(true);
-
-        e.preventDefault();
-
         const kanji = newCardData?.kanji?.trim().length ? newCardData.kanji.trim() : null;
         const reading = newCardData.reading.trim();
         const meaning = newCardData.meaning.trim();
@@ -150,8 +142,6 @@ export const VocabularyView = () => {
         }
       } catch (error) {
         console.log("Error adding flashcard: ", error);
-      } finally {
-        setIsAddingNewFlashcard(false);
       }
     },
     [handleCreateFlashcard, handleImageUpload]
@@ -212,6 +202,35 @@ export const VocabularyView = () => {
     }
   };
 
+  const exportToAnki = useCallback(() => {
+    if (!flashcards || flashcards.length === 0) return;
+
+    let ankiContent = "";
+
+    flashcards.forEach((card) => {
+      const front = card.kanji || card.reading;
+
+      let back = card.meaning;
+
+      if (card.kanji) {
+        back = `${card.reading}<br>${back}`;
+      }
+
+      ankiContent += `${front}\t${back}\n`;
+    });
+
+    // Create and download file
+    const blob = new Blob([ankiContent], { type: "text/plain;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "japanese_flashcards.txt";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  }, [flashcards]);
+
   return (
     <>
       <Layout>
@@ -225,7 +244,7 @@ export const VocabularyView = () => {
 
               <div className="h-[30px] w-[2px] bg-green-200" />
 
-              <AddNewWordForm isLoading={isAddingNewFlashcard} onCreateNewFlashcard={handleCreateNewFlashcard} />
+              <AddNewWordForm onCreateNewFlashcard={handleCreateNewFlashcard} />
             </div>
 
             {flashcardsLoading ? (
@@ -303,7 +322,13 @@ export const VocabularyView = () => {
                   )}
                 </div>
 
-                <p className="text-end mt-6">Total words: {flashcards.length}</p>
+                <div className="flex items-center justify-between">
+                  <Button type="button" onClick={exportToAnki}>
+                    <Download />
+                    <span className="ml-2">Download as Anki</span>
+                  </Button>
+                  <p className="text-end mt-6">Total words: {flashcards.length}</p>
+                </div>
               </>
             )}
           </Wrapper>

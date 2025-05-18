@@ -1,4 +1,4 @@
-import { memo, useRef, useState } from "react";
+import { FormEvent, memo, useRef, useState } from "react";
 import { CircleX, CopyPlus, Eye, Upload } from "lucide-react";
 
 import { Input } from "@/components/ui/input";
@@ -9,18 +9,17 @@ import { ImagePreviewModal } from "../ImagePreviewModal/ImagePreviewModal";
 const initialCardData = { kanji: "", reading: "", meaning: "" };
 
 type AddNewWordFormProps = {
-  isLoading: boolean;
   onCreateNewFlashcard: (
-    e: React.FormEvent<HTMLFormElement>,
     newCardData: Pick<TFlashcard, "kanji" | "reading" | "meaning">,
     imageFile: File | null
-  ) => void;
+  ) => Promise<void>;
 };
 
-export const AddNewWordForm = memo(({ isLoading, onCreateNewFlashcard }: AddNewWordFormProps) => {
+export const AddNewWordForm = memo(({ onCreateNewFlashcard }: AddNewWordFormProps) => {
   const imgRef = useRef<HTMLInputElement>(null);
 
-  const [adding, setAdding] = useState(false);
+  const [formVisible, setFormVisible] = useState(false);
+  const [isAddingNewFlashcard, setIsAddingNewFlashcard] = useState(false);
   const [imagePreview, setImagePreview] = useState<string | null>(null);
   const [imageFile, setImageFile] = useState<File | null>(null);
   const [showImagePreview, setShowImagePreview] = useState(false);
@@ -45,7 +44,7 @@ export const AddNewWordForm = memo(({ isLoading, onCreateNewFlashcard }: AddNewW
   }
 
   function toggleForm() {
-    setAdding((prev) => !prev);
+    setFormVisible((prev) => !prev);
     setImagePreview(null);
     setImageFile(null);
   }
@@ -54,18 +53,24 @@ export const AddNewWordForm = memo(({ isLoading, onCreateNewFlashcard }: AddNewW
     setShowImagePreview((prev) => !prev);
   }
 
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+
+    try {
+      setIsAddingNewFlashcard(true);
+      await onCreateNewFlashcard(newCardData, imageFile);
+      setNewCardData(initialCardData);
+      setFormVisible(false);
+    } finally {
+      setIsAddingNewFlashcard(false);
+    }
+  }
+
   return (
     <>
       <ImagePreviewModal isOpen={showImagePreview} onClose={toggleImagePreview} imageSrc={imagePreview} />
-      <form
-        className="flex gap-x-4"
-        onSubmit={(e) => {
-          onCreateNewFlashcard(e, newCardData, imageFile);
-          setNewCardData(initialCardData);
-          setAdding(false);
-        }}
-      >
-        {adding && (
+      <form className="flex gap-x-4" onSubmit={handleSubmit}>
+        {formVisible && (
           <div className="flex gap-x-4">
             <Input name={"kanji" as FlashcardStatus} onChange={handleInputChange} autoFocus placeholder="Kanji" />
             <Input name={"reading" as FlashcardStatus} onChange={handleInputChange} placeholder="Reading" />
@@ -85,14 +90,14 @@ export const AddNewWordForm = memo(({ isLoading, onCreateNewFlashcard }: AddNewW
           </div>
         )}
 
-        {adding ? (
+        {formVisible ? (
           <div className="flex gap-x-4">
             <Button type="button" variant="destructive" onClick={toggleForm}>
               <CircleX />
               <span className="ml-2">Cancel</span>
             </Button>
 
-            <Button variant="success" type="submit" isLoading={isLoading} loadingText="Adding">
+            <Button variant="success" type="submit" isLoading={isAddingNewFlashcard} loadingText="Adding">
               <CopyPlus />
               <span className="ml-2">Add</span>
             </Button>

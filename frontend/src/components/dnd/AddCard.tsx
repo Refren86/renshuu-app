@@ -10,7 +10,10 @@ import { ImagePreviewModal } from "@/containers/VocabularyView/ImagePreviewModal
 
 type AddCardProps = {
   column: FlashcardStatus;
-  onCreateFlashcard: (flashcard: Omit<TFlashcard, "id">) => Promise<unknown>;
+  onCreateFlashcard: (
+    newCardData: Pick<TFlashcard, "kanji" | "reading" | "meaning" | "status">,
+    imageFile: File | null
+  ) => Promise<void>;
 };
 
 export const AddCard = ({ column, onCreateFlashcard }: AddCardProps) => {
@@ -21,9 +24,10 @@ export const AddCard = ({ column, onCreateFlashcard }: AddCardProps) => {
     reading: "",
     meaning: "",
   });
-  const [adding, setAdding] = useState(false);
+  const [formVisible, setFormVisible] = useState(false);
+  const [isAddingNewFlashcard, setIsAddingNewFlashcard] = useState(false);
   const [imagePreview, setImagePreview] = useState<string | null>(null);
-  const [, setImageFile] = useState<File | null>(null);
+  const [imageFile, setImageFile] = useState<File | null>(null);
   const [showImagePreview, setShowImagePreview] = useState(false);
 
   function handleInputChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
@@ -44,30 +48,34 @@ export const AddCard = ({ column, onCreateFlashcard }: AddCardProps) => {
     }
   }
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    try {
+      e.preventDefault();
 
-    const kanji = newCardData?.kanji?.trim().length ? newCardData.kanji.trim() : null;
-    const reading = newCardData.reading.trim();
-    const meaning = newCardData.meaning.trim();
+      setIsAddingNewFlashcard(true);
 
-    if (!newCardData.reading.trim().length || !newCardData.meaning.trim().length) return;
+      const kanji = newCardData?.kanji?.trim().length ? newCardData.kanji.trim() : null;
+      const reading = newCardData.reading.trim();
+      const meaning = newCardData.meaning.trim();
 
-    const newCard: Omit<TFlashcard, "id"> = {
-      // id: generateUniqueId(),
-      status: column,
-      kanji,
-      reading,
-      meaning,
-      imageUrl: null,
-    };
+      if (!newCardData.reading.trim().length || !newCardData.meaning.trim().length) return;
 
-    onCreateFlashcard(newCard);
-    setAdding(false);
+      const newCard: Pick<TFlashcard, "kanji" | "reading" | "meaning" | "status"> = {
+        kanji,
+        reading,
+        meaning,
+        status: column,
+      };
+
+      await onCreateFlashcard(newCard, imageFile);
+      setFormVisible(false);
+    } finally {
+      setIsAddingNewFlashcard(false);
+    }
   }
 
   function toggleForm() {
-    setAdding((prev) => !prev);
+    setFormVisible((prev) => !prev);
     setImagePreview(null);
     setImageFile(null);
   }
@@ -79,7 +87,7 @@ export const AddCard = ({ column, onCreateFlashcard }: AddCardProps) => {
   return (
     <>
       <ImagePreviewModal isOpen={showImagePreview} onClose={toggleImagePreview} imageSrc={imagePreview} />
-      {adding ? (
+      {formVisible ? (
         <motion.form layout onSubmit={handleSubmit}>
           <div className="space-y-2">
             <Input name={"kanji" as FlashcardStatus} onChange={handleInputChange} autoFocus placeholder="Kanji" />
@@ -104,7 +112,7 @@ export const AddCard = ({ column, onCreateFlashcard }: AddCardProps) => {
               <CircleX />
               <span className="ml-2">Close</span>
             </Button>
-            <Button type="submit" variant="success">
+            <Button type="submit" variant="success" isLoading={isAddingNewFlashcard}>
               <CopyPlus />
               <span className="ml-2">Add</span>
             </Button>
