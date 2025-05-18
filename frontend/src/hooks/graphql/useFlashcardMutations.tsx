@@ -13,7 +13,7 @@ export function useCreateFlashcard() {
   return useCallback(
     async (flashcard: Omit<TFlashcard, "id">) => {
       try {
-        await createFlashcard({
+        return await createFlashcard({
           variables: flashcard,
         });
       } catch (error) {

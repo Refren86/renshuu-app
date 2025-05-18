@@ -10,7 +10,9 @@ const httpLink = createHttpLink({
 
 export const client = new ApolloClient({
   link: httpLink,
-  cache: new InMemoryCache(),
+  cache: new InMemoryCache({
+    addTypename: false,
+  }),
   defaultOptions: {
     watchQuery: {
       fetchPolicy: "cache-and-network",
