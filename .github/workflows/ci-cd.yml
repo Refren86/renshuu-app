@@ -55,27 +55,18 @@ jobs:
         run: |
           gcloud auth configure-docker ${{ secrets.GCP_REGION }}-docker.pkg.dev --quiet
 
-      # Create a version tag based on commit (YYYYMMDD-commit)
-      - name: Set image tag
-        id: set-tag
-        run: echo "IMAGE_TAG=$(date +'%Y%m%d')-$(echo ${{ github.sha }} | cut -c1-7)" >> $GITHUB_ENV
-
       - name: Build and push backend image
         working-directory: ./server
         run: |
           docker build -t renshuu-backend -f Dockerfile.prod .
-          docker tag renshuu-backend ${{ secrets.GCP_REGION }}-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/${{ secrets.ARTIFACT_REPO }}/renshuu-backend:${{ env.IMAGE_TAG }}
           docker tag renshuu-backend ${{ secrets.GCP_REGION }}-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/${{ secrets.ARTIFACT_REPO }}/renshuu-backend:latest
-          docker push ${{ secrets.GCP_REGION }}-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/${{ secrets.ARTIFACT_REPO }}/renshuu-backend:${{ env.IMAGE_TAG }}
           docker push ${{ secrets.GCP_REGION }}-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/${{ secrets.ARTIFACT_REPO }}/renshuu-backend:latest
 
       - name: Build and push frontend image
         working-directory: ./frontend
         run: |
           docker build -t renshuu-web -f Dockerfile.prod .
-          docker tag renshuu-web ${{ secrets.GCP_REGION }}-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/${{ secrets.ARTIFACT_REPO }}/renshuu-web:${{ env.IMAGE_TAG }}
           docker tag renshuu-web ${{ secrets.GCP_REGION }}-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/${{ secrets.ARTIFACT_REPO }}/renshuu-web:latest
-          docker push ${{ secrets.GCP_REGION }}-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/${{ secrets.ARTIFACT_REPO }}/renshuu-web:${{ env.IMAGE_TAG }}
           docker push ${{ secrets.GCP_REGION }}-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/${{ secrets.ARTIFACT_REPO }}/renshuu-web:latest
 
       - name: Deploy backend to Cloud Run
@@ -84,7 +75,7 @@ jobs:
         with:
           service: renshuu
           region: ${{ secrets.GCP_REGION }}
-          image: ${{ secrets.GCP_REGION }}-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/${{ secrets.ARTIFACT_REPO }}/renshuu-backend:${{ env.IMAGE_TAG }}
+          image: ${{ secrets.GCP_REGION }}-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/${{ secrets.ARTIFACT_REPO }}/renshuu-backend:latest
 
       - name: Deploy frontend to Cloud Run
         id: deploy-frontend
@@ -92,7 +83,7 @@ jobs:
         with:
           service: renshuu
           region: ${{ secrets.GCP_REGION }}
-          image: ${{ secrets.GCP_REGION }}-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/${{ secrets.ARTIFACT_REPO }}/renshuu-web:${{ env.IMAGE_TAG }}
+          image: ${{ secrets.GCP_REGION }}-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/${{ secrets.ARTIFACT_REPO }}/renshuu-web:latest
 
       - name: Show outputs
         run: |
