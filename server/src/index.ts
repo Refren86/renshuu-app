@@ -1,12 +1,12 @@
 import cors from "cors";
-import multer from "multer";
 import express from "express";
 
 import { createYoga, createSchema } from "graphql-yoga";
 
 import { resolvers } from "./resolvers";
-import { tatoebaController } from "./controllers/tatoeba";
-import { cloudinaryController } from "./controllers/cloudinary";
+
+import { tatoebaRouter } from "./router/tatoebaRouter";
+import { cloudinaryRouter } from "./router/clourinaryRouter";
 
 import typeDefs from "./schemas/schema.graphql?raw";
 
@@ -25,32 +25,14 @@ const yoga = createYoga({
   schema,
 });
 
-const storage = multer.memoryStorage();
-const upload = multer({
-  storage,
-  limits: {
-    fileSize: 5 * 1024 * 1024, // 5MB
-  },
-  // 1st param - request
-  fileFilter: (_, file, cb) => {
-    if (file.mimetype.startsWith("image/")) {
-      cb(null, true);
-    } else {
-      cb(new Error("Only image files are allowed"));
-    }
-  },
-});
-
 app.use(cors());
 
+// GraphQL route
 app.use("/graphql", yoga);
 
-// Tatoeba API
-app.get("/api/search", tatoebaController.getSentences);
-
-// Cloudinary API
-app.post("/api/uploadFlashcardImage", upload.single("image"), cloudinaryController.uploadImage);
-app.delete("/api/deleteFlashcardImage/:flashcardId", cloudinaryController.deleteImage);
+// REST routes
+app.get("/api/tatoeba", tatoebaRouter);
+app.use("/api/cloudinary", cloudinaryRouter);
 
 export { app };
 

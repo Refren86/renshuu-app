@@ -67,3 +67,9 @@ To apply a new dump (while container is running):
 
 ```docker tag postgres:17-alpine us-central1-docker.pkg.dev/renshuu-457316/renshuu-repo/postgres:17-alpine```
 ```docker push us-central1-docker.pkg.dev/renshuu-457316/renshuu-repo/postgres:17-alpine```
+
+# TODO:
+- Add proper types for API data
+- Add proper error handling
+- Add new model for flashcards collections (sets of flashcards for learning e.g. education, family, food etc.) so that each word can be assigned to the collection
+- WIP...

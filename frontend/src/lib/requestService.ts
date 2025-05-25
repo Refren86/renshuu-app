@@ -11,18 +11,18 @@ type UploadImageRes = {
 };
 
 export const loadExamplesFromTatoeba = async (keyword: string = "", page: number = 1) => {
-  const { data } = await apiInstance.get("/search", {
+  const { data } = await apiInstance.get("/tatoeba/search", {
     params: { keyword, page },
   });
   return data;
 };
 
 export const uploadImageToCloudinary = async (formData: FormData) => {
-  const { data } = await apiInstance.post<UploadImageRes>("/uploadFlashcardImage", formData);
+  const { data } = await apiInstance.post<UploadImageRes>("/cloudinary/uploadFlashcardImage", formData);
   return data;
 };
 
 export const removeImageFromCloudinary = async (flashcardId: string) => {
-  const { data } = await apiInstance.delete<unknown>(`/deleteFlashcardImage/${flashcardId}`);
+  const { data } = await apiInstance.delete<unknown>(`/cloudinary/deleteFlashcardImage/${flashcardId}`);
   return data;
 };

@@ -1,9 +1,10 @@
 import axios from "axios";
 import type { Request, Response } from "express";
 
-export const tatoebaController = {
-  getSentences: async (req: Request, res: Response) => {
+export const tatoebaService = {
+  getTatoebaSentences: async (req: Request, res: Response) => {
     const { keyword, page } = req.query;
+
     try {
       const { data } = await axios.get(
         `https://tatoeba.org/en/api_v0/search?from=jpn&to=eng&query=${keyword}&page=${page}`,
