@@ -4,9 +4,9 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
-    "go": "concurrently \"npm run server\" \"npm run client\"",
-    "server": "cd ./server && npm run dev",
-    "client": "cd ./frontend && npm run dev",
+    "go": "concurrently \"pnpm api\" \"pnpm client\"",
+    "api": "cd ./server && pnpm dev",
+    "client": "cd ./frontend && pnpm dev",
     "lint": "eslint . --ext ts,tsx --fix",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,css,scss}\"",
     "prepare": "husky"

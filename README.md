@@ -32,7 +32,7 @@ https://renshuu-919923031785.us-central1.run.app
 ```pg-test psql -U postgres```
 
 8) Run some basic query
-```SELECT * FROM "Flashcards";```
+```SELECT * FROM "flashcards";```
 
 9) Do the cleanup
 ```
@@ -71,5 +71,4 @@ To apply a new dump (while container is running):
 # TODO:
 - Add proper types for API data
 - Add proper error handling
-- Add new model for flashcards collections (sets of flashcards for learning e.g. education, family, food etc.) so that each word can be assigned to the collection
 - WIP...

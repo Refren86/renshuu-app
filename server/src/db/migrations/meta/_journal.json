@@ -8,6 +8,13 @@
       "when": 1743347592020,
       "tag": "0000_curly_bloodstrike",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1753716992310,
+      "tag": "0001_sudden_vector",
+      "breakpoints": true
     }
   ]
 }

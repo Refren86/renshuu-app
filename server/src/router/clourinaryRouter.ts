@@ -1,6 +1,6 @@
 import express from "express";
 
-import { uploadImageMulter } from "@/utils/uploadImageMulter";
+import { uploadImageMulter } from "@/config/multer";
 import { cloudinaryController } from "@/controllers/cloudinaryController";
 
 const cloudinaryRouter = express.Router();

@@ -2,7 +2,7 @@ import { sql } from "drizzle-orm";
 
 import { db } from "./db";
 import { flashcardsTable } from "./db/schema";
-import { deleteImageFromCloudinary } from "./cloudinary";
+// import { deleteImageFromCloudinary } from "./cloudinary";
 
 type CreateFlashcardArgs = {
   id: string;
@@ -106,8 +106,6 @@ export const resolvers = {
         if (!flashcard || flashcard.length === 0) {
           throw new Error(`Flashcard with id ${id} not found`);
         }
-
-        await deleteImageFromCloudinary(id);
 
         const updatedFlashcard = await db
           .update(flashcardsTable)
