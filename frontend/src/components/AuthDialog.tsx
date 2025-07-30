@@ -36,6 +36,8 @@ export const AuthDialog = ({ isOpen, onClose }: AuthDialogProps) => {
 
   const handleGoogleSuccess = async (credentialResponse: CredentialResponse) => {
     try {
+      console.log({ credentialResponse });
+
       const data = await verifyGoogleCredentials(credentialResponse.credential!);
 
       localStorage.setItem("auth_token", data.token);
@@ -59,7 +61,7 @@ export const AuthDialog = ({ isOpen, onClose }: AuthDialogProps) => {
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-white">
+            <label htmlFor="email" className="block text-sm font-medium text-white mb-2">
               Email
             </label>
             <Input
@@ -72,7 +74,7 @@ export const AuthDialog = ({ isOpen, onClose }: AuthDialogProps) => {
           </div>
 
           <div>
-            <label htmlFor="password" className="block text-sm font-medium text-white">
+            <label htmlFor="password" className="block text-sm font-medium text-white mb-2">
               Password
             </label>
             <Input

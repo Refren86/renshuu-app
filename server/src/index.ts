@@ -54,6 +54,8 @@ const yoga = createYoga({
 });
 
 app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // GraphQL route
 app.use("/graphql", yoga);

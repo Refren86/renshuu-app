@@ -98,6 +98,8 @@ export const authService = {
 
   verifyGoogleCredentials: async (req: Request, res: Response): Promise<void> => {
     try {
+      console.log("BODY: ", req.body);
+
       const { credential } = req.body;
 
       if (!credential) {
