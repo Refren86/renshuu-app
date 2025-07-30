@@ -19,6 +19,7 @@
     "@radix-ui/react-toast": "^1.2.1",
     "@react-oauth/google": "^0.12.2",
     "@react-three/fiber": "^8.17.10",
+    "@tanstack/react-query": "^5.83.0",
     "@tanstack/react-router": "^1.114.27",
     "axios": "^1.7.7",
     "class-variance-authority": "^0.7.0",
@@ -34,6 +35,7 @@
     "three": "^0.170.0"
   },
   "devDependencies": {
+    "@tanstack/react-query-devtools": "^5.83.0",
     "@tanstack/router-devtools": "^1.114.27",
     "@tanstack/router-plugin": "^1.114.27",
     "@testing-library/jest-dom": "^6.6.3",

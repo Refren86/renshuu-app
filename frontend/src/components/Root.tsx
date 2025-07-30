@@ -1,18 +1,21 @@
-import { TanStackRouterDevtools } from "@tanstack/router-devtools";
 import { Outlet } from "@tanstack/react-router";
+import { TanStackRouterDevtools } from "@tanstack/router-devtools";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
-import { Providers } from "./Providers";
-
-const isProd = import.meta.env.PROD;
+import { ENV } from "@/lib/const";
 
 const Root = () => {
   return (
-    <Providers>
-      <main className="overflow-x-hidden">
-        <Outlet />
-        {!isProd && <TanStackRouterDevtools />}
-      </main>
-    </Providers>
+    <main className="overflow-x-hidden">
+      <Outlet />
+
+      {!ENV.IS_PROD && (
+        <>
+          <TanStackRouterDevtools />
+          <ReactQueryDevtools initialIsOpen={false} />
+        </>
+      )}
+    </main>
   );
 };
 

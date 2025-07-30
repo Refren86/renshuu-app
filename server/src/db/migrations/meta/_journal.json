@@ -15,6 +15,13 @@
       "when": 1753716992310,
       "tag": "0001_sudden_vector",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1753821845487,
+      "tag": "0002_careful_wolverine",
+      "breakpoints": true
     }
   ]
 }
