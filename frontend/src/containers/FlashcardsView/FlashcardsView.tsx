@@ -18,7 +18,7 @@ const transitionProps: HTMLMotionProps<"div"> = {
   transition: { duration: 0.5 },
 };
 
-function FlashcardsView() {
+export function FlashcardsView() {
   const { toast } = useToast();
 
   const isShuffled = useRef(false);
@@ -139,5 +139,3 @@ function FlashcardsView() {
     </Layout>
   );
 }
-
-export default FlashcardsView;

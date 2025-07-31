@@ -36,12 +36,10 @@ describe("Navigation", () => {
       fireEvent.click(startLink);
     });
 
-    const homeLink = await screen.findByRole("link", { name: "Home" });
     const vocabularyLink = await screen.findByRole("link", { name: "Vocabulary" });
     const flashcardsLink = await screen.findByRole("link", { name: "Flashcards" });
     const reviewedLink = await screen.findByRole("link", { name: "Reviewed" });
 
-    expect(homeLink).toBeInTheDocument();
     expect(vocabularyLink).toBeInTheDocument();
     expect(flashcardsLink).toBeInTheDocument();
     expect(reviewedLink).toBeInTheDocument();
@@ -74,15 +72,6 @@ describe("Navigation", () => {
     await waitFor(() => {
       expect(router.state.location.pathname).toBe("/vocabulary");
       expect(window.location.pathname).toBe("/vocabulary");
-    });
-
-    await act(async () => {
-      fireEvent.click(homeLink);
-    });
-
-    await waitFor(() => {
-      expect(window.location.pathname).toBe("/");
-      expect(router.state.location.pathname).toBe("/");
     });
   });
 

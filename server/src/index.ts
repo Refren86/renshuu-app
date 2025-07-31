@@ -3,15 +3,15 @@ import cors from "cors";
 import express from "express";
 import { createYoga, createSchema } from "graphql-yoga";
 
-import { resolvers } from "./resolvers";
-import { verifyJWT } from "./utils/common";
+import { resolvers } from "./graphql/resolvers";
 
 import { authRouter } from "./router/authRouter";
 import { userRouter } from "./router/userRouter";
 import { tatoebaRouter } from "./router/tatoebaRouter";
 import { cloudinaryRouter } from "./router/clourinaryRouter";
 
-import typeDefs from "./schemas/schema.graphql?raw";
+import typeDefs from "./graphql/schemas/schema.graphql?raw";
+import { createGraphQLContext } from "./graphql/context";
 
 const PORT = +process.env.PORT! || 5000;
 const HOST = process.env.HOST!;
@@ -26,31 +26,7 @@ const schema = createSchema({
 
 const yoga = createYoga({
   schema,
-  context: ({ request }) => {
-    const authHeader = request.headers.get("authorization");
-    const token = authHeader ? authHeader.split(" ")[1] : null;
-
-    let userId = null;
-    let role = null;
-
-    if (token) {
-      try {
-        const decodedToken = verifyJWT(token);
-
-        if (typeof decodedToken !== "string" && "userId" in decodedToken) {
-          userId = decodedToken.userId;
-          role = decodedToken.role;
-        }
-      } catch (error) {
-        console.log("Error verifying token:", error);
-      }
-    }
-
-    return {
-      userId,
-      role,
-    };
-  },
+  context: ({ request }) => createGraphQLContext(request),
 });
 
 app.use(cors());

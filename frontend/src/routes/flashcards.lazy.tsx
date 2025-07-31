@@ -1,6 +1,8 @@
-import FlashcardsView from "@/containers/FlashcardsView/FlashcardsView";
 import { createLazyFileRoute } from "@tanstack/react-router";
 
+import { withAuth } from "@/hocs/withAuth";
+import { FlashcardsView } from "@/containers/FlashcardsView/FlashcardsView";
+
 export const Route = createLazyFileRoute("/flashcards")({
-  component: FlashcardsView,
+  component: withAuth(FlashcardsView),
 });

@@ -1,11 +1,15 @@
 import { useState } from "react";
+import { useQueryClient } from "@tanstack/react-query";
 import { GoogleLogin, CredentialResponse } from "@react-oauth/google";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import { useAuth } from "@/hooks/useAuth";
 import { SpringDialog } from "./SpringDialog";
 import { verifyGoogleCredentials } from "@/lib/requestService";
+import { LoginFormData, RegisterFormData, loginSchema, registerSchema } from "@/schemas/validation";
 
 type AuthDialogProps = {
   isOpen: boolean;
@@ -13,35 +17,60 @@ type AuthDialogProps = {
 };
 
 export const AuthDialog = ({ isOpen, onClose }: AuthDialogProps) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const queryClient = useQueryClient();
   const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [isLoginMode, setIsLoginMode] = useState(true);
+  const { onLogin, onRegister } = useAuth();
 
-  const { onLogin } = useAuth();
+  const loginForm = useForm<LoginFormData>({
+    resolver: zodResolver(loginSchema),
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+  });
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const registerForm = useForm<RegisterFormData>({
+    resolver: zodResolver(registerSchema),
+    defaultValues: {
+      email: "",
+      username: "",
+      password: "",
+      confirmPassword: "",
+    },
+  });
+
+  const onLoginSubmit = async (data: LoginFormData) => {
     setError("");
-    setLoading(true);
-
     try {
-      await onLogin(email, password);
+      await onLogin(data.email, data.password);
+      loginForm.reset();
+      onClose();
     } catch (err) {
       console.log("Error:", err);
-    } finally {
-      setLoading(false);
+      setError("Invalid email or password");
+    }
+  };
+
+  const onRegisterSubmit = async (data: RegisterFormData) => {
+    setError("");
+    try {
+      await onRegister(data.email, data.username, data.password);
+      registerForm.reset();
+      onClose();
+    } catch (err) {
+      console.log("Error:", err);
+      setError("Registration failed. Please try again.");
     }
   };
 
   const handleGoogleSuccess = async (credentialResponse: CredentialResponse) => {
     try {
-      console.log({ credentialResponse });
-
       const data = await verifyGoogleCredentials(credentialResponse.credential!);
 
       localStorage.setItem("auth_token", data.token);
-      window.location.reload(); // do not reload, update auth state instead
+      queryClient.setQueryData(["user"], data.user);
+      onClose();
     } catch (error) {
       console.log("Google login error:", error);
       setError("Google login failed");
@@ -52,50 +81,97 @@ export const AuthDialog = ({ isOpen, onClose }: AuthDialogProps) => {
     setError("Google login was cancelled or failed");
   };
 
+  const switchMode = () => {
+    setIsLoginMode(!isLoginMode);
+    setError("");
+    loginForm.reset();
+    registerForm.reset();
+  };
+
   return (
     <SpringDialog isOpen={isOpen} onClose={onClose}>
       <div className="mt-8 p-6 rounded-lg bg-muted min-w-96">
-        <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
+        <h2 className="text-2xl font-bold mb-6 text-center">{isLoginMode ? "Login" : "Sign Up"}</h2>
 
         {error && <div className="mb-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded">{error}</div>}
 
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <label htmlFor="email" className="block text-sm font-medium text-white mb-2">
-              Email
-            </label>
+        {isLoginMode ? (
+          <form onSubmit={loginForm.handleSubmit(onLoginSubmit)} className="space-y-4">
             <Input
-              id="email"
+              label="Email"
               type="email"
               placeholder="Enter email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              error={loginForm.formState.errors.email?.message}
+              {...loginForm.register("email")}
             />
-          </div>
 
-          <div>
-            <label htmlFor="password" className="block text-sm font-medium text-white mb-2">
-              Password
-            </label>
             <Input
-              id="password"
+              label="Password"
               type="password"
               placeholder="Enter password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              error={loginForm.formState.errors.password?.message}
+              {...loginForm.register("password")}
             />
-          </div>
 
-          <div className="text-end">
-            <button className="text-white underline">Sign Up</button>
-          </div>
+            <Button isLoading={loginForm.formState.isSubmitting} type="submit" className="w-full">
+              Login
+            </Button>
 
-          <Button isLoading={loading} type="submit" className="w-full">
-            Login
-          </Button>
-        </form>
+            <div className="text-center text-sm">
+              <button type="button" onClick={switchMode} className="text-white hover:text-primary underline">
+                Sign Up
+              </button>{" "}
+              if you don't have an account
+            </div>
+          </form>
+        ) : (
+          <form onSubmit={registerForm.handleSubmit(onRegisterSubmit)} className="space-y-4">
+            <Input
+              label="Email"
+              type="email"
+              placeholder="Enter email"
+              error={registerForm.formState.errors.email?.message}
+              {...registerForm.register("email")}
+            />
 
-        <div className="mt-6">
+            <Input
+              label="Username"
+              type="text"
+              placeholder="Choose a username"
+              error={registerForm.formState.errors.username?.message}
+              {...registerForm.register("username")}
+            />
+
+            <Input
+              label="Password"
+              type="password"
+              placeholder="Create password"
+              error={registerForm.formState.errors.password?.message}
+              {...registerForm.register("password")}
+            />
+
+            <Input
+              label="Confirm Password"
+              type="password"
+              placeholder="Repeat password"
+              error={registerForm.formState.errors.confirmPassword?.message}
+              {...registerForm.register("confirmPassword")}
+            />
+
+            <Button isLoading={registerForm.formState.isSubmitting} type="submit" className="w-full">
+              Sign Up
+            </Button>
+
+            <div className="text-center text-sm">
+              Already have an account?{" "}
+              <button type="button" onClick={switchMode} className="text-white hover:text-primary underline">
+                Login
+              </button>
+            </div>
+          </form>
+        )}
+
+        <div className="mt-4">
           <div className="relative">
             <div className="absolute inset-0 flex items-center">
               <div className="w-full border-t border-gray-300" />

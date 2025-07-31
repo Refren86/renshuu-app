@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@apollo/client": "^3.11.8",
+    "@hookform/resolvers": "^5.2.1",
     "@radix-ui/react-dialog": "^1.1.1",
     "@radix-ui/react-slot": "^1.1.0",
     "@radix-ui/react-toast": "^1.2.1",
@@ -30,13 +31,15 @@
     "lucide-react": "^0.438.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-hook-form": "^7.61.1",
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7",
-    "three": "^0.170.0"
+    "three": "^0.170.0",
+    "zod": "3.25.57"
   },
   "devDependencies": {
     "@tanstack/react-query-devtools": "^5.83.0",
-    "@tanstack/router-devtools": "^1.114.27",
+    "@tanstack/react-router-devtools": "^1.130.9",
     "@tanstack/router-plugin": "^1.114.27",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.2.0",

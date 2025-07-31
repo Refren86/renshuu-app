@@ -1,8 +1,8 @@
 import { sql } from "drizzle-orm";
 
-import { db } from "./db";
-import { flashcardsTable } from "./db/schema";
-// import { deleteImageFromCloudinary } from "./cloudinary";
+import { db } from "../db";
+import { flashcardsTable } from "../db/schema";
+import { GraphQLContext } from "./context";
 
 type CreateFlashcardArgs = {
   id: string;
@@ -29,8 +29,11 @@ export const resolvers = {
         id,
       }: {
         id: string;
-      }
+      },
+      context: GraphQLContext
     ) => {
+      context.requireAuth();
+
       return await db
         .select()
         .from(flashcardsTable)
@@ -43,7 +46,13 @@ export const resolvers = {
   },
 
   Mutation: {
-    createFlashcard: async (_: unknown, { id, kanji, reading, meaning, status = "unset" }: CreateFlashcardArgs) => {
+    createFlashcard: async (
+      _: unknown,
+      { id, kanji, reading, meaning, status = "unset" }: CreateFlashcardArgs,
+      context: GraphQLContext
+    ) => {
+      context.requireAuth();
+
       const data = await db
         .insert(flashcardsTable)
         .values({
@@ -58,7 +67,9 @@ export const resolvers = {
       return data[0];
     },
 
-    updateFlashcard: async (_: unknown, { id, ...data }: UpdateFlashcardArgs) => {
+    updateFlashcard: async (_: unknown, { id, ...data }: UpdateFlashcardArgs, context: GraphQLContext) => {
+      context.requireAuth();
+
       const filteredData = {
         ...Object.fromEntries(Object.entries(data).filter(([, v]) => v !== undefined)),
       };
@@ -78,8 +89,11 @@ export const resolvers = {
         id,
       }: {
         id: string;
-      }
+      },
+      context: GraphQLContext
     ) => {
+      context.requireAuth();
+
       const deletedFlashcards = await db
         .delete(flashcardsTable)
         .where(sql`${flashcardsTable.id} = ${id}`)
@@ -94,8 +108,11 @@ export const resolvers = {
         id,
       }: {
         id: string;
-      }
+      },
+      context: GraphQLContext
     ) => {
+      context.requireAuth();
+
       try {
         const flashcard = await db
           .select()
