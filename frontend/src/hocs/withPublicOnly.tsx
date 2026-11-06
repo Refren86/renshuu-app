@@ -12,7 +12,7 @@ export function withPublicOnly<T extends object>(Component: ComponentType<T>) {
 
     useEffect(() => {
       if (!loading && user) {
-        router.navigate({ to: "/vocabulary" });
+        router.navigate({ to: "/collections" });
       }
     }, [user, loading, router]);
 

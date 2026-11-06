@@ -1,67 +1,87 @@
 import { useCallback } from "react";
 import { useMutation } from "@apollo/client";
 
-import type { TFlashcard } from "@/types";
-import { GET_ALL_FLASHCARDS } from "@/lib/gqlQueries";
-import { CREATE_FLASHCARD, UPDATE_FLASHCARD, DELETE_FLASHCARD, DELETE_FLASHCARD_IMAGE } from "@/lib/gqlMutations";
+import { GET_COLLECTION_FLASHCARDS } from "@/lib/gqlQueries";
+import { CREATE_FLASHCARD, UPDATE_FLASHCARD, DELETE_FLASHCARD } from "@/lib/gqlMutations";
+import {
+  CreateFlashcardMutation,
+  CreateFlashcardVariables,
+  UpdateFlashcardMutation,
+  UpdateFlashcardVariables,
+  UseCreateFlashcardParams,
+  UseUpdateFlashcardParams,
+} from "@/types/graphql";
 
 export function useCreateFlashcard() {
-  const [createFlashcard] = useMutation(CREATE_FLASHCARD, {
-    refetchQueries: [{ query: GET_ALL_FLASHCARDS }],
-  });
+  const [createFlashcardMutation] = useMutation<CreateFlashcardMutation, CreateFlashcardVariables>(CREATE_FLASHCARD);
 
   return useCallback(
-    async (flashcard: Omit<TFlashcard, "id">) => {
+    async ({ collectionId, flashcard, refetch = false }: UseCreateFlashcardParams) => {
       try {
-        return await createFlashcard({
-          variables: flashcard,
+        return await createFlashcardMutation({
+          variables: {
+            collectionId,
+            kanji: flashcard.kanji,
+            reading: flashcard.reading,
+            meaning: flashcard.meaning,
+            status: flashcard.status,
+          },
+          refetchQueries: refetch
+            ? [
+                {
+                  query: GET_COLLECTION_FLASHCARDS,
+                  variables: { collectionId },
+                },
+              ]
+            : undefined,
         });
       } catch (error) {
         console.error("Error creating flashcard:", error);
         throw error;
       }
     },
-    [createFlashcard]
+    [createFlashcardMutation]
   );
 }
 
 export function useUpdateFlashcard() {
-  const [updateFlashcard] = useMutation(UPDATE_FLASHCARD, {
-    refetchQueries: [{ query: GET_ALL_FLASHCARDS }],
-  });
+  const [updateFlashcardMutation] = useMutation<UpdateFlashcardMutation, UpdateFlashcardVariables>(UPDATE_FLASHCARD);
 
   return useCallback(
-    async (updateData: Partial<TFlashcard> & Pick<TFlashcard, "id">) => {
-      const { id, ...rest } = updateData;
-
+    async ({ collectionId, flashcardId, updateData, refetch = true }: UseUpdateFlashcardParams) => {
       try {
-        const { data } = await updateFlashcard({
+        return await updateFlashcardMutation({
           variables: {
-            id,
-            ...rest,
+            flashcardId,
+            ...updateData,
           },
+          refetchQueries: refetch
+            ? [
+                {
+                  query: GET_COLLECTION_FLASHCARDS,
+                  variables: { collectionId },
+                },
+              ]
+            : undefined,
         });
-
-        return data.updateFlashcard;
       } catch (error) {
-        console.error("Error updating flashcard:", error);
+        console.error("Error creating flashcard:", error);
         throw error;
       }
     },
-    [updateFlashcard]
+    [updateFlashcardMutation]
   );
 }
 
 export function useRemoveFlashcard() {
-  const [deleteFlashcard] = useMutation(DELETE_FLASHCARD, {
-    refetchQueries: [{ query: GET_ALL_FLASHCARDS }],
-  });
+  const [deleteFlashcard] = useMutation(DELETE_FLASHCARD);
 
   return useCallback(
-    async (id: string) => {
+    async ({ collectionId, flashcardId }: { collectionId: string; flashcardId: string }) => {
       try {
         await deleteFlashcard({
-          variables: { id },
+          variables: { collectionId, flashcardId },
+          refetchQueries: [{ query: GET_COLLECTION_FLASHCARDS, variables: { collectionId } }],
         });
       } catch (error) {
         console.error("Error deleting flashcard:", error);
@@ -69,29 +89,5 @@ export function useRemoveFlashcard() {
       }
     },
     [deleteFlashcard]
-  );
-}
-
-export function useRemoveFlashcardImage() {
-  const [deleteFlashcardImage] = useMutation(DELETE_FLASHCARD_IMAGE, {
-    refetchQueries: [{ query: GET_ALL_FLASHCARDS }],
-  });
-
-  return useCallback(
-    async (id: string) => {
-      try {
-        const { data } = await deleteFlashcardImage({
-          variables: { id },
-        });
-
-        console.log("Remove img data: ", data);
-
-        return data.deleteFlashcardImage;
-      } catch (error) {
-        console.error("Error deleting flashcard image:", error);
-        throw error;
-      }
-    },
-    [deleteFlashcardImage]
   );
 }

@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Button } from "@/components/ui/button";
-import { FlashcardStatus, TFlashcard } from "@/types";
+import { FlashcardStatus, TFlashcard } from "@/types/common";
 
 type ActionBtnsProps = {
   currentFlashcard: TFlashcard;

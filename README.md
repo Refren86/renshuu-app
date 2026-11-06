@@ -71,4 +71,5 @@ To apply a new dump (while container is running):
 # TODO:
 - Add proper types for API data
 - Add proper error handling
+- Instead of refetching data add optimistic updates
 - WIP...

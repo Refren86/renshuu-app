@@ -13,3 +13,27 @@ export const validatePassword = async (password: string, savedPassword: string |
   await bcrypt.compare(password, savedPassword || "");
 
 export const hashPassword = async (password: string) => await bcrypt.hash(password, 10);
+
+export function delay(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+export async function retryWithBackoff<T>(
+  fn: () => Promise<T>,
+  maxRetries: number = 3,
+  baseDelay: number = 2000
+): Promise<T | null> {
+  for (let i = 0; i < maxRetries; i++) {
+    try {
+      return await fn();
+    } catch (error) {
+      console.error(`Attempt ${i + 1} failed:`, error instanceof Error ? error.message : error);
+      if (i === maxRetries - 1) throw error;
+
+      const delayTime = baseDelay * Math.pow(2, i);
+      console.log(`Waiting ${delayTime}ms before retry...`);
+      await delay(delayTime);
+    }
+  }
+  return null;
+}

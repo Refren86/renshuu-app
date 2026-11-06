@@ -1,6 +1,9 @@
+import { eq } from "drizzle-orm";
 import type { Request, Response } from "express";
 
+import { db } from "@/db";
 import cloudinary from "@/config/cloudinary";
+import { flashcardsTable } from "@/db/schema";
 
 export const cloudinaryService = {
   uploadImageToCloudinary: async (req: Request, res: Response): Promise<void> => {
@@ -28,7 +31,7 @@ export const cloudinaryService = {
         overwrite: true, // Replace existing images with same public_id
       });
 
-      console.log("Upload successful:", uploadResult.secure_url);
+      console.log("Upload successful:", uploadResult);
 
       // Create an optimized version with auto-format and auto-quality
       const optimizedUrl = cloudinary.url(uploadResult.public_id, {
@@ -49,8 +52,16 @@ export const cloudinaryService = {
         version: uploadResult.version, // Prevent caching issues
       });
 
+      console.log("Cropped url: ", croppedUrl);
+
+      await db
+        .update(flashcardsTable)
+        .set({ imageUrl: croppedUrl || null })
+        .where(eq(flashcardsTable.id, flashcardId))
+        .returning();
+
       res.json({
-        imageUrl: uploadResult?.croppedUrl || null,
+        imageUrl: uploadResult.secure_url || null,
         optimizedUrl: optimizedUrl || null,
         croppedUrl: croppedUrl || null,
         imageDetails: uploadResult || null,
@@ -72,6 +83,8 @@ export const cloudinaryService = {
       const fullPublicId = `renshuu/${flashcardId}`;
 
       const result = await cloudinary.uploader.destroy(fullPublicId);
+
+      await db.update(flashcardsTable).set({ imageUrl: null }).where(eq(flashcardsTable.id, flashcardId)).returning();
 
       console.log("Image deletion result: ", result);
 

@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { TFlashcard } from "@/types";
+import { TFlashcard } from "@/types/common";
 
 type FlashcardProps = {
   flashcard: TFlashcard;

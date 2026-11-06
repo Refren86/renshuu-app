@@ -2,7 +2,7 @@ import { memo, useState } from "react";
 
 import { AddCard } from "./AddCard";
 import { DropIndicator } from "./DropIndicator";
-import { FlashcardStatus, TFlashcard } from "@/types";
+import { FlashcardStatus, TFlashcard } from "@/types/common";
 import { DraggableElement } from "./DraggableElement";
 
 type TSetWords = React.Dispatch<React.SetStateAction<TFlashcard[]>>;

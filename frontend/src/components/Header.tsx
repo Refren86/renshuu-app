@@ -13,8 +13,8 @@ export const Header = () => {
       <Wrapper>
         <div className="flex justify-between items-center py-3">
           <nav className="flex gap-x-4">
-            <Link to="/vocabulary" className="[&.active]:font-bold">
-              Vocabulary
+            <Link to="/collections" className="[&.active]:font-bold">
+              Collections
             </Link>
             <Link to="/flashcards" className="[&.active]:font-bold">
               Flashcards

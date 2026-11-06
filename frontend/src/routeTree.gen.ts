@@ -12,87 +12,125 @@ import { createFileRoute } from "@tanstack/react-router";
 
 import { Route as rootRouteImport } from "./routes/__root";
 
-const VocabularyLazyRouteImport = createFileRoute("/vocabulary")();
-const ReviewedWordsLazyRouteImport = createFileRoute("/reviewed-words")();
-const FlashcardsLazyRouteImport = createFileRoute("/flashcards")();
+const CollectionsLazyRouteImport = createFileRoute("/collections")();
 const IndexLazyRouteImport = createFileRoute("/")();
+const ReviewedWordsIndexLazyRouteImport = createFileRoute("/reviewed-words/")();
+const FlashcardsIndexLazyRouteImport = createFileRoute("/flashcards/")();
+const ReviewedWordsCollectionIdLazyRouteImport = createFileRoute("/reviewed-words/$collectionId")();
+const FlashcardsCollectionIdLazyRouteImport = createFileRoute("/flashcards/$collectionId")();
+const CollectionCollectionIdLazyRouteImport = createFileRoute("/collection/$collectionId")();
 
-const VocabularyLazyRoute = VocabularyLazyRouteImport.update({
-  id: "/vocabulary",
-  path: "/vocabulary",
+const CollectionsLazyRoute = CollectionsLazyRouteImport.update({
+  id: "/collections",
+  path: "/collections",
   getParentRoute: () => rootRouteImport,
-} as any).lazy(() => import("./routes/vocabulary.lazy").then((d) => d.Route));
-const ReviewedWordsLazyRoute = ReviewedWordsLazyRouteImport.update({
-  id: "/reviewed-words",
-  path: "/reviewed-words",
-  getParentRoute: () => rootRouteImport,
-} as any).lazy(() => import("./routes/reviewed-words.lazy").then((d) => d.Route));
-const FlashcardsLazyRoute = FlashcardsLazyRouteImport.update({
-  id: "/flashcards",
-  path: "/flashcards",
-  getParentRoute: () => rootRouteImport,
-} as any).lazy(() => import("./routes/flashcards.lazy").then((d) => d.Route));
+} as any).lazy(() => import("./routes/collections.lazy").then((d) => d.Route));
 const IndexLazyRoute = IndexLazyRouteImport.update({
   id: "/",
   path: "/",
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import("./routes/index.lazy").then((d) => d.Route));
+const ReviewedWordsIndexLazyRoute = ReviewedWordsIndexLazyRouteImport.update({
+  id: "/reviewed-words/",
+  path: "/reviewed-words/",
+  getParentRoute: () => rootRouteImport,
+} as any).lazy(() => import("./routes/reviewed-words.index.lazy").then((d) => d.Route));
+const FlashcardsIndexLazyRoute = FlashcardsIndexLazyRouteImport.update({
+  id: "/flashcards/",
+  path: "/flashcards/",
+  getParentRoute: () => rootRouteImport,
+} as any).lazy(() => import("./routes/flashcards.index.lazy").then((d) => d.Route));
+const ReviewedWordsCollectionIdLazyRoute = ReviewedWordsCollectionIdLazyRouteImport.update({
+  id: "/reviewed-words/$collectionId",
+  path: "/reviewed-words/$collectionId",
+  getParentRoute: () => rootRouteImport,
+} as any).lazy(() => import("./routes/reviewed-words.$collectionId.lazy").then((d) => d.Route));
+const FlashcardsCollectionIdLazyRoute = FlashcardsCollectionIdLazyRouteImport.update({
+  id: "/flashcards/$collectionId",
+  path: "/flashcards/$collectionId",
+  getParentRoute: () => rootRouteImport,
+} as any).lazy(() => import("./routes/flashcards.$collectionId.lazy").then((d) => d.Route));
+const CollectionCollectionIdLazyRoute = CollectionCollectionIdLazyRouteImport.update({
+  id: "/collection/$collectionId",
+  path: "/collection/$collectionId",
+  getParentRoute: () => rootRouteImport,
+} as any).lazy(() => import("./routes/collection.$collectionId.lazy").then((d) => d.Route));
 
 export interface FileRoutesByFullPath {
   "/": typeof IndexLazyRoute;
-  "/flashcards": typeof FlashcardsLazyRoute;
-  "/reviewed-words": typeof ReviewedWordsLazyRoute;
-  "/vocabulary": typeof VocabularyLazyRoute;
+  "/collections": typeof CollectionsLazyRoute;
+  "/collection/$collectionId": typeof CollectionCollectionIdLazyRoute;
+  "/flashcards/$collectionId": typeof FlashcardsCollectionIdLazyRoute;
+  "/reviewed-words/$collectionId": typeof ReviewedWordsCollectionIdLazyRoute;
+  "/flashcards": typeof FlashcardsIndexLazyRoute;
+  "/reviewed-words": typeof ReviewedWordsIndexLazyRoute;
 }
 export interface FileRoutesByTo {
   "/": typeof IndexLazyRoute;
-  "/flashcards": typeof FlashcardsLazyRoute;
-  "/reviewed-words": typeof ReviewedWordsLazyRoute;
-  "/vocabulary": typeof VocabularyLazyRoute;
+  "/collections": typeof CollectionsLazyRoute;
+  "/collection/$collectionId": typeof CollectionCollectionIdLazyRoute;
+  "/flashcards/$collectionId": typeof FlashcardsCollectionIdLazyRoute;
+  "/reviewed-words/$collectionId": typeof ReviewedWordsCollectionIdLazyRoute;
+  "/flashcards": typeof FlashcardsIndexLazyRoute;
+  "/reviewed-words": typeof ReviewedWordsIndexLazyRoute;
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport;
   "/": typeof IndexLazyRoute;
-  "/flashcards": typeof FlashcardsLazyRoute;
-  "/reviewed-words": typeof ReviewedWordsLazyRoute;
-  "/vocabulary": typeof VocabularyLazyRoute;
+  "/collections": typeof CollectionsLazyRoute;
+  "/collection/$collectionId": typeof CollectionCollectionIdLazyRoute;
+  "/flashcards/$collectionId": typeof FlashcardsCollectionIdLazyRoute;
+  "/reviewed-words/$collectionId": typeof ReviewedWordsCollectionIdLazyRoute;
+  "/flashcards/": typeof FlashcardsIndexLazyRoute;
+  "/reviewed-words/": typeof ReviewedWordsIndexLazyRoute;
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath;
-  fullPaths: "/" | "/flashcards" | "/reviewed-words" | "/vocabulary";
+  fullPaths:
+    | "/"
+    | "/collections"
+    | "/collection/$collectionId"
+    | "/flashcards/$collectionId"
+    | "/reviewed-words/$collectionId"
+    | "/flashcards"
+    | "/reviewed-words";
   fileRoutesByTo: FileRoutesByTo;
-  to: "/" | "/flashcards" | "/reviewed-words" | "/vocabulary";
-  id: "__root__" | "/" | "/flashcards" | "/reviewed-words" | "/vocabulary";
+  to:
+    | "/"
+    | "/collections"
+    | "/collection/$collectionId"
+    | "/flashcards/$collectionId"
+    | "/reviewed-words/$collectionId"
+    | "/flashcards"
+    | "/reviewed-words";
+  id:
+    | "__root__"
+    | "/"
+    | "/collections"
+    | "/collection/$collectionId"
+    | "/flashcards/$collectionId"
+    | "/reviewed-words/$collectionId"
+    | "/flashcards/"
+    | "/reviewed-words/";
   fileRoutesById: FileRoutesById;
 }
 export interface RootRouteChildren {
   IndexLazyRoute: typeof IndexLazyRoute;
-  FlashcardsLazyRoute: typeof FlashcardsLazyRoute;
-  ReviewedWordsLazyRoute: typeof ReviewedWordsLazyRoute;
-  VocabularyLazyRoute: typeof VocabularyLazyRoute;
+  CollectionsLazyRoute: typeof CollectionsLazyRoute;
+  CollectionCollectionIdLazyRoute: typeof CollectionCollectionIdLazyRoute;
+  FlashcardsCollectionIdLazyRoute: typeof FlashcardsCollectionIdLazyRoute;
+  ReviewedWordsCollectionIdLazyRoute: typeof ReviewedWordsCollectionIdLazyRoute;
+  FlashcardsIndexLazyRoute: typeof FlashcardsIndexLazyRoute;
+  ReviewedWordsIndexLazyRoute: typeof ReviewedWordsIndexLazyRoute;
 }
 
 declare module "@tanstack/react-router" {
   interface FileRoutesByPath {
-    "/vocabulary": {
-      id: "/vocabulary";
-      path: "/vocabulary";
-      fullPath: "/vocabulary";
-      preLoaderRoute: typeof VocabularyLazyRouteImport;
-      parentRoute: typeof rootRouteImport;
-    };
-    "/reviewed-words": {
-      id: "/reviewed-words";
-      path: "/reviewed-words";
-      fullPath: "/reviewed-words";
-      preLoaderRoute: typeof ReviewedWordsLazyRouteImport;
-      parentRoute: typeof rootRouteImport;
-    };
-    "/flashcards": {
-      id: "/flashcards";
-      path: "/flashcards";
-      fullPath: "/flashcards";
-      preLoaderRoute: typeof FlashcardsLazyRouteImport;
+    "/collections": {
+      id: "/collections";
+      path: "/collections";
+      fullPath: "/collections";
+      preLoaderRoute: typeof CollectionsLazyRouteImport;
       parentRoute: typeof rootRouteImport;
     };
     "/": {
@@ -102,13 +140,51 @@ declare module "@tanstack/react-router" {
       preLoaderRoute: typeof IndexLazyRouteImport;
       parentRoute: typeof rootRouteImport;
     };
+    "/reviewed-words/": {
+      id: "/reviewed-words/";
+      path: "/reviewed-words";
+      fullPath: "/reviewed-words";
+      preLoaderRoute: typeof ReviewedWordsIndexLazyRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/flashcards/": {
+      id: "/flashcards/";
+      path: "/flashcards";
+      fullPath: "/flashcards";
+      preLoaderRoute: typeof FlashcardsIndexLazyRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/reviewed-words/$collectionId": {
+      id: "/reviewed-words/$collectionId";
+      path: "/reviewed-words/$collectionId";
+      fullPath: "/reviewed-words/$collectionId";
+      preLoaderRoute: typeof ReviewedWordsCollectionIdLazyRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/flashcards/$collectionId": {
+      id: "/flashcards/$collectionId";
+      path: "/flashcards/$collectionId";
+      fullPath: "/flashcards/$collectionId";
+      preLoaderRoute: typeof FlashcardsCollectionIdLazyRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/collection/$collectionId": {
+      id: "/collection/$collectionId";
+      path: "/collection/$collectionId";
+      fullPath: "/collection/$collectionId";
+      preLoaderRoute: typeof CollectionCollectionIdLazyRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexLazyRoute: IndexLazyRoute,
-  FlashcardsLazyRoute: FlashcardsLazyRoute,
-  ReviewedWordsLazyRoute: ReviewedWordsLazyRoute,
-  VocabularyLazyRoute: VocabularyLazyRoute,
+  CollectionsLazyRoute: CollectionsLazyRoute,
+  CollectionCollectionIdLazyRoute: CollectionCollectionIdLazyRoute,
+  FlashcardsCollectionIdLazyRoute: FlashcardsCollectionIdLazyRoute,
+  ReviewedWordsCollectionIdLazyRoute: ReviewedWordsCollectionIdLazyRoute,
+  FlashcardsIndexLazyRoute: FlashcardsIndexLazyRoute,
+  ReviewedWordsIndexLazyRoute: ReviewedWordsIndexLazyRoute,
 };
 export const routeTree = rootRouteImport._addFileChildren(rootRouteChildren)._addFileTypes<FileRouteTypes>();

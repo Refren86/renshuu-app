@@ -1,32 +1,39 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
-import { TFlashcard } from "@/types";
+import { TFlashcard } from "@/types/common";
 import { useToast } from "@/hooks/useToast";
 import { Loader } from "@/components/Loader";
 import { Layout } from "@/components/Layout";
 import { Wrapper } from "@/components/Wrapper";
-import { generateUniqueId } from "@/lib/utils";
 import { Column } from "@/components/dnd/Column";
 import { BurnBarrel } from "@/components/dnd/BurnBarrel";
 import useFlashcards from "@/hooks/graphql/useFlashcards";
 import { uploadImageToCloudinary } from "@/lib/requestService";
+import { Route as reviewedWordsRoute } from "@/routes/reviewed-words.$collectionId.lazy";
 
 export const ReviewedWordsView = () => {
   const { toast } = useToast();
   const isLoaded = useRef(false);
 
+  const { collectionId } = reviewedWordsRoute.useParams();
+
   const [words, setWords] = useState<TFlashcard[]>([]);
   const [wordForPreview, setWordForPreview] = useState<TFlashcard | null>(null);
 
-  const { flashcards, flashcardsLoading, handleCreateFlashcard, handleUpdateFlashcard, handleRemoveFlashcard } =
-    useFlashcards();
+  const {
+    collectionFlashcards,
+    collectionFlashcardsLoading,
+    handleCreateFlashcard,
+    handleUpdateFlashcard,
+    handleRemoveFlashcard,
+  } = useFlashcards({ collectionId });
 
   useEffect(() => {
-    if (flashcards.length > 0 && !isLoaded.current) {
-      setWords(flashcards);
+    if (collectionFlashcards.length > 0 && !isLoaded.current) {
+      setWords(collectionFlashcards);
       isLoaded.current = true;
     }
-  }, [flashcards]);
+  }, [collectionFlashcards]);
 
   const handleImageUpload = useCallback(
     async (imageFile: File, flashcardId: string) => {
@@ -44,63 +51,73 @@ export const ReviewedWordsView = () => {
         return;
       }
 
-      const { data } = await handleUpdateFlashcard({
-        id: flashcardId,
-        imageUrl: imageUrl,
+      await handleUpdateFlashcard({
+        collectionId,
+        flashcardId,
+        updateData: { imageUrl },
+        refetch: false,
       });
 
-      if (wordForPreview) {
-        setWordForPreview((prev) => {
-          if (prev) {
-            return { ...prev, imageUrl: data.uploadFlashcardImage.imageUrl };
-          }
+      setWords((prev) => prev.map((word) => (word.id === flashcardId ? { ...word, imageUrl } : word)));
 
-          return prev;
-        });
+      if (wordForPreview) {
+        setWordForPreview((prev) => (prev ? { ...prev, imageUrl } : prev));
       }
     },
-    [wordForPreview, handleUpdateFlashcard, setWordForPreview, toast]
+    [wordForPreview, collectionId, handleUpdateFlashcard, setWordForPreview, toast]
   );
 
   const handleCreateNewFlashcard = useCallback(
     async (newCardData: Pick<TFlashcard, "kanji" | "reading" | "meaning" | "status">, imageFile: File | null) => {
       try {
-        const { kanji, reading, meaning, status } = newCardData;
-
         if (!newCardData.reading.trim().length || !newCardData.meaning.trim().length) return;
 
-        const flashcardId = generateUniqueId();
-
-        const newCard: TFlashcard = {
-          id: flashcardId,
-          status,
-          kanji,
-          reading,
-          meaning,
-          imageUrl: null,
-        };
-
-        const { data: createFlashcardData } = await handleCreateFlashcard(newCard);
+        const { data: createFlashcardData } = await handleCreateFlashcard({
+          collectionId,
+          flashcard: { ...newCardData, imageUrl: null },
+          refetch: false,
+        });
 
         if (createFlashcardData) {
-          setWords((prev) => [...prev, createFlashcardData.createFlashcard]);
-        }
+          const newFlashcard = { ...createFlashcardData.createFlashcard, imageUrl: null };
+          setWords((prev) => [...prev, newFlashcard]);
 
-        if (imageFile) {
-          await handleImageUpload(imageFile, flashcardId);
+          if (imageFile) {
+            await handleImageUpload(imageFile, newFlashcard.id);
+          }
         }
       } catch (error) {
         console.log("Error adding flashcard: ", error);
       }
     },
-    [handleCreateFlashcard, handleImageUpload]
+    [collectionId, handleCreateFlashcard, handleImageUpload]
+  );
+
+  const handleUpdateWord = useCallback(
+    async (updateData: TFlashcard) => {
+      await handleUpdateFlashcard({
+        collectionId,
+        flashcardId: updateData.id,
+        updateData,
+        refetch: false,
+      });
+    },
+    [collectionId, handleUpdateFlashcard]
+  );
+
+  const handleRemoveWord = useCallback(
+    async (flashcardId: string) => {
+      await handleRemoveFlashcard({ collectionId, flashcardId });
+      setWords((prev) => prev.filter((word) => word.id !== flashcardId));
+    },
+    [collectionId, handleRemoveFlashcard]
   );
 
   return (
     <Layout>
       <Wrapper>
         <div className="py-12 min-h-[calc(100dvh-49px)]">
-          {flashcardsLoading ? (
+          {collectionFlashcardsLoading ? (
             <div className="pt-10">
               <Loader size="lg" />
             </div>
@@ -112,7 +129,7 @@ export const ReviewedWordsView = () => {
                 column="unrecognized"
                 headingColor="text-red-300"
                 onCreateFlashcard={handleCreateNewFlashcard}
-                onUpdateFlashcard={handleUpdateFlashcard}
+                onUpdateFlashcard={handleUpdateWord}
                 setWords={setWords}
               />
               <Column
@@ -121,7 +138,7 @@ export const ReviewedWordsView = () => {
                 column="familiar"
                 headingColor="text-blue-300"
                 onCreateFlashcard={handleCreateNewFlashcard}
-                onUpdateFlashcard={handleUpdateFlashcard}
+                onUpdateFlashcard={handleUpdateWord}
                 setWords={setWords}
               />
               <Column
@@ -130,10 +147,10 @@ export const ReviewedWordsView = () => {
                 column="known"
                 headingColor="text-emerald-300"
                 onCreateFlashcard={handleCreateNewFlashcard}
-                onUpdateFlashcard={handleUpdateFlashcard}
+                onUpdateFlashcard={handleUpdateWord}
                 setWords={setWords}
               />
-              <BurnBarrel onRemoveFlashcard={handleRemoveFlashcard} />
+              <BurnBarrel onRemoveFlashcard={handleRemoveWord} />
             </div>
           )}
         </div>

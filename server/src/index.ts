@@ -12,6 +12,7 @@ import { cloudinaryRouter } from "./router/clourinaryRouter";
 
 import typeDefs from "./graphql/schemas/schema.graphql?raw";
 import { createGraphQLContext } from "./graphql/context";
+import { scrapperRouter } from "./router/scrapperRoter";
 
 const PORT = +process.env.PORT! || 5000;
 const HOST = process.env.HOST!;
@@ -41,6 +42,9 @@ app.get("/api/tatoeba", tatoebaRouter);
 app.use("/api/cloudinary", cloudinaryRouter);
 app.use("/api/auth", authRouter);
 app.use("/api/user", userRouter);
+
+// scrapping routes
+app.use("/api/scrap", scrapperRouter);
 
 export { app };
 

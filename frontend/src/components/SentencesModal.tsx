@@ -8,7 +8,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Loader } from "./Loader";
-import { TFlashcard } from "@/types";
+import { TFlashcard } from "@/types/common";
 import { loadExamplesFromTatoeba } from "@/lib/requestService";
 import { Pagination, PaginationContent, PaginationItem, PaginationNext, PaginationPrevious } from "./ui/pagination";
 

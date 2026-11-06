@@ -15,7 +15,7 @@ export function withAdmin<T extends object>(Component: ComponentType<T>) {
         if (!user) {
           router.navigate({ to: "/" });
         } else if (!isAdmin) {
-          router.navigate({ to: "/vocabulary" });
+          router.navigate({ to: "/collections" });
         }
       }
     }, [user, loading, router, isAdmin]);

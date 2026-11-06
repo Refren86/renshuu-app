@@ -6,7 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import { ENV } from "@/lib/const";
 import { Toaster } from "./ui/toaster";
-import { client } from "../lib/apolloClient";
+import { apolloClient } from "../lib/apolloClient";
 import { AuthProvider } from "./AuthProvider";
 
 type ProvidersProps = {
@@ -31,7 +31,7 @@ const queryClient = new QueryClient({
 });
 
 export function ApolloProvider({ children }: { children: React.ReactNode }) {
-  return <BaseApolloProvider client={client}>{children}</BaseApolloProvider>;
+  return <BaseApolloProvider client={apolloClient}>{children}</BaseApolloProvider>;
 }
 
 export const Providers = ({ children }: ProvidersProps) => {

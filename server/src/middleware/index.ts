@@ -14,8 +14,6 @@ export const middlewares = {
     try {
       const decodedToken = verifyJWT(token);
 
-      console.log({ decodedToken });
-
       if (typeof decodedToken !== "string" && "userId" in decodedToken) {
         req.userId = decodedToken.userId;
         req.userRole = decodedToken.role;

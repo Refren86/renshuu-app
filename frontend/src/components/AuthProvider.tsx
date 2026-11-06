@@ -1,9 +1,9 @@
 import { ReactNode, createContext } from "react";
 import { useQueryClient, useQuery, useMutation } from "@tanstack/react-query";
 
-import { TUser } from "@/types";
+import { TUser } from "@/types/common";
 import { apiInstance } from "@/lib/axiosInstance";
-import { getUser, login, register } from "@/lib/requestService";
+import { getUser, login, register, verifyGoogleCredentials } from "@/lib/requestService";
 
 type TAuthContext = {
   user: TUser | null;
@@ -12,6 +12,7 @@ type TAuthContext = {
   isAdmin: boolean;
   onLogin: (email: string, password: string) => Promise<void>;
   onRegister: (email: string, username: string, password: string) => Promise<void>;
+  onGoogleLogin: (credential: string) => Promise<void>;
   logout: () => void;
 };
 
@@ -40,7 +41,7 @@ const AuthProvider = ({ children }: { children: ReactNode }) => {
     onSuccess: (data) => {
       localStorage.setItem("auth_token", data.token);
       apiInstance.defaults.headers.common["Authorization"] = `Bearer ${data.token}`;
-      queryClient.setQueryData(["user"], data.user);
+      queryClient.setQueryData(["user"], data);
     },
   });
 
@@ -49,7 +50,16 @@ const AuthProvider = ({ children }: { children: ReactNode }) => {
     onSuccess: (data) => {
       localStorage.setItem("auth_token", data.token);
       apiInstance.defaults.headers.common["Authorization"] = `Bearer ${data.token}`;
-      queryClient.setQueryData(["user"], data.user);
+      queryClient.setQueryData(["user"], data);
+    },
+  });
+
+  const googleLoginMutation = useMutation({
+    mutationFn: ({ credential }: { credential: string }) => verifyGoogleCredentials(credential),
+    onSuccess: (data) => {
+      localStorage.setItem("auth_token", data.token);
+      apiInstance.defaults.headers.common["Authorization"] = `Bearer ${data.token}`;
+      queryClient.setQueryData(["user"], data);
     },
   });
 
@@ -71,6 +81,15 @@ const AuthProvider = ({ children }: { children: ReactNode }) => {
     }
   };
 
+  const handleGoogleLogin = async (credential: string) => {
+    try {
+      await googleLoginMutation.mutateAsync({ credential });
+    } catch (error) {
+      console.error("Google login failed:", error);
+      throw error;
+    }
+  };
+
   const logout = () => {
     localStorage.removeItem("auth_token");
     delete apiInstance.defaults.headers.common["Authorization"];
@@ -78,17 +97,20 @@ const AuthProvider = ({ children }: { children: ReactNode }) => {
     queryClient.removeQueries({ queryKey: ["user"] });
   };
 
-  const isAdmin = user?.role === "admin";
+  const isAdmin = user?.user?.role === "admin";
+
+  console.log({ user });
 
   return (
     <AuthContext.Provider
       value={{
-        user,
+        user: user?.user,
         token,
-        loading,
+        loading: loading || loginMutation.isPending || registerMutation.isPending || googleLoginMutation.isPending,
         isAdmin,
         onLogin: handleLogin,
         onRegister: handleRegister,
+        onGoogleLogin: handleGoogleLogin,
         logout,
       }}
     >

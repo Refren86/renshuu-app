@@ -1,14 +1,13 @@
 import { useState } from "react";
-import { useQueryClient } from "@tanstack/react-query";
-import { GoogleLogin, CredentialResponse } from "@react-oauth/google";
 import { useForm } from "react-hook-form";
+import { useRouter } from "@tanstack/react-router";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { GoogleLogin, CredentialResponse } from "@react-oauth/google";
 
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import { useAuth } from "@/hooks/useAuth";
 import { SpringDialog } from "./SpringDialog";
-import { verifyGoogleCredentials } from "@/lib/requestService";
 import { LoginFormData, RegisterFormData, loginSchema, registerSchema } from "@/schemas/validation";
 
 type AuthDialogProps = {
@@ -17,10 +16,11 @@ type AuthDialogProps = {
 };
 
 export const AuthDialog = ({ isOpen, onClose }: AuthDialogProps) => {
-  const queryClient = useQueryClient();
+  const router = useRouter();
+  const { onLogin, onRegister, onGoogleLogin } = useAuth();
+
   const [error, setError] = useState("");
   const [isLoginMode, setIsLoginMode] = useState(true);
-  const { onLogin, onRegister } = useAuth();
 
   const loginForm = useForm<LoginFormData>({
     resolver: zodResolver(loginSchema),
@@ -46,6 +46,7 @@ export const AuthDialog = ({ isOpen, onClose }: AuthDialogProps) => {
       await onLogin(data.email, data.password);
       loginForm.reset();
       onClose();
+      router.navigate({ to: "/collections" });
     } catch (err) {
       console.log("Error:", err);
       setError("Invalid email or password");
@@ -58,6 +59,7 @@ export const AuthDialog = ({ isOpen, onClose }: AuthDialogProps) => {
       await onRegister(data.email, data.username, data.password);
       registerForm.reset();
       onClose();
+      router.navigate({ to: "/collections" });
     } catch (err) {
       console.log("Error:", err);
       setError("Registration failed. Please try again.");
@@ -65,12 +67,11 @@ export const AuthDialog = ({ isOpen, onClose }: AuthDialogProps) => {
   };
 
   const handleGoogleSuccess = async (credentialResponse: CredentialResponse) => {
+    setError("");
     try {
-      const data = await verifyGoogleCredentials(credentialResponse.credential!);
-
-      localStorage.setItem("auth_token", data.token);
-      queryClient.setQueryData(["user"], data.user);
+      await onGoogleLogin(credentialResponse.credential!);
       onClose();
+      router.navigate({ to: "/collections" });
     } catch (error) {
       console.log("Google login error:", error);
       setError("Google login failed");

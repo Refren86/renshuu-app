@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
-    "go": "concurrently \"pnpm api\" \"pnpm client\"",
+    "start": "concurrently \"pnpm api\" \"pnpm client\"",
     "api": "cd ./server && pnpm dev",
     "client": "cd ./frontend && pnpm dev",
     "lint": "eslint . --ext ts,tsx --fix",
