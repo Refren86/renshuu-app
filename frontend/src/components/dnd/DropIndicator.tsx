@@ -1,4 +1,4 @@
-import { FlashcardStatus } from "@/types";
+import { FlashcardStatus } from "@/types/common";
 
 type DropIndicatorProps = {
   beforeId: string;

@@ -5,8 +5,8 @@ import { CircleX, CopyPlus, Eye, Upload } from "lucide-react";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { Textarea } from "../ui/textarea";
-import { FlashcardStatus, TFlashcard } from "@/types";
-import { ImagePreviewModal } from "@/containers/VocabularyView/ImagePreviewModal/ImagePreviewModal";
+import { FlashcardStatus, TFlashcard } from "@/types/common";
+import { ImagePreviewModal } from "@/containers/CollectionView/ImagePreviewModal/ImagePreviewModal";
 
 type AddCardProps = {
   column: FlashcardStatus;

@@ -1,26 +1,25 @@
-import { useGetAllFlashcards } from "./useFlashcardQueries";
-import {
-  useCreateFlashcard,
-  useRemoveFlashcard,
-  useRemoveFlashcardImage,
-  useUpdateFlashcard,
-} from "./useFlashcardMutations";
+import { useGetCollectionFlashcards } from "./useFlashcardQueries";
+import { useCreateFlashcard, useRemoveFlashcard, useUpdateFlashcard } from "./useFlashcardMutations";
 
-export default function useFlashcards() {
-  const { flashcards, flashcardsLoading, flashcardsError, refetchFlashcards } = useGetAllFlashcards();
+type UseCollectionFlashcardsProps = {
+  collectionId: string;
+};
+
+export default function useFlashcards({ collectionId }: UseCollectionFlashcardsProps) {
+  const { collectionFlashcards, collectionFlashcardsLoading, collectionFlashcardsError, refetchCollectionFlashcards } =
+    useGetCollectionFlashcards(collectionId);
+
   const handleCreateFlashcard = useCreateFlashcard();
   const handleUpdateFlashcard = useUpdateFlashcard();
   const handleRemoveFlashcard = useRemoveFlashcard();
-  const handleRemoveFlashcardImage = useRemoveFlashcardImage();
 
   return {
-    flashcards,
-    flashcardsLoading,
-    flashcardsError,
-    refetchFlashcards,
+    collectionFlashcards,
+    collectionFlashcardsLoading,
+    collectionFlashcardsError,
+    refetchCollectionFlashcards,
     handleCreateFlashcard,
     handleUpdateFlashcard,
     handleRemoveFlashcard,
-    handleRemoveFlashcardImage,
   };
 }

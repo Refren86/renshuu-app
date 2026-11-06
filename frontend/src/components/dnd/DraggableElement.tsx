@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-import { TFlashcard } from "@/types";
+import { TFlashcard } from "@/types/common";
 import { DropIndicator } from "./DropIndicator";
 
 type DraggableElementProps = {

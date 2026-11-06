@@ -32,7 +32,7 @@ https://renshuu-919923031785.us-central1.run.app
 ```pg-test psql -U postgres```
 
 8) Run some basic query
-```SELECT * FROM "Flashcards";```
+```SELECT * FROM "flashcards";```
 
 9) Do the cleanup
 ```
@@ -67,3 +67,9 @@ To apply a new dump (while container is running):
 
 ```docker tag postgres:17-alpine us-central1-docker.pkg.dev/renshuu-457316/renshuu-repo/postgres:17-alpine```
 ```docker push us-central1-docker.pkg.dev/renshuu-457316/renshuu-repo/postgres:17-alpine```
+
+# TODO:
+- Add proper types for API data
+- Add proper error handling
+- Instead of refetching data add optimistic updates
+- WIP...

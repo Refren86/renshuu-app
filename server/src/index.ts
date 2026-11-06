@@ -1,14 +1,18 @@
+import "dotenv/config";
 import cors from "cors";
-import multer from "multer";
 import express from "express";
-
 import { createYoga, createSchema } from "graphql-yoga";
 
-import { resolvers } from "./resolvers";
-import { tatoebaController } from "./controllers/tatoeba";
-import { cloudinaryController } from "./controllers/cloudinary";
+import { resolvers } from "./graphql/resolvers";
 
-import typeDefs from "./schemas/schema.graphql?raw";
+import { authRouter } from "./router/authRouter";
+import { userRouter } from "./router/userRouter";
+import { tatoebaRouter } from "./router/tatoebaRouter";
+import { cloudinaryRouter } from "./router/clourinaryRouter";
+
+import typeDefs from "./graphql/schemas/schema.graphql?raw";
+import { createGraphQLContext } from "./graphql/context";
+import { scrapperRouter } from "./router/scrapperRoter";
 
 const PORT = +process.env.PORT! || 5000;
 const HOST = process.env.HOST!;
@@ -23,34 +27,24 @@ const schema = createSchema({
 
 const yoga = createYoga({
   schema,
-});
-
-const storage = multer.memoryStorage();
-const upload = multer({
-  storage,
-  limits: {
-    fileSize: 5 * 1024 * 1024, // 5MB
-  },
-  // 1st param - request
-  fileFilter: (_, file, cb) => {
-    if (file.mimetype.startsWith("image/")) {
-      cb(null, true);
-    } else {
-      cb(new Error("Only image files are allowed"));
-    }
-  },
+  context: ({ request }) => createGraphQLContext(request),
 });
 
 app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
+// GraphQL route
 app.use("/graphql", yoga);
 
-// Tatoeba API
-app.get("/api/search", tatoebaController.getSentences);
+// REST routes
+app.get("/api/tatoeba", tatoebaRouter);
+app.use("/api/cloudinary", cloudinaryRouter);
+app.use("/api/auth", authRouter);
+app.use("/api/user", userRouter);
 
-// Cloudinary API
-app.post("/api/uploadFlashcardImage", upload.single("image"), cloudinaryController.uploadImage);
-app.delete("/api/deleteFlashcardImage/:flashcardId", cloudinaryController.deleteImage);
+// scrapping routes
+app.use("/api/scrap", scrapperRouter);
 
 export { app };
 

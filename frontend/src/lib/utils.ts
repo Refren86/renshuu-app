@@ -1,7 +1,7 @@
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 
-import { TFlashcard } from "@/types";
+import { TFlashcard } from "@/types/common";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));

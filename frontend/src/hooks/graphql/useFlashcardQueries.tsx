@@ -1,22 +1,30 @@
+import { useCallback } from "react";
 import { useQuery } from "@apollo/client";
 
-import type { TFlashcard } from "@/types";
-import { GET_ALL_FLASHCARDS } from "@/lib/gqlQueries";
+import type { TFlashcard } from "@/types/common";
+import { GET_COLLECTION_FLASHCARDS } from "@/lib/gqlQueries";
 
-export function useGetAllFlashcards() {
-  const {
-    data,
-    loading,
-    error,
-    refetch: refetchFlashcards,
-  } = useQuery<{
-    allFlashcards: TFlashcard[];
-  }>(GET_ALL_FLASHCARDS);
+export function useGetCollectionFlashcards(collectionId: string) {
+  const { data, loading, error, refetch } = useQuery<{
+    collectionFlashcards: TFlashcard[];
+  }>(GET_COLLECTION_FLASHCARDS, {
+    variables: { collectionId },
+    skip: !collectionId,
+  });
+
+  const refetchCollectionFlashcards = useCallback(
+    (collectionId: string) => {
+      refetch({
+        variables: { collectionId },
+      });
+    },
+    [refetch]
+  );
 
   return {
-    flashcards: data?.allFlashcards ?? [],
-    flashcardsLoading: loading,
-    flashcardsError: error,
-    refetchFlashcards,
+    collectionFlashcards: data?.collectionFlashcards ?? [],
+    collectionFlashcardsLoading: loading,
+    collectionFlashcardsError: error,
+    refetchCollectionFlashcards,
   };
 }

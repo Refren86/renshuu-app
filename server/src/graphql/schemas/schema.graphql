@@ -1,0 +1,64 @@
+enum FlashcardStatus {
+  unset
+  unrecognized
+  familiar
+  known
+}
+
+type CreatedFlashcard {
+  id: String!
+  kanji: String
+  reading: String!
+  meaning: String!
+  status: FlashcardStatus!
+}
+
+type Flashcard {
+  id: String!
+  kanji: String
+  reading: String!
+  meaning: String!
+  status: FlashcardStatus!
+  imageUrl: String
+  created_at: String!
+  updated_at: String!
+}
+
+type Collection {
+  id: String!
+  name: String!
+  description: String
+  type: String!
+  created_at: String!
+  updated_at: String!
+}
+
+type Query {
+  collectionFlashcards(collectionId: String!): [Flashcard!]!
+  flashcard(flashcardId: String!): Flashcard
+  userCollections(userId: String!): [Collection!]!
+  collection(collectionId: String!): Collection
+}
+
+type Mutation {
+  createFlashcard(
+    collectionId: String!
+    kanji: String
+    reading: String!
+    meaning: String!
+    status: FlashcardStatus
+  ): CreatedFlashcard!
+
+  updateFlashcard(
+    flashcardId: String!
+    kanji: String
+    reading: String
+    meaning: String
+    status: FlashcardStatus
+    imageUrl: String
+  ): Flashcard!
+
+  deleteFlashcard(collectionId: String!, flashcardId: String!): String!
+
+  createCollection(userId: String!, name: String!, description: String): Collection!
+}

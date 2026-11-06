@@ -1,4 +1,4 @@
-import { TFlashcard } from "@/types";
+import { TFlashcard } from "@/types/common";
 
 const dbName = "VocabularyDB";
 const dbVersion = 1;

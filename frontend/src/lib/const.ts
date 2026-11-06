@@ -1,6 +1,9 @@
-const isProd = import.meta.env.PROD;
+export const ENV = {
+  GOOGLE_CLIENT_ID: import.meta.env.VITE_GOOGLE_CLIENT_ID || "",
+  IS_PROD: import.meta.env.PROD,
+};
 
-export const abiBaseURL = isProd ? "/api" : "http://localhost:5000/api";
+export const abiBaseURL = ENV.IS_PROD ? "/api" : "http://localhost:5000/api";
 
 export const actionTypes = {
   ADD_TOAST: "ADD_TOAST",

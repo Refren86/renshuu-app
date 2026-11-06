@@ -4,12 +4,12 @@ import { motion, AnimatePresence, HTMLMotionProps } from "framer-motion";
 import { priorityShuffleFlashcards } from "@/lib/utils";
 import { useToast } from "@/hooks/useToast";
 import { Flashcard } from "@/components/Flashcard";
-import { FlashcardStatus, TFlashcard } from "@/types";
+import { FlashcardStatus, TFlashcard } from "@/types/common";
 import { SentencesModal } from "@/components/SentencesModal";
 import { ActionBtns } from "./ActionBtns/ActionBtns";
 import { Layout } from "@/components/Layout";
-import { useGetAllFlashcards } from "@/hooks/graphql/useFlashcardQueries";
-import { useUpdateFlashcard } from "@/hooks/graphql/useFlashcardMutations";
+import useFlashcards from "@/hooks/graphql/useFlashcards";
+import { Route as flashcardsRoute } from "@/routes/flashcards.$collectionId.lazy";
 
 const transitionProps: HTMLMotionProps<"div"> = {
   initial: { x: 600, opacity: 0 },
@@ -18,15 +18,16 @@ const transitionProps: HTMLMotionProps<"div"> = {
   transition: { duration: 0.5 },
 };
 
-function FlashcardsView() {
+export function FlashcardsView() {
   const { toast } = useToast();
 
   const isShuffled = useRef(false);
   const answerClickFnRef = useRef<((word: TFlashcard, newStatus: FlashcardStatus) => Promise<void>) | null>(null);
   const toggleExamplesFnRef = useRef<(() => void) | null>(null);
 
-  const { flashcards } = useGetAllFlashcards();
-  const handleUpdateFlashcard = useUpdateFlashcard();
+  const { collectionId } = flashcardsRoute.useParams();
+
+  const { collectionFlashcards: flashcards, handleUpdateFlashcard } = useFlashcards({ collectionId });
 
   const [shuffledIndices, setShuffledIndices] = useState<number[]>([]);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
@@ -73,7 +74,12 @@ function FlashcardsView() {
         }
 
         reshuffleFlashcards(updatedWord);
-        await handleUpdateFlashcard(updatedWord);
+        await handleUpdateFlashcard({
+          collectionId,
+          flashcardId: word.id,
+          updateData: { status: newStatus },
+          refetch: false,
+        });
       } catch (error: unknown) {
         console.error("Update flashcard error: ", error);
         toast({
@@ -84,7 +90,7 @@ function FlashcardsView() {
         setIsAnimating(false);
       }
     };
-  }, [flashcards, isAnimating, shuffledIndices.length, handleUpdateFlashcard, toast]);
+  }, [flashcards, isAnimating, shuffledIndices.length, collectionId, handleUpdateFlashcard, toast]);
 
   const handleClick = useCallback(async (word: TFlashcard, newStatus: FlashcardStatus) => {
     answerClickFnRef.current!(word, newStatus);
@@ -139,5 +145,3 @@ function FlashcardsView() {
     </Layout>
   );
 }
-
-export default FlashcardsView;

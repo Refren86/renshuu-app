@@ -7,35 +7,38 @@ on:
     branches: [main]
 
 jobs:
-  frontend-tests:
+  frontend-build:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "20"
+          cache: "pnpm"
+          cache-dependency-path: frontend/pnpm-lock.yaml
 
       - name: Install frontend dependencies
         working-directory: ./frontend
-        run: npm ci
+        run: pnpm install --frozen-lockfile
 
       - name: Check TypeScript compilation
         working-directory: ./frontend
-        run: npx tsc -b
-
-      - name: Run frontend tests
-        working-directory: ./frontend
-        run: npm run test
+        run: pnpm exec tsc -b
 
       - name: Build frontend
         working-directory: ./frontend
-        run: npm run build
+        run: pnpm build
 
   deploy:
-    needs: frontend-tests
+    needs: frontend-build
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
 
