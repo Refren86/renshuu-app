@@ -42,5 +42,6 @@
     "typescript": "^5.7.2",
     "vite": "^6.3.2",
     "vite-plugin-node": "^5.0.1"
-  }
+  },
+  "packageManager": "pnpm@10.13.1"
 }

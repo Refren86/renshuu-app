@@ -33,7 +33,7 @@ services:
     depends_on:
       db:
         condition: service_healthy
-    command: npm run dev
+    command: pnpm dev
 
   frontend:
     build:
@@ -50,4 +50,4 @@ services:
       - WATCHPACK_POLLING=true # Another option that helps with file watching
     depends_on:
       - backend
-    command: npm run dev -- --host 0.0.0.0
+    command: pnpm dev --host 0.0.0.0

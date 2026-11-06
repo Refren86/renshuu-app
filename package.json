@@ -23,5 +23,6 @@
     "lint-staged": "^15.4.3",
     "prettier": "^3.5.3",
     "typescript-eslint": "^8.26.0"
-  }
+  },
+  "packageManager": "pnpm@10.13.1"
 }

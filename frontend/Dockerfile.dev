@@ -2,11 +2,13 @@ FROM node:20-alpine
 
 WORKDIR /app
 
-COPY package*.json ./
-RUN npm install
+RUN corepack enable
+
+COPY package.json pnpm-lock.yaml ./
+RUN pnpm install
 
 # IMPORTANT! Don't copy source files - they'll be mounted as a volume for hot reloading
 
 EXPOSE 3000
 
-CMD ["npm", "run", "dev"]
+CMD ["pnpm", "dev"]
