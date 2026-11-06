@@ -73,7 +73,9 @@ jobs:
       - name: Build and push frontend image
         working-directory: ./frontend
         run: |
-          docker build -t renshuu-web -f Dockerfile.prod .
+          docker build -t renshuu-web -f Dockerfile.prod \
+            --build-arg VITE_GOOGLE_CLIENT_ID=${{ secrets.VITE_GOOGLE_CLIENT_ID }} \
+            .
           docker tag renshuu-web ${{ secrets.GCP_REGION }}-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/${{ secrets.ARTIFACT_REPO }}/renshuu-web:${{ env.IMAGE_TAG }}
           docker tag renshuu-web ${{ secrets.GCP_REGION }}-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/${{ secrets.ARTIFACT_REPO }}/renshuu-web:latest
           docker push ${{ secrets.GCP_REGION }}-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/${{ secrets.ARTIFACT_REPO }}/renshuu-web:${{ env.IMAGE_TAG }}
